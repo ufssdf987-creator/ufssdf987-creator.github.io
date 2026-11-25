@@ -1,8 +1,9 @@
 /* 2026 연말정산 환급 계산기 서비스워커
- * 앱 셸을 미리 저장해 두고, 오프라인에서도 계산기가 열리도록 합니다.
- * 파일을 수정하면 VERSION 을 올려 주세요(예: v1.0.1).
+ * 네트워크 우선 + 캐시 폴백: 새 배포가 있으면 바로 반영하고,
+ * 인터넷이 없을 때는 마지막으로 저장한 앱 셸로 열립니다.
+ * 파일을 수정하면 VERSION 을 올려 주세요(예: v1.0.5).
  */
-const VERSION = "v1.0.3";
+const VERSION = "v1.0.4";
 const CACHE = `year-end-tax-${VERSION}`;
 
 const PRECACHE = [
@@ -21,12 +22,16 @@ const PRECACHE = [
 ];
 
 self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches
-      .open(CACHE)
-      .then((cache) => cache.addAll(PRECACHE.map((url) => new Request(url, { cache: "reload" }))))
-      .then(() => self.skipWaiting())
-  );
+  event.waitUntil((async () => {
+    const cache = await caches.open(CACHE);
+    await Promise.all(PRECACHE.map(async (url) => {
+      try {
+        const res = await fetch(url, { cache: "reload" });
+        if (res && res.ok) await cache.put(url, res);
+      } catch (e) { /* 개별 파일 실패는 무시하고 나머지를 저장 */ }
+    }));
+    await self.skipWaiting();
+  })());
 });
 
 self.addEventListener("activate", (event) => {
@@ -50,31 +55,21 @@ self.addEventListener("fetch", (event) => {
   // 외부(광고·분석) 요청은 그대로 두어 광고가 정상 동작하게 합니다.
   if (url.origin !== self.location.origin) return;
 
-  if (req.mode === "navigate") {
-    event.respondWith(
-      fetch(req)
-        .then((res) => {
-          const copy = res.clone();
-          caches.open(CACHE).then((c) => c.put("./index.html", copy)).catch(() => {});
-          return res;
-        })
-        .catch(() => caches.match("./index.html").then((hit) => hit || caches.match("./")))
-    );
-    return;
-  }
-
-  event.respondWith(
-    caches.match(req).then((hit) => {
-      const network = fetch(req)
-        .then((res) => {
-          if (res && res.ok) {
-            const copy = res.clone();
-            caches.open(CACHE).then((c) => c.put(req, copy)).catch(() => {});
-          }
-          return res;
-        })
-        .catch(() => hit);
-      return hit || network;
-    })
-  );
+  event.respondWith((async () => {
+    try {
+      const res = await fetch(req);
+      if (res && res.ok) {
+        const copy = res.clone();
+        caches.open(CACHE).then((c) => c.put(req, copy)).catch(() => {});
+      }
+      return res;
+    } catch (e) {
+      const hit = await caches.match(req);
+      if (hit) return hit;
+      if (req.mode === "navigate") {
+        return (await caches.match("./index.html")) || (await caches.match("./"));
+      }
+      throw e;
+    }
+  })());
 });
