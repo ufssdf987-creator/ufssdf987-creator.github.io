@@ -1340,3 +1340,35 @@ a:hover { text-decoration: underline; }
   .app { display: block; max-width: none; padding: 0; }
   .card, .savings-hero, .total-card { box-shadow: none; break-inside: avoid; }
 }
+
+/* ── 관련 글 카드 (애드센스 심사용 정보성 링크) ── */
+.related-post {
+  max-width: 720px;
+  margin: 28px auto 0;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+}
+.related-post__label {
+  margin: 0 0 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: var(--muted);
+}
+.related-post__link {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.55;
+  color: var(--brand);
+  text-decoration: none;
+}
+.related-post__link:hover { text-decoration: underline; }
+.related-post__note {
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--muted);
+}
