@@ -38,7 +38,7 @@
     insurance: 120000,
     rentOn: false,
     rent: 500000,
-    medicalGeneral: 1500000,
+    medicalGeneral: 3000000,
     medicalSpecial: 0,
     medicalFertility: 0,
     medicalPremature: 0,
@@ -195,7 +195,7 @@
   /* ── 카드 탭 렌더 ────────────────────────────────────────── */
   function savingOf(gain) {
     var rate = C.marginalRate(state.salary, state.dependents);
-    return Math.round(gain * rate * 1.1 / 10) * 10;
+    return Math.round(gain * rate * 1.1 / 1000) * 1000;
   }
 
   function renderCard() {
@@ -327,7 +327,7 @@
     if (cur.baseRoom > 0) need += cur.baseRoom / 0.30;
     if (cur.addRoom > 0) need += cur.addRoom / 0.40;
     if (need > 0 && plan.unused === 0) {
-      parts.push("한도까지 채우려면 " + short(Math.ceil(need / 10000) * 10000) + " 정도 더 필요합니다.");
+      parts.push("기본·추가한도를 모두 채우려면 " + short(Math.ceil(need / 10000) * 10000) + " 정도 더 필요합니다.");
     }
     if (maxPlan.gain > plan.gain) {
       parts.push("전통시장·대중교통을 함께 쓴다면 같은 돈으로 최대 <strong>" + short(maxPlan.gain) + "</strong>까지 공제가 늘어납니다.");
@@ -404,13 +404,13 @@
 
     if (Math.abs(bal.value) < 1000) {
       setText("refund-title", "환급액은 거의 0원입니다");
-      setText("refund-sub", "예상 기납부 " + won(res.withheld.value) + " − 결정세액 " + won(chosen.total));
+      setText("refund-sub", (res.withheld.estimated ? "예상 기납부 " : "기납부세액 ") + won(res.withheld.value) + " − 결정세액 " + won(chosen.total));
     } else if (bal.isRefund) {
       setText("refund-title", "2027년 2월, " + won(bal.abs) + " 돌려받을 수 있어요");
-      setText("refund-sub", "예상 기납부 " + won(res.withheld.value) + " − 결정세액 " + won(chosen.total));
+      setText("refund-sub", (res.withheld.estimated ? "예상 기납부 " : "기납부세액 ") + won(res.withheld.value) + " − 결정세액 " + won(chosen.total));
     } else {
       setText("refund-title", "2027년 2월, " + won(bal.abs) + " 더 낼 수 있어요");
-      setText("refund-sub", "예상 기납부 " + won(res.withheld.value) + "보다 결정세액이 " + won(bal.abs) + " 많습니다");
+      setText("refund-sub", (res.withheld.estimated ? "예상 기납부 " : "기납부세액 ") + won(res.withheld.value) + "보다 결정세액이 " + won(bal.abs) + " 많습니다");
     }
 
     animateTo("stat-refund", bal.abs, won);
@@ -422,9 +422,10 @@
     /* 기납부 vs 결정 */
     var paid = res.withheld.value;
     var fin = chosen.total;
-    var maxV = Math.max(paid, fin, 1);
-    setBar("refund-paid", (paid / maxV) * 100);
-    setBar("refund-final", (fin / maxV) * 100);
+    setBar("refund-paid", 100);
+    setBar("refund-final", paid > 0 ? Math.min(100, (fin / paid) * 100) : (fin > 0 ? 100 : 0));
+    var finalBar = $("refund-final");
+    if (finalBar) finalBar.classList.toggle("is-due", fin > paid);
     setText("refund-bar-label", bal.isRefund ? "환급 " + short(bal.abs) : (bal.isDue ? "추가 납부 " + short(bal.abs) : "차액 없음"));
     setText("legend-paid", won(paid) + (res.withheld.estimated ? " (추정)" : ""));
     setText("legend-final", won(fin));
@@ -454,7 +455,7 @@
       ? "총급여 3% 문턱 " + short(res.credits.medical.threshold) + " · 공제 대상 " + short(res.credits.medical.excess) + " · 세액공제 " + short(res.credits.medical.credit)
       : "총급여의 3%까지는 공제되지 않습니다. 안경·렌즈는 1인당 50만원, 산후조리원은 출산 1회 200만원까지 인정됩니다.");
     setText("hometown-note", res.credits.hometown.amount > 0
-      ? short(res.credits.hometown.amount) + " 기부 → 세액공제 " + short(res.credits.hometown.credit) + " (지방세 포함 " + short(Math.round(res.credits.hometown.credit * 1.1 / 10) * 10) + ")"
+      ? short(res.credits.hometown.amount) + " 기부 → 세액공제 " + short(res.credits.hometown.credit) + " (지방세 포함 약 " + short(Math.round(res.credits.hometown.credit * 1.1 / 1000) * 1000) + ")"
       : "10만원까지 전액, 10만~20만원 40%, 20만원 초과 15% 세액공제. 답례품 30%는 별도.");
 
     renderCreditList(res);
@@ -475,9 +476,9 @@
       { name: "연금저축·IRP", note: short(c.pension.eligible) + " × " + C.percent(c.pension.rate, 0), credit: c.pension.credit },
       { name: "보장성보험료", note: short(c.insurance.eligible) + " × 12%", credit: c.insurance.credit },
       { name: "의료비", note: c.medical.credit > 0 ? "총급여 3% 초과분" : "문턱 미달", credit: c.medical.credit },
-      { name: "교육비", note: short(c.education.eligible) + " × 15%", credit: c.education.credit },
+      { name: "교육비", note: c.education.eligible > 0 ? short(c.education.eligible) + " × 15%" : "입력 없음", credit: c.education.credit },
       { name: "월세액", note: c.rent.credit > 0 ? short(c.rent.eligible) + " × " + C.percent(c.rent.rate, 0) : (state.rentOn ? "요건 확인" : "해당 없음"), credit: c.rent.credit },
-      { name: "일반 기부금", note: short(c.donation.eligible) + " × 15%", credit: c.donation.credit },
+      { name: "일반 기부금", note: c.donation.eligible > 0 ? short(c.donation.eligible) + " × 15%" : "입력 없음", credit: c.donation.credit },
       { name: "고향사랑기부금", note: short(c.hometown.amount) + " 기부", credit: c.hometown.credit },
       { name: "자녀세액공제", note: state.children + "명", credit: c.child }
     ];
@@ -890,6 +891,8 @@
 
   /* ── PWA ─────────────────────────────────────────────────── */
   var deferredPrompt = null;
+  var handheld = false;
+  try { handheld = !!(window.matchMedia && window.matchMedia("(pointer: coarse)").matches); } catch (e) { /* 무시 */ }
   function initPwa() {
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", function () {
@@ -899,7 +902,7 @@
     window.addEventListener("beforeinstallprompt", function (e) {
       e.preventDefault();
       deferredPrompt = e;
-      show($("install-card"), true);
+      if (handheld) show($("install-card"), true);
     });
     on($("install-btn"), "click", function () {
       if (!deferredPrompt) return;

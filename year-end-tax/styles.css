@@ -545,7 +545,8 @@ a { color: var(--brand); }
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px;
 }
-@media (min-width: 560px) { .stat-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (min-width: 560px) { .stat-grid { grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); } }
+@media (max-width: 559px) { .stat-grid > .stat:last-child:nth-child(3) { grid-column: span 2; } }
 .stat {
   padding: 11px 11px 10px;
   border-radius: 13px;
@@ -572,12 +573,20 @@ a { color: var(--brand); }
 
 /* ── 비중 바 ────────────────────────────────────────────────── */
 .ratio-block, .refund-bar-block { margin-top: 16px; }
-.ratio-bar, .refund-bar {
+.ratio-bar {
   display: flex;
   height: 14px;
   border-radius: 999px;
   overflow: hidden;
   background: var(--field);
+  border: 1px solid var(--line-soft);
+}
+.refund-bar {
+  position: relative;
+  height: 14px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--brand);
   border: 1px solid var(--line-soft);
 }
 .ratio-part, .refund-part {
@@ -586,6 +595,10 @@ a { color: var(--brand); }
   transition: width .35s ease;
   min-width: 0;
 }
+.refund-part { position: absolute; top: 0; left: 0; }
+.part-paid { width: 100%; background: var(--brand); }
+.part-final { z-index: 1; background: var(--refund); }
+.part-final.is-due { background: var(--due); }
 .part-credit { background: var(--credit); }
 .part-check { background: var(--check); }
 .part-market { background: var(--market); }
