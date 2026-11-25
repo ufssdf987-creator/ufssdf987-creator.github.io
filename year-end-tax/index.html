@@ -166,6 +166,7 @@
         </div>
       </div>
     </div>
+    <p class="note-box" id="net-note">신용카드·체크카드·현금영수증 금액은 <strong>전통시장·대중교통·도서·공연 사용분을 빼고</strong> 적어 주세요. 그 사용분은 아래에 따로 적습니다.</p>
     <p class="fine" id="culture-note">도서·공연·영화·박물관·체육시설은 총급여 7천만원 이하만 30%로 따로 계산됩니다.</p>
 
     <div class="gauge-block">
@@ -315,6 +316,11 @@
     <details>
       <summary>카드를 얼마나 써야 공제가 가장 클까요?</summary>
       <p>총급여의 25%를 넘긴 뒤, 기본한도(자녀 없이 300만원, 총급여 7천만원 초과 250만원)와 추가한도(300만원·200만원)를 채울 때까지입니다. 공제액 한도라서 그 이상 써도 소득공제는 늘지 않습니다. 위 계산기에 남은 예산을 넣으면 필요한 금액과 순서를 알려줍니다.</p>
+    </details>
+
+    <details>
+      <summary>전통시장에서 신용카드로 결제했는데, 신용카드 사용액에도 넣나요?</summary>
+      <p>아니요. 전통시장·대중교통·도서·공연 사용분은 결제수단과 상관없이 따로 적고, 신용카드·체크카드 사용액에서는 빼 주세요. 두 곳에 모두 넣으면 사용액이 두 번 계산됩니다.</p>
     </details>
 
     <details>
@@ -472,6 +478,24 @@
     </details>
 
     <div class="sub-head">교육비 <span class="opt">15%</span></div>
+    <div class="stepper-row">
+      <div>
+        <p class="field-label">취학전·초중고 자녀 <span class="opt">1인당 300만원</span></p>
+        <div class="stepper" data-target="schoolChildren">
+          <button type="button" class="step-btn" data-dir="-1" aria-label="취학전·초중고 자녀 줄이기">−</button>
+          <output data-out="schoolChildren">1명</output>
+          <button type="button" class="step-btn" data-dir="1" aria-label="취학전·초중고 자녀 늘리기">+</button>
+        </div>
+      </div>
+      <div>
+        <p class="field-label">대학생 자녀 <span class="opt">1인당 900만원</span></p>
+        <div class="stepper" data-target="collegeChildren">
+          <button type="button" class="step-btn" data-dir="-1" aria-label="대학생 자녀 줄이기">−</button>
+          <output data-out="collegeChildren">0명</output>
+          <button type="button" class="step-btn" data-dir="1" aria-label="대학생 자녀 늘리기">+</button>
+        </div>
+      </div>
+    </div>
     <label class="field-label" for="education-self-input">본인 교육비 <span class="opt">한도 없음</span></label>
     <div class="money-field">
       <input id="education-self-input" class="money-input" type="text" inputmode="numeric" autocomplete="off"
@@ -490,7 +514,7 @@
              data-money="educationCollege" data-unit="man" value="0" placeholder="0">
       <span class="unit">만원</span>
     </div>
-    <p class="fine" id="education-note">2026년부터 자녀 소득요건이 폐지되고, 9세 미만·초등 2학년 이하 자녀의 예체능 학원비도 교육비에 포함됩니다.</p>
+    <p class="fine" id="education-note">자녀 수만큼 1인당 한도가 적용됩니다. 2026년부터 자녀 소득요건이 폐지되고, 9세 미만·초등 2학년 이하 자녀의 예체능 학원비도 교육비에 포함됩니다.</p>
   </section>
 
   <section class="card">
@@ -621,7 +645,7 @@
       <li>소득세법 제59조(근로소득세액공제) · 제59조의2(자녀세액공제) · 제59조의3(연금계좌) · 제59조의4(보험료·의료비·교육비·기부금, 표준세액공제 13만원)</li>
       <li>조세특례제한법 제95조의2(월세액 세액공제) — 연 1,000만원 한도, 총급여 5,500만원 이하 17%·8,000만원 이하 15%</li>
       <li>조세특례제한법 제58조(고향사랑기부금) — 10만원까지 100/110, 10만~20만원 40%, 20만원 초과 15%</li>
-      <li>2026년 건강보험료율 7.19%, 장기요양보험료율 0.9448%, 국민연금 9.5%, 고용보험 1.8% — 근로자 부담분 기준</li>
+      <li>2026년 건강보험료율 7.19%(근로자 3.595%), 장기요양 0.9448%(0.4724%), 국민연금 9.5%(4.75%), 고용보험 1.8%(0.9%)</li>
     </ul>
     <p class="fine">기준 확인일 2026년 11월 25일. 2026년 세제개편안은 국회 통과 전이며, 이 계산은 현행 법령만 반영합니다. 세법·요율은 개정될 수 있습니다.</p>
   </section>

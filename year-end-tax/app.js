@@ -45,6 +45,8 @@
     educationSelf: 0,
     educationSchool: 0,
     educationCollege: 0,
+    schoolChildren: 1,
+    collegeChildren: 0,
     hometown: 100000,
     donation: 0,
     withheld: null
@@ -83,6 +85,8 @@
     state.salary = Math.min(10000000000, Math.max(0, Math.round(Number(state.salary) || 0)));
     state.dependents = Math.min(8, Math.max(0, Math.round(Number(state.dependents) || 0)));
     state.children = Math.min(8, Math.max(0, Math.round(Number(state.children) || 0)));
+    state.schoolChildren = Math.min(8, Math.max(0, Math.round(Number(state.schoolChildren) || 0)));
+    state.collegeChildren = Math.min(8, Math.max(0, Math.round(Number(state.collegeChildren) || 0)));
     ["credit", "check", "market", "transit", "culture", "budget", "pension", "irp", "insurance",
       "rent", "medicalGeneral", "medicalSpecial", "medicalFertility", "medicalPremature",
       "educationSelf", "educationSchool", "educationCollege", "hometown", "donation"].forEach(function (k) {
@@ -186,6 +190,8 @@
       educationSelf: state.educationSelf,
       educationSchool: state.educationSchool,
       educationCollege: state.educationCollege,
+      schoolChildren: state.schoolChildren,
+      collegeChildren: state.collegeChildren,
       hometown: state.hometown,
       donation: state.donation,
       withheld: state.withheld
@@ -286,6 +292,9 @@
     setText("culture-note", limits.over70
       ? "총급여 7천만원 초과라 문화체육 사용분은 따로 입력하지 않습니다. 신용·체크 사용액에 포함해 주세요."
       : "도서·공연·영화·박물관·체육시설은 총급여 7천만원 이하만 30%로 따로 계산됩니다.");
+    setHTML("net-note", limits.over70
+      ? "총급여 7천만원 초과자는 <strong>도서·공연·체육 사용분을 결제수단(신용·체크) 금액에 포함</strong>해 적어 주세요. <strong>전통시장·대중교통</strong>은 아래에 따로 적습니다."
+      : "신용카드·체크카드·현금영수증 금액은 <strong>전통시장·대중교통·도서·공연 사용분을 빼고</strong> 적어 주세요. 그 사용분은 아래에 따로 적습니다.");
     var cultureRow = $("culture-row");
     if (cultureRow) show(cultureRow, !limits.over70);
   }

@@ -611,14 +611,16 @@
     };
   }
 
-  function educationCredit(children, self, school, college) {
+  function educationCredit(children, self, school, college, schoolChildren, collegeChildren) {
     var n = Math.max(0, Math.floor(num(children)));
-    var capCount = Math.max(1, n);
+    /* 자녀 수를 따로 주지 않으면 취학전·초중고는 전체 자녀 수, 대학생은 0으로 봅니다. */
+    var sc = schoolChildren == null ? n : Math.max(0, Math.floor(num(schoolChildren)));
+    var cc = collegeChildren == null ? 0 : Math.max(0, Math.floor(num(collegeChildren)));
     var selfAmt = Math.max(0, num(self));
     var schoolAmt = Math.max(0, num(school));
     var collegeAmt = Math.max(0, num(college));
-    var schoolEligible = Math.min(schoolAmt, RULES.education.schoolCap * capCount);
-    var collegeEligible = Math.min(collegeAmt, RULES.education.collegeCap * capCount);
+    var schoolEligible = Math.min(schoolAmt, RULES.education.schoolCap * sc);
+    var collegeEligible = Math.min(collegeAmt, RULES.education.collegeCap * cc);
     var total = selfAmt + schoolEligible + collegeEligible;
     return {
       self: selfAmt,
@@ -627,6 +629,8 @@
       schoolEligible: schoolEligible,
       collegeEligible: collegeEligible,
       eligible: total,
+      schoolChildren: sc,
+      collegeChildren: cc,
       rate: RULES.education.rate,
       credit: floorTo(total * RULES.education.rate, 10)
     };
@@ -698,7 +702,7 @@
     var pension = pensionCredit(salary, input.pensionSavings, input.irp);
     var insurance = insuranceCredit(input.insurance);
     var medical = medicalCredit(salary, input.medicalGeneral, input.medicalSpecial, input.medicalFertility, input.medicalPremature);
-    var education = educationCredit(children, input.educationSelf, input.educationSchool, input.educationCollege);
+    var education = educationCredit(children, input.educationSelf, input.educationSchool, input.educationCollege, input.schoolChildren, input.collegeChildren);
     var rent = rentCredit(salary, input.monthlyRent);
     var hometown = hometownCredit(input.hometown);
     var donation = donationCredit(labor.income, input.donation);
