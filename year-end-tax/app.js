@@ -352,9 +352,12 @@
       { label: "전통시장·대중교통까지", gain: maxPlan.gain }
     ];
     var best = Math.max.apply(null, rows.map(function (r) { return r.gain; }));
+    var marked = false;
     body.innerHTML = rows.map(function (r) {
-      return '<tr class="' + (r.gain === best && best > 0 ? "is-best" : "") + '">' +
-        "<td>" + r.label + (r.gain === best && best > 0 ? ' <span aria-hidden="true">★</span>' : "") + "</td>" +
+      var isBest = r.gain === best && best > 0 && !marked;
+      if (isBest) marked = true;
+      return '<tr class="' + (isBest ? "is-best" : "") + '">' +
+        "<td>" + r.label + (isBest ? ' <span aria-hidden="true">★</span>' : "") + "</td>" +
         "<td>" + (r.gain > 0 ? "+" + short(r.gain) : "0원") + "</td>" +
         "<td>" + (r.gain > 0 ? short(savingOf(r.gain)) : "0원") + "</td>" +
         "</tr>";
