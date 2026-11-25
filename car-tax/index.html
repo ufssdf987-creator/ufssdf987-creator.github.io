@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>2026 자동차세 연납 계산기 — 차령 경감·겨울 유류비</title>
+<meta name="description" content="배기량과 최초 등록 연도만 넣으면 2026년 자동차세와 1월 연납 할인액(연세액의 약 4.58%)이 바로 나옵니다. 차령 3년부터 5%씩 최대 50% 경감, 전기차 정액 10만원, 겨울철 연비 저하까지 한 번에 계산하세요.">
+<meta name="theme-color" content="#16233c" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a1120" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:type" content="website">
+<meta property="og:title" content="2026 자동차세 연납 계산기 — 차령 경감·겨울 유류비">
+<meta property="og:description" content="내 차 자동차세와 1월 연납 할인액, 겨울철 기름값까지 3초에. 차령 3년부터 최대 50% 경감, 1월 연납 4.58%.">
+<link rel="canonical" href="https://ufssdf987-creator.github.io/car-tax/">
+<meta property="og:url" content="https://ufssdf987-creator.github.io/car-tax/">
+<meta property="og:site_name" content="2026 자동차세 연납 계산기">
+<meta property="og:image" content="https://ufssdf987-creator.github.io/car-tax/icons/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="2026 자동차세 연납 계산기 — 차령 경감·겨울 유류비">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="2026 자동차세 연납 계산기 — 차령 경감·겨울 유류비">
+<meta name="twitter:description" content="1월 연납 4.58%, 차령 3년부터 최대 50% 경감, 겨울철 기름값까지 3초에.">
+<meta name="twitter:image" content="https://ufssdf987-creator.github.io/car-tax/icons/og-image.png">
+
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="자동차세 연납">
+<link rel="stylesheet" href="styles.css">
+
+<!-- Google AdSense — 사이트 확인·광고 로딩용 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4355917079579050" crossorigin="anonymous"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+<header class="app-header">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">차</span>
+    <div class="brand-text">
+      <h1>자동차세 연납 계산기</h1>
+      <p>차령 경감부터 1월 연납 4.58%까지, 2026년 기준</p>
+    </div>
+    <span class="year-badge" title="2026년 세율·공제율 기준">2026</span>
+  </div>
+</header>
+
+<!-- ── 광고 슬롯 ① (상단) ─────────────────────────────────────── -->
+<aside class="ad-slot" id="ad-top" data-ad-slot="" aria-label="광고 영역">
+  <!-- AdSense: data-ad-slot 값(10자리)을 넣으면 app.js가 자동으로 광고 단위를 삽입합니다. -->
+</aside>
+
+<nav class="tabs" role="tablist" aria-label="계산 종류">
+  <button type="button" class="tab is-active" id="tab-btn-tax" role="tab" aria-selected="true" aria-controls="panel-tax" data-tab="tax">
+    <span class="tab-num">1</span> 자동차세 연납
+  </button>
+  <button type="button" class="tab" id="tab-btn-fuel" role="tab" aria-selected="false" aria-controls="panel-fuel" data-tab="fuel">
+    <span class="tab-num">2</span> 겨울 유류비
+  </button>
+</nav>
+
+<main id="main">
+
+<!-- ═══════════════════════════ 탭 1 · 자동차세 ═══════════════════════════ -->
+<section id="panel-tax" class="panel is-active" role="tabpanel" aria-labelledby="tab-btn-tax" tabindex="0">
+
+  <p class="lead">내 차 <strong>배기량</strong>과 <strong>최초 등록 연도</strong>만 넣으면 올해 자동차세와 연납 할인액이 바로 나옵니다. 1월에 한 번에 내면 연세액의 약 <strong>4.58%</strong>, 9월이면 1.25%까지 줄어듭니다.</p>
+
+  <section class="card">
+    <div class="card-head">
+      <h2><span class="step">01</span> 차량 정보</h2>
+      <span class="card-hint">자동차등록증 기준</span>
+    </div>
+
+    <p class="field-label">차량 유형</p>
+    <div class="seg is-2" data-group="type" role="group" aria-label="차량 유형">
+      <button type="button" class="is-active" data-value="ice">내연기관 승용차</button>
+      <button type="button" data-value="ev">전기·수소차</button>
+    </div>
+
+    <div id="cc-wrap">
+      <label class="field-label" for="cc-input">배기량</label>
+      <div class="num-field">
+        <input id="cc-input" class="num-input" type="text" inputmode="numeric" autocomplete="off"
+               data-key="cc" data-kind="int" data-unit="cc" value="1,998" placeholder="1,998" aria-describedby="cc-note">
+        <span class="unit">cc</span>
+      </div>
+      <div class="chips-grid" id="cc-chips" role="group" aria-label="배기량 빠른 선택">
+        <button type="button" data-target="cc" data-value="1000">1,000cc</button>
+        <button type="button" data-target="cc" data-value="1600">1,600cc</button>
+        <button type="button" data-target="cc" data-value="1998">2,000cc</button>
+        <button type="button" data-target="cc" data-value="2497">2,500cc</button>
+        <button type="button" data-target="cc" data-value="2999">3,000cc</button>
+        <button type="button" data-target="cc" data-value="3342">3,342cc</button>
+      </div>
+      <p class="fine" id="cc-note">비영업용 승용차 기준 1,000cc 이하 80원, 1,600cc 이하 140원, 1,600cc 초과 200원(cc당). 영업용·승합·화물차는 세율이 다릅니다.</p>
+    </div>
+
+    <p class="fine" id="ev-note" hidden>전기·수소차는 배기량 대신 <strong>연 10만 원 정액</strong>에 지방교육세 30%를 더해 13만 원입니다. 차령에 따른 경감은 적용되지 않습니다.</p>
+
+    <div class="field-row">
+      <div class="field-col">
+        <label class="field-label" for="reg-year">최초 등록 연도</label>
+        <select id="reg-year" class="select" data-key="regYear"></select>
+      </div>
+      <div class="field-col">
+        <label class="field-label" for="reg-month">등록 월</label>
+        <select id="reg-month" class="select" data-key="regMonth"></select>
+      </div>
+    </div>
+    <p class="fine" id="age-note">2026년 기준 차령 5년 · 경감 15%가 적용됩니다.</p>
+
+    <div class="field-row">
+      <div class="field-col">
+        <label class="field-label" for="tax-year">과세연도</label>
+        <select id="tax-year" class="select" data-key="taxYear">
+          <option value="2026">2026년</option>
+          <option value="2027">2027년</option>
+        </select>
+      </div>
+    </div>
+    <p class="fine">차령은 등록일이 1~6월이면 그해 1·2기분에 같은 나이로, 7~12월이면 2기분에서 한 살 더해 계산합니다(지방세법 시행령 제122조).</p>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <h2><span class="step">02</span> 연납 신청 시기</h2>
+      <span class="card-hint">16일 ~ 말일</span>
+    </div>
+
+    <div class="seg is-4" data-group="applyMonth" role="group" aria-label="연납 신청 시기">
+      <button type="button" class="is-active" data-value="1">1월<small>약 4.58%</small></button>
+      <button type="button" data-value="3">3월<small>약 3.77%</small></button>
+      <button type="button" data-value="6">6월<small>약 2.5%</small></button>
+      <button type="button" data-value="9">9월<small>약 1.25%</small></button>
+    </div>
+
+    <p class="fine">연납은 1년 치를 미리 내고 남은 기간만큼 이자 성격의 금액을 돌려받는 제도입니다. 신청 기간은 1·3·6·9월의 <strong>16일부터 말일</strong>까지이고, 한 번 신청하면 다음 해에는 1월에 고지서가 옵니다.</p>
+    <p class="warn-line" id="window-note">2026년 연납 창구는 9월 30일로 모두 마감됐습니다. 지금 계산한 금액은 2027년 1월 창구를 준비할 때 그대로 쓰시면 됩니다.</p>
+  </section>
+
+  <!-- 결과 -->
+  <section class="result-card" id="tax-result" aria-live="polite">
+    <div class="result-head">
+      <span class="verdict-badge" id="tax-badge">1월 연납</span>
+      <h2 class="result-title" id="tax-title">1월에 내면 20,200원 아낍니다</h2>
+      <p class="result-sub" id="tax-sub">2026년 연세액 441,540원 · 1월 연납 납부액 421,340원</p>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat">
+        <span class="stat-label">2026년 연세액</span>
+        <strong class="stat-value" id="stat-annual">441,540원</strong>
+        <span class="stat-note">본세 + 지방교육세</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">연납 납부액</span>
+        <strong class="stat-value" id="stat-pay">421,340원</strong>
+        <span class="stat-note" id="stat-pay-note">1월 16~31일</span>
+      </div>
+      <div class="stat stat-em">
+        <span class="stat-label">절약액</span>
+        <strong class="stat-value" id="stat-saving">20,200원</strong>
+        <span class="stat-note" id="stat-saving-note">연세액의 4.57%</span>
+      </div>
+    </div>
+
+    <div class="ratio-block">
+      <div class="bar-labels">
+        <span>연세액 구성</span>
+        <strong id="bar-label">441,540원</strong>
+      </div>
+      <div class="ratio-bar" role="img" aria-label="자동차세 본세와 지방교육세 비중">
+        <span class="ratio-part part-check" id="bar-base" style="width:76.9%"></span>
+        <span class="ratio-part part-market" id="bar-edu" style="width:23.1%"></span>
+      </div>
+      <div class="bar-legend">
+        <span><i class="dot dot-check"></i>자동차세 <b id="legend-base">339,660원</b></span>
+        <span><i class="dot dot-market"></i>지방교육세 30% <b id="legend-edu">101,880원</b></span>
+      </div>
+    </div>
+
+    <div class="compare-block">
+      <h3>언제 낼수록 유리할까?</h3>
+      <table class="compare-table">
+        <caption class="sr-only">연납 시기별 공제액과 납부액 비교</caption>
+        <thead>
+          <tr><th scope="col">납부 시기</th><th scope="col">공제액</th><th scope="col">납부액</th></tr>
+        </thead>
+        <tbody id="compare-body"></tbody>
+      </table>
+      <p class="fine">공제액은 10원 미만을 버린 값입니다. 6월·9월은 이미 지난 1기분을 빼고 2기분만 앞당겨 내므로 공제 폭이 작습니다.</p>
+    </div>
+
+    <p class="result-foot" id="tax-foot">1월 연납이 9월보다 14,640원 더 유리합니다.</p>
+
+    <div class="share-row">
+      <button type="button" class="btn-ghost" id="copy-tax">요약 복사</button>
+      <button type="button" class="btn-primary" id="to-fuel">겨울 기름값 계산 <span aria-hidden="true">→</span></button>
+    </div>
+    <p class="toast" id="toast-tax" role="status" aria-live="polite"></p>
+  </section>
+
+  <details class="card accordion" id="tax-breakdown">
+    <summary>
+      <span>자동차세 계산 과정 보기</span>
+      <span class="chev" aria-hidden="true">⌄</span>
+    </summary>
+    <div class="accordion-body">
+      <table class="breakdown-table">
+        <caption class="sr-only">자동차세 연세액과 연납 공제 계산 과정</caption>
+        <tbody id="tax-breakdown-body"></tbody>
+      </table>
+      <p class="fine">자동차세는 1·2기분으로 나눠 부과하고, 기분별 세액의 10원 미만은 버립니다. 지방교육세는 자동차세액의 30%입니다.</p>
+    </div>
+  </details>
+
+  <section class="card why-card">
+    <h2>5% 공제인데 왜 4.58%만 줄어들까?</h2>
+    <p>연납 공제율은 연 <strong>5%</strong>지만, 1월에 내도 이미 지나간 1월분에는 공제가 붙지 않습니다. 2월 1일부터 12월 31일까지 <strong>334일분</strong>에만 5%를 적용하므로 실제 할인은 연세액의 약 4.58%입니다.</p>
+    <p>3월은 4월~12월분(275일)이라 3.77%, 6월과 9월은 하반기 몫인 2기분에만 공제가 붙어 2.5%와 1.25%로 줄어듭니다. 그래서 <strong>1월 16일부터 31일 사이</strong>에 내는 것이 가장 유리합니다.</p>
+    <p class="fine">자동차세를 6월과 12월에 나눠 내면 공제가 0원입니다. 연납 공제액은 10원 미만을 버리고, 지방교육세도 자동차세가 줄어든 만큼 함께 줄어 위 계산에 반영되어 있습니다.</p>
+  </section>
+
+  <section class="card source-card">
+    <h2>계산 근거</h2>
+    <ul class="source-list">
+      <li>지방세법 제127조(과세표준과 세율) — 비영업용 승용차 cc당 80·140·200원, 차령 3년부터 5%씩·12년 이상 50%, 그 밖의 승용차(전기·수소) 연 10만원</li>
+      <li>지방세법 제128조(납기와 징수방법) — 1월·3월·6월·9월 연납과 공제액 계산식</li>
+      <li>지방세법 시행령 제122조(차령 계산)·제125조(연납 공제 이자율 5%)</li>
+      <li>지방세법 제151조(지방교육세) — 자동차세액의 30%</li>
+      <li>한국석유공사 오피넷 전국 평균 유가(2026-11-25), 기후에너지환경부 공공 충전요금(2026.8.1 시행)</li>
+      <li>fueleconomy.gov(미국 에너지부·EPA) 겨울철 연비 시험 — 도심 15%, 단거리 최대 24%, 전기차 히터 사용 시 약 39%</li>
+    </ul>
+    <p class="fine">기준 확인일 2026년 11월 25일. 세율·공제율은 지방세법 개정과 지자체 조례에 따라 달라질 수 있습니다.</p>
+  </section>
+
+  <section class="related-apps">
+    <h2>함께 쓰면 좋은 계산기</h2>
+    <div class="related-grid">
+      <a class="related-app" href="../winter-power/">
+        <strong>겨울 전기요금 계산기</strong>
+        <span>누진 3단계와 히터·온수매트 추가 요금</span>
+      </a>
+      <a class="related-app" href="../year-end-tax/">
+        <strong>연말정산 환급 계산기</strong>
+        <span>카드 공제 황금비율과 세액공제</span>
+      </a>
+      <a class="related-app" href="../living-cost/">
+        <strong>고정비 체크기</strong>
+        <span>보험료·구독료와 놓친 지원금</span>
+      </a>
+      <a class="related-app" href="../njob-tax/">
+        <strong>N잡 세금 계산기</strong>
+        <span>3.3% 부업 소득의 종합소득세</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="card faq">
+    <h2>자동차세 연납 자주 묻는 질문</h2>
+
+    <details>
+      <summary>1월에 내는 게 항상 가장 유리한가요?</summary>
+      <p>네, 공제 폭이 가장 큽니다. 2026년 기준 1월은 연세액의 약 4.58%, 3월 3.77%, 6월 2.5%, 9월 1.25%입니다. 다만 1월에 목돈이 부담된다면 3월 연납도 3.77%를 받을 수 있으니, 자금 사정과 함께 비교해 보세요.</p>
+    </details>
+
+    <details>
+      <summary>연납을 한 번 신청하면 매년 자동으로 되나요?</summary>
+      <p>한 번 연납한 차량은 다음 해 1월에 연납 고지서가 발송됩니다. 다만 고지서를 받고도 납부하지 않으면 6월·12월 정기분으로 돌아가므로, 1월 안에 납부를 마쳐야 공제가 적용됩니다. 연납은 자동이체가 되지 않습니다.</p>
+    </details>
+
+    <details>
+      <summary>차령은 어떻게 세나요?</summary>
+      <p>최초 등록일을 기준으로 합니다. 등록일이 1~6월이면 그해 1·2기분 모두 ‘과세연도 − 등록연도 + 1’로 계산하고, 7~12월이면 1기분은 한 살 적게, 2기분은 한 살 많게 계산합니다(지방세법 시행령 제122조). 3년차부터 5%씩 경감되고 12년을 넘으면 12년으로 보아 최대 50%입니다.</p>
+    </details>
+
+    <details>
+      <summary>전기차도 연납 할인을 받을 수 있나요?</summary>
+      <p>받을 수 있습니다. 전기·수소차는 배기량 대신 연 10만 원 정액에 지방교육세 30%를 더해 연세액 13만 원이고, 1월 연납 시 약 5,900원이 줄어듭니다. 다만 정액 세율이라 차령에 따른 경감은 없습니다. 연세액이 10만 원 이하인 차량은 6월에 전액이 부과되는데, 이 경우에도 공제는 2기분 기준으로 계산됩니다.</p>
+    </details>
+
+    <details>
+      <summary>계산 금액과 실제 고지서가 다른 이유는?</summary>
+      <p>이 계산기는 <strong>비영업용 승용차의 표준세율</strong>만 반영한 모의 계산입니다. 지방자치단체가 조례로 표준세율의 50%까지 올릴 수 있고, 장애인·국가유공자 감면, 연식·주행거리 감면(지자체 조례), 과세기간 중 이전·말소에 따른 일할 계산은 반영되지 않습니다. 정확한 금액은 위택스(wetax.go.kr)나 관할 시·군·구 세무과에서 확인하세요.</p>
+    </details>
+
+    <details>
+      <summary>연납한 뒤 차를 팔거나 폐차하면 어떻게 되나요?</summary>
+      <p>남은 기간에 해당하는 세액을 일할 계산해 환급받습니다. 차를 넘길 때 ‘연세액 납부승계 동의서’를 제출하면 양수인이 남은 연납분을 승계할 수도 있습니다. 환급·승계 절차는 관할 지자체에 문의하세요.</p>
+    </details>
+  </section>
+
+  <aside class="ad-slot" id="ad-mid" data-ad-slot="" aria-label="광고 영역">
+    <!-- AdSense: 중단 광고 단위의 data-ad-slot 값을 넣으세요. -->
+  </aside>
+</section>
+
+<!-- ═══════════════════════════ 탭 2 · 유류비 ═══════════════════════════ -->
+<section id="panel-fuel" class="panel" role="tabpanel" aria-labelledby="tab-btn-fuel" tabindex="0">
+
+  <p class="lead">유종과 <strong>내 차 실연비</strong>, 한 달 주행거리만 넣으면 월 기름값이 나옵니다. 같은 거리를 달려도 겨울에는 연비가 <strong>10~15%</strong> 떨어져 기름값이 더 듭니다.</p>
+
+  <section class="card">
+    <div class="card-head">
+      <h2><span class="step">01</span> 유종과 연비</h2>
+      <span class="card-hint">실연비가 가장 정확</span>
+    </div>
+
+    <p class="field-label">유종</p>
+    <div class="seg is-4" data-group="fuel" role="group" aria-label="유종">
+      <button type="button" class="is-active" data-value="gasoline">휘발유</button>
+      <button type="button" data-value="diesel">경유</button>
+      <button type="button" data-value="lpg">LPG</button>
+      <button type="button" data-value="ev">전기</button>
+    </div>
+
+    <label class="field-label" for="eff-input">연비 <span class="opt" id="eff-opt">km/L</span></label>
+    <div class="num-field">
+      <input id="eff-input" class="num-input" type="text" inputmode="decimal" autocomplete="off"
+             data-key="eff" data-kind="dec" data-unit="km/L" value="12.0" placeholder="12.0" aria-describedby="eff-note">
+      <span class="unit" id="eff-unit">km/L</span>
+    </div>
+    <p class="fine" id="eff-note">가득 주유법으로 계산해 보세요. 주행거리 ÷ 다시 채운 연료량 = 실연비. 차량 표시 연비보다 1~2km/L 낮은 경우가 많습니다.</p>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <h2><span class="step">02</span> 주행거리와 유가</h2>
+      <span class="card-hint">한 달 기준</span>
+    </div>
+
+    <label class="field-label" for="km-input">월 주행거리</label>
+    <div class="num-field">
+      <input id="km-input" class="num-input" type="text" inputmode="numeric" autocomplete="off"
+             data-key="km" data-kind="int" data-unit="km" value="1,200" placeholder="1,200" aria-describedby="km-note">
+      <span class="unit">km</span>
+    </div>
+    <div class="chips-grid" id="km-chips" role="group" aria-label="월 주행거리 빠른 선택">
+      <button type="button" data-target="km" data-value="500">500km</button>
+      <button type="button" data-target="km" data-value="1000">1,000km</button>
+      <button type="button" data-target="km" data-value="1500">1,500km</button>
+      <button type="button" data-target="km" data-value="2000">2,000km</button>
+      <button type="button" data-target="km" data-value="3000">3,000km</button>
+      <button type="button" data-target="km" data-value="4000">4,000km</button>
+    </div>
+    <p class="fine" id="km-note">출퇴근 왕복 거리 × 출근일수에 주말·주말 나들이 주행을 더하면 한 달 치가 됩니다.</p>
+
+    <label class="field-label" for="price-input">유가</label>
+    <div class="num-field">
+      <input id="price-input" class="num-input" type="text" inputmode="numeric" autocomplete="off"
+             data-key="price" data-kind="int" data-unit="원/L" value="1,854" placeholder="1,854" aria-describedby="price-note">
+      <span class="unit" id="price-unit">원/L</span>
+    </div>
+    <p class="fine" id="price-note">2026-11-25 전국 평균 휘발유 1,853.88원/L(한국석유공사 오피넷). 우리 동네 주유소 가격으로 바꿔 보세요.</p>
+  </section>
+
+  <!-- 결과 -->
+  <section class="result-card" id="fuel-result" aria-live="polite">
+    <div class="result-head">
+      <span class="verdict-badge" id="fuel-badge">겨울 +15%</span>
+      <h2 class="result-title" id="fuel-title">한 달 기름값 185,400원</h2>
+      <p class="result-sub" id="fuel-sub">월 1,200km · 12.0km/L · 1,854원/L</p>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat stat-em">
+        <span class="stat-label" id="stat-month-label">월 유류비</span>
+        <strong class="stat-value" id="stat-month">185,400원</strong>
+        <span class="stat-note">평상시 연비 기준</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">연 유류비</span>
+        <strong class="stat-value" id="stat-year">2,224,800원</strong>
+        <span class="stat-note">12개월</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">1km당 비용</span>
+        <strong class="stat-value" id="stat-km">155원</strong>
+        <span class="stat-note" id="stat-km-note">100km 15,450원</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">월 사용량</span>
+        <strong class="stat-value" id="stat-units">100L</strong>
+        <span class="stat-note" id="stat-units-note">하루 3.3L</span>
+      </div>
+    </div>
+
+    <div class="compare-block">
+      <h3>겨울에는 얼마나 더 나올까?</h3>
+      <table class="compare-table">
+        <caption class="sr-only">겨울철 연비 저하율에 따른 월 유류비 비교</caption>
+        <thead>
+          <tr><th scope="col">연비 조건</th><th scope="col">월 유류비</th><th scope="col">평상시 대비</th><th scope="col">겨울 3개월 추가</th></tr>
+        </thead>
+        <tbody id="winter-body"></tbody>
+      </table>
+      <p class="fine" id="winter-note">겨울 석 달(12~2월)만 따져도 98,153원 더 나옵니다. 짧은 거리를 자주 타면 차이가 더 커집니다.</p>
+    </div>
+
+    <p class="result-foot" id="fuel-foot">연비가 15% 떨어지면 1년에 392,600원 더 듭니다. 타이어 공기압과 예열 습관만 바꿔도 일부를 되돌릴 수 있습니다.</p>
+
+    <div class="share-row">
+      <button type="button" class="btn-ghost" id="copy-fuel">요약 복사</button>
+    </div>
+    <p class="toast" id="toast-fuel" role="status" aria-live="polite"></p>
+  </section>
+
+  <details class="card accordion" id="fuel-breakdown">
+    <summary>
+      <span>유류비 계산 과정 보기</span>
+      <span class="chev" aria-hidden="true">⌄</span>
+    </summary>
+    <div class="accordion-body">
+      <table class="breakdown-table">
+        <caption class="sr-only">월·연 유류비와 겨울철 추가 비용 계산 과정</caption>
+        <tbody id="fuel-breakdown-body"></tbody>
+      </table>
+      <p class="fine">겨울철 비용은 같은 주행거리를 낮아진 연비로 달린다고 보고 계산했습니다. 실제 저하는 차종·주행 패턴·기온에 따라 달라집니다.</p>
+    </div>
+  </details>
+
+  <section class="card">
+    <h2 style="font-size:15.5px;font-weight:800;margin-bottom:6px;">겨울에 기름값이 더 드는 이유</h2>
+    <ul class="tip-list">
+      <li><span class="tip-no">1</span><span><b>엔진이 최적 온도까지 오래 걸립니다.</b> 찬 엔진오일과 변속기 오일의 마찰이 커지고, 연료를 더 뿌려 빨리 데우려 하기 때문입니다. 5km 안쪽 짧은 주행에서 손해가 큽니다.</span></li>
+      <li><span class="tip-no">2</span><span><b>히터·열선·성에 제거가 전기를 씁니다.</b> 발전기가 그만큼 연료를 더 태우고, 출발 전 공회전 예열은 연비 0km/L로 연료만 씁니다.</span></li>
+      <li><span class="tip-no">3</span><span><b>공기가 차고 타이어 압력이 떨어집니다.</b> 차가운 공기는 밀도가 높아 주행저항이 커지고, 기온이 내려가면 타이어 공기압도 낮아져 구름저항이 늘어납니다.</span></li>
+      <li><span class="tip-no">4</span><span><b>전기차는 저하 폭이 더 큽니다.</b> 미국 에너지부·환경보호청(fueleconomy.gov) 시험에서 전기차는 히터를 켜면 복합 주행 효율이 약 39% 떨어졌습니다. 위 표의 10~15%는 내연기관 기준으로 잡은 보수적인 값입니다.</span></li>
+    </ul>
+    <p class="fine">겨울에는 타이어 공기압을 한 달에 한 번 확인하고, 예열은 1~2분 이내로 줄이고, 급가속을 피하는 것만으로도 체감 차이가 납니다.</p>
+  </section>
+
+  <section class="card faq">
+    <h2>유류비 계산 자주 묻는 질문</h2>
+
+    <details>
+      <summary>연비는 어떤 값을 넣어야 하나요?</summary>
+      <p>제조사 공인연비보다 <strong>내가 실제로 주유한 기록</strong>이 정확합니다. 가득 주유한 뒤 주행거리를 0으로 맞추고, 다음 주유 때 다시 가득 채운 양으로 나누면 됩니다. 예를 들어 520km를 달리고 40L를 넣었다면 13.0km/L입니다.</p>
+    </details>
+
+    <details>
+      <summary>LPG 차량도 같은 방식으로 계산하나요?</summary>
+      <p>네. LPG는 리터당 단가가 휘발유보다 낮지만 연비도 낮아 연료비 차이가 단가 차이만큼 나지는 않습니다. 위에서 유종을 LPG로 바꾸면 같은 주행거리의 월 비용을 바로 비교할 수 있습니다.</p>
+    </details>
+
+    <details>
+      <summary>전기차 충전 단가는 얼마로 넣어야 하나요?</summary>
+      <p>2026년 8월 1일부터 공공 완속 충전은 kWh당 295원, 50kW급 급속은 325.6원, 200kW 이상 초급속은 393.1원입니다. 집이나 아파트에서 충전하면 한국전력 충전전력요금(계절·시간대별)이 적용돼 더 저렴한 경우가 많습니다. 자주 쓰는 충전소 단가를 넣어 보세요.</p>
+    </details>
+
+    <details>
+      <summary>유가는 어떻게 반영되나요?</summary>
+      <p>2026-11-25 기준 전국 평균은 휘발유 1,853.88원/L, 경유 1,840.57원/L, LPG 1,178.07원/L입니다(한국석유공사 오피넷). 유류세 인하가 연장·종료되면 가격이 달라지므로, 결제하는 주유소 가격으로 바꿔 넣는 것이 가장 정확합니다.</p>
+    </details>
+
+    <details>
+      <summary>계산 결과와 실제 카드 청구액이 다른 이유는?</summary>
+      <p>이 계산은 주행거리와 연비만으로 낸 <strong>모의 계산</strong>입니다. 실제로는 공회전, 냉난방, 짐과 승차 인원, 고속 주행 비중, 주유소별 단가, 카드 할인에 따라 달라집니다. 통행료·주차비·보험료는 포함하지 않았습니다.</p>
+    </details>
+  </section>
+
+  <aside class="ad-slot" id="ad-bottom" data-ad-slot="" aria-label="광고 영역">
+    <!-- AdSense: 하단 광고 단위의 data-ad-slot 값을 넣으세요. -->
+  </aside>
+</section>
+
+<!-- ═════════════════════════ 공통 ═════════════════════════ -->
+<section class="card install-card" id="install-card" hidden>
+  <h2>홈 화면에 추가하면 앱처럼</h2>
+  <p class="fine">인터넷이 없어도 열립니다. 입력한 값은 이 기기에만 저장됩니다.</p>
+  <button type="button" class="btn-primary" id="install-btn">앱 설치</button>
+</section>
+
+<section class="related-post" aria-labelledby="relatedPostTitle">
+  <p class="related-post__label" id="relatedPostTitle">관련 글</p>
+  <a class="related-post__link" href="https://blog.naver.com/ufssdf987/224489618656" target="_blank" rel="noopener">🚗 출근길 도로가 반짝인다면 브레이크부터 밟지 마세요, 제동거리 7배</a>
+  <p class="related-post__note">겨울철 블랙아이스 대처법을 직접 정리한 글이에요. 기름값만큼 무서운 게 빙판길입니다.</p>
+</section>
+
+<footer class="app-footer">
+  <p class="disclaimer">
+    <strong>면책 고지</strong><br>
+    이 계산기는 지방세법과 2026년 세율·공제율을 바탕으로 한 <em>모의 계산</em>입니다. 실제 자동차세는 지방자치단체 조례, 감면, 과세기간 중 이전·말소에 따라 달라지고, 유류비는 주행 조건에 따라 달라집니다. 신청·납부 전 위택스와 관할 시·군·구, 주유소 가격을 확인하세요.
+  </p>
+  <p class="footer-links">
+    <a href="../">전체 앱</a>
+    <span aria-hidden="true">·</span>
+    <a href="../privacy.html">개인정보처리방침</a>
+    <span aria-hidden="true">·</span>
+    <a href="#main" id="link-top">맨 위로</a>
+  </p>
+  <p class="footer-brand">© 2026 자동차세 연납 계산기 · 이안이아빠</p>
+</footer>
+
+</main>
+
+<script src="calc.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

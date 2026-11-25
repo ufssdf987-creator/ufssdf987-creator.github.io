@@ -1,0 +1,61 @@
+{
+  "name": "2026 자동차세 연납·겨울 유류비 계산기",
+  "short_name": "자동차세 연납",
+  "description": "배기량과 등록 연도로 자동차세와 1월 연납 할인액을 계산하고, 겨울철 연비 저하를 반영한 유류비까지 확인합니다.",
+  "lang": "ko",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
+  "orientation": "portrait",
+  "background_color": "#f4f7fb",
+  "theme_color": "#16233c",
+  "categories": [
+    "finance",
+    "utilities",
+    "productivity"
+  ],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "자동차세 연납 할인",
+      "short_name": "연납",
+      "url": "./#tax"
+    },
+    {
+      "name": "겨울 유류비",
+      "short_name": "유류비",
+      "url": "./#fuel"
+    }
+  ]
+}
