@@ -8,7 +8,7 @@
  * 3) siteUrl 은 공유 문구와 sitemap 에 쓰는 실제 배포 주소로 바꿔 주세요.
  */
 window.APP_CONFIG = {
-  version: '1.0.1',
+  version: '1.0.2',
   siteName: '겨울 전기요금 계산기',
   siteUrl: 'https://ufssdf987-creator.github.io/winter-power/',
 
@@ -47,7 +47,7 @@ window.APP_CONFIG = {
       {
         name: '일월 숲속애 온수매트',
         watt: 480,
-        tag: '480W · 온수매트',
+        tag: '480W · 온수매트(더블 기준)',
         url: 'https://link.coupang.com/a/iV0FQzRrHg',
         cta: '쿠팡에서 보기'
       }
