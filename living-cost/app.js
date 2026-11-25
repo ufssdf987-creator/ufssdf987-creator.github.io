@@ -1120,7 +1120,7 @@ function cacheEls() {
     'housingCost', 'utilityCost', 'mobileCost', 'internetCost', 'insuranceCost', 'loanCost',
     'bundleDiscount', 'subList', 'subTotal', 'diagResult', 'calcBtn', 'exampleBtn', 'resetBtn',
     'benefitForm', 'benefitResult', 'benefitCount', 'benefitProgress', 'benefitProgressNote',
-    'transitSpend', 'transitSpendRow', 'toast', 'ebookLink'
+    'transitSpend', 'transitSpendRow', 'toast'
   ].forEach((id) => { el[id] = $(id); });
   el.moneyInputs = {
     housingCost: el.housingCost, utilityCost: el.utilityCost, mobileCost: el.mobileCost,
