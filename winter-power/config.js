@@ -8,7 +8,7 @@
  * 3) siteUrl 은 공유 문구와 sitemap 에 쓰는 실제 배포 주소로 바꿔 주세요.
  */
 window.APP_CONFIG = {
-  version: '1.0.2',
+  version: '1.0.3',
   siteName: '겨울 전기요금 계산기',
   siteUrl: 'https://ufssdf987-creator.github.io/winter-power/',
 
@@ -31,9 +31,9 @@ window.APP_CONFIG = {
     items: [
       {
         name: '한일의료기 탄소열선 고급 전기요 HL-D205',
-        watt: 100,
-        tag: '100W · 최저 소비전력',
-        note: '온수매트(250W)의 40% 수준',
+        watt: 150,
+        tag: '150W · 탄소열선 전기요',
+        note: '온수매트(250W)의 60% 수준',
         url: 'https://link.coupang.com/a/iUKxRtUptk',
         cta: '쿠팡에서 보기'
       },
