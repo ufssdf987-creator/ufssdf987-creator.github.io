@@ -8,7 +8,7 @@
  * 3) siteUrl 은 공유 문구와 sitemap 에 쓰는 실제 배포 주소로 바꿔 주세요.
  */
 window.APP_CONFIG = {
-  version: '1.0.0',
+  version: '1.0.1',
   siteName: '겨울 전기요금 계산기',
   siteUrl: 'https://ufssdf987-creator.github.io/winter-power/',
 
@@ -35,6 +35,20 @@ window.APP_CONFIG = {
         tag: '100W · 최저 소비전력',
         note: '온수매트(250W)의 40% 수준',
         url: 'https://link.coupang.com/a/iUKxRtUptk',
+        cta: '쿠팡에서 보기'
+      },
+      {
+        name: '홈플래닛 접이식 파티션 히터 D2401',
+        watt: 195,
+        tag: '195W · 접이식 파티션',
+        url: 'https://link.coupang.com/a/iW05pEKhWK',
+        cta: '쿠팡에서 보기'
+      },
+      {
+        name: '일월 숲속애 온수매트',
+        watt: 480,
+        tag: '480W · 온수매트',
+        url: 'https://link.coupang.com/a/iV0FQzRrHg',
         cta: '쿠팡에서 보기'
       }
       // ▼ 아래처럼 항목을 추가하면 카드가 자동으로 늘어납니다.
