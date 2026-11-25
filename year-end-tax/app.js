@@ -437,6 +437,9 @@
     setText("refund-label", bal.isRefund ? "예상 환급액" : (bal.isDue ? "예상 추가 납부" : "정산액"));
     animateTo("stat-determined", chosen.total, won);
     animateTo("stat-credit", chosen.totalCredit, won);
+    setText("stat-credit-note", chosen.unusedCredit > 0
+      ? "산출세액 한도 " + short(chosen.calculatedTax) + "까지 반영"
+      : "국세 기준");
     animateTo("stat-cardded", res.card.final, won);
 
     /* 기납부 vs 결정 */
@@ -474,6 +477,9 @@
 
     var topItem = chosen.items.slice().sort(function (a, b) { return b.credit - a.credit; })[0];
     var foot = "카드 소득공제 " + short(res.card.final) + " + 세액공제 " + short(chosen.totalCredit) + "이 반영됐습니다.";
+    if (chosen.unusedCredit > 0) {
+      foot += " 다만 산출세액 한도(" + short(chosen.calculatedTax) + ")를 넘는 " + short(chosen.unusedCredit) + "은 반영되지 않았습니다.";
+    }
     if (topItem) foot += " 가장 큰 항목은 " + topItem.label + "(" + short(topItem.credit) + ")입니다.";
     if (res.withheld.estimated) foot += " 기납부세액은 간이 추정값입니다.";
     setText("refund-foot", foot);
