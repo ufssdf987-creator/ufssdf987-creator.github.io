@@ -246,7 +246,6 @@
     var f = C.FUELS[state.fuel];
     // 유종에 맞춰 단위 표기를 바꿉니다.
     setText("eff-unit", f.effUnit);
-    setText("eff-opt", f.effUnit);
     setText("price-unit", "원/" + f.unit);
     var effEl = $("eff-input");
     if (effEl) effEl.setAttribute("data-unit", f.effUnit);
@@ -262,6 +261,7 @@
     last.fuel = r;
 
     var costWord = r.fuel === "ev" ? "충전비" : "기름값";
+    var isEv = r.fuel === "ev";
     setText("fuel-badge", "겨울 −15%");
     setText("fuel-title", "한 달 " + costWord + " " + won(r.monthly));
     setText("fuel-sub",
@@ -270,6 +270,7 @@
 
     setText("stat-month-label", "월 " + costWord);
     setText("stat-month", won(r.monthly));
+    setText("stat-year-label", "연 " + costWord);
     setText("stat-year", won(r.annual));
     setText("stat-km", won(r.costPerKm));
     setText("stat-km-note", "100km " + won(r.costPer100km));
@@ -291,20 +292,27 @@
     setText("winter-note",
       "겨울 석 달(12~2월)만 따져도 " + won(w15.extraWinter) + " 더 나옵니다. 짧은 거리를 자주 타면 차이가 더 커집니다.");
     setText("fuel-foot",
-      "연비가 15% 떨어지면 1년에 " + won(w15.extraMonthly * 12) + " 더 듭니다. 타이어 공기압과 예열 습관만 바꿔도 일부를 되돌릴 수 있습니다.");
+      "연비가 15% 떨어지면 1년에 " + won(w15.extraMonthly * 12) + " 더 듭니다. " +
+      (isEv ? "타이어 공기압과 실내 난방 습관만 바꿔도 일부를 되돌릴 수 있습니다."
+            : "타이어 공기압과 예열 습관만 바꿔도 일부를 되돌릴 수 있습니다."));
+    setText("eff-note", isEv
+      ? "충전할 때마다 주행거리 ÷ 충전량(kWh)으로 계산해 보세요. 겨울에는 히터 사용으로 효율이 20~40%까지 떨어질 수 있습니다."
+      : "가득 주유법으로 계산해 보세요. 주행거리 ÷ 다시 채운 연료량 = 실연비. 차량 표시 연비보다 1~2km/L 낮은 경우가 많습니다.");
 
     var b = [];
     b.push(row("월 주행거리", comma(r.monthlyKm) + "km", "한 달 기준"));
     b.push(row("연비", r.efficiency.toFixed(1) + f.effUnit, "내 차 실연비 기준"));
     b.push(row("월 사용량", comma(r.unitsPerMonth) + f.unit, comma(r.monthlyKm) + "km ÷ " + r.efficiency.toFixed(1)));
     b.push(row("유가", comma(r.unitPrice) + "원/" + f.unit, "2026-11-25 기준"));
-    b.push(row("월 유류비", won(r.monthly), "사용량 × 유가", "sum"));
-    b.push(row("연 유류비", won(r.annual), "월 유류비 × 12", "sum"));
+    b.push(row("월 " + costWord, won(r.monthly), "사용량 × 단가", "sum"));
+    b.push(row("연 " + costWord, won(r.annual), "월 " + costWord + " × 12", "sum"));
     b.push(row("겨울 −15% 월 유류비", won(w15.monthly), "연비 " + (r.efficiency * 0.85).toFixed(1) + f.effUnit));
     b.push(row("겨울 3개월 추가", "+" + won(w15.extraWinter), "12월~2월", "final"));
     setHTML("fuel-breakdown-body", b.join(""));
 
-    setText("price-note", f.priceNote + " 기준으로 채워 뒀습니다. 우리 동네 주유소 가격으로 바꿔 보세요.");
+    setText("price-note", f.priceNote + (isEv
+      ? " 기준으로 채워 뒀습니다. 자주 쓰는 충전소 단가로 바꿔 보세요."
+      : " 기준으로 채워 뒀습니다. 우리 동네 주유소 가격으로 바꿔 보세요."));
   }
 
   function renderAll() {
