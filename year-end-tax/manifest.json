@@ -1,0 +1,61 @@
+{
+  "name": "2026 연말정산 환급 계산기 — 카드 황금비율·세액공제",
+  "short_name": "연말정산 환급",
+  "description": "카드 소득공제 황금비율과 연금저축·IRP·월세·의료비·교육비·고향사랑기부금 세액공제로 2027년 2월 예상 환급액을 계산합니다.",
+  "lang": "ko",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
+  "orientation": "portrait",
+  "background_color": "#faf6ee",
+  "theme_color": "#1e2a44",
+  "categories": [
+    "finance",
+    "productivity",
+    "utilities"
+  ],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "카드 황금비율",
+      "short_name": "카드 공제",
+      "url": "./#card"
+    },
+    {
+      "name": "세액공제·환급",
+      "short_name": "환급액",
+      "url": "./#credit"
+    }
+  ]
+}
