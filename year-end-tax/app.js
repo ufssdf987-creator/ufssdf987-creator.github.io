@@ -233,6 +233,7 @@
       badge.classList.remove("is-due", "is-warn", "is-zero");
       if (gap > 0) { badge.textContent = "문턱 미달"; badge.classList.add("is-warn"); }
       else if (reachedAll) { badge.textContent = "한도 도달"; }
+      else if (d.reachedBase) { badge.textContent = "기본한도 도달"; }
       else { badge.textContent = "문턱 통과"; }
     }
     if (gap > 0) {
@@ -241,6 +242,9 @@
     } else if (reachedAll) {
       setText("card-title", "카드 공제 한도 " + short(limits.baseLimit + limits.addLimit) + "을 모두 채웠어요");
       setText("card-sub", "지금까지 " + short(total) + " 사용 · 더 써도 소득공제는 늘지 않습니다.");
+    } else if (d.reachedBase) {
+      setText("card-title", "지금까지 카드 공제 " + won(d.final));
+      setText("card-sub", "기본한도는 채웠고, 추가한도까지 " + short(d.addRoom) + " 남았습니다.");
     } else {
       setText("card-title", "지금까지 카드 공제 " + won(d.final));
       setText("card-sub", "총급여 " + short(state.salary) + " · " + short(total) + " 사용 · 기본한도까지 " + short(d.baseRoom) + " 남음");
@@ -249,7 +253,7 @@
     animateTo("stat-card-deduction", d.final, won);
     animateTo("stat-card-saving", savingOf(d.final), won);
     setText("stat-card-room", d.reachedBase ? (d.addRoom > 0 ? "추가한도 " + short(d.addRoom) : "한도 소진") : won(d.baseRoom));
-    setText("stat-card-room-label", d.reachedBase ? "남은 추가한도" : "남은 기본한도");
+    setText("stat-card-room-label", d.reachedBase ? (d.addRoom > 0 ? "남은 추가한도" : "카드 한도") : "남은 기본한도");
 
     /* 결제수단 비중 */
     var denom = total > 0 ? total : 1;
@@ -262,7 +266,7 @@
     setText("ratio-total", short(total));
     setText("legend-credit", short(state.credit));
     setText("legend-check", short(state.check));
-    setText("legend-market", short(state.market + state.transit));
+    setText("legend-market", short(state.market + state.transit + state.culture));
 
     /* 플랜 */
     var plan = C.cardPlan(cardInput(), state.budget, "check");
@@ -332,6 +336,9 @@
     if (maxPlan.gain > plan.gain) {
       parts.push("전통시장·대중교통을 함께 쓴다면 같은 돈으로 최대 <strong>" + short(maxPlan.gain) + "</strong>까지 공제가 늘어납니다.");
     }
+    if (!parts.length) {
+      parts.push(plan.budget <= 0 ? "앞으로 쓸 돈을 넣으면 남은 기간의 카드 사용 순서를 계산해 드립니다." : "이미 카드 공제 한도를 모두 채웠거나, 남은 돈으로는 공제가 늘지 않습니다.");
+    }
     setHTML("plan-summary", parts.join(" "));
   }
 
@@ -353,6 +360,7 @@
         "</tr>";
     }).join("");
     setText("compare-note", "예상 절세는 소득세율 " + Math.round(C.marginalRate(state.salary, state.dependents) * 100) + "%에 지방소득세 10%를 더한 값입니다. 전통시장·대중교통은 실제로 이용할 때만 인정됩니다.");
+    setText("stat-card-saving-note", "소득세율 " + Math.round(C.marginalRate(state.salary, state.dependents) * 100) + "% + 지방세 기준");
   }
 
   function row(label, value, cls) {
@@ -423,7 +431,15 @@
     var paid = res.withheld.value;
     var fin = chosen.total;
     var finalBar = $("refund-final");
-    if (fin <= paid) {
+    if (paid <= 0 && fin <= 0) {
+      setBar("refund-paid", 0);
+      setBar("refund-final", 0);
+      setText("legend-paid-label", "결정세액");
+      setText("legend-final-label", "환급");
+      setText("legend-paid", "0원");
+      setText("legend-final", "0원");
+      if (finalBar) finalBar.classList.remove("is-due");
+    } else if (fin <= paid) {
       var keptPct = paid > 0 ? (fin / paid) * 100 : 0;
       setBar("refund-paid", keptPct);
       setBar("refund-final", Math.max(0, 100 - keptPct));

@@ -681,7 +681,8 @@ a { color: var(--brand); }
 }
 .plan-steps .step-title b { color: var(--gold); white-space: nowrap; font-size: 13px; }
 .plan-steps .step-detail { margin-top: 3px; font-size: 11.5px; line-height: 1.55; color: var(--ink-3); }
-.plan-steps .step-empty { font-size: 12px; color: var(--ink-3); }
+.plan-steps li.step-empty { font-size: 12px; color: var(--ink-3); }
+.plan-steps li.step-empty::before { content: "i"; background: var(--ink-3); }
 .plan-summary {
   margin-top: 10px;
   padding-top: 10px;
