@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>이안이아빠 생활 계산기 3종 | 전기요금·고정비·N잡 세금</title>
+<meta name="description" content="겨울 전기요금 계산기, 고정비 체크기, N잡 세금 계산기 — 설치 없이 바로 쓰는 무료 웹앱 3종. 누진세, 새는 고정비와 숨은 지원금, 3.3% 부업 세금과 건강보험료를 3초에 계산합니다.">
+<meta name="keywords" content="전기요금 계산기, 누진세 계산, 고정비 진단, 숨은 지원금, 3.3% 부업 세금, N잡 세금 계산기, 건강보험료 계산">
+<meta name="author" content="이안이 아빠의 공간">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://ufssdf987-creator.github.io/">
+<meta name="theme-color" content="#f6f8fb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a1220" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="이안이아빠 계산기">
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="이안이아빠 생활 계산기">
+<meta property="og:title" content="생활 계산기 3종 — 전기요금·고정비·N잡 세금">
+<meta property="og:description" content="누진세, 새는 고정비와 숨은 지원금, 3.3% 부업 세금까지. 설치 없이 바로 쓰는 무료 계산기 3종.">
+<meta property="og:url" content="https://ufssdf987-creator.github.io/">
+<meta property="og:image" content="https://ufssdf987-creator.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="이안이아빠 생활 계산기 3종 — 전기요금·고정비·N잡 세금">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="생활 계산기 3종 — 전기요금·고정비·N잡 세금">
+<meta name="twitter:description" content="누진세, 새는 고정비와 숨은 지원금, 3.3% 부업 세금까지. 설치 없이 바로 쓰는 무료 계산기 3종.">
+<meta name="twitter:image" content="https://ufssdf987-creator.github.io/og-image.png">
+
+<link rel="icon" href="icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "이안이아빠 생활 계산기 3종",
+  "url": "https://ufssdf987-creator.github.io/",
+  "inLanguage": "ko",
+  "description": "전기요금·고정비·N잡 세금을 계산하는 무료 웹앱 3종을 모은 페이지.",
+  "hasPart": [
+    { "@type": "WebApplication", "name": "겨울 전기요금·누진세 계산기", "url": "https://ufssdf987-creator.github.io/winter-power/", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any" },
+    { "@type": "WebApplication", "name": "고정비 체크기", "url": "https://ufssdf987-creator.github.io/living-cost/", "applicationCategory": "FinanceApplication", "operatingSystem": "Any" },
+    { "@type": "WebApplication", "name": "N잡 세금 계산기", "url": "https://ufssdf987-creator.github.io/njob-tax/", "applicationCategory": "FinanceApplication", "operatingSystem": "Any" }
+  ]
+}
+</script>
+
+<style>
+  :root {
+    --bg: #f4f7fb;
+    --bg-2: #e9eff7;
+    --surface: #ffffff;
+    --surface-2: #f8fafc;
+    --ink: #0f172a;
+    --ink-soft: #334155;
+    --muted: #5b6b82;
+    --line: #dde5ef;
+    --shadow: 0 1px 2px rgba(15,23,42,.05), 0 10px 30px -18px rgba(15,23,42,.28);
+    --shadow-hi: 0 2px 4px rgba(15,23,42,.06), 0 18px 40px -20px rgba(15,23,42,.34);
+    --radius: 20px;
+    --blue: #2563eb;
+    --green: #0e6b52;
+    --teal: #0f5c4e;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0a1220;
+      --bg-2: #0d1727;
+      --surface: #131f31;
+      --surface-2: #17253a;
+      --ink: #eaf1f9;
+      --ink-soft: #c8d5e5;
+      --muted: #94a6bd;
+      --line: #24344a;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 12px 30px -18px rgba(0,0,0,.7);
+      --shadow-hi: 0 2px 6px rgba(0,0,0,.5), 0 20px 44px -20px rgba(0,0,0,.8);
+      --blue: #7aa7ff;
+      --green: #57c9a3;
+      --teal: #5fd4bd;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+                 "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif;
+    color: var(--ink);
+    background:
+      radial-gradient(1100px 520px at 82% -12%, rgba(37,99,235,.14), transparent 62%),
+      radial-gradient(900px 460px at 6% 4%, rgba(14,107,82,.12), transparent 60%),
+      linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 8px; }
+
+  .shell {
+    width: 100%;
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 22px 18px 40px;
+  }
+  @media (min-width: 720px) { .shell { padding: 36px 28px 56px; } }
+
+  /* ── 상단 브랜드 ─────────────────────────────── */
+  .topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 26px;
+  }
+  .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+  .brand svg { width: 34px; height: 34px; flex: 0 0 auto; }
+  .brand b { font-size: 15px; font-weight: 800; letter-spacing: -.01em; }
+  .brand small { display: block; font-size: 11.5px; font-weight: 600; color: var(--muted); letter-spacing: .01em; }
+  .pill {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+  .pill .dot { width: 7px; height: 7px; border-radius: 50%; background: #16a34a; box-shadow: 0 0 0 3px rgba(22,163,74,.16); }
+
+  /* ── 히어로 ─────────────────────────────────── */
+  .hero { margin: 0 0 26px; }
+  .hero .eyebrow {
+    margin: 0 0 10px;
+    font-size: 12.5px;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--blue);
+  }
+  .hero h1 {
+    margin: 0 0 12px;
+    font-size: clamp(26px, 7.2vw, 40px);
+    line-height: 1.24;
+    letter-spacing: -.035em;
+    font-weight: 800;
+    word-break: keep-all;
+  }
+  .hero h1 .hl {
+    background: linear-gradient(180deg, transparent 62%, color-mix(in srgb, var(--blue) 24%, transparent) 62%);
+    padding: 0 2px;
+  }
+  .hero p {
+    margin: 0;
+    max-width: 38em;
+    font-size: 14.5px;
+    color: var(--muted);
+    word-break: keep-all;
+  }
+
+  /* ── 앱 카드 ────────────────────────────────── */
+  .apps {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: 1fr;
+    margin: 0 0 30px;
+  }
+  @media (min-width: 640px) { .apps { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; } }
+  @media (min-width: 900px) { .apps { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 18px 18px;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+    overflow: hidden;
+  }
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 4px;
+    background: var(--accent);
+  }
+  .card:hover, .card:focus-visible { transform: translateY(-3px); box-shadow: var(--shadow-hi); border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+  .card__top { display: flex; align-items: center; gap: 10px; }
+  .card__icon {
+    width: 44px; height: 44px;
+    border-radius: 13px;
+    flex: 0 0 auto;
+    background: var(--surface-2);
+    box-shadow: 0 1px 2px rgba(15,23,42,.12);
+  }
+  .card__kicker {
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: .04em;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+  .card__title {
+    margin: 2px 0 0;
+    font-size: 18.5px;
+    line-height: 1.35;
+    letter-spacing: -.02em;
+    font-weight: 800;
+    word-break: keep-all;
+  }
+  .card__desc {
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.62;
+    color: var(--muted);
+    word-break: keep-all;
+  }
+  .card__tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 2px 0 4px; }
+  .card__tags span {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--ink-soft);
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 3px 9px;
+    white-space: nowrap;
+  }
+  .card__go {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13.5px;
+    font-weight: 800;
+    color: var(--accent);
+  }
+  .card__go svg { width: 15px; height: 15px; transition: transform .16s ease; }
+  .card:hover .card__go svg { transform: translateX(3px); }
+
+  /* ── 블로그 링크 ─────────────────────────────── */
+  .links { margin: 0 0 28px; }
+  .links > h2 {
+    margin: 0 0 6px;
+    font-size: 17px;
+    letter-spacing: -.02em;
+    font-weight: 800;
+  }
+  .links > p { margin: 0 0 14px; font-size: 13.5px; color: var(--muted); word-break: keep-all; }
+  .links__grid { display: grid; gap: 12px; grid-template-columns: 1fr; }
+  @media (min-width: 640px) { .links__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 16px;
+    border-radius: 16px;
+    border: 1px solid var(--line);
+    background: color-mix(in srgb, var(--surface) 80%, transparent);
+    text-decoration: none;
+    transition: border-color .16s ease, background .16s ease, transform .16s ease;
+  }
+  .link:hover, .link:focus-visible { border-color: color-mix(in srgb, var(--blue) 40%, var(--line)); transform: translateY(-2px); }
+  .link__badge {
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    width: 38px; height: 38px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -.02em;
+  }
+  .link__badge--naver { background: #03c75a; }
+  .link__badge--google { background: #ea4335; }
+  .link__text { display: flex; flex-direction: column; min-width: 0; }
+  .link__name { font-size: 14px; font-weight: 800; letter-spacing: -.01em; }
+  .link__desc { font-size: 12.5px; color: var(--muted); }
+
+  /* ── 푸터 ───────────────────────────────────── */
+  footer {
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+  footer p { margin: 0 0 8px; }
+  footer strong { color: var(--ink-soft); }
+  footer .foot-links { display: flex; flex-wrap: wrap; gap: 6px 12px; margin-bottom: 10px; }
+  footer .foot-links a { color: var(--ink-soft); font-weight: 700; text-decoration: none; }
+  footer .foot-links a:hover { text-decoration: underline; }
+  footer .copy { color: var(--muted); }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <div class="topbar">
+    <a class="brand" href="./" aria-label="이안이아빠 생활 계산기 홈">
+      <svg viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+        <rect x="1" y="1" width="38" height="38" rx="11" fill="#0f172a"/>
+        <rect x="9" y="9" width="22" height="5.5" rx="2.75" fill="#7aa7ff"/>
+        <rect x="9" y="17.2" width="16" height="5.5" rx="2.75" fill="#57c9a3"/>
+        <rect x="9" y="25.4" width="11" height="5.5" rx="2.75" fill="#f7b955"/>
+      </svg>
+      <span>
+        <b>이안이아빠의 공간</b>
+        <small>생활 · 절세 · 전기요금 계산기</small>
+      </span>
+    </a>
+    <span class="pill"><span class="dot" aria-hidden="true"></span>무료 · 설치 없이</span>
+  </div>
+
+  <section class="hero" aria-labelledby="heroTitle">
+    <p class="eyebrow">생활비 계산기 3종</p>
+    <h1 id="heroTitle">이번 달 <span class="hl">새는 돈</span>부터<br>겨울 요금까지, 3초에.</h1>
+    <p>청구서 숫자 몇 개만 넣으면 끝납니다. 전기요금 누진세, 매달 빠져나가는 고정비와 숨은 지원금, 부업 3.3% 세금과 건강보험료까지 — 설치 없이 브라우저에서 바로 계산해 보세요.</p>
+  </section>
+
+  <div class="apps">
+
+    <a class="card" href="./winter-power/" style="--accent: var(--blue)">
+      <span class="card__top">
+        <img class="card__icon" src="./winter-power/icons/icon-192.png" alt="" width="44" height="44" loading="lazy" decoding="async">
+        <span class="card__kicker">전기요금 · 난방비</span>
+      </span>
+      <h2 class="card__title">겨울 전기요금 계산기</h2>
+      <p class="card__desc">한전 주택용 누진제로 이번 달 요금과 누진 단계를 계산하고, 히터·온수매트를 더했을 때 늘어나는 요금까지 확인합니다.</p>
+      <span class="card__tags"><span>누진 3단계</span><span>동계 슈퍼유저</span><span>복지할인</span></span>
+      <span class="card__go">요금 계산하기
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+      </span>
+    </a>
+
+    <a class="card" href="./living-cost/" style="--accent: var(--green)">
+      <span class="card__top">
+        <img class="card__icon" src="./living-cost/icons/icon-192.png" alt="" width="44" height="44" loading="lazy" decoding="async">
+        <span class="card__kicker">고정비 · 지원금</span>
+      </span>
+      <h2 class="card__title">고정비 체크기</h2>
+      <p class="card__desc">새는 고정비와 구독료를 진단하고, 2026년에 놓치기 쉬운 지원금·환급금을 찾아 1년에 아낄 수 있는 돈을 계산합니다.</p>
+      <span class="card__tags"><span>고정비 진단</span><span>숨은 지원금</span><span>구독 정리</span></span>
+      <span class="card__go">30초 진단하기
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+      </span>
+    </a>
+
+    <a class="card" href="./njob-tax/" style="--accent: var(--teal)">
+      <span class="card__top">
+        <img class="card__icon" src="./njob-tax/icons/icon-192.png" alt="" width="44" height="44" loading="lazy" decoding="async">
+        <span class="card__kicker">부업 세금 · 건보료</span>
+      </span>
+      <h2 class="card__title">N잡 세금 계산기</h2>
+      <p class="card__desc">3.3% 떼인 부업 수입이 5월 종합소득세와 건강보험료를 얼마나 올리는지, 피부양자 탈락 여부까지 계산합니다.</p>
+      <span class="card__tags"><span>3.3% 원천징수</span><span>종합소득세</span><span>피부양자</span></span>
+      <span class="card__go">세금 확인하기
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+      </span>
+    </a>
+
+  </div>
+
+  <section class="links" aria-labelledby="linksTitle">
+    <h2 id="linksTitle">요금표·제도 해설은 블로그에</h2>
+    <p>계산기 뒤에 있는 한전 요금표, 지원금 조건, 부업 세금 규칙을 글로 풀어 두었습니다. 계산 결과와 함께 보면 이해가 빨라요.</p>
+    <div class="links__grid">
+      <a class="link" href="https://blog.naver.com/ufssdf987" target="_blank" rel="noopener">
+        <span class="link__badge link__badge--naver" aria-hidden="true">N</span>
+        <span class="link__text">
+          <span class="link__name">네이버 블로그 · 이안이 아빠의 공간</span>
+          <span class="link__desc">생활비·절약·전기요금 이야기</span>
+        </span>
+      </a>
+      <a class="link" href="https://ufssdf987.blogspot.com" target="_blank" rel="noopener">
+        <span class="link__badge link__badge--google" aria-hidden="true">B</span>
+        <span class="link__text">
+          <span class="link__name">구글 블로거</span>
+          <span class="link__desc">검색용 요약·정리 글</span>
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="foot-links">
+      <a href="./winter-power/">전기요금 계산기</a>
+      <a href="./living-cost/">고정비 체크기</a>
+      <a href="./njob-tax/">N잡 세금 계산기</a>
+      <a href="./njob-tax/privacy.html">개인정보처리방침</a>
+    </div>
+    <p><strong>모든 계산 결과는 참고용 예상값입니다.</strong> 요금표·세법·지원 제도는 바뀔 수 있고, 실제 청구·환급 금액은 기관의 심사와 고지서에 따라 달라집니다. 신청 전에는 한전·홈택스·국민건강보험공단·정부24에서 최종 확인하세요.</p>
+    <p>일부 페이지에는 구글 애드센스 광고와 쿠팡파트너스 링크가 포함되어 있으며, 이에 따른 수수료를 받을 수 있습니다. 입력한 값은 서버로 보내지 않고 기기 안에서만 계산됩니다.</p>
+    <p class="copy">© 2026 이안이 아빠의 공간 · ufssdf987-creator.github.io</p>
+  </footer>
+
+</div>
+</body>
+</html>

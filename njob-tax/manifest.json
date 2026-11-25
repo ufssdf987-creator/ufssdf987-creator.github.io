@@ -1,0 +1,61 @@
+{
+  "name": "N잡 세금 계산기 — 3.3% 부업 세금·건강보험료",
+  "short_name": "N잡 세금",
+  "description": "부업으로 3.3%(사업소득) 또는 8.8%(기타소득)를 떼고 받은 수입이 5월 종합소득세와 건강보험료를 얼마나 올리는지 계산합니다.",
+  "lang": "ko",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
+  "orientation": "portrait",
+  "background_color": "#f6f3ec",
+  "theme_color": "#0f5c4e",
+  "categories": [
+    "finance",
+    "productivity",
+    "utilities"
+  ],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "부업 세금 계산",
+      "short_name": "부업 세금",
+      "url": "./#tax"
+    },
+    {
+      "name": "건강보험료 확인",
+      "short_name": "건보료",
+      "url": "./#health"
+    }
+  ]
+}

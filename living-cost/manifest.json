@@ -1,0 +1,50 @@
+{
+  "id": "./",
+  "name": "고정비 체크기 — 숨은 지원금 찾기",
+  "short_name": "고정비체크",
+  "description": "월 고정비·구독료 누수 진단과 2026년 놓치기 쉬운 지원금·환급금 맞춤 조회. 30초 무료 진단.",
+  "lang": "ko",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "portrait",
+  "background_color": "#f3f6f4",
+  "theme_color": "#0e6b52",
+  "categories": ["finance", "productivity", "lifestyle"],
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "고정비 진단",
+      "short_name": "고정비",
+      "url": "./?tab=diagnosis",
+      "icons": [{ "src": "./icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "숨은 지원금 찾기",
+      "short_name": "지원금",
+      "url": "./?tab=benefits",
+      "icons": [{ "src": "./icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

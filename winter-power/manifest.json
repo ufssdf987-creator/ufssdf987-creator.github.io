@@ -1,0 +1,51 @@
+{
+  "id": "/winter-power/",
+  "name": "겨울 전기요금·누진세 계산기",
+  "short_name": "전기요금계산",
+  "description": "한전 주택용 누진제로 이번 달 전기요금과 누진 단계를 계산하고, 히터·온수매트·전기요 추가 시 요금 변화를 시뮬레이션합니다.",
+  "lang": "ko",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "portrait-primary",
+  "background_color": "#eef2f8",
+  "theme_color": "#0f172a",
+  "categories": ["utilities", "finance", "productivity"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "이번 달 요금 계산",
+      "short_name": "이번 달 요금",
+      "url": "./index.html#calc",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "난방가전 시뮬레이터",
+      "short_name": "난방 시뮬",
+      "url": "./index.html#sim",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "prefer_related_applications": false
+}

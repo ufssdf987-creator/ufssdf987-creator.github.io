@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>고정비 체크기 | 새는 고정비 · 2026 숨은 지원금 30초 진단</title>
+  <link rel="canonical" href="https://ufssdf987-creator.github.io/living-cost/">
+  <meta name="description" content="매달 자동으로 빠져나가는 고정비와 구독료를 진단하고, 2026년에 놓치기 쉬운 지원금·환급금을 한 번에 찾아보세요. 1년에 얼마를 아낄 수 있는지 바로 계산됩니다.">
+  <meta name="theme-color" content="#0E6B52" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0C1512" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+  <meta name="format-detection" content="telephone=no">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:site_name" content="고정비 체크기">
+  <meta property="og:title" content="새는 고정비, 숨은 지원금까지 — 30초 무료 진단">
+  <meta property="og:description" content="2026년 기준 고정비 진단 + 맞춤 지원금 찾기. 1년에 아낄 수 있는 돈을 바로 계산해 보세요.">
+  <meta property="og:image" content="https://ufssdf987-creator.github.io/living-cost/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="새는 고정비, 숨은 지원금까지 — 30초 무료 진단">
+  <meta name="twitter:description" content="2026년 기준 고정비 진단 + 맞춤 지원금 찾기.">
+  <meta name="twitter:image" content="https://ufssdf987-creator.github.io/living-cost/og-image.png">
+  <meta property="og:url" content="https://ufssdf987-creator.github.io/living-cost/">
+
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./icons/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="고정비 체크기">
+  <link rel="stylesheet" href="./styles.css">
+  <script defer src="./app.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "고정비 체크기",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Android, iOS, Windows, macOS",
+    "inLanguage": "ko",
+    "description": "월 고정비·구독료 누수 진단과 2026년 숨은 지원금·환급금 맞춤 조회를 제공하는 무료 웹앱.",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">본문으로 바로가기</a>
+
+  <div class="app">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="고정비 체크기 홈">
+        <img class="brand__mark" src="./icons/icon-192.png" alt="" width="30" height="30" decoding="async">
+        <span class="brand__name">고정비 체크기</span>
+      </a>
+      <span class="pill pill--soft">2026 기준</span>
+    </header>
+
+    <section class="hero" aria-labelledby="heroTitle">
+      <p class="eyebrow"><span class="dot" aria-hidden="true"></span>30초 무료 진단</p>
+      <h1 id="heroTitle">새는 고정비,<br><span class="hl">숨은 지원금</span>까지.</h1>
+      <p class="hero__lead">매달 자동으로 빠져나가는 돈을 정리하고, 놓치고 있던 2026년 지원금을 한 번에 찾아보세요.</p>
+      <p class="hero__meta">국가데이터처 가계동향조사 2026년 2분기 · 지원제도 2026년 11월 기준</p>
+    </section>
+
+    <div class="tabs-wrap">
+      <div class="tabs" role="tablist" aria-label="진단 종류">
+        <span class="tabs__indicator" aria-hidden="true"></span>
+        <button class="tab is-active" id="tab-diagnosis" role="tab" aria-selected="true" aria-controls="panel-diagnosis" type="button">
+          <span class="tab__num">1</span>고정비 진단
+        </button>
+        <button class="tab" id="tab-benefits" role="tab" aria-selected="false" aria-controls="panel-benefits" type="button" tabindex="-1">
+          <span class="tab__num">2</span>숨은 지원금
+        </button>
+      </div>
+    </div>
+
+    <main id="main">
+      <aside class="ad ad--top" aria-label="광고 영역">
+        <span class="ad__label">AD</span>
+        <div class="ad__box" data-ad-slot="top">
+          <!-- Google AdSense 상단 슬롯: README의 안내에 따라 ins 태그로 교체하세요. -->
+        </div>
+      </aside>
+      <!-- ================= TAB 1 ================= -->
+      <section class="panel" id="panel-diagnosis" role="tabpanel" aria-labelledby="tab-diagnosis" tabindex="0">
+        <div class="section-head">
+          <h2>우리 집 고정비, 얼마나 새고 있을까요?</h2>
+          <p>월에 한 번 나가는 돈만 적으면 바로 계산돼요. 모르는 항목은 비워두세요.</p>
+        </div>
+
+        <form class="stack" id="diagForm" autocomplete="off" novalidate>
+          <article class="card">
+            <header class="card__head">
+              <span class="step">01</span>
+              <div>
+                <h3>가구 형태</h3>
+                <p>같은 형태의 평균과 비교해 드려요.</p>
+              </div>
+            </header>
+            <div class="chips chips--wide" id="householdChips" data-field="household" role="radiogroup" aria-label="가구 형태"></div>
+            <p class="hint" id="householdHint">1인 자취 · 신혼 2인 · 3인 육아가구 중에서 골라주세요.</p>
+          </article>
+
+          <article class="card">
+            <header class="card__head">
+              <span class="step">02</span>
+              <div>
+                <h3>주거 · 관리비</h3>
+                <p>월세·관리비와 전기·가스·수도를 나눠 적어주세요.</p>
+              </div>
+            </header>
+            <div class="field-grid">
+              <label class="input">
+                <span class="input__label">월 주거비 <em>월세+관리비</em></span>
+                <span class="input__box"><input id="housingCost" name="housingCost" type="text" inputmode="numeric" placeholder="예: 600,000" aria-describedby="housingHelp"><span class="input__suffix">원</span></span>
+                <span class="input__help" id="housingHelp">자가라면 관리비만 적어주세요.</span>
+              </label>
+              <label class="input">
+                <span class="input__label">전기 · 가스 · 수도 <em>월 평균</em></span>
+                <span class="input__box"><input id="utilityCost" name="utilityCost" type="text" inputmode="numeric" placeholder="예: 120,000"><span class="input__suffix">원</span></span>
+                <span class="input__help">여름·겨울 요금이 다르면 1년 평균으로요.</span>
+              </label>
+            </div>
+          </article>
+
+          <article class="card">
+            <header class="card__head">
+              <span class="step">03</span>
+              <div>
+                <h3>통신 · 인터넷</h3>
+                <p>가족 전체 휴대폰 요금을 합쳐서 적어주세요.</p>
+              </div>
+            </header>
+            <div class="field-grid">
+              <label class="input">
+                <span class="input__label">휴대폰 요금 <em>가구 합계</em></span>
+                <span class="input__box"><input id="mobileCost" name="mobileCost" type="text" inputmode="numeric" placeholder="예: 110,000"><span class="input__suffix">원</span></span>
+              </label>
+              <label class="input">
+                <span class="input__label">인터넷 · TV</span>
+                <span class="input__box"><input id="internetCost" name="internetCost" type="text" inputmode="numeric" placeholder="예: 33,000"><span class="input__suffix">원</span></span>
+              </label>
+            </div>
+            <label class="check check--inline">
+              <input type="checkbox" id="bundleDiscount">
+              <span>통신사 결합할인(인터넷+휴대폰)을 받고 있어요</span>
+            </label>
+          </article>
+
+          <article class="card">
+            <header class="card__head">
+              <span class="step">04</span>
+              <div>
+                <h3>보험료</h3>
+                <p>자동차보험은 12로 나눈 금액으로 넣어주세요.</p>
+              </div>
+            </header>
+            <div class="field-grid field-grid--single">
+              <label class="input">
+                <span class="input__label">월 보험료 합계 <em>실손·자동차·저축성 포함</em></span>
+                <span class="input__box"><input id="insuranceCost" name="insuranceCost" type="text" inputmode="numeric" placeholder="예: 160,000"><span class="input__suffix">원</span></span>
+                <span class="input__help">저축성 보험은 '보험료'가 아니라 '저축'에 가까워요. 그래도 고정으로 나가면 적어주세요.</span>
+              </label>
+            </div>
+          </article>
+
+          <article class="card">
+            <header class="card__head">
+              <span class="step">05</span>
+              <div>
+                <h3>OTT · 멤버십 · 구독</h3>
+                <p>쓰고 있는 것만 켜고, 실제 청구 금액으로 고쳐주세요.</p>
+              </div>
+            </header>
+            <div class="sub-list" id="subList" role="group" aria-label="구독 서비스 체크리스트"></div>
+            <div class="sub-total">
+              <span>구독 합계</span>
+              <strong id="subTotal">0원</strong>
+            </div>
+            <p class="hint">가격은 대표 요금제 기준이에요. 할인·인상된 금액은 직접 수정해 주세요.</p>
+          </article>
+
+          <article class="card">
+            <header class="card__head">
+              <span class="step">06</span>
+              <div>
+                <h3>대출 · 할부</h3>
+                <p>원금이 아니라 매달 나가는 상환액을 적어주세요.</p>
+              </div>
+            </header>
+            <div class="field-grid field-grid--single">
+              <label class="input">
+                <span class="input__label">월 상환액 <em>대출 원리금 + 할부</em></span>
+                <span class="input__box"><input id="loanCost" name="loanCost" type="text" inputmode="numeric" placeholder="예: 350,000"><span class="input__suffix">원</span></span>
+                <span class="input__help">원금은 자산이 되지만, 이자는 매달 사라지는 돈이에요.</span>
+              </label>
+            </div>
+          </article>
+
+          <div class="form-actions">
+            <button class="btn btn--primary btn--block" type="button" id="calcBtn">내 고정비 진단하기</button>
+            <div class="form-actions__sub">
+              <button class="btn btn--ghost btn--sm" type="button" id="exampleBtn">예시값으로 채워보기</button>
+              <button class="btn btn--ghost btn--sm" type="button" id="resetBtn">입력 지우기</button>
+            </div>
+          </div>
+        </form>
+
+        <aside class="ad" aria-label="광고 영역">
+          <span class="ad__label">AD</span>
+          <div class="ad__box" data-ad-slot="diagnosis-mid">
+            <!-- Google AdSense 슬롯: README의 안내에 따라 ins 태그로 교체하세요. 비어 있으면 자동으로 숨겨집니다. -->
+          </div>
+        </aside>
+
+        <div id="diagResult" class="result" aria-live="polite"></div>
+      </section>
+
+      <!-- ================= TAB 2 ================= -->
+      <section class="panel" id="panel-benefits" role="tabpanel" aria-labelledby="tab-benefits" tabindex="0" hidden>
+        <div class="section-head">
+          <h2>2026년, 아직 안 받은 돈이 있을지도요.</h2>
+          <p>몇 개만 골라주면 해당될 수 있는 제도를 금액순으로 정리해 드려요.</p>
+        </div>
+
+        <div class="card card--flat">
+          <div class="progress">
+            <div class="progress__head">
+              <div class="progress__text"><strong id="benefitCount">0</strong>개 제도에 해당될 수 있어요</div>
+              <button class="btn btn--ghost btn--sm" type="button" data-action="jump-benefits">결과 보기 ↓</button>
+            </div>
+            <div class="progress__bar" aria-hidden="true"><span id="benefitProgress"></span></div>
+            <p class="progress__note" id="benefitProgressNote">조건을 고를수록 정확해져요.</p>
+          </div>
+        </div>
+
+        <form class="stack" id="benefitForm" autocomplete="off" novalidate>
+          <article class="card">
+            <header class="card__head">
+              <span class="step">A</span>
+              <div>
+                <h3>우리 집</h3>
+                <p>가구 형태와 사는 곳을 알려주세요.</p>
+              </div>
+            </header>
+            <div class="qfield" data-field="household"><span class="qfield__label">가구 형태</span><div class="chips" role="radiogroup" aria-label="가구 형태"></div></div>
+            <div class="qfield" data-field="dual" data-show-if="household:couple,family"><span class="qfield__label">맞벌이인가요?</span><div class="chips" role="radiogroup" aria-label="맞벌이 여부"></div></div>
+            <div class="qfield" data-field="region"><span class="qfield__label">거주 지역</span><div class="chips" role="radiogroup" aria-label="거주 지역"></div></div>
+          </article>
+
+          <article class="card">
+            <header class="card__head">
+              <span class="step">B</span>
+              <div>
+                <h3>소득과 일</h3>
+                <p>대략적인 구간이면 충분해요.</p>
+              </div>
+            </header>
+            <div class="qfield" data-field="income"><span class="qfield__label">가구 연 소득 <em>세전</em></span><div class="chips" role="radiogroup" aria-label="가구 연 소득"></div></div>
+            <div class="qfield" data-field="worker"><span class="qfield__label">일 형태</span><div class="chips" role="radiogroup" aria-label="일 형태"></div></div>
+            <div class="qfield" data-field="age"><span class="qfield__label">나이</span><div class="chips" role="radiogroup" aria-label="나이"></div></div>
+          </article>
+
+          <article class="card">
+            <header class="card__head">
+              <span class="step">C</span>
+              <div>
+                <h3>살림</h3>
+                <p>주거 형태와 아이 나이를 알려주세요.</p>
+              </div>
+            </header>
+            <div class="qfield" data-field="housing"><span class="qfield__label">주거 형태</span><div class="chips" role="radiogroup" aria-label="주거 형태"></div></div>
+            <div class="qfield" data-field="children"><span class="qfield__label">자녀 수</span><div class="chips" role="radiogroup" aria-label="자녀 수"></div></div>
+            <div class="qfield" data-field="youngest" data-show-if="children:1,2,3"><span class="qfield__label">막내 나이</span><div class="chips" role="radiogroup" aria-label="막내 나이"></div></div>
+          </article>
+
+          <article class="card">
+            <header class="card__head">
+              <span class="step">D</span>
+              <div>
+                <h3>생활 조건</h3>
+                <p>해당되는 것만 골라주세요.</p>
+              </div>
+            </header>
+            <div class="qfield" data-field="transit"><span class="qfield__label">대중교통 <em>월 15회 이상</em></span><div class="chips" role="radiogroup" aria-label="대중교통 이용"></div></div>
+            <label class="input input--inline" id="transitSpendRow">
+              <span class="input__label">월 대중교통 지출</span>
+              <span class="input__box"><input id="transitSpend" type="text" inputmode="numeric" placeholder="예: 60,000"><span class="input__suffix">원</span></span>
+            </label>
+            <div class="qfield" data-field="telecom"><span class="qfield__label">통신 요금 감면 대상</span><div class="chips" role="radiogroup" aria-label="통신 요금 감면 대상"></div></div>
+            <div class="qfield" data-field="contract"><span class="qfield__label">선택약정 25% 할인</span><div class="chips" role="radiogroup" aria-label="선택약정 할인 여부"></div></div>
+            <div class="qfield" data-field="medical"><span class="qfield__label">연간 병원비 <em>본인부담</em></span><div class="chips" role="radiogroup" aria-label="연간 병원비"></div></div>
+            <div class="qfield" data-field="voucherMember" data-show-if="telecom:basic_liv,basic_other"><span class="qfield__label">세대원에 해당하는 사람이 있나요? <em>노인·영유아·장애인·임산부·다자녀</em></span><div class="chips" role="radiogroup" aria-label="에너지바우처 세대원 특성"></div></div>
+          </article>
+        </form>
+
+        <div id="benefitResult" class="result" aria-live="polite"></div>
+
+        <aside class="ad" aria-label="광고 영역">
+          <span class="ad__label">AD</span>
+          <div class="ad__box" data-ad-slot="benefits-bottom">
+            <!-- Google AdSense 슬롯: README의 안내에 따라 ins 태그로 교체하세요. -->
+          </div>
+        </aside>
+      </section>
+
+      <!-- ================= 공통: 블로그 / 전자책 ================= -->
+      <section class="aftercare" aria-labelledby="aftercareTitle">
+        <div class="aftercare__body">
+          <p class="eyebrow">더 아끼고 싶다면</p>
+          <h2 id="aftercareTitle">구독 정리·절약 팁, 계속 모아둘게요.</h2>
+          <p>고정비 점검표, 통신비·보험 정리법, 생활정보 글을 블로그에 정리하고 있어요. 진단 결과와 함께 보면 좋아요.</p>
+          <div class="aftercare__actions">
+            <a class="btn btn--light" href="https://blog.naver.com/ufssdf987" target="_blank" rel="noopener">절약·생활정보 블로그 보기</a>
+            <a class="btn btn--outline-light" href="https://blog.naver.com/ufssdf987" target="_blank" rel="noopener" id="ebookLink" hidden>전자책·가계부 템플릿</a>
+          </div>
+        </div>
+        <div class="aftercare__art" aria-hidden="true">
+          <span class="art-coin">₩</span>
+          <span class="art-ring"></span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__brand">
+        <img src="./icons/icon-192.png" alt="" width="24" height="24" decoding="async">
+        <strong>고정비 체크기</strong>
+      </div>
+      <p class="footer__note">
+        이 앱의 진단·지원금 안내는 공개된 2026년 제도 자료를 정리한 <strong>참고용 정보</strong>입니다. 실제 수령 여부와 금액은 각 기관의 심사 결과에 따라 달라질 수 있어요.
+      </p>
+      <p class="footer__note">
+        고정비 평균: 국가데이터처 「2026년 2분기 가계동향조사」 가구원수별 월평균 소비지출·항목별 지출을 고정비 항목에 맞춰 재구성. 지원제도 기준일 2026-11-25.
+      </p>
+      <nav class="footer__links" aria-label="관련 기관">
+        <a href="../">전체 앱</a>
+        <a href="https://www.gov.kr" target="_blank" rel="noopener">정부24</a>
+        <a href="https://www.bokjiro.go.kr" target="_blank" rel="noopener">복지로</a>
+        <a href="https://www.hometax.go.kr" target="_blank" rel="noopener">홈택스</a>
+        <a href="https://blog.naver.com/ufssdf987" target="_blank" rel="noopener">블로그</a>
+      </nav>
+      <p class="footer__copy">© 2026 고정비 체크기 · 이안이 아빠의 공간</p>
+    </footer>
+  </div>
+
+  <noscript>
+    <div class="noscript">이 진단기는 자바스크립트가 필요합니다. 브라우저 설정에서 자바스크립트를 켜 주세요.</div>
+  </noscript>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

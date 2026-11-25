@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>겨울 전기요금·누진세 계산기 | 난방가전 요금 폭탄 시뮬레이터</title>
+<meta name="description" content="한전 주택용 누진제(2026년 4분기 요금)로 이번 달 전기요금과 누진 단계를 바로 계산합니다. 히터·온수매트·전기요를 추가했을 때 늘어나는 요금과 슈퍼유저 진입 여부까지 한 번에 확인하세요.">
+<meta name="keywords" content="전기요금 계산기, 누진세 계산, 겨울 전기요금, 슈퍼유저 요금, 난방비 계산, 온수매트 전기요금, 전기히터 전기요금">
+<meta name="author" content="이안이 아빠의 공간">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://ufssdf987-creator.github.io/winter-power/">
+<meta name="theme-color" content="#eef2f7">
+<meta name="theme-color" content="#eef2f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#070c16" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="전기요금 계산">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="겨울 전기요금 계산기">
+<meta property="og:title" content="겨울 전기요금·누진세 계산기">
+<meta property="og:description" content="이번 달 전기요금과 누진 단계, 히터·온수매트 추가 시 요금 폭탄까지 3초 만에 계산합니다.">
+<meta property="og:url" content="https://ufssdf987-creator.github.io/winter-power/">
+<meta property="og:image" content="https://ufssdf987-creator.github.io/winter-power/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="겨울 전기요금·누진세 계산기">
+<meta name="twitter:description" content="이번 달 전기요금·누진 단계·난방가전 추가 요금을 한 번에.">
+<meta name="twitter:image" content="https://ufssdf987-creator.github.io/winter-power/og-image.png">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="styles.css">
+<script>
+  /* 첫 화면 깜빡임 방지: 저장된 테마를 CSS 적용 전에 반영 */
+  (function () {
+    try {
+      var saved = localStorage.getItem('wpc.theme');
+      var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', (saved === 'dark' || saved === 'light') ? saved : (dark ? 'dark' : 'light'));
+    } catch (e) { /* 저장소 접근 불가 시 기본 라이트 */ }
+  })();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "겨울 전기요금·누진세 계산기",
+  "url": "https://ufssdf987-creator.github.io/winter-power/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "inLanguage": "ko",
+  "description": "한전 주택용 전력(저압·고압) 누진제로 이번 달 전기요금과 누진 단계를 계산하고, 겨울 난방가전 추가 시 요금 변화를 시뮬레이션합니다.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+  "featureList": [
+    "주택용 저압·고압 누진 3단계 요금 계산",
+    "기본요금·전력량요금·기후환경요금·연료비조정액·부가세·전력기금 상세 내역",
+    "동계 슈퍼유저(1,000kWh 초과) 요금 반영",
+    "대가족·다자녀·출산가구·생명유지장치 복지할인",
+    "난방가전 추가 사용 시 요금·누진 단계 변화 시뮬레이션"
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+<div class="app-shell">
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" role="img" focusable="false">
+          <defs>
+            <linearGradient id="boltGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#7dd3fc"/><stop offset="1" stop-color="#2563eb"/>
+            </linearGradient>
+          </defs>
+          <rect x="1" y="1" width="46" height="46" rx="13" fill="none" stroke="currentColor" stroke-opacity=".18"/>
+          <path d="M27.5 6 13 27h9.2l-2.7 15L35 20.5h-9.3L27.5 6Z" fill="url(#boltGrad)"/>
+        </svg>
+      </span>
+      <div class="brand-text">
+        <h1>겨울 전기요금 계산기</h1>
+        <p>한전 주택용 누진제 · 2026년 4분기 기준</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button type="button" class="icon-btn install-btn" id="installBtn" hidden>앱 설치</button>
+      <button type="button" class="icon-btn theme-btn" id="themeBtn" aria-label="화면 테마 바꾸기" title="라이트/다크 전환">
+        <span id="themeIcon" aria-hidden="true">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="계산기 선택">
+    <button type="button" class="tab is-active" id="tabCalc" role="tab" aria-selected="true" aria-controls="panelCalc" tabindex="0">
+      <span class="tab-emoji" aria-hidden="true">⚡</span>
+      <span class="tab-label">이번 달 요금</span>
+    </button>
+    <button type="button" class="tab" id="tabSim" role="tab" aria-selected="false" aria-controls="panelSim" tabindex="-1">
+      <span class="tab-emoji" aria-hidden="true">🔥</span>
+      <span class="tab-label">난방가전 시뮬레이터</span>
+    </button>
+  </nav>
+
+  <main id="main">
+    <div class="ad-slot" data-ad-slot="top" aria-hidden="true" hidden></div>
+
+    <!-- ══════════ TAB 1: 이번 달 요금 ══════════ -->
+    <section class="panel is-active" id="panelCalc" role="tabpanel" aria-labelledby="tabCalc" tabindex="0">
+      <section class="card">
+        <div class="card-head">
+          <h2>우리 집 요금 계산</h2>
+          <p class="card-sub">청구서의 사용량을 넣으면 누진 단계까지 바로 나옵니다.</p>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="typeLabel">계약 종류</span>
+          <div class="segmented" role="group" aria-labelledby="typeLabel" data-segment="type">
+            <button type="button" data-value="low" class="is-active">
+              저압 <span>단독·빌라</span>
+            </button>
+            <button type="button" data-value="high">
+              고압 <span>아파트</span>
+            </button>
+          </div>
+          <p class="field-help">아파트 단지 전기(고압)는 단가가 조금 낮아요. 청구서에 “고압”이 없으면 저압으로 두세요.</p>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label class="field-label" for="monthSelect">계산할 달</label>
+            <div class="select-wrap">
+              <select id="monthSelect">
+                <option value="1">1월</option><option value="2">2월</option><option value="3">3월</option>
+                <option value="4">4월</option><option value="5">5월</option><option value="6">6월</option>
+                <option value="7">7월</option><option value="8">8월</option><option value="9">9월</option>
+                <option value="10">10월</option><option value="11">11월</option><option value="12">12월</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <span class="field-label">입력 방식</span>
+            <div class="segmented segmented-sm" role="group" aria-label="입력 방식" data-segment="mode">
+              <button type="button" data-value="usage" class="is-active">사용량</button>
+              <button type="button" data-value="bill">청구 금액</button>
+            </div>
+          </div>
+        </div>
+
+        <p class="season-note" id="seasonNote"></p>
+
+        <div class="field" id="usageField">
+          <label class="field-label" for="usageInput">이번 달 사용량</label>
+          <div class="input-wrap">
+            <input id="usageInput" type="number" inputmode="numeric" min="0" max="3000" step="1" value="350" autocomplete="off" aria-describedby="usageHelp">
+            <span class="unit">kWh</span>
+          </div>
+          <input class="range" id="usageRange" type="range" min="0" max="1000" step="5" value="350" aria-label="사용량 조절 슬라이더">
+          <div class="chips" role="group" aria-label="자주 쓰는 사용량">
+            <button type="button" data-usage="150">150</button>
+            <button type="button" data-usage="200">200</button>
+            <button type="button" data-usage="300">300</button>
+            <button type="button" data-usage="400">400</button>
+            <button type="button" data-usage="500">500</button>
+          </div>
+          <p class="field-help" id="usageHelp">청구서의 “사용량” 칸 숫자를 그대로 넣으면 됩니다.</p>
+        </div>
+
+        <div class="field" id="billField" hidden>
+          <label class="field-label" for="billInput">이번 달 청구 금액</label>
+          <div class="input-wrap">
+            <input id="billInput" type="number" inputmode="numeric" min="0" max="9999999" step="10" value="70640" autocomplete="off" aria-describedby="billHelp">
+            <span class="unit">원</span>
+          </div>
+          <p class="field-help" id="billHelp">부가세·전력기금이 포함된 결제 금액을 넣으면 사용량을 거꾸로 계산해요.</p>
+        </div>
+
+        <details class="discount-box" id="discountBox">
+          <summary>
+            <span class="summary-title">복지할인 적용</span>
+            <span class="badge-soft" id="discountBadge">해당 없음</span>
+          </summary>
+          <div class="discount-grid">
+            <label class="toggle">
+              <input type="checkbox" id="dcLarge" data-discount="large">
+              <span class="toggle-track" aria-hidden="true"></span>
+              <span class="toggle-text">대가족<small>5인 이상</small></span>
+            </label>
+            <label class="toggle">
+              <input type="checkbox" id="dcMulti" data-discount="multi">
+              <span class="toggle-track" aria-hidden="true"></span>
+              <span class="toggle-text">다자녀<small>3자녀 이상</small></span>
+            </label>
+            <label class="toggle">
+              <input type="checkbox" id="dcBirth" data-discount="birth">
+              <span class="toggle-track" aria-hidden="true"></span>
+              <span class="toggle-text">출산가구<small>3년 미만 아이</small></span>
+            </label>
+            <label class="toggle">
+              <input type="checkbox" id="dcLife" data-discount="life">
+              <span class="toggle-track" aria-hidden="true"></span>
+              <span class="toggle-text">생명유지장치<small>인공호흡기 등</small></span>
+            </label>
+          </div>
+          <p class="field-help">가족 할인은 요금의 30%, 월 16,000원까지예요. 생명유지장치는 30%에 한도가 없습니다. 여러 개를 골라도 <strong>한 가지 할인만</strong> 적용됩니다(한전 기준).</p>
+        </details>
+      </section>
+
+      <!-- 결과 -->
+      <section class="card result-card" id="calcResult">
+        <div class="result-head">
+          <div>
+            <p class="result-label">이번 달 예상 요금</p>
+            <p class="result-amount" aria-live="polite" aria-atomic="true"><span id="totalAmount">57,760</span><span class="won">원</span></p>
+            <p class="result-sub" id="resultSub">350kWh · 주택용 저압 · 11월</p>
+          </div>
+          <span class="tier-badge" id="tierBadge" data-tier="2">2단계</span>
+        </div>
+
+        <div class="gauge" id="gauge">
+          <div class="gauge-track" id="gaugeTrack">
+            <span class="gauge-fill" id="gaugeFill"></span>
+            <span class="gauge-seg gauge-seg1" id="seg1"></span>
+            <span class="gauge-seg gauge-seg2" id="seg2"></span>
+            <span class="gauge-seg gauge-seg3" id="seg3"></span>
+            <span class="gauge-super" id="segSuper" hidden></span>
+            <span class="gauge-marker" id="gaugeMarker"><span class="gauge-marker-label" id="gaugeMarkerLabel">350</span></span>
+          </div>
+          <div class="gauge-scale">
+            <span>0</span>
+            <span id="scaleB1">200</span>
+            <span id="scaleB2">400</span>
+            <span class="gauge-tick" id="scaleSuper" hidden>1,000</span>
+            <span id="scaleEnd">600</span>
+          </div>
+        </div>
+
+        <p class="insight" id="calcInsight"></p>
+
+        <details class="breakdown-box" id="breakdownBox" open>
+          <summary>
+            <span>요금 상세 내역</span>
+            <span class="summary-hint">한전 계산 방식 그대로</span>
+          </summary>
+          <div class="breakdown" id="breakdown"></div>
+        </details>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="shareCalc">
+            <span aria-hidden="true">📋</span> 결과 복사하기
+          </button>
+        </div>
+      </section>
+
+      <div class="ad-slot" data-ad-slot="mid" aria-hidden="true" hidden></div>
+
+      <!-- 절약 가전 비교 + 제휴 -->
+      <section class="card promo-card" id="promoSection">
+        <div class="card-head">
+          <h2 id="promoHeading">전기 덜 먹는 겨울 가전</h2>
+          <p class="card-sub" id="promoSub">같은 난방이라도 소비전력에 따라 요금 차이가 커요.</p>
+        </div>
+
+        <div class="compare" id="compareWrap">
+          <div class="compare-head">
+            <span>기기</span><span>W</span><span>1시간</span><span>30일·8h</span>
+          </div>
+          <div class="compare-list" id="compareList"></div>
+          <p class="compare-note" id="compareNote">지금 구간의 1kWh당 실제 부담액(부가세·기금 포함)으로 계산했어요.</p>
+        </div>
+
+        <div class="promo-grid" id="promoList"></div>
+        <p class="ad-disclosure" id="promoDisclosure">쿠팡파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+      </section>
+
+      <section class="card tips-card">
+        <h2>겨울 요금, 이렇게 줄여요</h2>
+        <ul class="tips">
+          <li><strong>1·2단계 안에서 쓰기</strong> — 400kWh를 넘는 순간 기본요금이 1,600원에서 7,300원으로(저압 기준) 올라갑니다. 이미 넘었다면 다음 달에 1kWh라도 줄이는 게 이득이에요.</li>
+          <li><strong>12~2월 1,000kWh는 선</strong> — 동계에는 1,000kWh 초과분에 kWh당 736.2원(저압)이 붙습니다. 팬히터(2,000W)는 하루 3시간만 써도 한 달 180kWh예요.</li>
+          <li><strong>같은 시간이면 낮은 W</strong> — 전기요(100W)는 온수매트(250W)의 40%, 팬히터(2,000W)의 5%만 씁니다. 잘 때는 전기요·온수매트가 유리해요.</li>
+        </ul>
+      </section>
+    </section>
+
+    <!-- ══════════ TAB 2: 난방가전 시뮬레이터 ══════════ -->
+    <section class="panel" id="panelSim" role="tabpanel" aria-labelledby="tabSim" tabindex="0" hidden>
+      <section class="card">
+        <div class="card-head">
+          <h2>겨울 난방가전, 얼마나 더 나올까?</h2>
+          <p class="card-sub">지금 쓰는 양에 전열기기를 더했을 때의 요금과 누진 단계를 계산합니다.</p>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label class="field-label" for="simBase">지금 월 사용량</label>
+            <div class="input-wrap input-wrap-sm">
+              <input id="simBase" type="number" inputmode="numeric" min="0" max="3000" step="1" value="350" autocomplete="off">
+              <span class="unit">kWh</span>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label" for="simDays">사용 일수</label>
+            <div class="input-wrap input-wrap-sm">
+              <input id="simDays" type="number" inputmode="numeric" min="1" max="31" step="1" value="30" autocomplete="off">
+              <span class="unit">일</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label class="field-label" for="simMonth">계산할 달</label>
+            <div class="select-wrap">
+              <select id="simMonth">
+                <option value="1">1월</option><option value="2">2월</option><option value="3">3월</option>
+                <option value="4">4월</option><option value="5">5월</option><option value="6">6월</option>
+                <option value="7">7월</option><option value="8">8월</option><option value="9">9월</option>
+                <option value="10">10월</option><option value="11">11월</option><option value="12">12월</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <span class="field-label">계약 종류</span>
+            <div class="segmented segmented-sm" role="group" aria-label="시뮬레이터 계약 종류" data-segment="simType">
+              <button type="button" data-value="low" class="is-active">저압</button>
+              <button type="button" data-value="high">고압</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <span class="field-label">쓸 전열기기 <small>여러 개 선택 가능</small></span>
+            <span class="badge-soft" id="deviceCount">0개</span>
+          </div>
+          <div class="device-list" id="deviceList"></div>
+          <p class="field-help">제품 스펙의 <strong>소비전력(W)</strong>과 하루 사용 시간을 넣으면 됩니다. 실제 소비전력은 최대치와 다를 수 있어요.</p>
+        </div>
+      </section>
+
+      <section class="card result-card sim-result" id="simResult">
+        <p class="result-label">한 달에 더 나오는 요금</p>
+        <p class="result-amount result-amount-hot" aria-live="polite" aria-atomic="true"><span class="plus">+</span><span id="simDelta">0</span><span class="won">원</span></p>
+        <p class="result-sub" id="simSub">기기를 선택하면 계산됩니다</p>
+
+        <div class="sim-grid">
+          <div class="sim-cell">
+            <span>추가 사용량</span>
+            <strong id="simAddedKwh">0 kWh</strong>
+          </div>
+          <div class="sim-cell">
+            <span>총 사용량</span>
+            <strong id="simTotalKwh">350 kWh</strong>
+          </div>
+          <div class="sim-cell">
+            <span>새 총 요금</span>
+            <strong id="simTotalBill">57,760원</strong>
+          </div>
+          <div class="sim-cell">
+            <span>하루 평균 추가</span>
+            <strong id="simDaily">0원</strong>
+          </div>
+        </div>
+
+        <div class="tier-flow" id="tierFlow" data-jump="false">
+          <span class="tier-pill" id="tierFrom" data-tier="2">2단계</span>
+          <span class="tier-arrow" aria-hidden="true">→</span>
+          <span class="tier-pill" id="tierTo" data-tier="2">2단계</span>
+          <span class="jump-badge" id="jumpBadge" hidden>누진 점프</span>
+        </div>
+
+        <p class="insight" id="simInsight"></p>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="shareSim">
+            <span aria-hidden="true">📋</span> 결과 복사하기
+          </button>
+        </div>
+      </section>
+
+      <section class="card tips-card">
+        <h2>전열기기, 이렇게 쓰면 덜 나와요</h2>
+        <ul class="tips">
+          <li><strong>켜 두는 시간을 줄이는 게 가장 큽니다.</strong> 2,000W 팬히터는 1시간에 2kWh, 하루 2시간이면 한 달 120kWh예요. 3단계 구간에서는 1kWh가 350원 안팎이 됩니다.</li>
+          <li><strong>잘 때는 전기요·온수매트로.</strong> 100~250W 기기는 8시간을 써도 0.8~2kWh입니다. 난방기기 타이머를 끄고 바꾸는 것만으로도 차이가 커요.</li>
+          <li><strong>1,000kWh 근처라면 특히 조심.</strong> 동계(12~2월)에는 1,000kWh를 넘는 순간 그 초과분에 슈퍼유저 단가(저압 736.2원/kWh)가 붙습니다.</li>
+        </ul>
+      </section>
+    </section>
+
+    <div class="ad-slot" data-ad-slot="bottom" aria-hidden="true" hidden></div>
+
+    <footer class="app-footer">
+      <p class="disclaimer">
+        <strong>참고용 예상 금액입니다.</strong> 한국전력 주택용 전력(저압·고압) 요금표(2023.11.9 시행)와
+        기후환경요금 9.0원/kWh, <span id="fuelQuarter">2026년 4분기</span> 연료비조정단가 +5.0원/kWh,
+        부가가치세 10%, 전력산업기반기금 2.7%를 반영했습니다. TV 수신료·자동이체 할인·연체료,
+        200kWh 이하 복지할인 추가감액은 포함하지 않았으며, 실제 청구액은 한전ON·고지서와 다를 수 있습니다.
+      </p>
+      <p class="footer-links">
+        <a href="../">전체 앱</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://cyber.kepco.co.kr/ckepco/front/jsp/CY/E/E/CYEEHP00101.jsp" target="_blank" rel="noopener">한전 요금표</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://cyber.kepco.co.kr/ckepco/front/jsp/CY/H/C/CYHCHP00208.jsp" target="_blank" rel="noopener">복지할인 안내</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://blog.naver.com/ufssdf987" target="_blank" rel="noopener">운영 블로그</a>
+      </p>
+      <p class="footer-meta">
+        <span>요금 기준일 <time id="dataDate" datetime="2026-11-25">2026-11-25</time></span>
+        <span aria-hidden="true">·</span>
+        <span>v<span id="appVersion">1.0.0</span></span>
+        <span aria-hidden="true">·</span>
+        <span>개인정보를 저장하지 않습니다</span>
+      </p>
+      <p class="ad-disclosure" id="footerDisclosure">쿠팡파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+    </footer>
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<noscript>
+  <div class="noscript">이 계산기는 자바스크립트를 사용합니다. 브라우저 설정에서 자바스크립트를 켜 주세요.</div>
+</noscript>
+
+<script src="config.js"></script>
+<script src="tariff.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
