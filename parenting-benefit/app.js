@@ -417,6 +417,16 @@
       });
     });
 
+    all(".switch-row").forEach(function (row) {
+      var cb = row.querySelector('input[type="checkbox"]');
+      if (!cb) return;
+      on(row, "click", function (e) {
+        if (e.target === cb || e.target.tagName === "LABEL" || e.target.tagName === "INPUT") return;
+        cb.checked = !cb.checked;
+        cb.dispatchEvent(new Event("change", { bubbles: true }));
+      });
+    });
+
     all("[data-toggle]").forEach(function (cb) {
       on(cb, "change", function () {
         state[cb.getAttribute("data-toggle")] = cb.checked;
