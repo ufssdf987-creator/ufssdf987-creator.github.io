@@ -150,6 +150,7 @@
         month: w.month,
         covers: w.covers,
         days: w.days,
+        denom: w.denom,
         discount: discount,
         pay: annualTotal - discount,
         rate: annualTotal > 0 ? discount / annualTotal : 0

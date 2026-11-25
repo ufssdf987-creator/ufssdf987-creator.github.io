@@ -35,7 +35,7 @@
   var last = { tax: null, fuel: null };
 
   // 연납 공제율 공표값(연세액 대비, 10원 절사 전 이론값)
-  var WINDOW_RATE = { 1: "4.58%", 3: "3.77%", 6: "2.52%", 9: "1.25%" };
+  var WINDOW_RATE = { 1: "4.58%", 3: "3.77%", 6: "2.52%", 9: "1.26%" };
 
   /* ── 도우미 ──────────────────────────────────────────────── */
   function $(id) { return document.getElementById(id); }
@@ -208,7 +208,7 @@
     b.push(row("지방교육세 30%", "+" + won(r.eduTax), "자동차세액의 30%"));
     b.push(row("연세액", won(r.annualTotal), "자동차세 + 지방교육세", "sum"));
     b.push(row("연납 공제", "−" + won(r.saving),
-      m + "월 " + r.pick.days + "/" + (m === 9 ? 184 : 365) + " × 5%"));
+      m + "월 " + r.pick.days + "/" + r.pick.denom + " × 5%"));
     b.push(row("최종 납부액", won(r.pay), m + "월 " + windowRange(m) + " 납부", "final"));
     setHTML("tax-breakdown-body", b.join(""));
 
