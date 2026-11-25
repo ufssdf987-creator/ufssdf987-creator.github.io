@@ -147,6 +147,8 @@
     setText("leave-sub", "월 통상임금 " + man(r.wage) + " · " + specialNote(r) + " · " + r.months + "개월");
 
     setText("stat-first3", man(r.bands.first3));
+    setText("stat-first3-note", r.household === "single" ? "통상임금 100% · 월 300만까지"
+      : (r.common >= 3 ? "100% · 6+6 상한 250·250·300만" : "통상임금 100% · 월 250만까지"));
     setText("stat-mid", man(r.bands.m4to6));
     setText("stat-late", man(r.bands.m7plus));
     setText("stat-mid-note", r.common >= 6 ? "100% · 6+6 상한" : "통상임금 100% · 월 200만까지");
