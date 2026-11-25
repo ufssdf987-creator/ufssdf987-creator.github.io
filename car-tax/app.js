@@ -36,7 +36,7 @@
 
   /* ── 도우미 ──────────────────────────────────────────────── */
   function $(id) { return document.getElementById(id); }
-  function all(sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); }
+  function all(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
   function on(el, ev, fn) { if (el) el.addEventListener(ev, fn); }
   function setText(id, v) { var e = $(id); if (e) e.textContent = v; }
   function setHTML(id, v) { var e = $(id); if (e) e.innerHTML = v; }
@@ -421,7 +421,10 @@
             state.type = v;
           } else if (group === "applyMonth") {
             state.applyMonth = Number(v);
+          } else {
+            return;
           }
+          sanitize();
           renderAll();
           save();
         });
