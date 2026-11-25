@@ -582,11 +582,11 @@ a { color: var(--brand); }
   border: 1px solid var(--line-soft);
 }
 .refund-bar {
-  position: relative;
+  display: flex;
   height: 14px;
   border-radius: 999px;
   overflow: hidden;
-  background: var(--brand);
+  background: var(--field);
   border: 1px solid var(--line-soft);
 }
 .ratio-part, .refund-part {
@@ -595,9 +595,9 @@ a { color: var(--brand); }
   transition: width .35s ease;
   min-width: 0;
 }
-.refund-part { position: absolute; top: 0; left: 0; }
-.part-paid { width: 100%; background: var(--brand); }
-.part-final { z-index: 1; background: var(--refund); }
+.refund-part { flex: 0 0 auto; }
+.part-paid { background: var(--brand); }
+.part-final { background: var(--refund); }
 .part-final.is-due { background: var(--due); }
 .part-credit { background: var(--credit); }
 .part-check { background: var(--check); }

@@ -2,7 +2,7 @@
  * 앱 셸을 미리 저장해 두고, 오프라인에서도 계산기가 열리도록 합니다.
  * 파일을 수정하면 VERSION 을 올려 주세요(예: v1.0.1).
  */
-const VERSION = "v1.0.1";
+const VERSION = "v1.0.2";
 const CACHE = `year-end-tax-${VERSION}`;
 
 const PRECACHE = [
@@ -24,7 +24,7 @@ self.addEventListener("install", (event) => {
   event.waitUntil(
     caches
       .open(CACHE)
-      .then((cache) => cache.addAll(PRECACHE))
+      .then((cache) => cache.addAll(PRECACHE.map((url) => new Request(url, { cache: "reload" }))))
       .then(() => self.skipWaiting())
   );
 });

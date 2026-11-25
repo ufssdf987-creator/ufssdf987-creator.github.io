@@ -422,13 +422,27 @@
     /* 기납부 vs 결정 */
     var paid = res.withheld.value;
     var fin = chosen.total;
-    setBar("refund-paid", 100);
-    setBar("refund-final", paid > 0 ? Math.min(100, (fin / paid) * 100) : (fin > 0 ? 100 : 0));
     var finalBar = $("refund-final");
-    if (finalBar) finalBar.classList.toggle("is-due", fin > paid);
+    if (fin <= paid) {
+      var keptPct = paid > 0 ? (fin / paid) * 100 : 0;
+      setBar("refund-paid", keptPct);
+      setBar("refund-final", Math.max(0, 100 - keptPct));
+      setText("legend-paid-label", "결정세액");
+      setText("legend-final-label", "환급");
+      setText("legend-paid", won(fin));
+      setText("legend-final", won(Math.max(0, paid - fin)));
+      if (finalBar) finalBar.classList.remove("is-due");
+    } else {
+      var paidPct = fin > 0 ? (paid / fin) * 100 : 0;
+      setBar("refund-paid", paidPct);
+      setBar("refund-final", Math.max(0, 100 - paidPct));
+      setText("legend-paid-label", "기납부");
+      setText("legend-final-label", "추가 납부");
+      setText("legend-paid", won(paid));
+      setText("legend-final", won(fin - paid));
+      if (finalBar) finalBar.classList.add("is-due");
+    }
     setText("refund-bar-label", bal.isRefund ? "환급 " + short(bal.abs) : (bal.isDue ? "추가 납부 " + short(bal.abs) : "차액 없음"));
-    setText("legend-paid", won(paid) + (res.withheld.estimated ? " (추정)" : ""));
-    setText("legend-final", won(fin));
 
     var topItem = chosen.items.slice().sort(function (a, b) { return b.credit - a.credit; })[0];
     var foot = "카드 소득공제 " + short(res.card.final) + " + 세액공제 " + short(chosen.totalCredit) + "이 반영됐습니다.";
