@@ -34,6 +34,9 @@
   var state = {};
   var last = { tax: null, fuel: null };
 
+  // 연납 공제율 공표값(연세액 대비, 10원 절사 전 이론값)
+  var WINDOW_RATE = { 1: "4.58%", 3: "3.77%", 6: "2.52%", 9: "1.25%" };
+
   /* ── 도우미 ──────────────────────────────────────────────── */
   function $(id) { return document.getElementById(id); }
   function all(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
@@ -162,7 +165,7 @@
     setText("stat-pay", won(r.pay));
     setText("stat-pay-note", mLabel + " " + windowRange(m));
     setText("stat-saving", won(r.saving));
-    setText("stat-saving-note", "연세액의 " + pct(r.pick.rate));
+    setText("stat-saving-note", "연세액의 약 " + (WINDOW_RATE[m] || pct(r.pick.rate)));
 
     setText("bar-label", won(r.annualTotal));
     setText("legend-base", won(r.baseTax));
@@ -230,12 +233,6 @@
       ? "2026년 연납 창구는 9월 30일로 모두 마감됐습니다. 지금 계산한 금액은 2027년 1월 창구를 준비할 때 그대로 쓰시면 됩니다."
       : "2027년 연납 공제율은 2026년 12월 시행령 개정 전까지 5%로 보고 계산했습니다. 신청 전 위택스 안내를 확인하세요.");
 
-    all(".seg[data-group='applyMonth'] button").forEach(function (btn) {
-      var mm = Number(btn.getAttribute("data-value"));
-      var label = btn.querySelector("small");
-      var w = r.windows.filter(function (x) { return x.month === mm; })[0];
-      if (w && label) label.textContent = "약 " + pct(w.rate, 2);
-    });
   }
 
   function row(label, value, note, cls) {
@@ -256,7 +253,12 @@
     var priceEl = $("price-input");
     if (priceEl) priceEl.setAttribute("data-unit", "원/" + f.unit);
 
-    var r = C.calcFuel(state);
+    var r = C.calcFuel({
+      fuel: state.fuel,
+      efficiency: state.eff,
+      monthlyKm: state.km,
+      unitPrice: state.price
+    });
     last.fuel = r;
 
     var costWord = r.fuel === "ev" ? "충전비" : "기름값";
