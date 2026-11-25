@@ -1245,3 +1245,23 @@ a { color: var(--brand); }
   line-height: 1.6;
   color: var(--ink-3);
 }
+
+/* ── 함께 많이 쓰는 계산기 ─────────────────────────────────── */
+.related-apps { margin: 18px 0 14px; }
+.related-apps h2 { color: var(--ink); font-size: 14px; font-weight: 800; margin: 0 2px 9px; }
+.related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+.related-app {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 13px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--card);
+  text-decoration: none;
+  transition: border-color .14s ease, transform .14s ease;
+}
+.related-app:hover { border-color: var(--brand); transform: translateY(-2px); }
+.related-app strong { color: var(--ink); font-size: 13px; font-weight: 800; }
+.related-app span { color: var(--ink-3); font-size: 11px; line-height: 1.5; }
+@media (max-width: 360px) { .related-grid { grid-template-columns: 1fr; } }

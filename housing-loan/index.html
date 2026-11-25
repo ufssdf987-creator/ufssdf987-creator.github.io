@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>청약 가점·신생아 특례대출 계산기 | 84점 가점 + 월 이자 시뮬레이터</title>
+<meta name="description" content="무주택기간·부양가족수·청약통장 가입기간으로 청약 가점(84점 만점)을 계산하고, 신생아 특례대출(구입·전세)의 자격·한도·금리와 월 상환액·총 이자·DSR까지 한 번에 확인하세요. 2026년 기준.">
+<meta name="keywords" content="청약 가점 계산기, 청약 가점 84점, 무주택기간 점수, 부양가족수 점수, 신생아 특례대출, 신생아 특례 디딤돌, 신생아 특례 버팀목, 대출 이자 계산기, DSR 계산">
+<meta name="author" content="이안이 아빠의 공간">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://ufssdf987-creator.github.io/housing-loan/">
+<meta name="theme-color" content="#eef2f7">
+<meta name="theme-color" content="#eef2f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#070c16" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="청약·특례대출">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="청약 가점·신생아 특례대출 계산기">
+<meta property="og:title" content="청약 가점 84점 계산기 + 신생아 특례대출 월 이자">
+<meta property="og:description" content="내 청약 가점과 신생아 특례대출 한도·금리·월 상환액을 3초에 계산합니다.">
+<meta property="og:url" content="https://ufssdf987-creator.github.io/housing-loan/">
+<meta property="og:image" content="https://ufssdf987-creator.github.io/housing-loan/icons/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="청약 가점 84점 계산기 + 신생아 특례대출">
+<meta name="twitter:description" content="가점 3항목과 특례대출 한도·금리·월 이자를 한 화면에서.">
+<meta name="twitter:image" content="https://ufssdf987-creator.github.io/housing-loan/icons/og-image.png">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="styles.css">
+<script>
+  /* 첫 화면 깜빡임 방지: 저장된 테마를 CSS 적용 전에 반영 */
+  (function () {
+    try {
+      var saved = localStorage.getItem('hln.theme');
+      var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', (saved === 'dark' || saved === 'light') ? saved : (dark ? 'dark' : 'light'));
+    } catch (e) { /* 저장소 접근 불가 시 기본 라이트 */ }
+  })();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "청약 가점·신생아 특례대출 계산기",
+  "url": "https://ufssdf987-creator.github.io/housing-loan/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "inLanguage": "ko",
+  "description": "무주택기간·부양가족수·청약통장 가입기간으로 청약 가점을 계산하고, 신생아 특례대출의 자격·한도·금리와 월 상환액을 시뮬레이션합니다.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+  "featureList": [
+    "청약 가점 84점 계산(무주택기간 32·부양가족 35·통장 17)",
+    "가점제·추첨제 비율 안내(규제지역·전용면적별)",
+    "신생아 특례 구입·전세자금 자가진단",
+    "2026년 특례금리표로 금리 자동 계산",
+    "원리금균등·원금균등 월 상환액과 총 이자",
+    "연소득 대비 원리금 비율(DSR 참고) 계산"
+  ]
+}
+</script>
+<!-- Google AdSense — 사이트 확인·광고 로딩용 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4355917079579050" crossorigin="anonymous"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+<div class="app-shell">
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" role="img" focusable="false">
+          <defs>
+            <linearGradient id="houseGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#7dd3fc"/><stop offset="1" stop-color="#2563eb"/>
+            </linearGradient>
+          </defs>
+          <rect x="1" y="1" width="46" height="46" rx="13" fill="none" stroke="currentColor" stroke-opacity=".18"/>
+          <path d="M24 8.5 9.5 21.2h4.2V38h8.1v-8.2h4.4V38h8.1V21.2h4.2L24 8.5Z" fill="url(#houseGrad)"/>
+          <path d="M17.6 12.6V9.4h3.4v.9l-3.4 2.3Z" fill="url(#houseGrad)" opacity=".7"/>
+        </svg>
+      </span>
+      <div class="brand-text">
+        <h1>청약 가점·특례대출</h1>
+        <p>84점 가점 · 신생아 특례대출 · 2026년 기준</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button type="button" class="icon-btn install-btn" id="installBtn" hidden>앱 설치</button>
+      <button type="button" class="icon-btn theme-btn" id="themeBtn" aria-label="화면 테마 바꾸기" title="라이트/다크 전환">
+        <span id="themeIcon" aria-hidden="true">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="계산기 선택">
+    <button type="button" class="tab is-active" id="tabScore" role="tab" aria-selected="true" aria-controls="panelScore" tabindex="0">
+      <span class="tab-emoji" aria-hidden="true">🏠</span>
+      <span class="tab-label">청약 가점 84점</span>
+    </button>
+    <button type="button" class="tab" id="tabLoan" role="tab" aria-selected="false" aria-controls="panelLoan" tabindex="-1">
+      <span class="tab-emoji" aria-hidden="true">🍼</span>
+      <span class="tab-label">신생아 특례대출</span>
+    </button>
+  </nav>
+
+  <main id="main">
+    <div class="ad-slot" data-ad-slot="top" aria-hidden="true" hidden></div>
+
+    <!-- ══════════ 탭 1: 청약 가점 ══════════ -->
+    <section class="panel is-active" id="panelScore" role="tabpanel" aria-labelledby="tabScore" tabindex="0">
+      <section class="card">
+        <div class="card-head">
+          <h2>내 청약 가점 계산</h2>
+          <p class="card-sub">무주택기간·부양가족수·통장 가입기간, 세 항목을 더해 84점 만점입니다.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="houseYears">무주택기간</label>
+            <span class="badge-soft" id="scoreHouse">12점 / 32점</span>
+          </div>
+          <div class="input-wrap">
+            <input id="houseYears" type="number" inputmode="decimal" min="0" max="40" step="0.5" value="5" autocomplete="off" aria-describedby="houseHelp">
+            <span class="unit">년</span>
+          </div>
+          <input class="range" id="houseRange" type="range" min="0" max="20" step="0.5" value="5" aria-label="무주택기간 조절">
+          <div class="chips" role="group" aria-label="무주택기간 빠른 선택">
+            <button type="button" data-house="0">0년</button>
+            <button type="button" data-house="1">1년</button>
+            <button type="button" data-house="3">3년</button>
+            <button type="button" data-house="5">5년</button>
+            <button type="button" data-house="10">10년</button>
+            <button type="button" data-house="15">15년</button>
+          </div>
+          <label class="toggle toggle-line" for="ownsHome">
+            <input type="checkbox" id="ownsHome">
+            <span class="toggle-track" aria-hidden="true"></span>
+            <span class="toggle-text">유주택 세대이거나 만 30세 미만 미혼<small>이 경우 무주택기간은 0점입니다</small></span>
+          </label>
+          <p class="field-help" id="houseHelp">만 30세가 되는 날부터 공고일까지 셉니다. 30세 전에 혼인했다면 혼인신고일부터, 주택을 가진 적이 있으면 처분 후 무주택이 된 날부터 다시 셉니다.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <span class="field-label">부양가족수 <small>본인 제외</small></span>
+            <span class="badge-soft" id="scoreFamily">15점 / 35점</span>
+          </div>
+          <div class="stepper" role="group" aria-label="부양가족수">
+            <button type="button" id="depMinus" aria-label="부양가족수 줄이기">−</button>
+            <output id="depCount" aria-live="polite">2명</output>
+            <button type="button" id="depPlus" aria-label="부양가족수 늘리기">+</button>
+          </div>
+          <p class="field-help">배우자, 미혼 자녀, 3년 이상 같은 등본에 있는 직계존속이 포함됩니다. 6명 이상은 35점 만점입니다.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="accountYears">청약통장 가입기간</label>
+            <span class="badge-soft" id="scoreAccount">10점 / 17점</span>
+          </div>
+          <div class="input-wrap">
+            <input id="accountYears" type="number" inputmode="decimal" min="0" max="40" step="0.5" value="8" autocomplete="off">
+            <span class="unit">년</span>
+          </div>
+          <input class="range" id="accountRange" type="range" min="0" max="20" step="0.5" value="8" aria-label="청약통장 가입기간 조절">
+          <div class="chips" role="group" aria-label="통장 가입기간 빠른 선택">
+            <button type="button" data-account="0.5">6개월</button>
+            <button type="button" data-account="1">1년</button>
+            <button type="button" data-account="5">5년</button>
+            <button type="button" data-account="10">10년</button>
+            <button type="button" data-account="15">15년</button>
+          </div>
+          <details class="mini-box">
+            <summary>
+              <span>배우자 통장도 있나요?</span>
+              <span class="badge-soft" id="spouseBadge">+0점</span>
+            </summary>
+            <label class="toggle toggle-line" for="spouseOn">
+              <input type="checkbox" id="spouseOn">
+              <span class="toggle-track" aria-hidden="true"></span>
+              <span class="toggle-text">배우자 청약통장 가입<small>가입기간의 50%, 최대 3점</small></span>
+            </label>
+            <div class="input-wrap input-wrap-sm" id="spouseWrap" hidden>
+              <input id="spouseYears" type="number" inputmode="decimal" min="0" max="40" step="0.5" value="3" autocomplete="off" aria-label="배우자 통장 가입기간">
+              <span class="unit">년</span>
+            </div>
+            <p class="field-help">배우자 가입기간의 50%를 같은 점수표로 계산해 최대 3점을 더합니다. 본인 점수와 합쳐 17점을 넘지 않습니다. 노부모부양 특별공급에는 더하지 않습니다.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="card result-card" id="scoreResult">
+        <div class="result-head">
+          <div>
+            <p class="result-label">청약 가점 총점</p>
+            <p class="result-amount" aria-live="polite" aria-atomic="true"><span id="scoreTotal">37</span><span class="won">/ 84점</span></p>
+            <p class="result-sub" id="scoreSub">무주택 5년 · 부양가족 2명 · 통장 8년</p>
+          </div>
+          <span class="tier-badge" id="scoreBadge" data-tier="2">44%</span>
+        </div>
+
+        <div class="score-bar" role="img" aria-label="항목별 점수 막대" id="scoreBar">
+          <span class="score-seg" data-item="house"><i id="segHouse"></i></span>
+          <span class="score-seg" data-item="family"><i id="segFamily"></i></span>
+          <span class="score-seg" data-item="account"><i id="segAccount"></i></span>
+        </div>
+        <div class="score-legend">
+          <span><i class="dot" data-item="house" aria-hidden="true"></i>무주택 <b id="legHouse">12</b><em>/32</em></span>
+          <span><i class="dot" data-item="family" aria-hidden="true"></i>부양가족 <b id="legFamily">15</b><em>/35</em></span>
+          <span><i class="dot" data-item="account" aria-hidden="true"></i>통장 <b id="legAccount">10</b><em>/17</em></span>
+        </div>
+
+        <div class="breakdown" id="scoreRows"></div>
+
+        <p class="insight" id="scoreInsight"></p>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="shareScore">
+            <span aria-hidden="true">📋</span> 결과 복사하기
+          </button>
+        </div>
+      </section>
+
+      <div class="ad-slot" data-ad-slot="mid" aria-hidden="true" hidden></div>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>이 점수는 어디에 쓰이나</h2>
+          <p class="card-sub">민영주택 일반공급 1순위에서 경쟁이 있을 때 적용됩니다.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <caption class="sr-only">지역과 전용면적에 따른 가점제·추첨제 비율</caption>
+            <thead>
+              <tr>
+                <th scope="col">전용면적</th>
+                <th scope="col">투기과열지구</th>
+                <th scope="col">청약과열지역</th>
+                <th scope="col">그 밖의 지역</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">60㎡ 이하</th>
+                <td>가점 40%<br>추첨 60%</td>
+                <td>가점 40%<br>추첨 60%</td>
+                <td>가점 40% 이하<br><small>지자체 공고</small></td>
+              </tr>
+              <tr>
+                <th scope="row">60~85㎡</th>
+                <td>가점 70%<br>추첨 30%</td>
+                <td>가점 70%<br>추첨 30%</td>
+                <td>가점 40% 이하<br><small>지자체 공고</small></td>
+              </tr>
+              <tr>
+                <th scope="row">85㎡ 초과</th>
+                <td>가점 80%<br>추첨 20%</td>
+                <td>가점 50%<br>추첨 50%</td>
+                <td>추첨 100%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="tips">
+          <li><strong>추첨 물량에도 순서가 있습니다.</strong> 투기과열지구·청약과열지역·수도권·광역시에서는 추첨 물량의 75%를 무주택 세대원에게 먼저 배정합니다.</li>
+          <li><strong>가점에서 떨어져도 추첨으로 한 번 더.</strong> 같은 단지 추첨제 대상에 자동으로 들어갑니다. 2순위는 전부 추첨입니다.</li>
+          <li><strong>국민주택(공공분양)은 가점제가 아닙니다.</strong> 일반공급은 무주택기간과 저축총액·납입 횟수 순서로 뽑습니다.</li>
+          <li><strong>동점이면 통장 가입기간이 긴 사람</strong>이 먼저이고, 그것도 같으면 추첨입니다.</li>
+          <li><strong>1주택 세대·최근 2년 가점 당첨 세대</strong>는 규제지역에서 가점제 대상이 아니고 추첨제로만 들어갑니다.</li>
+        </ul>
+      </section>
+
+      <section class="card faq-card">
+        <h2>점수 계산에서 자주 틀리는 곳</h2>
+        <details class="faq">
+          <summary>무주택기간은 언제부터 세나요?</summary>
+          <p>청약신청자가 만 30세가 되는 날부터 입주자모집공고일까지입니다. 30세가 되기 전에 혼인했다면 혼인신고일부터 셉니다. 신청자나 배우자가 주택(분양권·입주권 포함)을 가진 적이 있으면, 그 주택을 처분해 무주택이 된 날과 위 기산일 중 <strong>늦은 날</strong>부터 다시 셉니다. 두 번 이상이면 가장 최근에 무주택이 된 날입니다.</p>
+        </details>
+        <details class="faq">
+          <summary>누가 부양가족으로 인정되나요?</summary>
+          <p>공고일 현재 신청자나 배우자와 같은 주민등록표에 있는 세대원입니다. 본인은 빠지고 <strong>배우자는 포함</strong>됩니다(주소가 달라도 포함). 자녀는 미혼이어야 하고, 만 30세 이상 자녀는 최근 1년 이상 같은 등본에 있어야 합니다. 부모·조부모는 신청자가 세대주이면서 최근 3년 이상 같은 등본에 있어야 하며, 부모 중 한 명이라도 주택을 소유하면 두 분 모두 빠집니다.</p>
+        </details>
+        <details class="faq">
+          <summary>통장 가입기간은 어떻게 세나요?</summary>
+          <p>최초 가입일부터 공고일까지입니다. 통장 종류·금액을 바꾸거나 명의를 변경해도 처음 가입한 날이 기준입니다. 다만 미성년자로 가입한 기간은 5년까지만 인정됩니다(2023년 말 이전분 2년, 2024년 이후분과 합산해 최대 5년).</p>
+        </details>
+        <details class="faq">
+          <summary>만점 84점은 현실적으로 나오나요?</summary>
+          <p>무주택 15년(32점)·부양가족 6명 이상(35점)·통장 15년(17점)을 모두 채워야 84점입니다. 1인 가구는 부양가족이 0명이라 5점에 머물러, 기간이 아무리 길어도 54점이 상한입니다. 그래서 1인 가구는 85㎡ 초과 추첨 물량이나 60㎡ 이하 추첨 물량을 함께 노리는 경우가 많습니다.</p>
+        </details>
+      </section>
+    </section>
+
+    <!-- ══════════ 탭 2: 신생아 특례대출 ══════════ -->
+    <section class="panel" id="panelLoan" role="tabpanel" aria-labelledby="tabLoan" tabindex="0" hidden>
+      <section class="card">
+        <div class="card-head">
+          <h2>신생아 특례대출 자가진단</h2>
+          <p class="card-sub">조건을 넣으면 자격·한도·금리와 월 상환액을 계산합니다.</p>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="productLabel">상품</span>
+          <div class="segmented" role="group" aria-labelledby="productLabel" data-segment="product">
+            <button type="button" data-value="buy" class="is-active">구입자금 <span>디딤돌</span></button>
+            <button type="button" data-value="rent">전세자금 <span>버팀목</span></button>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-label">기본 요건</span>
+          <div class="toggle-grid">
+            <label class="toggle" for="newbornOn">
+              <input type="checkbox" id="newbornOn" checked>
+              <span class="toggle-track" aria-hidden="true"></span>
+              <span class="toggle-text">접수일 기준 2년 내 출산·입양<small>2023.1.1 이후 출생아</small></span>
+            </label>
+            <label class="toggle" for="noHomeOn">
+              <input type="checkbox" id="noHomeOn" checked>
+              <span class="toggle-track" aria-hidden="true"></span>
+              <span class="toggle-text">세대원 전원 무주택<small>1주택자는 대환만</small></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label class="field-label" for="income" id="incomeLabel">본인 연소득</label>
+            <div class="input-wrap input-wrap-sm">
+              <input id="income" type="number" inputmode="numeric" min="0" max="300000000" step="1000000" value="60000000" autocomplete="off">
+              <span class="unit">원</span>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label" for="netAssets">부부 순자산</label>
+            <div class="input-wrap input-wrap-sm">
+              <input id="netAssets" type="number" inputmode="numeric" min="0" max="2000000000" step="10000000" value="250000000" autocomplete="off">
+              <span class="unit">원</span>
+            </div>
+          </div>
+        </div>
+        <div class="chips" role="group" aria-label="연소득 빠른 선택">
+          <button type="button" data-income="30000000">3천만</button>
+          <button type="button" data-income="50000000">5천만</button>
+          <button type="button" data-income="70000000">7천만</button>
+          <button type="button" data-income="100000000">1억</button>
+          <button type="button" data-income="130000000">1.3억</button>
+        </div>
+
+        <label class="toggle toggle-line" for="dualOn">
+          <input type="checkbox" id="dualOn">
+          <span class="toggle-track" aria-hidden="true"></span>
+          <span class="toggle-text">맞벌이 (부부 모두 소득)<small>합산 2억원, 각자 1억 3,000만원 이하</small></span>
+        </label>
+        <div class="input-wrap input-wrap-sm" id="spouseField" hidden>
+          <input id="spouseIncome" type="number" inputmode="numeric" min="0" max="300000000" step="1000000" value="40000000" autocomplete="off" aria-label="배우자 연소득">
+          <span class="unit">원</span>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label class="field-label" for="price" id="priceLabel">집값(평가액)</label>
+            <div class="input-wrap input-wrap-sm">
+              <input id="price" type="number" inputmode="numeric" min="0" max="3000000000" step="10000000" value="500000000" autocomplete="off">
+              <span class="unit">원</span>
+            </div>
+          </div>
+          <div class="field">
+            <span class="field-label" id="regionLabel">지역</span>
+            <div class="segmented segmented-sm" role="group" aria-labelledby="regionLabel" data-segment="region">
+              <button type="button" data-value="capital" class="is-active">수도권</button>
+              <button type="button" data-value="local">지방</button>
+            </div>
+          </div>
+        </div>
+        <p class="field-help" id="priceHelp">평가액 9억원·전용 85㎡ 이하가 대상입니다. 지방 주택은 금리 0.2%p 인하가 적용됩니다.</p>
+
+        <label class="toggle toggle-line" id="firstHomeField" for="firstHome">
+          <input type="checkbox" id="firstHome" checked>
+          <span class="toggle-track" aria-hidden="true"></span>
+          <span class="toggle-text">생애최초 주택구입<small>LTV 80% (수도권·규제지역은 70%)</small></span>
+        </label>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="loanAmount">희망 대출금</label>
+            <button type="button" class="link-btn" id="fillMax">최대 한도로 채우기</button>
+          </div>
+          <div class="input-wrap">
+            <input id="loanAmount" type="number" inputmode="numeric" min="0" max="500000000" step="1000000" value="350000000" autocomplete="off" aria-describedby="loanHelp">
+            <span class="unit">원</span>
+          </div>
+          <p class="field-help" id="loanHelp">한도를 넘으면 실제 심사 금액으로 줄어들 수 있습니다.</p>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label class="field-label" for="termSel" id="termLabel">대출 기간</label>
+            <div class="select-wrap">
+              <select id="termSel">
+                <option value="10">10년</option>
+                <option value="15">15년</option>
+                <option value="20">20년</option>
+                <option value="30" selected>30년</option>
+              </select>
+            </div>
+          </div>
+          <div class="field" id="methodField">
+            <span class="field-label">상환 방식</span>
+            <div class="segmented segmented-sm" role="group" aria-label="상환 방식" data-segment="method">
+              <button type="button" data-value="equal" class="is-active">원리금균등</button>
+              <button type="button" data-value="principal">원금균등</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <span class="field-label" id="rateLabel">적용 금리</span>
+            <label class="mini-check" for="manualRate">
+              <input type="checkbox" id="manualRate"> 직접 입력
+            </label>
+          </div>
+          <p class="rate-readout" id="rateAuto" aria-live="polite">
+            <strong id="rateValue">2.65%</strong>
+            <span id="rateBand">4,000만~6,000만원 · 30년</span>
+          </p>
+          <div class="input-wrap input-wrap-sm" id="rateInputWrap" hidden>
+            <input id="rateInput" type="number" inputmode="decimal" min="0.5" max="15" step="0.05" value="2.65" aria-label="직접 입력 금리(%)">
+            <span class="unit">%</span>
+          </div>
+          <label class="toggle toggle-line" for="extraCut">
+            <input type="checkbox" id="extraCut">
+            <span class="toggle-track" aria-hidden="true"></span>
+            <span class="toggle-text">추가 출산·전자계약 등 우대금리 0.2%p<small>합계 0.5%p까지, 최저 1.2%(구입)·1.0%(전세)</small></span>
+          </label>
+          <p class="field-help" id="rateHelp">2026년 주택도시기금 공고 금리표를 적용합니다. 실제 금리는 수탁은행 심사로 정해집니다.</p>
+        </div>
+      </section>
+
+      <section class="card result-card" id="loanResult">
+        <div class="result-head">
+          <div>
+            <p class="result-label">월 상환액</p>
+            <p class="result-amount" aria-live="polite" aria-atomic="true"><span id="payMonthly">1,410,373</span><span class="won">원</span></p>
+            <p class="result-sub" id="paySub">3억 5,000만원 · 30년 · 원리금균등 · 2.65%</p>
+          </div>
+          <span class="tier-badge" id="loanBadge" data-tier="1">대상 가능</span>
+        </div>
+
+        <div class="elig-list" id="checkList"></div>
+
+        <div class="cap-box">
+          <div class="cap-head">
+            <span>받을 수 있는 최대 금액</span>
+            <strong id="capAmount">3억 5,000만원</strong>
+          </div>
+          <div class="cap-rows" id="capRows"></div>
+          <p class="field-help" id="capNote">상품 한도·LTV·DTI 중 가장 작은 금액입니다.</p>
+        </div>
+
+        <div class="stat-grid">
+          <div class="stat-cell">
+            <span>총 이자</span>
+            <strong id="payInterest">157,734,377원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>총 상환액</span>
+            <strong id="payTotal">507,734,377원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>연소득 대비 원리금</span>
+            <strong id="payDsr">28.2%</strong>
+          </div>
+          <div class="stat-cell">
+            <span>첫 달 → 마지막 달</span>
+            <strong id="payRange">141만 → 141만</strong>
+          </div>
+        </div>
+
+        <p class="insight" id="loanInsight"></p>
+
+        <div class="after-box" id="afterBox">
+          <p class="after-title">특례금리가 끝나면</p>
+          <p id="afterText"></p>
+        </div>
+
+        <details class="breakdown-box" id="scheduleBox">
+          <summary>
+            <span>연차별 상환 스케줄</span>
+            <span class="summary-hint">원금 · 이자 · 잔액</span>
+          </summary>
+          <div class="table-wrap">
+            <table class="data-table data-table--num" id="scheduleTable">
+              <thead>
+                <tr><th scope="col">연차</th><th scope="col">원금</th><th scope="col">이자</th><th scope="col">잔액</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </details>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="shareLoan">
+            <span aria-hidden="true">📋</span> 결과 복사하기
+          </button>
+        </div>
+      </section>
+
+      <div class="ad-slot" data-ad-slot="mid2" aria-hidden="true" hidden></div>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>2026년 신생아 특례대출 조건</h2>
+          <p class="card-sub">주택도시기금 상품 안내(2026년 공고) 기준입니다.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <caption class="sr-only">신생아 특례 구입자금과 전세자금 조건 비교</caption>
+            <thead>
+              <tr><th scope="col">항목</th><th scope="col">구입(디딤돌)</th><th scope="col">전세(버팀목)</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">출산 요건</th><td colspan="2">접수일 기준 2년 내 출산·입양 (2023.1.1 이후 출생아, 태아 제외)</td></tr>
+              <tr><th scope="row">소득</th><td colspan="2">부부합산 1억 3,000만원 이하 · 맞벌이는 합산 2억원 이하(각자 1억 3,000만원 이하)</td></tr>
+              <tr><th scope="row">순자산</th><td>5억 1,100만원 이하</td><td>3억 4,500만원 이하</td></tr>
+              <tr><th scope="row">대상 주택</th><td>평가액 9억원 이하 · 전용 85㎡ 이하</td><td>보증금 수도권 5억·그 외 4억원 이하 · 85㎡ 이하</td></tr>
+              <tr><th scope="row">한도</th><td>최대 4억원 (LTV 70%·DTI 60%)</td><td>최대 2억 4,000만원 (보증금 80%)</td></tr>
+              <tr><th scope="row">금리</th><td>연 1.8~4.5%</td><td>연 1.3~4.3%</td></tr>
+              <tr><th scope="row">특례금리 기간</th><td>기본 5년, 추가 출산 1명당 5년 (최장 15년)</td><td>기본 4년, 추가 출산 1명당 4년 (최장 12년)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="field-help">2025년 6월 27일 이전에 매매·임대차 계약을 맺었다면 종전 한도(구입 5억원·전세 3억원)가 적용됩니다. 상속·증여로 받은 집은 구입자금 대상이 아닙니다.</p>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>특례금리표</h2>
+          <p class="card-sub">부부합산 연소득과 만기(전세는 보증금)로 정해집니다. 지방 주택은 0.2%p 낮아집니다.</p>
+        </div>
+        <details class="mini-box" open>
+          <summary><span>구입자금(디딤돌)</span><span class="summary-hint">연 %</span></summary>
+          <div class="table-wrap">
+            <table class="data-table data-table--num">
+              <thead>
+                <tr><th scope="col">소득</th><th scope="col">10년</th><th scope="col">15년</th><th scope="col">20년</th><th scope="col">30년</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">2,000만 이하</th><td>1.80</td><td>1.90</td><td>2.00</td><td>2.05</td></tr>
+                <tr><th scope="row">2,000~4,000만</th><td>2.15</td><td>2.25</td><td>2.35</td><td>2.40</td></tr>
+                <tr><th scope="row">4,000~6,000만</th><td>2.40</td><td>2.50</td><td>2.60</td><td>2.65</td></tr>
+                <tr><th scope="row">6,000~8,500만</th><td>2.65</td><td>2.75</td><td>2.85</td><td>2.90</td></tr>
+                <tr><th scope="row">8,500만~1억</th><td>2.90</td><td>3.00</td><td>3.10</td><td>3.20</td></tr>
+                <tr><th scope="row">1억~1.3억</th><td>3.20</td><td>3.30</td><td>3.40</td><td>3.50</td></tr>
+                <tr><th scope="row">맞벌이 1.3~1.5억</th><td>3.50</td><td>3.60</td><td>3.70</td><td>3.80</td></tr>
+                <tr><th scope="row">맞벌이 1.5~1.7억</th><td>3.85</td><td>3.95</td><td>4.05</td><td>4.15</td></tr>
+                <tr><th scope="row">맞벌이 1.7~2억</th><td>4.20</td><td>4.30</td><td>4.40</td><td>4.50</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <details class="mini-box">
+          <summary><span>전세자금(버팀목)</span><span class="summary-hint">연 %</span></summary>
+          <div class="table-wrap">
+            <table class="data-table data-table--num">
+              <thead>
+                <tr><th scope="col">소득</th><th scope="col">5천만 이하</th><th scope="col">5천만~1억</th><th scope="col">1억~1.5억</th><th scope="col">1.5억 초과</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">2,000만 이하</th><td>1.30</td><td>1.40</td><td>1.50</td><td>1.60</td></tr>
+                <tr><th scope="row">2,000~4,000만</th><td>1.60</td><td>1.70</td><td>1.80</td><td>1.90</td></tr>
+                <tr><th scope="row">4,000~6,000만</th><td>1.90</td><td>2.00</td><td>2.10</td><td>2.20</td></tr>
+                <tr><th scope="row">6,000~7,500만</th><td>2.20</td><td>2.30</td><td>2.40</td><td>2.50</td></tr>
+                <tr><th scope="row">7,500만~1억</th><td>2.55</td><td>2.65</td><td>2.75</td><td>2.85</td></tr>
+                <tr><th scope="row">1억~1.3억</th><td>2.90</td><td>3.00</td><td>3.10</td><td>3.20</td></tr>
+                <tr><th scope="row">맞벌이 1.3~1.5억</th><td>3.25</td><td>3.35</td><td>3.45</td><td>3.55</td></tr>
+                <tr><th scope="row">맞벌이 1.5~1.7억</th><td>3.60</td><td>3.70</td><td>3.80</td><td>3.90</td></tr>
+                <tr><th scope="row">맞벌이 1.7~2억</th><td>4.00</td><td>4.10</td><td>4.20</td><td>4.30</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+        <ul class="tips">
+          <li><strong>추가 출산 우대</strong> 자녀 1명당 0.2%p, <strong>전자계약</strong> 0.1%p, <strong>한도 30% 이하 신청</strong> 0.2%p 등이 있으나 합계 0.5%p까지만 적용됩니다.</li>
+          <li><strong>최저 금리</strong> 우대를 다 받아도 구입 1.2%, 전세 1.0% 아래로 내려가지 않습니다.</li>
+          <li><strong>특례 기간이 끝나면</strong> 구입은 소득 8,500만원 이하면 신혼부부 디딤돌 수준, 넘으면 시장 금리를 기준으로 다시 정해집니다.</li>
+        </ul>
+      </section>
+
+      <section class="card faq-card">
+        <h2>신청 전에 확인할 것</h2>
+        <details class="faq">
+          <summary>언제까지 신청해야 하나요?</summary>
+          <p>대출 접수일을 기준으로 2년 안에 출산·입양한 가구여야 합니다. 아이 출생일이 아니라 <strong>접수일</strong>에서 거꾸로 세므로, 2년이 가까우면 접수 일정을 먼저 잡으세요. 태아는 대상이 아니고, 입양아는 접수일 기준 만 2세 미만이어야 합니다.</p>
+        </details>
+        <details class="faq">
+          <summary>전세는 원금을 언제 갚나요?</summary>
+          <p>신생아 특례 버팀목은 보통 <strong>만기일시상환</strong>이라 매달 이자만 내고 만기에 원금을 갚습니다(2년 단위로 연장, 최장 12년). 그래서 이 계산기의 전세 결과는 이자만 계산합니다. 원금을 함께 갚는 상품으로 받았다면 구입자금 탭의 상환 방식으로 비교해 보세요.</p>
+        </details>
+        <details class="faq">
+          <summary>신혼부부도 신청할 수 있나요?</summary>
+          <p>신생아 특례대출의 기준은 혼인 기간이 아니라 <strong>출산·입양</strong>입니다. 접수일 기준 2년 안에 아이를 낳았다면 혼인신고를 하지 않았어도 구입자금을 받을 수 있습니다. 반대로 신혼이어도 아직 아이가 없다면 이 상품은 대상이 아니고, 일반 디딤돌(신혼부부 소득 8,500만원 이하)이나 일반 버팀목(신혼 7,500만원 이하)을 검토해야 합니다.</p>
+        </details>
+        <details class="faq">
+          <summary>1주택자인데 받을 수 있나요?</summary>
+          <p>새 집을 사는 용도로는 안 되고, 기존 주택담보대출을 갈아타는 <strong>대환</strong>만 가능합니다. 대환은 맞벌이 완화가 없어 부부합산 1억 3,000만원 이하여야 합니다.</p>
+        </details>
+        <details class="faq">
+          <summary>이 계산 결과가 실제 한도와 다른 이유는?</summary>
+          <p>실제 한도는 여기에 선순위 채권·최우선변제 소액임차보증금, 신용도, 담보 평가, 기존 대출이 함께 반영됩니다. 계산 결과는 계약 전 상담용으로만 쓰고, 최종 금액은 수탁은행에서 확인하세요.</p>
+        </details>
+      </section>
+    </section>
+
+    <div class="ad-slot" data-ad-slot="bottom" aria-hidden="true" hidden></div>
+
+    <!-- 제휴 상품: config.js 의 coupang.items 에 링크를 넣으면 나타납니다 -->
+    <section class="card promo-card" id="promoSection" hidden>
+      <div class="card-head">
+        <h2 id="promoHeading">함께 보면 좋은 준비물</h2>
+        <p class="card-sub" id="promoSub"></p>
+      </div>
+      <div class="promo-grid" id="promoList"></div>
+      <p class="ad-disclosure" id="promoDisclosure"></p>
+    </section>
+
+    <section class="related-apps" aria-labelledby="relatedAppsTitle">
+      <h2 id="relatedAppsTitle">함께 많이 쓰는 계산기</h2>
+      <div class="related-grid">
+        <a class="related-app" href="../parenting-benefit/">
+          <strong>육아휴직·부모급여 계산기</strong>
+          <span>신생아 특례대출 자격과 함께</span>
+        </a>
+        <a class="related-app" href="../living-cost/">
+          <strong>고정비 체크기</strong>
+          <span>대출 이자 늘기 전 새는 돈</span>
+        </a>
+        <a class="related-app" href="../year-end-tax/">
+          <strong>연말정산 환급 계산기</strong>
+          <span>월세·주택청약 세액공제</span>
+        </a>
+        <a class="related-app" href="../">
+          <strong>전체 계산기</strong>
+          <span>생활 계산기 8종 모아 보기</span>
+        </a>
+      </div>
+    </section>
+
+    <footer class="app-footer">
+      <p class="disclaimer">
+        <strong>참고용 모의 계산입니다.</strong> 청약 가점은 「주택공급에 관한 규칙」 별표 1과 청약홈 가점계산 안내(2026년 현행),
+        가점제·추첨제 비율은 같은 규칙 제28조를 따랐습니다. 신생아 특례대출은 주택도시기금 상품 안내(2026년 공고)의
+        소득·순자산·한도·금리표를 반영했으며, 실제 자격과 금액·금리는 수탁은행 심사로 정해집니다.
+        입력값은 기기 안에만 저장되고 어디로도 전송되지 않습니다.
+      </p>
+      <p class="footer-links">
+        <a href="https://www.applyhome.co.kr/ap/apg/selectAddpntCalculatorView.do" target="_blank" rel="noopener">청약홈 가점계산</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://nhuf.molit.go.kr/" target="_blank" rel="noopener">주택도시기금</a>
+        <span aria-hidden="true">·</span>
+        <a href="../">전체 계산기</a>
+        <span aria-hidden="true">·</span>
+        <a href="../njob-tax/">N잡 세금</a>
+        <span aria-hidden="true">·</span>
+        <a href="../living-cost/">고정비 체크</a>
+        <span aria-hidden="true">·</span>
+        <a href="../parenting-benefit/">육아휴직·부모급여</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://blog.naver.com/ufssdf987" target="_blank" rel="noopener">운영 블로그</a>
+        <span aria-hidden="true">·</span>
+        <a href="../privacy.html">개인정보처리방침</a>
+      </p>
+      <p class="footer-meta">
+        <span>기준일 <time id="dataDate" datetime="2026-11-26">2026-11-26</time></span>
+        <span aria-hidden="true">·</span>
+        <span>v<span id="appVersion">1.0.0</span></span>
+        <span aria-hidden="true">·</span>
+        <span>개인정보를 저장하지 않습니다</span>
+      </p>
+      <p class="ad-disclosure" id="footerDisclosure" hidden></p>
+    </footer>
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<noscript>
+  <div class="noscript">이 계산기는 자바스크립트를 사용합니다. 브라우저 설정에서 자바스크립트를 켜 주세요.</div>
+</noscript>
+
+<script src="config.js"></script>
+<script src="calc.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
