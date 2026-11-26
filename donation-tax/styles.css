@@ -911,6 +911,22 @@ input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; marg
 .promo-cta:hover { text-decoration: none; background: color-mix(in srgb, var(--brand) 16%, transparent); }
 .ad-disclosure { margin-top: 10px; font-size: 10.5px; line-height: 1.45; color: var(--muted-2); }
 
+/* 절차 1단계 파트너스 버튼 */
+.step-cta-wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px; }
+.step-cta {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: var(--brand);
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: -.01em;
+}
+.step-cta:hover { text-decoration: none; background: var(--brand-strong); }
+.step-note { flex: 1 1 220px; min-width: 0; font-size: 10.5px; line-height: 1.45; color: var(--muted-2); }
+@media print { .step-cta-wrap { display: none !important; } }
+
 /* ── 15. 푸터 ────────────────────────────────────────────── */
 .app-footer {
   margin-top: 18px;

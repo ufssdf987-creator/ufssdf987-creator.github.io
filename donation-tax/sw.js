@@ -4,7 +4,7 @@
  */
 'use strict';
 
-var VERSION = '1.0.3';
+var VERSION = '1.0.4';
 var CACHE_NAME = 'dtc-v' + VERSION;
 var CORE_ASSETS = [
   './',
