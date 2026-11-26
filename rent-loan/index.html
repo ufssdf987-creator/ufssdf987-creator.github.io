@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>전세·월세 전환 계산기 | 법정 전환율 5.25% · 전세대출 vs 월세 · 주담대 상환액</title>
+<meta name="description" content="전세보증금을 월세로, 월세를 전세로 바꿀 때 적용되는 법정 전환율(기준금리 3.25%+2%p=5.25%)과 시장 전환율로 월세를 계산하고, 전세대출 이자와 월세를 비교해 손익분기 전환율을 찾습니다. 원리금균등·원금균등 주담대 월 상환액까지 2026년 기준.">
+<meta name="keywords" content="전세 월세 전환율 계산기, 전월세 전환율, 법정 전환율 5.25%, 월세 전환 계산, 전세대출 vs 월세, 버팀목 전세자금대출 금리, 전세대출 이자 계산, 월 주거비 비교, 손익분기 전환율, 주담대 원리금균등 원금균등, 주택담보대출 월 상환액">
+<meta name="author" content="이안이 아빠의 공간">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://ufssdf987-creator.github.io/rent-loan/">
+<meta name="theme-color" content="#eef2f7">
+<meta name="theme-color" content="#eef2f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#070c16" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="전세·월세 전환">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="전세·월세 전환·주거비 계산기">
+<meta property="og:title" content="전세·월세 전환 계산기 — 법정 5.25% · 전세대출 vs 월세">
+<meta property="og:description" content="전세보증금을 월세로 바꾸면 얼마일까? 법정·시장 전환율로 계산하고, 전세대출 이자와 월세를 비교해 손익분기점을 찾아보세요.">
+<meta property="og:url" content="https://ufssdf987-creator.github.io/rent-loan/">
+<meta property="og:image" content="https://ufssdf987-creator.github.io/rent-loan/icons/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="전세·월세 전환 계산기 — 법정 전환율 5.25%, 전세대출 vs 월세 비교">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="전세·월세 전환 계산기 — 법정 5.25%">
+<meta name="twitter:description" content="전세 3억을 월세로 바꾸면 월 얼마? 전세대출 이자와 월세, 어느 쪽이 싼지 손익분기점까지 계산합니다.">
+<meta name="twitter:image" content="https://ufssdf987-creator.github.io/rent-loan/icons/og-image.png">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="styles.css">
+<script>
+  /* 첫 화면 깜빡임 방지: 저장된 테마를 CSS 적용 전에 반영 */
+  (function () {
+    try {
+      var saved = localStorage.getItem('rln.theme');
+      var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', (saved === 'dark' || saved === 'light') ? saved : (dark ? 'dark' : 'light'));
+    } catch (e) { /* 저장소 접근 불가 시 기본 라이트 */ }
+  })();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "전세·월세 전환 계산기",
+  "url": "https://ufssdf987-creator.github.io/rent-loan/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "inLanguage": "ko",
+  "description": "법정·시장 전월세 전환율로 월세를 계산하고, 전세대출 이자와 월세의 월 주거비를 비교하며, 주담대 원리금균등·원금균등 월 상환액을 계산합니다.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+  "featureList": [
+    "전세→월세·월세→전세 전환 계산(법정 전환율 5.25%)",
+    "시장 전환율(서울 아파트 4.31%·전국 6.6%) 비교",
+    "법정 상한 초과 월세 확인",
+    "버팀목 전세대출 한도·금리 자동 계산",
+    "전세대출 이자 vs 월세 손익분기 전환율",
+    "주담대 원리금균등·원금균등 월 상환액과 총 이자"
+  ]
+}
+</script>
+<!-- Google AdSense — 사이트 확인·광고 로딩용 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4355917079579050" crossorigin="anonymous"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+<div class="app-shell">
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" role="img" focusable="false">
+          <defs>
+            <linearGradient id="rentGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#a5b4fc"/><stop offset="1" stop-color="#4f46e5"/>
+            </linearGradient>
+            <linearGradient id="rentGrad2" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#5eead4"/><stop offset="1" stop-color="#0f9d76"/>
+            </linearGradient>
+          </defs>
+          <rect x="1" y="1" width="46" height="46" rx="13" fill="none" stroke="currentColor" stroke-opacity=".18"/>
+          <path d="M24 7.5 10 19.8h3.9V37h7.2v-7.6h5.8V37h7.2V19.8H38L24 7.5Z" fill="url(#rentGrad)"/>
+          <path d="M13 33.5a13 13 0 0 1 20.6-9.6" fill="none" stroke="url(#rentGrad2)" stroke-width="2.6" stroke-linecap="round"/>
+          <path d="M31.2 20.6h4.6v-4.6" fill="none" stroke="url(#rentGrad2)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <div class="brand-text">
+        <h1>전세·월세 전환</h1>
+        <p>법정 5.25% · 전세대출 vs 월세 · 2026년 기준</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button type="button" class="icon-btn install-btn" id="installBtn" hidden>앱 설치</button>
+      <button type="button" class="icon-btn theme-btn" id="themeBtn" aria-label="화면 테마 바꾸기" title="라이트/다크 전환">
+        <span id="themeIcon" aria-hidden="true">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="계산기 선택">
+    <button type="button" class="tab is-active" id="tabConvert" role="tab" aria-selected="true" aria-controls="panelConvert" tabindex="0">
+      <span class="tab-emoji" aria-hidden="true">🔄</span>
+      <span class="tab-label">전환 계산</span>
+    </button>
+    <button type="button" class="tab" id="tabCompare" role="tab" aria-selected="false" aria-controls="panelCompare" tabindex="-1">
+      <span class="tab-emoji" aria-hidden="true">⚖️</span>
+      <span class="tab-label">전세 vs 월세</span>
+    </button>
+    <button type="button" class="tab" id="tabLoan" role="tab" aria-selected="false" aria-controls="panelLoan" tabindex="-1">
+      <span class="tab-emoji" aria-hidden="true">🏦</span>
+      <span class="tab-label">주담대 상환</span>
+    </button>
+  </nav>
+
+  <main id="main">
+    <div class="ad-slot" data-ad-slot="top" aria-hidden="true" hidden></div>
+
+    <!-- ══════════ 탭 1: 전환 계산 ══════════ -->
+    <section class="panel is-active" id="panelConvert" role="tabpanel" aria-labelledby="tabConvert" tabindex="0">
+      <section class="card">
+        <div class="card-head">
+          <h2>전월세 전환 계산</h2>
+          <p class="card-sub">전세보증금 일부를 월세로 돌리면 월 얼마인지, 반대로 월세를 전세로 바꾸면 보증금이 얼마인지 계산합니다.</p>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="directionLabel">전환 방향</span>
+          <div class="segmented" role="group" aria-labelledby="directionLabel" data-segment="direction">
+            <button type="button" data-value="to-monthly" class="is-active">전세 → 월세 <span>보증금 내리고 월세</span></button>
+            <button type="button" data-value="to-jeonse">월세 → 전세 <span>보증금 올리고 전세</span></button>
+          </div>
+        </div>
+
+        <div class="field" id="cvJeonseField">
+          <div class="field-label-row">
+            <label class="field-label" for="cvJeonse" id="cvJeonseLabel">전세보증금</label>
+            <span class="badge-soft" id="cvDiffBadge">전환 대상 2억 7,000만원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="cvJeonse" type="number" inputmode="numeric" min="0" max="3000000000" step="1000000" value="300000000" autocomplete="off" aria-describedby="cvHelp">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="전세보증금 빠른 선택">
+            <button type="button" data-cv-jeonse="150000000">1.5억</button>
+            <button type="button" data-cv-jeonse="200000000">2억</button>
+            <button type="button" data-cv-jeonse="300000000">3억</button>
+            <button type="button" data-cv-jeonse="400000000">4억</button>
+            <button type="button" data-cv-jeonse="500000000">5억</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="cvDeposit" id="cvDepositLabel">남길 보증금</label>
+            <span class="badge-soft" id="cvDiffAmount">2억 7,000만원 전환</span>
+          </div>
+          <div class="input-wrap input-wrap-sm">
+            <input id="cvDeposit" type="number" inputmode="numeric" min="0" max="3000000000" step="1000000" value="30000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="남길 보증금 빠른 선택">
+            <button type="button" data-cv-deposit="0">0원</button>
+            <button type="button" data-cv-deposit="10000000">1천만</button>
+            <button type="button" data-cv-deposit="30000000">3천만</button>
+            <button type="button" data-cv-deposit="50000000">5천만</button>
+            <button type="button" data-cv-deposit="100000000">1억</button>
+          </div>
+          <p class="field-help" id="cvHelp">월세로 돌리는 금액은 <strong>전세보증금 − 남길 보증금</strong>입니다. 보증금을 그대로 두면 전환 금액이 0원이 됩니다.</p>
+        </div>
+
+        <div class="field" id="cvMonthlyField" hidden>
+          <label class="field-label" for="cvMonthly">현재 월세</label>
+          <div class="input-wrap input-wrap-sm">
+            <input id="cvMonthly" type="number" inputmode="numeric" min="0" max="20000000" step="10000" value="950000" autocomplete="off">
+            <span class="unit">원 / 월</span>
+          </div>
+          <p class="field-help">월세에서 전세로 바꿀 때는 위 전세보증금은 결과로 계산됩니다.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <span class="field-label" id="cvRateLabel">적용 전환율</span>
+            <span class="badge-soft" id="cvRateBadge">법정 상한</span>
+          </div>
+          <div class="segmented segmented-sm" role="group" aria-labelledby="cvRateLabel" data-segment="cvrate">
+            <button type="button" data-value="legal" class="is-active">법정 5.25%</button>
+            <button type="button" data-value="market">시장 4.31%</button>
+            <button type="button" data-value="custom">직접 입력</button>
+          </div>
+          <p class="rate-readout" id="cvRateAuto" aria-live="polite">
+            <strong id="cvRateValue">5.25%</strong>
+            <span id="cvRateBand">기준금리 3.25% + 2%p</span>
+          </p>
+          <div class="input-wrap input-wrap-sm" id="cvRateInputWrap" hidden>
+            <input id="cvRateInput" type="number" inputmode="decimal" min="0.1" max="20" step="0.05" value="5.25" aria-label="직접 입력 전환율(%)">
+            <span class="unit">%</span>
+          </div>
+          <details class="mini-box">
+            <summary>
+              <span>시장 전환율 살펴보기</span>
+              <span class="summary-hint">눌러서 적용</span>
+            </summary>
+            <div class="table-wrap">
+              <table class="data-table data-table--num">
+                <caption class="sr-only">지역별 시장 전환율</caption>
+                <thead>
+                  <tr><th scope="col">기준</th><th scope="col">전환율</th><th scope="col">시점</th></tr>
+                </thead>
+                <tbody id="cvMarketTable"></tbody>
+              </table>
+            </div>
+            <p class="field-help">법정 상한은 계약을 지키는 쪽을 보호하는 기준이고, 새 계약의 월세는 시장 전환율로 정해지는 경우가 많습니다.</p>
+          </details>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="cvYears">비교 기간</label>
+          <div class="select-wrap">
+            <select id="cvYears">
+              <option value="1">1년</option>
+              <option value="2" selected>2년</option>
+              <option value="3">3년</option>
+              <option value="4">4년</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <section class="card result-card" id="cvResultCard">
+        <div class="result-head">
+          <div>
+            <p class="result-label" id="cvResultLabel">전환하면 월세는</p>
+            <p class="result-amount" aria-live="polite" aria-atomic="true"><span id="cvResult">1,181,250</span><span class="won" id="cvResultUnit">원 / 월</span></p>
+            <p class="result-sub" id="cvSub">전세 3억 · 보증금 3,000만원 · 전환율 5.25%</p>
+          </div>
+          <span class="tier-badge" id="cvBadge" data-tier="1">법정 이내</span>
+        </div>
+
+        <div class="breakdown" id="cvRows"></div>
+
+        <div class="stat-grid">
+          <div class="stat-cell">
+            <span>법정 상한 월세</span>
+            <strong id="cvLegalMonthly">1,181,250원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>연간 월세</span>
+            <strong id="cvAnnual">14,175,000원</strong>
+          </div>
+          <div class="stat-cell">
+            <span id="cvPeriodLabel">2년 합계</span>
+            <strong id="cvPeriodTotal">28,350,000원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>전환 대상 보증금</span>
+            <strong id="cvDiff">2억 7,000만원</strong>
+          </div>
+        </div>
+
+        <p class="insight" id="cvInsight"></p>
+
+        <details class="breakdown-box" id="cvTableBox">
+          <summary>
+            <span>전환율별 월세</span>
+            <span class="summary-hint">같은 보증금 기준</span>
+          </summary>
+          <div class="table-wrap">
+            <table class="data-table data-table--num" id="cvRateTable">
+              <caption class="sr-only">보증금 구간별 전환율에 따른 월세</caption>
+              <thead>
+                <tr><th scope="col">전환율</th><th scope="col">월세</th><th scope="col">연간</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </details>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="shareConvert">
+            <span aria-hidden="true">📋</span> 결과 복사하기
+          </button>
+        </div>
+      </section>
+
+      <div class="ad-slot" data-ad-slot="mid" aria-hidden="true" hidden></div>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>법정 전환율은 어떻게 정해지나</h2>
+          <p class="card-sub">주택임대차보호법 제7조의2와 같은 법 시행령 제9조(2026.7.1 시행) 기준입니다.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <caption class="sr-only">법정 월차임 전환율 산정 기준</caption>
+            <thead>
+              <tr><th scope="col">구분</th><th scope="col">비율</th><th scope="col">근거</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">제1호</th><td>연 10% (연 1할)</td><td>시행령 제9조 제1항</td></tr>
+              <tr><th scope="row">제2호</th><td>기준금리 + 연 2%p</td><td>시행령 제9조 제2항</td></tr>
+              <tr><th scope="row">적용</th><td colspan="2">두 비율 중 <strong>낮은 쪽</strong>이 상한 (현재 5.25%)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-wrap" style="margin-top:10px">
+          <table class="data-table data-table--num">
+            <caption class="sr-only">기준금리에 따른 법정 전환율 상한</caption>
+            <thead>
+              <tr><th scope="col">기준금리</th><th scope="col">법정 상한</th><th scope="col">비고</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">2.50%</th><td>4.50%</td><td>2025.5.29~2026.7.15</td></tr>
+              <tr><th scope="row">2.75%</th><td>4.75%</td><td>2026.7.16~8.26</td></tr>
+              <tr><th scope="row">3.00%</th><td>5.00%</td><td>2026.8.27~11.25</td></tr>
+              <tr><th scope="row">3.25%</th><td>5.25%</td><td>2026.11.26~ (현행)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="tips">
+          <li><strong>전환과 증액은 다릅니다.</strong> 보증금 일부를 돌려받고 월세를 내는 것이 전환이고, 보증금·월세를 올리는 것은 증액이라 5% 상한(약정 차임의 20분의 1)이 따로 적용됩니다.</li>
+          <li><strong>법정 상한은 존속 중인 계약의 전환에 적용됩니다.</strong> 새 계약의 월세 수준 자체를 정하는 규제는 아니어서, 시장 전환율이 법정 상한보다 높은 지역도 있습니다.</li>
+          <li><strong>상한을 넘겨 낸 월세는 돌려달라고 청구할 수 있습니다.</strong> 주택임대차보호법 제10조의2에 따라 초과 부분의 반환을 요구할 수 있습니다.</li>
+        </ul>
+      </section>
+
+      <section class="card faq-card">
+        <h2>전환 계산에서 자주 틀리는 곳</h2>
+        <details class="faq">
+          <summary>전환율은 어느 금액에 곱하나요?</summary>
+          <p>보증금 전체가 아니라 <strong>월세로 돌리는 금액</strong>에 곱합니다. 전세 3억에서 3,000만원을 남기고 2억 7,000만원을 돌리면, 2억 7,000만원 × 전환율 ÷ 12가 월세입니다.</p>
+        </details>
+        <details class="faq">
+          <summary>법정 상한 5.25%는 언제 바뀌나요?</summary>
+          <p>한국은행 기준금리가 바뀔 때마다 함께 움직입니다. 2026년 11월 26일 기준금리가 3.00%에서 3.25%로 오르면서 상한도 5.00%에서 5.25%가 됐습니다.</p>
+        </details>
+        <details class="faq">
+          <summary>시장 전환율이 법정 상한보다 높은 이유는?</summary>
+          <p>법정 상한은 이미 계약한 세입자를 보호하는 장치입니다. 새 계약에서는 지역·주택 유형별 시장 전환율이 쓰이는데, 전국 주택(6%대)과 서울 아파트(4%대)처럼 차이가 큽니다.</p>
+        </details>
+        <details class="faq">
+          <summary>월세에서 전세로 바꿀 때도 같은 전환율을 쓰나요?</summary>
+          <p>네. 같은 식을 거꾸로 씁니다. 전세보증금 = 월세보증금 + (월세 × 12 ÷ 전환율)입니다. 이 계산은 협상 기준일 뿐이고, 실제 전세 매물 가격은 시장 상황에 따라 더 높을 수 있습니다.</p>
+        </details>
+      </section>
+    </section>
+
+    <!-- ══════════ 탭 2: 전세 vs 월세 ══════════ -->
+    <section class="panel" id="panelCompare" role="tabpanel" aria-labelledby="tabCompare" tabindex="0" hidden>
+      <section class="card">
+        <div class="card-head">
+          <h2>전세대출 vs 월세, 월 주거비 비교</h2>
+          <p class="card-sub">전세는 대출 이자와 내 돈의 기회비용, 월세는 월세와 보증금의 기회비용으로 비교합니다.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="cmpJeonse">전세보증금</label>
+            <span class="badge-soft" id="cmpGapBadge">월세와 2억 7,000만원 차이</span>
+          </div>
+          <div class="input-wrap">
+            <input id="cmpJeonse" type="number" inputmode="numeric" min="0" max="3000000000" step="1000000" value="300000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="전세보증금 빠른 선택">
+            <button type="button" data-cmp-jeonse="200000000">2억</button>
+            <button type="button" data-cmp-jeonse="300000000">3억</button>
+            <button type="button" data-cmp-jeonse="400000000">4억</button>
+            <button type="button" data-cmp-jeonse="500000000">5억</button>
+            <button type="button" data-cmp-jeonse="600000000">6억</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="cmpLoan">전세대출</label>
+            <button type="button" class="link-btn" id="fillButimok">버팀목 한도로 채우기</button>
+          </div>
+          <div class="input-wrap">
+            <input id="cmpLoan" type="number" inputmode="numeric" min="0" max="3000000000" step="1000000" value="120000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <p class="field-help" id="cmpLoanHelp">전세대출은 이자만 내고 만기에 보증금으로 원금을 돌려받는 구조로 계산합니다.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <span class="field-label" id="cmpRateLabel">전세대출 금리</span>
+            <span class="badge-soft" id="cmpRateBadge">버팀목</span>
+          </div>
+          <div class="segmented segmented-sm" role="group" aria-labelledby="cmpRateLabel" data-segment="loanrate">
+            <button type="button" data-value="butimok" class="is-active">버팀목</button>
+            <button type="button" data-value="bank">시중 4.63%</button>
+            <button type="button" data-value="custom">직접</button>
+          </div>
+          <p class="rate-readout" id="cmpRateAuto" aria-live="polite">
+            <strong id="cmpRateValue">3.20%</strong>
+            <span id="cmpRateBand">소득 4,000만~6,000만 · 보증금 1억 초과</span>
+          </p>
+          <div class="input-wrap input-wrap-sm" id="cmpRateInputWrap" hidden>
+            <input id="cmpRateInput" type="number" inputmode="decimal" min="0.1" max="20" step="0.05" value="3.2" aria-label="직접 입력 전세대출 금리(%)">
+            <span class="unit">%</span>
+          </div>
+
+          <details class="mini-box" id="butimokBox">
+            <summary>
+              <span>내 버팀목 금리·한도 찾기</span>
+              <span class="summary-hint" id="butimokSummary">3.20% · 1억 2,000만원</span>
+            </summary>
+            <div class="field" style="margin-top:0">
+              <label class="field-label" for="cmpIncome">부부합산 연소득</label>
+              <div class="input-wrap input-wrap-sm">
+                <input id="cmpIncome" type="number" inputmode="numeric" min="0" max="200000000" step="1000000" value="45000000" autocomplete="off">
+                <span class="unit">원</span>
+              </div>
+              <div class="chips" role="group" aria-label="연소득 빠른 선택">
+                <button type="button" data-cmp-income="20000000">2천만</button>
+                <button type="button" data-cmp-income="35000000">3.5천만</button>
+                <button type="button" data-cmp-income="45000000">4.5천만</button>
+                <button type="button" data-cmp-income="60000000">6천만</button>
+                <button type="button" data-cmp-income="75000000">7.5천만</button>
+              </div>
+            </div>
+            <div class="field">
+              <span class="field-label" id="cmpAreaLabel">주택 소재지</span>
+              <div class="segmented segmented-sm" role="group" aria-labelledby="cmpAreaLabel" data-segment="area">
+                <button type="button" data-value="capital" class="is-active">수도권</button>
+                <button type="button" data-value="local">지방</button>
+              </div>
+            </div>
+            <label class="toggle toggle-line" for="cmpNewlywed">
+              <input type="checkbox" id="cmpNewlywed">
+              <span class="toggle-track" aria-hidden="true"></span>
+              <span class="toggle-text">신혼가구 (혼인 7년 이내)<small>소득 7,500만원·보증금 80%·최대 2억 5,000만원</small></span>
+            </label>
+            <p class="field-help" id="butimokInfo"></p>
+          </details>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="cmpEquityRate">내 돈의 기회비용 <small>연 %</small></label>
+          <div class="input-wrap input-wrap-sm">
+            <input id="cmpEquityRate" type="number" inputmode="decimal" min="0" max="20" step="0.1" value="3" autocomplete="off">
+            <span class="unit">%</span>
+          </div>
+          <p class="field-help">보증금에 들어간 자기자본을 예금 등에 넣었을 때 받을 수익률입니다. 기본 3.0%는 가정값이니 본인 상황에 맞게 바꾸세요.</p>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label class="field-label" for="cmpDeposit">월세보증금</label>
+            <div class="input-wrap input-wrap-sm">
+              <input id="cmpDeposit" type="number" inputmode="numeric" min="0" max="3000000000" step="1000000" value="30000000" autocomplete="off">
+              <span class="unit">원</span>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label" for="cmpRent">월세</label>
+            <div class="input-wrap input-wrap-sm">
+              <input id="cmpRent" type="number" inputmode="numeric" min="0" max="20000000" step="10000" value="950000" autocomplete="off">
+              <span class="unit">원</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="cmpMonths">비교 기간</label>
+          <div class="select-wrap">
+            <select id="cmpMonths">
+              <option value="12">1년</option>
+              <option value="24" selected>2년</option>
+              <option value="36">3년</option>
+              <option value="60">5년</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <section class="card result-card" id="cmpResultCard">
+        <div class="result-head">
+          <div>
+            <p class="result-label">월 주거비 차이</p>
+            <p class="result-amount" aria-live="polite" aria-atomic="true"><span id="cmpDiff">255,000</span><span class="won">원</span></p>
+            <p class="result-sub" id="cmpSub">전세 월 770,000원 vs 월세 월 1,025,000원</p>
+          </div>
+          <span class="tier-badge" id="cmpBadge" data-tier="1">전세 유리</span>
+        </div>
+
+        <div class="compare-rows">
+          <div class="compare-row" data-who="jeonse">
+            <div class="compare-top">
+              <span class="compare-name">전세 유지</span>
+              <strong id="cmpJeonseMonthly">770,000원</strong>
+            </div>
+            <div class="compare-bar"><i id="cmpBarJeonse"></i></div>
+            <p class="compare-note" id="cmpJeonseNote">대출이자 320,000 + 기회비용 450,000</p>
+          </div>
+          <div class="compare-row" data-who="rent">
+            <div class="compare-top">
+              <span class="compare-name">월세 살기</span>
+              <strong id="cmpRentMonthly">1,025,000원</strong>
+            </div>
+            <div class="compare-bar"><i id="cmpBarRent"></i></div>
+            <p class="compare-note" id="cmpRentNote">월세 950,000 + 기회비용 75,000</p>
+          </div>
+        </div>
+
+        <div class="breakdown" id="cmpRows"></div>
+
+        <div class="stat-grid">
+          <div class="stat-cell">
+            <span>손익분기 전환율</span>
+            <strong id="cmpBreakRate">3.42%</strong>
+          </div>
+          <div class="stat-cell">
+            <span>손익분기 월세</span>
+            <strong id="cmpBreakRent">695,000원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>1년 차액</span>
+            <strong id="cmpAnnual">306만원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>대출금리 손익분기</span>
+            <strong id="cmpBreakLoanRate">5.75%</strong>
+          </div>
+        </div>
+
+        <p class="insight" id="cmpInsight"></p>
+
+        <details class="breakdown-box" id="cmpPeriodBox">
+          <summary>
+            <span>기간별 누적 차이</span>
+            <span class="summary-hint">양수면 전세가 저렴</span>
+          </summary>
+          <div class="table-wrap">
+            <table class="data-table data-table--num" id="cmpPeriodTable">
+              <caption class="sr-only">기간별 전세·월세 누적 주거비</caption>
+              <thead>
+                <tr><th scope="col">기간</th><th scope="col">전세 누적</th><th scope="col">월세 누적</th><th scope="col">차이</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </details>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="shareCompare">
+            <span aria-hidden="true">📋</span> 결과 복사하기
+          </button>
+        </div>
+      </section>
+
+      <div class="ad-slot" data-ad-slot="mid2" aria-hidden="true" hidden></div>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>2026년 버팀목 전세자금대출 조건</h2>
+          <p class="card-sub">주택도시기금 상품안내(2026.10.19 시행) 기준입니다.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <caption class="sr-only">일반 버팀목과 신혼가구 버팀목 조건 비교</caption>
+            <thead>
+              <tr><th scope="col">항목</th><th scope="col">일반</th><th scope="col">신혼·2자녀 이상</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">소득</th><td>5,000만원 이하</td><td>신혼 7,500만·2자녀 6,000만 이하</td></tr>
+              <tr><th scope="row">순자산</th><td colspan="2">3억 4,500만원 이하 (2026년 기준)</td></tr>
+              <tr><th scope="row">보증금</th><td>수도권 3억·지방 2억 이하</td><td>수도권 4억·지방 3억 이하</td></tr>
+              <tr><th scope="row">한도</th><td>수도권 1억 2,000만·지방 8,000만</td><td>수도권 2억 5,000만·지방 1억 6,000만</td></tr>
+              <tr><th scope="row">대출비율</th><td>보증금의 70%</td><td>보증금의 80%</td></tr>
+              <tr><th scope="row">금리</th><td>연 2.5~3.5%</td><td>연 1.9~3.3%</td></tr>
+              <tr><th scope="row">기간</th><td colspan="2">2년 단위, 최장 10년 (지방 0.2%p 인하)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="field-help">한도는 호당 한도·보증금 비율·보증기관(HF·HUG) 한도 중 가장 작은 금액으로 정해집니다. 실제 금리와 금액은 수탁은행 심사에서 확정됩니다.</p>
+      </section>
+
+      <section class="card faq-card">
+        <h2>전세와 월세, 무엇을 봐야 하나</h2>
+        <details class="faq" open>
+          <summary>왜 전세에도 '월 비용'이 있나요?</summary>
+          <p>전세보증금은 돌려받지만, 그 돈을 다른 곳에 쓸 수 없습니다. 대출로 마련한 부분은 이자가 나가고, 내 돈으로 넣은 부분은 예금 이자 같은 <strong>기회비용</strong>이 생깁니다. 월세도 보증금에 대한 기회비용이 있으므로 양쪽을 같은 기준으로 놓고 비교해야 합니다.</p>
+        </details>
+        <details class="faq">
+          <summary>손익분기 전환율은 무슨 뜻인가요?</summary>
+          <p>지금의 전세 유지 비용과 월세가 같아지는 전환율입니다. 예를 들어 3.42%라면, 전환율이 3.42%보다 높게 형성된 시장에서는 월세가, 낮으면 전세가 유리합니다. 실제 계약에서는 여기에 이사비·중개보수·보증금 반환 위험까지 함께 보세요.</p>
+        </details>
+        <details class="faq">
+          <summary>전세대출 금리가 오르면 어떻게 되나요?</summary>
+          <p>대출금리가 <strong>손익분기 대출금리</strong>를 넘으면 월세가 유리해집니다. 2026년 10월 은행권 전세자금대출 평균은 4.63%로, 서울 아파트 시장 전환율(4.31%)보다 높아진 상태입니다. 버팀목을 쓸 수 있다면 금리 차이가 커집니다.</p>
+        </details>
+        <details class="faq">
+          <summary>전세보증금을 못 돌려받을 위험은요?</summary>
+          <p>이 계산에는 반환 위험이 들어 있지 않습니다. 보증금이 큰 집이라면 HUG·HF 전세보증금반환보증 가입 가능 여부와 보증료(연 0.1~0.2% 수준)를 함께 확인하세요. 보증료를 넣으면 전세 쪽 월 비용이 조금 올라갑니다.</p>
+        </details>
+      </section>
+    </section>
+
+    <!-- ══════════ 탭 3: 주담대 상환 ══════════ -->
+    <section class="panel" id="panelLoan" role="tabpanel" aria-labelledby="tabLoan" tabindex="0" hidden>
+      <section class="card">
+        <div class="card-head">
+          <h2>주담대 월 상환액</h2>
+          <p class="card-sub">원리금균등과 원금균등을 같은 조건으로 놓고 월 상환액과 총 이자를 비교합니다.</p>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="lnPrincipal">대출금</label>
+          <div class="input-wrap">
+            <input id="lnPrincipal" type="number" inputmode="numeric" min="0" max="3000000000" step="1000000" value="300000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="대출금 빠른 선택">
+            <button type="button" data-ln-principal="100000000">1억</button>
+            <button type="button" data-ln-principal="200000000">2억</button>
+            <button type="button" data-ln-principal="300000000">3억</button>
+            <button type="button" data-ln-principal="500000000">5억</button>
+            <button type="button" data-ln-principal="700000000">7억</button>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label class="field-label" for="lnRate">금리 <small>연 %</small></label>
+            <div class="input-wrap input-wrap-sm">
+              <input id="lnRate" type="number" inputmode="decimal" min="0.1" max="20" step="0.01" value="4.98" autocomplete="off">
+              <span class="unit">%</span>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label" for="lnYears">기간</label>
+            <div class="select-wrap">
+              <select id="lnYears">
+                <option value="10">10년</option>
+                <option value="15">15년</option>
+                <option value="20">20년</option>
+                <option value="25">25년</option>
+                <option value="30" selected>30년</option>
+                <option value="35">35년</option>
+                <option value="40">40년</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <p class="field-help">기본 금리 4.98%는 2026년 10월 은행권 주택담보대출 신규취급 평균입니다. 실제 금리는 우대·가산금리에 따라 달라집니다.</p>
+
+        <div class="field">
+          <span class="field-label" id="lnMethodLabel">상환 방식</span>
+          <div class="segmented" role="group" aria-labelledby="lnMethodLabel" data-segment="method">
+            <button type="button" data-value="equal" class="is-active">원리금균등 <span>매달 같은 금액</span></button>
+            <button type="button" data-value="principal">원금균등 <span>원금 같게, 이자 줄어듦</span></button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="lnIncome">연소득 <small>DSR 참고용</small></label>
+          <div class="input-wrap input-wrap-sm">
+            <input id="lnIncome" type="number" inputmode="numeric" min="0" max="500000000" step="1000000" value="60000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <p class="field-help">첫해 원리금 상환액을 연소득으로 나눈 DSR(참고)을 함께 보여 드립니다. 실제 심사는 모든 대출을 합산합니다.</p>
+        </div>
+      </section>
+
+      <section class="card result-card" id="lnResultCard">
+        <div class="result-head">
+          <div>
+            <p class="result-label" id="lnResultLabel">월 상환액 (첫 달)</p>
+            <p class="result-amount" aria-live="polite" aria-atomic="true"><span id="lnMonthly">1,606,800</span><span class="won">원</span></p>
+            <p class="result-sub" id="lnSub">3억 · 30년 · 원리금균등 · 4.98%</p>
+          </div>
+          <span class="tier-badge" id="lnBadge" data-tier="1">원리금균등</span>
+        </div>
+
+        <div class="stat-grid">
+          <div class="stat-cell">
+            <span>총 이자</span>
+            <strong id="lnInterest">278,447,971원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>총 상환액</span>
+            <strong id="lnTotal">578,447,971원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>첫 달 → 마지막 달</span>
+            <strong id="lnRange">1,606,800 → 1,606,800</strong>
+          </div>
+          <div class="stat-cell">
+            <span>DSR (참고)</span>
+            <strong id="lnDsr">32.1%</strong>
+          </div>
+        </div>
+
+        <div class="after-box" id="lnCompareBox">
+          <p class="after-title">원금균등으로 바꾸면</p>
+          <p id="lnCompareText"></p>
+        </div>
+
+        <p class="insight" id="lnInsight"></p>
+
+        <details class="breakdown-box" id="lnScheduleBox">
+          <summary>
+            <span>연차별 상환 스케줄</span>
+            <span class="summary-hint">원금 · 이자 · 잔액</span>
+          </summary>
+          <div class="table-wrap">
+            <table class="data-table data-table--num" id="lnScheduleTable">
+              <caption class="sr-only">연차별 원금·이자·잔액</caption>
+              <thead>
+                <tr><th scope="col">연차</th><th scope="col">원금</th><th scope="col">이자</th><th scope="col">잔액</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </details>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="shareLoan">
+            <span aria-hidden="true">📋</span> 결과 복사하기
+          </button>
+        </div>
+      </section>
+
+      <div class="ad-slot" data-ad-slot="bottom" aria-hidden="true" hidden></div>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>원리금균등 vs 원금균등</h2>
+          <p class="card-sub">같은 금리·기간이면 총 이자는 원금균등이 적고, 첫 달 부담은 원리금균등이 가볍습니다.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <caption class="sr-only">상환 방식별 특징</caption>
+            <thead>
+              <tr><th scope="col">구분</th><th scope="col">원리금균등</th><th scope="col">원금균등</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">월 납입</th><td>만기까지 같음</td><td>매달 조금씩 감소</td></tr>
+              <tr><th scope="row">첫 달 부담</th><td>낮음</td><td>높음</td></tr>
+              <tr><th scope="row">총 이자</th><td>상대적으로 많음</td><td>상대적으로 적음</td></tr>
+              <tr><th scope="row">적합한 경우</th><td>월 현금흐름이 일정한 직장인</td><td>초반 여유가 있고 이자를 줄이고 싶을 때</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="tips">
+          <li><strong>중도상환수수료</strong>와 <strong>갈아타기(대환)</strong> 비용은 계산에 들어 있지 않습니다. 금리가 크게 낮아졌다면 대환 이득을 따로 계산해 보세요.</li>
+          <li><strong>DSR 규제</strong>는 모든 대출의 원리금을 합쳐 연소득 대비 비율로 봅니다. 여기 DSR은 이 대출 하나만 계산한 참고값입니다.</li>
+          <li><strong>변동금리</strong>라면 금리가 1%p 오를 때 월 상환액이 얼마나 늘어나는지 금리 칸을 바꿔 확인해 보세요.</li>
+        </ul>
+      </section>
+
+      <section class="card faq-card">
+        <h2>상환 계산에서 자주 묻는 것</h2>
+        <details class="faq">
+          <summary>월 상환액이 실제 고지서와 다른 이유는?</summary>
+          <p>은행은 원 단위 미만을 절사하거나 마지막 달에 잔액을 몰아 넣습니다. 또 우대금리 적용 시점, 인지세·근저당 설정비 같은 부대비용이 따로 붙습니다. 여기 계산은 원리금 균등 분할의 이론값입니다.</p>
+        </details>
+        <details class="faq">
+          <summary>원금균등은 왜 첫 달이 비싼가요?</summary>
+          <p>원금을 매달 똑같이 나누고 남은 잔액에 이자를 붙이기 때문입니다. 첫 달은 잔액이 가장 커서 이자가 많고, 갈수록 잔액이 줄어 월 납입액도 줄어듭니다.</p>
+        </details>
+        <details class="faq">
+          <summary>기간을 늘리면 항상 좋은가요?</summary>
+          <p>월 상환액은 줄지만 총 이자는 늘어납니다. 기간을 30년에서 40년으로 늘리면 월 부담은 10% 안팎 줄지만 총 이자는 크게 늘어날 수 있으니, 두 숫자를 함께 보세요.</p>
+        </details>
+      </section>
+    </section>
+
+    <!-- 제휴 상품: config.js 의 coupang.items 에 링크를 넣으면 나타납니다 -->
+    <section class="card promo-card" id="promoSection" hidden>
+      <div class="card-head">
+        <h2 id="promoHeading">이사 전에 챙기는 것</h2>
+        <p class="card-sub" id="promoSub"></p>
+      </div>
+      <div class="promo-grid" id="promoList"></div>
+      <p class="ad-disclosure" id="promoDisclosure"></p>
+    </section>
+
+    <section class="related-apps" aria-labelledby="relatedAppsTitle">
+      <h2 id="relatedAppsTitle">함께 많이 쓰는 계산기</h2>
+      <div class="related-grid">
+        <a class="related-app" href="../housing-loan/">
+          <strong>청약 가점·특례대출 계산기</strong>
+          <span>내 집 마련 전 청약 가점과 대출 한도</span>
+        </a>
+        <a class="related-app" href="../living-cost/">
+          <strong>고정비 체크기</strong>
+          <span>월세·관리비 늘기 전 새는 돈</span>
+        </a>
+        <a class="related-app" href="../year-end-tax/">
+          <strong>연말정산 환급 계산기</strong>
+          <span>월세 세액공제·대출 이자 공제</span>
+        </a>
+        <a class="related-app" href="../salary-net/">
+          <strong>연봉 실수령액 계산기</strong>
+          <span>월세 낼 수 있는 현금흐름 확인</span>
+        </a>
+        <a class="related-app" href="../">
+          <strong>전체 계산기</strong>
+          <span>생활 계산기 10종 모아 보기</span>
+        </a>
+      </div>
+    </section>
+
+    <footer class="app-footer">
+      <p class="disclaimer">
+        <strong>참고용 모의 계산입니다.</strong> 전월세 전환율은 주택임대차보호법 제7조의2와 같은 법 시행령 제9조(2026.7.1 시행) 및
+        한국은행 기준금리 3.25%(2026.11.26)를 반영했습니다. 시장 전환율은 KB부동산(2026.10)·서울시(2026년 3분기)·
+        한국부동산원(2025.12)·HUG(2026.1.30) 공표값입니다. 버팀목 조건은 주택도시기금 상품안내(2026.10.19 시행),
+        시중 금리는 한국은행 「금융시장 동향」(2026.10) 신규취급액 평균입니다. 실제 월세·대출 한도·금리는
+        계약과 심사로 정해지며, 입력값은 기기 안에만 저장되고 어디로도 전송되지 않습니다.
+      </p>
+      <p class="footer-links">
+        <a href="https://www.law.go.kr/" target="_blank" rel="noopener">국가법령정보센터</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.bok.or.kr/" target="_blank" rel="noopener">한국은행 기준금리</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://nhuf.molit.go.kr/" target="_blank" rel="noopener">주택도시기금</a>
+        <span aria-hidden="true">·</span>
+        <a href="../">전체 계산기</a>
+        <span aria-hidden="true">·</span>
+        <a href="../housing-loan/">청약·특례대출</a>
+        <span aria-hidden="true">·</span>
+        <a href="../living-cost/">고정비 체크</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://blog.naver.com/ufssdf987" target="_blank" rel="noopener">운영 블로그</a>
+        <span aria-hidden="true">·</span>
+        <a href="../privacy.html">개인정보처리방침</a>
+      </p>
+      <p class="footer-meta">
+        <span>기준일 <time id="dataDate" datetime="2026-11-26">2026-11-26</time></span>
+        <span aria-hidden="true">·</span>
+        <span>v<span id="appVersion">1.0.0</span></span>
+        <span aria-hidden="true">·</span>
+        <span>개인정보를 저장하지 않습니다</span>
+      </p>
+      <p class="ad-disclosure" id="footerDisclosure" hidden></p>
+    </footer>
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<noscript>
+  <div class="noscript">이 계산기는 자바스크립트를 사용합니다. 브라우저 설정에서 자바스크립트를 켜 주세요.</div>
+</noscript>
+
+<script src="config.js"></script>
+<script src="calc.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

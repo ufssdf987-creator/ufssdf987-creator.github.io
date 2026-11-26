@@ -1,0 +1,57 @@
+{
+  "id": "/rent-loan/",
+  "name": "전세·월세 전환 계산기",
+  "short_name": "전세·월세 전환",
+  "description": "법정·시장 전환율로 전세와 월세를 바꾸고, 전세대출 이자와 월세를 비교하며, 주담대 월 상환액을 계산합니다.",
+  "lang": "ko",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "portrait-primary",
+  "background_color": "#eef2f8",
+  "theme_color": "#0e1726",
+  "categories": ["finance", "utilities", "productivity"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "전월세 전환 계산",
+      "short_name": "전환 계산",
+      "url": "./index.html#convert",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "전세 vs 월세 비교",
+      "short_name": "전세 vs 월세",
+      "url": "./index.html#compare",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "주담대 상환액",
+      "short_name": "주담대",
+      "url": "./index.html#loan",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "prefer_related_applications": false
+}
