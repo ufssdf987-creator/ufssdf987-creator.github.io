@@ -8,7 +8,7 @@
  * 3) siteUrl 은 공유 문구와 sitemap 에 쓰는 실제 배포 주소로 바꿔 주세요.
  */
 window.APP_CONFIG = {
-  version: '1.0.14',
+  version: '1.0.15',
   siteName: '겨울 전기요금 계산기',
   siteUrl: 'https://ufssdf987-creator.github.io/winter-power/',
 

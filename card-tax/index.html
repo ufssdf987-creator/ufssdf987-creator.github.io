@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>신용·체크카드 황금비율 계산기 2026 | 25% 문턱·소득공제·12월 카드 배분</title>
+<meta name="description" content="2026년 귀속 신용카드 등 소득공제를 계산합니다. 총급여 25% 문턱, 신용 15%·체크·현금 30%·전통시장·대중교통 40%·문화체육 30%, 기본한도 300만원(자녀 1명 350·2명 400만원)과 추가한도 300만원까지 반영해 예상 절세액을 뽑고, 남은 12월 지출을 신용카드·체크카드·전통시장 중 어디로 쓸 때 가장 많이 돌려받는지, 맞벌이 부부가 누구 카드로 몰아주는 게 유리한지까지 비교합니다.">
+<meta name="keywords" content="신용카드 소득공제, 체크카드 소득공제, 카드 황금비율, 25% 문턱, 최저사용금액, 신용카드 15%, 체크카드 30%, 전통시장 40%, 대중교통 40%, 문화체육 30%, 기본한도 300만원, 자녀 350만원 400만원, 추가한도 300만원, 12월 카드, 연말정산 카드공제, 맞벌이 카드 몰아주기, 부부 카드, 공제 제외 항목, 아파트 관리비, 통신비, 해외결제, 신차 구입, 중고차 10%, 현금영수증, 소득공제 절세액, 한계세율 15% 24%">
+<meta name="author" content="이안이 아빠의 공간">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://ufssdf987-creator.github.io/card-tax/">
+<meta name="theme-color" content="#eef2f8">
+<meta name="theme-color" content="#eef2f8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#070c16" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="카드 황금비율 계산기">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="2026 신용·체크카드 황금비율 계산기">
+<meta property="og:title" content="신용·체크카드 황금비율 계산기 2026 — 25% 문턱과 12월 카드 배분">
+<meta property="og:description" content="총급여 5,000만원이면 1,250만원까지는 공제 0원. 문턱은 신용카드로 채우고 그 뒤는 체크카드로. 12월 200만원을 어디로 쓰느냐에 따라 돌려받는 세금이 달라집니다.">
+<meta property="og:url" content="https://ufssdf987-creator.github.io/card-tax/">
+<meta property="og:image" content="https://ufssdf987-creator.github.io/card-tax/icons/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="2026 신용·체크카드 황금비율 계산기 — 25% 문턱과 소득공제">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="신용·체크카드 황금비율 계산기 2026 — 25% 문턱과 12월 카드 배분">
+<meta name="twitter:description" content="신용 15%·체크 30%·전통시장·대중교통 40%. 기본한도 300만원에 자녀 수별 상향, 추가한도 300만원까지. 12월 카드 배분과 부부 몰아주기까지 3초에.">
+<meta name="twitter:image" content="https://ufssdf987-creator.github.io/card-tax/icons/og-image.png">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="styles.css">
+<script>
+  /* 첫 화면 깜빡임 방지: 저장된 테마를 CSS 적용 전에 반영 */
+  (function () {
+    try {
+      var saved = localStorage.getItem('ctx.theme');
+      var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', (saved === 'dark' || saved === 'light') ? saved : (dark ? 'dark' : 'light'));
+    } catch (e) { /* 저장소 접근 불가 시 기본 라이트 */ }
+  })();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "2026 신용·체크카드 황금비율 & 소득공제 계산기",
+  "url": "https://ufssdf987-creator.github.io/card-tax/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "inLanguage": "ko",
+  "description": "2026년 귀속 조세특례제한법 제126조의2에 따라 신용카드 등 사용금액 소득공제를 계산합니다. 총급여의 25%(최저사용금액)를 넘는 금액에 신용카드 15%, 체크·직불·현금영수증 30%, 전통시장·대중교통 40%, 문화체육 30%(총급여 7천만원 이하)를 적용하고, 총급여·자녀 수별 기본한도(300·350·400만원, 7천만원 초과 250·275·300만원)와 추가한도(300만·200만원)를 반영해 예상 절세액을 산출합니다. 남은 12월 지출의 신용카드·체크카드·전통시장 배분 비교와 맞벌이 부부 몰아주기 시뮬레이션, 공제 제외 항목 체크리스트를 제공합니다.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+  "featureList": [
+    "25% 문턱(최저사용금액) 판정과 남은 금액 계산",
+    "결제수단별 공제율: 신용 15%, 체크·직불·현금영수증 30%, 전통시장 40%, 대중교통 40%, 문화체육 30%(총급여 7천만원 이하)",
+    "기본한도 300·350·400만원(총급여 7천만원 이하, 자녀등 0·1·2명 이상)과 250·275·300만원(초과)",
+    "추가한도 300만원(7천만원 이하) / 200만원(초과) — 전통시장·대중교통·문화체육 공제분",
+    "한계세율 자동 추정과 직접 선택, 지방소득세 10% 포함 예상 절세액",
+    "남은 12월 지출의 신용카드·체크카드·전통시장 배분별 추가 공제·절세액 비교와 황금비율 자동 배분",
+    "맞벌이 부부의 총급여 차이에 따른 카드 몰아주기 비교(각자 25% 문턱 적용)",
+    "공제 제외 항목(세금·공과금·보험료·해외결제·신차·상품권 등) 체크리스트와 FAQ"
+  ]
+}
+</script>
+<!-- Google AdSense — 사이트 확인·광고 로딩용 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4355917079579050" crossorigin="anonymous"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+<div class="app-shell">
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" role="img" focusable="false">
+          <defs>
+            <linearGradient id="ctGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#7dd3fc"/><stop offset="1" stop-color="#2563eb"/>
+            </linearGradient>
+            <linearGradient id="ctGrad2" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#fcd34d"/><stop offset="1" stop-color="#d97706"/>
+            </linearGradient>
+          </defs>
+          <rect x="1" y="1" width="46" height="46" rx="13" fill="none" stroke="currentColor" stroke-opacity=".18"/>
+          <rect x="7" y="14" width="34" height="22" rx="5" fill="none" stroke="url(#ctGrad)" stroke-width="3"/>
+          <path d="M7 21h34" stroke="url(#ctGrad)" stroke-width="3" stroke-linecap="round"/>
+          <rect x="12" y="26" width="9" height="5" rx="2.5" fill="url(#ctGrad2)"/>
+          <circle cx="33.5" cy="28.5" r="4.2" fill="none" stroke="url(#ctGrad2)" stroke-width="2.4"/>
+          <path d="M31.6 30.2l3.8-3.6" stroke="url(#ctGrad2)" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <div class="brand-text">
+        <h1>카드 황금비율 계산</h1>
+        <p>2026 소득공제 · 25% 문턱 · 12월 배분</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button type="button" class="icon-btn install-btn" id="installBtn" hidden>앱 설치</button>
+      <button type="button" class="icon-btn theme-btn" id="themeBtn" aria-label="화면 테마 바꾸기" title="라이트/다크 전환">
+        <span id="themeIcon" aria-hidden="true">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="계산기 선택">
+    <button type="button" class="tab is-active" id="tabBasic" role="tab" aria-selected="true" aria-controls="panelBasic" tabindex="0">
+      <span class="tab-emoji" aria-hidden="true">🧾</span>
+      <span class="tab-label">문턱·공제액</span>
+    </button>
+    <button type="button" class="tab" id="tabGolden" role="tab" aria-selected="false" aria-controls="panelGolden" tabindex="-1">
+      <span class="tab-emoji" aria-hidden="true">⚖️</span>
+      <span class="tab-label">12월 비율</span>
+    </button>
+    <button type="button" class="tab" id="tabCouple" role="tab" aria-selected="false" aria-controls="panelCouple" tabindex="-1">
+      <span class="tab-emoji" aria-hidden="true">👫</span>
+      <span class="tab-label">부부 몰아주기</span>
+    </button>
+    <button type="button" class="tab" id="tabGuide" role="tab" aria-selected="false" aria-controls="panelGuide" tabindex="-1">
+      <span class="tab-emoji" aria-hidden="true">✅</span>
+      <span class="tab-label">제외·FAQ</span>
+    </button>
+  </nav>
+
+  <main id="main">
+    <div class="ad-slot" data-ad-slot="top" aria-hidden="true" hidden></div>
+
+    <!-- ══════════ 탭 1: 25% 문턱 & 공제액 ══════════ -->
+    <section class="panel is-active" id="panelBasic" role="tabpanel" aria-labelledby="tabBasic" tabindex="0">
+      <p class="lead">카드 공제는 <strong>쓴 돈 전체</strong>가 아니라 <strong>총급여의 25%를 넘긴 금액</strong>에만 붙습니다. 신용 15%·체크·현금 30%·전통시장·대중교통 40%에, 총급여 7천만원 이하면 문화체육 30%까지. 여기에 <strong>기본한도와 추가한도</strong>가 걸립니다. 올해 쓴 금액만 넣으면 2027년 2월에 돌려받을 세금이 나옵니다.</p>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>내 소득과 가족</h2>
+          <p class="card-sub">총급여는 <strong>비과세(식대 등)를 뺀 과세 대상 급여</strong>입니다. 원천징수영수증의 총급여액을 보세요.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="bsSalary">올해 총급여</label>
+            <span class="badge-soft" id="bsSalaryBadge">5,000만원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="bsSalary" type="number" inputmode="numeric" min="0" max="300000000" step="1000000" value="50000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="총급여 빠른 선택">
+            <button type="button" data-bs-salary="30000000">3,000만</button>
+            <button type="button" data-bs-salary="40000000">4,000만</button>
+            <button type="button" data-bs-salary="50000000">5,000만</button>
+            <button type="button" data-bs-salary="60000000">6,000만</button>
+            <button type="button" data-bs-salary="80000000">8,000만</button>
+          </div>
+          <p class="field-help" id="bsThresholdHelp">총급여의 25%인 <strong>1,250만원</strong>을 넘겨 쓴 금액부터 공제가 시작됩니다.</p>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="bsKidsLabel">자녀등 수 <small>기본한도 +50만·25만원</small></span>
+          <div class="segmented segmented-sm" role="radiogroup" aria-labelledby="bsKidsLabel" id="bsKidsGroup">
+            <button type="button" role="radio" aria-checked="true" class="is-active" data-bs-kids="0">없음<small>기본</small></button>
+            <button type="button" role="radio" aria-checked="false" data-bs-kids="1">1명<small>+50만</small></button>
+            <button type="button" role="radio" aria-checked="false" data-bs-kids="2">2명 이상<small>+100만</small></button>
+          </div>
+          <p class="field-help">2026년 사용분부터 20세 이하(장애인은 나이 무관) 자녀·손자녀가 있으면 기본한도가 올라갑니다. 7천만원 초과자는 1명 25만·2명 이상 50만원입니다.</p>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="bsRateSel">한계세율 <small>절세액 환산</small></label>
+          <span class="select-wrap">
+            <select id="bsRateSel">
+              <option value="0" selected>자동 추정 — 총급여로 계산</option>
+              <option value="6">6% 구간 (과세표준 1,400만원 이하)</option>
+              <option value="15">15% 구간 (1,400만~5,000만원)</option>
+              <option value="24">24% 구간 (5,000만~8,800만원)</option>
+              <option value="35">35% 구간 (8,800만~1억5,000만원)</option>
+              <option value="38">38% 구간 (1억5,000만~3억원)</option>
+              <option value="40">40% 구간 (3억~5억원)</option>
+              <option value="42">42% 구간 (5억~10억원)</option>
+              <option value="45">45% 구간 (10억원 초과)</option>
+            </select>
+          </span>
+          <p class="field-help" id="bsRateHelp">자동 추정은 근로소득공제·국민연금(4.75%)·기본공제(본인과 자녀 1인 150만원)만 반영합니다. 부양가족·연금계좌·월세 공제가 있으면 실제보다 높게 나올 수 있어, 정확한 값은 원천징수영수증의 과세표준으로 확인하세요.</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>올해 카드 사용액</h2>
+          <p class="card-sub">카드사 앱의 <strong>1~12월 합계</strong>나 홈택스 연말정산 간소화 자료의 '신용카드' 항목 금액을 넣으세요. 전통시장·대중교통은 결제 수단과 상관없이 따로 적습니다.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="bsCredit">신용카드 <small>공제율 15%</small></label>
+            <span class="badge-soft" id="bsCreditBadge">0원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="bsCredit" type="number" inputmode="numeric" min="0" max="50000000" step="100000" value="12000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="신용카드 사용액 빠른 선택">
+            <button type="button" data-bs-credit="5000000">500만</button>
+            <button type="button" data-bs-credit="10000000">1,000만</button>
+            <button type="button" data-bs-credit="15000000">1,500만</button>
+            <button type="button" data-bs-credit="20000000">2,000만</button>
+          </div>
+          <p class="field-help">25% 문턱은 <strong>신용카드 사용분부터</strong> 채워집니다. 문턱까지는 어차피 공제가 0원이니, 실적·포인트·할인이 큰 카드로 채우는 게 유리합니다.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="bsCheck">체크·직불·현금영수증 <small>공제율 30%</small></label>
+            <span class="badge-soft" id="bsCheckBadge">0원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="bsCheck" type="number" inputmode="numeric" min="0" max="50000000" step="100000" value="3500000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="체크카드 사용액 빠른 선택">
+            <button type="button" data-bs-check="2000000">200만</button>
+            <button type="button" data-bs-check="5000000">500만</button>
+            <button type="button" data-bs-check="8000000">800만</button>
+            <button type="button" data-bs-check="12000000">1,200만</button>
+          </div>
+          <p class="field-help">신용카드의 두 배 공제율입니다. 문턱을 넘긴 뒤부터는 같은 100만원을 써도 공제가 15만원 → 30만원으로 늘어납니다.</p>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <div class="field-label-row">
+              <label class="field-label" for="bsMarket">전통시장</label>
+              <span class="badge-soft" id="bsMarketBadge">0원</span>
+            </div>
+            <div class="input-wrap">
+              <input id="bsMarket" type="number" inputmode="numeric" min="0" max="50000000" step="10000" value="800000" autocomplete="off">
+              <span class="unit">원</span>
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label-row">
+              <label class="field-label" for="bsTransit">대중교통</label>
+              <span class="badge-soft" id="bsTransitBadge">0원</span>
+            </div>
+            <div class="input-wrap">
+              <input id="bsTransit" type="number" inputmode="numeric" min="0" max="50000000" step="10000" value="1200000" autocomplete="off">
+              <span class="unit">원</span>
+            </div>
+          </div>
+        </div>
+        <p class="field-help">전통시장·대중교통은 <strong>결제 수단과 무관하게 40%</strong>이고, 기본한도를 넘으면 추가한도(연 300만원)로도 인정됩니다. 위 신용·체크 금액에 포함된 부분은 빼고 적어 주세요.</p>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="bsCulture">문화체육 <small>도서·공연·영화·체육시설</small></label>
+            <span class="badge-soft" id="bsCultureBadge">0원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="bsCulture" type="number" inputmode="numeric" min="0" max="50000000" step="10000" value="400000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <p class="field-help" id="bsCultureHelp">도서·신문 구독·공연·영화·박물관·미술관·수영장·체력단련장 <strong>시설이용료</strong>는 30%입니다. 총급여 7천만원을 넘으면 이 30%가 적용되지 않고 결제수단 공제율(신용 15%)로 계산됩니다.</p>
+        </div>
+      </section>
+
+      <section class="card result-card" id="bsResultCard">
+        <div class="result-head">
+          <div>
+            <p class="result-label">2026년 예상 카드 소득공제</p>
+            <p class="result-amount" aria-live="polite" aria-atomic="true"><span id="bsDeduction">0</span><span class="won">원</span></p>
+            <p class="result-sub" id="bsSub"></p>
+          </div>
+          <span class="tier-badge" id="bsVerdict" data-tier="2">계산 중</span>
+        </div>
+
+        <div class="refund-line" id="bsRefundWrap">
+          <span>돌려받을 세금<small>카드 공제분 · 지방소득세 포함</small></span>
+          <strong id="bsRefund">0원</strong>
+        </div>
+
+        <div class="breakdown" id="bsRows"></div>
+
+        <div class="stat-grid">
+          <div class="stat-cell">
+            <span>카드·현금 총사용</span>
+            <strong id="bsStatSpend">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>25% 문턱</span>
+            <strong id="bsStatThreshold">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>문턱까지 남은 금액</span>
+            <strong id="bsStatGap">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>한도 남은 금액</span>
+            <strong id="bsStatRoom">0원</strong>
+          </div>
+        </div>
+
+        <div class="fee-meter">
+          <div class="fee-meter__track"><i class="fee-meter__fill" id="bsMeterFill"></i></div>
+          <div class="fee-meter__legend">
+            <span id="bsMeterLeft">한도 0%</span>
+            <span id="bsMeterRight">최대 0원</span>
+          </div>
+        </div>
+
+        <div class="after-box" id="bsNextBox">
+          <p class="after-title" id="bsNextTitle">다음에 할 일</p>
+          <p id="bsNext"></p>
+        </div>
+
+        <p class="insight" id="bsInsight"></p>
+
+        <details class="breakdown-box" open>
+          <summary>
+            <span>결제수단·사용처별 공제 내역</span>
+            <span class="summary-hint">문턱 차감 후</span>
+          </summary>
+          <div class="table-wrap">
+            <table class="data-table data-table--num" id="bsRateTable">
+              <caption class="sr-only">결제수단별 사용액, 공제율, 인정 공제액</caption>
+              <thead>
+                <tr><th scope="col">구분</th><th scope="col">사용액</th><th scope="col">공제율</th><th scope="col">공제액</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <p class="field-help">문턱(최저사용금액)은 법이 정한 순서대로 신용카드 → 체크·현금 → 문화체육 → 전통시장 → 대중교통에서 차감됩니다. 그래서 공제율이 낮은 신용카드로 채울수록 유리합니다.</p>
+        </details>
+
+        <details class="breakdown-box">
+          <summary>
+            <span>총급여·자녀 수별 한도</span>
+            <span class="summary-hint">2026년 사용분</span>
+          </summary>
+          <div class="table-wrap">
+            <table class="data-table data-table--num" id="bsLimitTable">
+              <caption class="sr-only">총급여와 자녀 수별 기본한도와 추가한도</caption>
+              <thead>
+                <tr><th scope="col">총급여</th><th scope="col">자녀 없음</th><th scope="col">1명</th><th scope="col">2명 이상</th><th scope="col">추가한도</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <p class="field-help">추가한도는 기본한도를 넘는 공제액과 전통시장·대중교통(7천만원 이하 문화체육 포함) 공제분 중 적은 금액까지 인정됩니다. 7천만원 이하 무자녀면 최대 300만+300만=600만원까지 가능합니다.</p>
+        </details>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="shareBasic">결과 복사하기</button>
+        </div>
+      </section>
+
+      <div class="ad-slot" data-ad-slot="mid" aria-hidden="true" hidden></div>
+    </section>
+
+    <!-- ══════════ 탭 2: 12월 황금비율 ══════════ -->
+    <section class="panel" id="panelGolden" role="tabpanel" aria-labelledby="tabGolden" tabindex="0" hidden>
+      <p class="lead">공제 대상 기간은 <strong>12월 31일</strong>에 끝납니다. 지금까지 쓴 금액과 12월에 쓸 돈을 넣으면, 그 돈을 <strong>신용카드·체크카드·전통시장</strong> 중 어디로 쓰는 게 가장 많이 돌려받는지 비교합니다. 25% 문턱을 넘지 못하면 어떤 카드를 써도 공제는 0원입니다.</p>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>지금까지 쓴 금액</h2>
+          <p class="card-sub">1월~11월(오늘까지) 카드사 앱 합계를 넣으세요. 홈택스 <strong>연말정산 미리보기</strong>에서 조회한 금액이 가장 정확합니다.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="gdSalary">올해 총급여</label>
+            <span class="badge-soft" id="gdSalaryBadge">5,000만원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="gdSalary" type="number" inputmode="numeric" min="0" max="300000000" step="1000000" value="50000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="gdKidsLabel">자녀등 수</span>
+          <div class="segmented segmented-sm" role="radiogroup" aria-labelledby="gdKidsLabel" id="gdKidsGroup">
+            <button type="button" role="radio" aria-checked="true" class="is-active" data-gd-kids="0">없음</button>
+            <button type="button" role="radio" aria-checked="false" data-gd-kids="1">1명</button>
+            <button type="button" role="radio" aria-checked="false" data-gd-kids="2">2명 이상</button>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <div class="field-label-row">
+              <label class="field-label" for="gdCredit">신용카드</label>
+              <span class="badge-soft" id="gdCreditBadge">0원</span>
+            </div>
+            <div class="input-wrap">
+              <input id="gdCredit" type="number" inputmode="numeric" min="0" max="50000000" step="100000" value="12000000" autocomplete="off">
+              <span class="unit">원</span>
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label-row">
+              <label class="field-label" for="gdCheck">체크·현금</label>
+              <span class="badge-soft" id="gdCheckBadge">0원</span>
+            </div>
+            <div class="input-wrap">
+              <input id="gdCheck" type="number" inputmode="numeric" min="0" max="50000000" step="100000" value="3000000" autocomplete="off">
+              <span class="unit">원</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <div class="field-label-row">
+              <label class="field-label" for="gdMarket">전통시장</label>
+              <span class="badge-soft" id="gdMarketBadge">0원</span>
+            </div>
+            <div class="input-wrap">
+              <input id="gdMarket" type="number" inputmode="numeric" min="0" max="50000000" step="10000" value="700000" autocomplete="off">
+              <span class="unit">원</span>
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label-row">
+              <label class="field-label" for="gdTransit">대중교통</label>
+              <span class="badge-soft" id="gdTransitBadge">0원</span>
+            </div>
+            <div class="input-wrap">
+              <input id="gdTransit" type="number" inputmode="numeric" min="0" max="50000000" step="10000" value="1100000" autocomplete="off">
+              <span class="unit">원</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="gdCulture">문화체육</label>
+            <span class="badge-soft" id="gdCultureBadge">0원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="gdCulture" type="number" inputmode="numeric" min="0" max="50000000" step="10000" value="350000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="gdBudget">12월에 쓸 돈 <small>남은 한 달</small></label>
+            <span class="badge-soft" id="gdBudgetBadge">0원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="gdBudget" type="number" inputmode="numeric" min="0" max="50000000" step="100000" value="2000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="12월 지출 빠른 선택">
+            <button type="button" data-gd-budget="1000000">100만</button>
+            <button type="button" data-gd-budget="2000000">200만</button>
+            <button type="button" data-gd-budget="3000000">300만</button>
+            <button type="button" data-gd-budget="5000000">500만</button>
+          </div>
+          <p class="field-help">생활비·장보기·주유·약값처럼 <strong>어차피 쓸 돈</strong>을 넣으세요. 12월에 새로 쓰는 돈은 공제보다 지출이 큽니다.</p>
+        </div>
+      </section>
+
+      <section class="card result-card" id="gdResultCard">
+        <div class="result-head">
+          <div>
+            <p class="result-label">황금비율로 쓰면 더 돌려받는 세금</p>
+            <p class="result-amount" aria-live="polite" aria-atomic="true"><span id="gdHeadline">0</span><span class="won">원</span></p>
+            <p class="result-sub" id="gdSub"></p>
+          </div>
+          <span class="tier-badge" id="gdVerdict" data-tier="2">계산 중</span>
+        </div>
+
+        <div class="compare-rows" id="gdRows"></div>
+
+        <div class="stat-grid">
+          <div class="stat-cell">
+            <span>현재까지 공제</span>
+            <strong id="gdStatBefore">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>문턱까지</span>
+            <strong id="gdStatGap">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>한도 남은 금액</span>
+            <strong id="gdStatRoom">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>최대 공제</span>
+            <strong id="gdStatMax">0원</strong>
+          </div>
+        </div>
+
+        <div class="after-box" id="gdNextBox">
+          <p class="after-title" id="gdNextTitle">12월 사용 순서</p>
+          <div class="steps" id="gdSteps"></div>
+        </div>
+
+        <p class="insight" id="gdInsight"></p>
+
+        <details class="breakdown-box" open>
+          <summary>
+            <span>배분별 사용 내역</span>
+            <span class="summary-hint">12월 지출 기준</span>
+          </summary>
+          <div class="table-wrap">
+            <table class="data-table data-table--num" id="gdAllocTable">
+              <caption class="sr-only">시나리오별 12월 사용액 배분</caption>
+              <thead>
+                <tr><th scope="col">방식</th><th scope="col">신용</th><th scope="col">체크</th><th scope="col">시장·교통</th><th scope="col">+공제</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <p class="field-help">'공제 최대 배분'은 1만원 단위로 공제가 가장 커지는 조합을 찾은 값입니다. 전통시장·대중교통에 실제로 쓸 수 있는 금액이 한정적이라면 '황금비율'을 기준으로 보세요.</p>
+        </details>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="shareGolden">결과 복사하기</button>
+        </div>
+      </section>
+
+      <div class="ad-slot" data-ad-slot="mid2" aria-hidden="true" hidden></div>
+    </section>
+
+    <!-- ══════════ 탭 3: 부부·맞벌이 몰아주기 ══════════ -->
+    <section class="panel" id="panelCouple" role="tabpanel" aria-labelledby="tabCouple" tabindex="0" hidden>
+      <p class="lead">카드 공제의 25% 문턱은 <strong>사람마다 따로</strong> 적용됩니다. 소득이 낮은 쪽에 몰아주면 문턱이 낮아 공제가 더 붙지만, 그 사람의 세율도 낮아 절세액이 줄 수 있습니다. 두 사람의 총급여와 카드 사용액을 넣으면 <strong>누구 카드로 얼마씩 쓸 때 세금을 가장 많이 돌려받는지</strong> 계산합니다.</p>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>부부 소득과 카드 사용</h2>
+          <p class="card-sub">맞벌이는 각자 연말정산을 하므로, 실제로 <strong>그 사람 명의 카드로 결제</strong>해야 그 사람 사용액으로 잡힙니다.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="cpSalaryA">A 총급여</label>
+            <span class="badge-soft" id="cpSalaryABadge">6,000만원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="cpSalaryA" type="number" inputmode="numeric" min="0" max="300000000" step="1000000" value="60000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="cpSalaryB">B 총급여</label>
+            <span class="badge-soft" id="cpSalaryBBadge">3,500만원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="cpSalaryB" type="number" inputmode="numeric" min="0" max="300000000" step="1000000" value="35000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="cpSpend">부부 합계 연간 카드 사용액</label>
+            <span class="badge-soft" id="cpSpendBadge">0원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="cpSpend" type="number" inputmode="numeric" min="0" max="50000000" step="100000" value="24000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="카드 사용액 빠른 선택">
+            <button type="button" data-cp-spend="12000000">1,200만</button>
+            <button type="button" data-cp-spend="18000000">1,800만</button>
+            <button type="button" data-cp-spend="24000000">2,400만</button>
+            <button type="button" data-cp-spend="30000000">3,000만</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="cpCreditShare">그중 신용카드 비중</label>
+            <span class="badge-soft" id="cpCreditShareBadge">60%</span>
+          </div>
+          <div class="input-wrap">
+            <input id="cpCreditShare" type="number" inputmode="numeric" min="0" max="100" step="5" value="60" autocomplete="off">
+            <span class="unit">%</span>
+          </div>
+          <div class="chips" role="group" aria-label="신용카드 비중 빠른 선택">
+            <button type="button" data-cp-share="0">체크만</button>
+            <button type="button" data-cp-share="50">50%</button>
+            <button type="button" data-cp-share="70">70%</button>
+            <button type="button" data-cp-share="100">신용만</button>
+          </div>
+          <p class="field-help">나머지는 체크카드·현금영수증(30%)으로 봅니다. 전통시장·대중교통은 결제 수단과 무관하게 40%라 몰아주기 효과가 없어 이 비교에서는 제외했습니다.</p>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="cpKidsLabel">자녀등 수</span>
+          <div class="segmented segmented-sm" role="radiogroup" aria-labelledby="cpKidsLabel" id="cpKidsGroup">
+            <button type="button" role="radio" aria-checked="true" class="is-active" data-cp-kids="0">없음</button>
+            <button type="button" role="radio" aria-checked="false" data-cp-kids="1">1명</button>
+            <button type="button" role="radio" aria-checked="false" data-cp-kids="2">2명 이상</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="cpClaimLabel">자녀 한도는 누구에게</span>
+          <div class="segmented segmented-sm segmented-rel" role="radiogroup" aria-labelledby="cpClaimLabel" id="cpClaimGroup">
+            <button type="button" role="radio" aria-checked="true" class="is-active" data-cp-claim="a">A</button>
+            <button type="button" role="radio" aria-checked="false" data-cp-claim="b">B</button>
+          </div>
+          <p class="field-help">기본한도 상향(+50만·+100만)은 자녀를 기본공제 받는 쪽에 붙습니다. 부부가 같은 자녀를 각자 받을 수는 없습니다.</p>
+        </div>
+      </section>
+
+      <section class="card result-card" id="cpResultCard">
+        <div class="result-head">
+          <div>
+            <p class="result-label" id="cpBestLabel">최적 분배로 더 돌려받는 세금</p>
+            <p class="result-amount" aria-live="polite" aria-atomic="true"><span id="cpGain">0</span><span class="won">원</span></p>
+            <p class="result-sub" id="cpSub"></p>
+          </div>
+          <span class="tier-badge" id="cpVerdict" data-tier="2">계산 중</span>
+        </div>
+
+        <div class="after-box" id="cpBestBox">
+          <p class="after-title" id="cpBestTitle">추천 배분</p>
+          <p id="cpBestText"></p>
+        </div>
+
+        <div class="compare-rows" id="cpRows"></div>
+
+        <div class="stat-grid">
+          <div class="stat-cell">
+            <span>A 예상 절세</span>
+            <strong id="cpStatA">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>B 예상 절세</span>
+            <strong id="cpStatB">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>A 문턱</span>
+            <strong id="cpStatGapA">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>B 문턱</span>
+            <strong id="cpStatGapB">0원</strong>
+          </div>
+        </div>
+
+        <p class="insight" id="cpInsight"></p>
+
+        <details class="breakdown-box" open>
+          <summary>
+            <span>배분 비율별 절세액</span>
+            <span class="summary-hint">A 몫 기준</span>
+          </summary>
+          <div class="table-wrap">
+            <table class="data-table data-table--num" id="cpTable">
+              <caption class="sr-only">카드 사용액을 A와 B에게 나눈 비율별 소득공제와 절세액</caption>
+              <thead>
+                <tr><th scope="col">A : B</th><th scope="col">A 공제</th><th scope="col">B 공제</th><th scope="col">절세 합계</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <p class="field-help">한쪽이 이미 한도를 채웠다면 더 몰아줘도 공제가 늘지 않습니다. 그때는 반대쪽 문턱(총급여 25%)을 넘기는 데 쓰는 편이 낫습니다.</p>
+        </details>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="shareCouple">결과 복사하기</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>몰아주기 전에 확인할 것</h2>
+        </div>
+        <div class="check-list">
+          <label class="check-item">
+            <input type="checkbox" data-check="c1">
+            <span><strong>배우자 소득 100만원 이하</strong><small>외벌이·전업주부 배우자 카드 사용액은 소득 요건만 맞으면 본인 공제에 합산됩니다. 이때는 몰아주기 계산이 아니라 한 사람 것으로 합산됩니다.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="c2">
+            <span><strong>맞벌이는 각자 신고</strong><small>둘 다 근로소득이 있으면 각자 연말정산에서 자기 카드 사용액으로 공제받습니다. 실제 결제 명의를 바꿔야 반영됩니다.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="c3">
+            <span><strong>한계세율 차이 확인</strong><small>공제 100만원의 가치는 15% 구간 15만원, 24% 구간 24만원입니다. 소득이 높은 쪽 문턱이 높아도 세율이 높으면 유리할 수 있습니다.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="c4">
+            <span><strong>자녀 기본공제 중복 금지</strong><small>기본한도 상향을 받는 쪽은 한 명입니다. 부부가 같은 자녀를 각자 기본공제 받을 수 없습니다.</small></span>
+          </label>
+        </div>
+        <div class="result-actions">
+          <button type="button" class="btn btn-ghost" id="cpCheckReset">체크 모두 지우기</button>
+        </div>
+      </section>
+    </section>
+
+    <!-- ══════════ 탭 4: 제외 항목 · FAQ ══════════ -->
+    <section class="panel" id="panelGuide" role="tabpanel" aria-labelledby="tabGuide" tabindex="0" hidden>
+      <p class="lead">카드 명세서 합계가 그대로 공제 대상은 아닙니다. <strong>세금·공과금·보험료·해외결제·신차 구입</strong>처럼 처음부터 빠지는 돈이 있어, 많이 썼는데 공제가 적게 나오는 이유가 됩니다. 아래 목록으로 내 명세서를 먼저 걸러 보세요.</p>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>공제에서 빠지는 지출</h2>
+          <p class="card-sub">조세특례제한법 제126조의2 제4항, 같은 법 시행령 제121조의2 제6항.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table" id="exTable">
+            <caption class="sr-only">신용카드 소득공제 제외 항목</caption>
+            <thead>
+              <tr><th scope="col">분류</th><th scope="col">빠지는 지출</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>세금·공과금</td><td>국세·지방세, 전기·수도·가스요금, 통신·인터넷 요금, 아파트 관리비, TV 시청료, 고속도로 통행료(하이패스)</td></tr>
+              <tr><td>보험료</td><td>국민연금·건강보험·장기요양·고용보험료, 생명·손해보험료(자동차보험 포함)</td></tr>
+              <tr><td>교육</td><td>유치원·어린이집·초중고·대학에 내는 수업료·입학금·보육비용 등 공납금</td></tr>
+              <tr><td>자동차</td><td>신차 구입비 전액, 리스료·렌터카 대여료. <strong>중고차는 구입금액의 10%만</strong> 인정</td></tr>
+              <tr><td>해외·면세</td><td>국외에서 사용한 금액, 공항·시내 면세점 사용액</td></tr>
+              <tr><td>상품권·선불충전</td><td>상품권·기프트카드 등 유가증권 구입비(사용분 아님)</td></tr>
+              <tr><td>부동산·재산</td><td>취득세·등록면허세가 부과되는 재산 구입비</td></tr>
+              <tr><td>금융·기부</td><td>대출 이자, 증권거래 수수료, 보증료, 세액공제 받은 기부금·월세</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="after-box after-box--warn">
+          <p class="after-title">중고차는 10%만</p>
+          <p>2,000만원짜리 중고차를 카드로 사면 <strong>200만원</strong>이 사용액에 들어갑니다. 신차 3,000만원은 0원입니다. 자동차 리스료·렌터카 요금은 전액 빠집니다.</p>
+        </div>
+        <p class="field-help">포인트·마일리지로 결제한 부분도 사용액이 아닙니다. 반대로 학원비·병원비·주유·마트 장보기는 공제 대상입니다.</p>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>12월 카드 점검 체크리스트</h2>
+          <p class="card-sub">체크한 항목은 이 기기에만 저장됩니다.</p>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-bar"><i id="exBar" style="width:0%"></i></div>
+          <p class="check-count" id="exCount">0 / 12</p>
+        </div>
+        <div class="check-list" id="exList">
+          <label class="check-item">
+            <input type="checkbox" data-check="e1">
+            <span><strong>홈택스에서 1~11월 사용액 조회</strong><small>연말정산 미리보기 → 신용카드 자료. 카드사별로 흩어진 사용액을 한 번에 볼 수 있습니다.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="e2">
+            <span><strong>명세서에서 제외 항목 빼기</strong><small>관리비·통신비·보험료·해외결제를 뺀 금액이 실제 공제 대상입니다.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="e3">
+            <span><strong>25% 문턱 넘겼는지 확인</strong><small>문턱을 못 넘으면 12월에 카드를 바꿔도 공제는 0원입니다. 이때는 카드 혜택으로 판단하세요.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="e4">
+            <span><strong>문턱은 신용카드로 채우기</strong><small>문턱까지는 어차피 공제 0원. 실적·포인트·할인이 큰 신용카드를 쓰는 게 이득입니다.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="e5">
+            <span><strong>문턱 넘긴 뒤엔 체크카드·현금영수증</strong><small>같은 100만원이 공제 15만원 → 30만원으로 두 배가 됩니다.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="e6">
+            <span><strong>기본한도 남은 금액 계산</strong><small>총급여 7천만원 이하 300만원(자녀 1명 350·2명 이상 400만원). 남았으면 체크·현금으로 채우세요.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="e7">
+            <span><strong>기본한도 다 찼으면 전통시장·대중교통</strong><small>이때부터는 40%에 추가한도(연 300만원)까지 붙어 마지막 100만원의 효율이 가장 좋습니다.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="e8">
+            <span><strong>문화체육 30% 챙기기</strong><small>총급여 7천만원 이하면 도서·공연·영화·수영장·헬스장 시설이용료가 30%입니다. 강습비·회원권은 빠집니다.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="e9">
+            <span><strong>가족 카드 합산 확인</strong><small>소득 100만원 이하 배우자·직계존비속 카드 사용액은 본인 공제에 합산할 수 있습니다.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="e10">
+            <span><strong>12월 31일 전 결제 완료</strong><small>사용 시점 기준입니다. 1월에 결제하면 내년 사용액이 됩니다.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="e11">
+            <span><strong>카드 혜택과 세금 함께 비교</strong><small>체크카드 전환으로 얻는 세금이 결제금액의 1.5~4.5% 수준이면, 신용카드 할인·적립이 그보다 큰지 따져보세요.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="e12">
+            <span><strong>내년 제도 변경 확인</strong><small>2026년 8월 세제개편안에 대중교통 우대 공제 폐지·문화비 요건 완화가 담겼습니다. 2027년 사용분부터 적용 예정이라 2026년 귀속은 현행 그대로입니다.</small></span>
+          </label>
+        </div>
+        <div class="result-actions">
+          <button type="button" class="btn btn-ghost" id="exReset">체크 모두 지우기</button>
+        </div>
+      </section>
+
+      <section class="card faq-card">
+        <h2>카드 공제에서 자주 묻는 것</h2>
+        <details class="faq" open>
+          <summary>25% 문턱은 왜 있는 건가요?</summary>
+          <p>카드 사용을 늘리려는 목적이 아니라, 이미 쓰고 있는 소비를 세제로 뒷받침하는 제도라서 그렇습니다. 총급여 5,000만원이면 <strong>1,250만원까지는 공제 0원</strong>이고, 넘긴 금액에만 공제율이 붙습니다. 문턱을 못 넘으면 신용·체크를 어떻게 섞어도 결과는 0원입니다.</p>
+        </details>
+        <details class="faq">
+          <summary>문턱을 체크카드로 채우면 손해인가요?</summary>
+          <p>공제액은 신용카드로 채운 것과 같습니다. 문턱에 해당하는 금액은 어차피 30%가 아니라 0원으로 계산되기 때문입니다. 다만 신용카드 실적·포인트·할인을 포기하게 되므로, 문턱 구간은 <strong>카드 혜택</strong>으로 고르는 게 좋습니다.</p>
+        </details>
+        <details class="faq">
+          <summary>대중교통 80%라고 들었는데요?</summary>
+          <p>2023년 한 해만 80%(전통시장 50%)였고, 2024년부터 <strong>40%</strong>로 돌아왔습니다. 2026년 귀속도 40%입니다. 2026년 8월 세제개편안에는 대중교통 우대 공제를 없애는 안이 담겼지만, 2027년 사용분부터 적용 예정이라 올해 사용분은 그대로입니다.</p>
+        </details>
+        <details class="faq">
+          <summary>자녀가 3명이면 한도가 더 늘어나나요?</summary>
+          <p>아니요. 2명 이상은 모두 같은 구간입니다. 총급여 7천만원 이하는 400만원, 초과는 300만원이 최대입니다.</p>
+        </details>
+        <details class="faq">
+          <summary>추가한도는 어떻게 계산하나요?</summary>
+          <p>기본한도를 넘는 공제액과 전통시장·대중교통(7천만원 이하면 문화체육 포함) 공제분 중 <strong>적은 금액</strong>을 더 인정합니다. 한도는 7천만원 이하 300만원, 초과 200만원입니다. 그래서 기본한도가 꽉 차면 전통시장·대중교통 지출만 남은 한도로 쓸 수 있습니다.</p>
+        </details>
+        <details class="faq">
+          <summary>문화체육 30%는 어떤 결제가 되나요?</summary>
+          <p>도서·신문 구독, 공연·영화·박물관·미술관 입장료, 수영장·체력단련장 시설이용료입니다. 2025년 7월 1일 결제분부터 체육시설이 포함됐고, <strong>강습비·회원권 등 시설 이용과 무관한 비용</strong>은 빠집니다. 총급여 7천만원 초과자는 이 30% 대신 결제수단 공제율이 적용됩니다.</p>
+        </details>
+        <details class="faq">
+          <summary>아파트 관리비·통신비도 카드로 내는데요?</summary>
+          <p>공제 대상이 아닙니다. 전기·수도·가스·통신·관리비·TV 시청료·통행료는 시행령에서 빠진 항목입니다. 매달 자동결제되는 금액이 크면 명세서 합계와 공제 대상 금액이 크게 벌어집니다.</p>
+        </details>
+        <details class="faq">
+          <summary>중고차를 카드로 샀습니다.</summary>
+          <p>구입금액의 <strong>10%</strong>만 사용액에 들어갑니다. 2,000만원이면 200만원입니다. 신차와 리스료·렌터카는 전액 제외입니다.</p>
+        </details>
+        <details class="faq">
+          <summary>공제액과 환급액은 같은가요?</summary>
+          <p>다릅니다. 카드 공제는 <strong>소득공제</strong>라 과세표준을 줄이고, 실제로 줄어드는 세금은 공제액 × 한계세율입니다. 공제 300만원이어도 15% 구간이면 소득세 45만원, 지방소득세를 더해 약 49만5,000원입니다. 이 계산기의 '돌려받을 세금'은 카드 공제 하나만 반영한 값입니다.</p>
+        </details>
+        <details class="faq">
+          <summary>외벌이라 배우자 카드를 씁니다.</summary>
+          <p>배우자의 연간 소득금액이 100만원 이하면 배우자 명의 카드 사용액을 본인 공제에 합산할 수 있습니다. 직계존비속도 소득 요건만 맞으면 됩니다(나이 요건 없음). 형제자매는 기본공제 대상이어도 합산되지 않습니다.</p>
+        </details>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>공식 확인처</h2>
+          <p class="card-sub">제도는 매년 바뀝니다. 신고 전에 원문을 확인하세요.</p>
+        </div>
+        <div class="related-grid">
+          <a class="related-app" href="https://www.hometax.go.kr/" target="_blank" rel="noopener">
+            <strong>홈택스</strong>
+            <span>연말정산 미리보기·간소화 자료</span>
+          </a>
+          <a class="related-app" href="https://www.nts.go.kr/" target="_blank" rel="noopener">
+            <strong>국세청</strong>
+            <span>신용카드 소득공제 안내</span>
+          </a>
+          <a class="related-app" href="https://www.law.go.kr/" target="_blank" rel="noopener">
+            <strong>국가법령정보센터</strong>
+            <span>조세특례제한법 제126조의2</span>
+          </a>
+          <a class="related-app" href="https://www.call.nts.go.kr/" target="_blank" rel="noopener">
+            <strong>국세상담센터</strong>
+            <span>126 · 상담 사례</span>
+          </a>
+        </div>
+      </section>
+
+      <div class="ad-slot" data-ad-slot="bottom" aria-hidden="true" hidden></div>
+    </section>
+
+    <!-- 제휴 상품: config.js 의 coupang.items 에 링크를 넣으면 나타납니다 -->
+    <section class="card promo-card" id="promoSection" hidden>
+      <div class="card-head">
+        <h2 id="promoHeading">13월의 월급으로 채우는 겨울</h2>
+        <p class="card-sub" id="promoSub"></p>
+      </div>
+      <div class="promo-grid" id="promoList"></div>
+      <p class="ad-disclosure" id="promoDisclosure"></p>
+    </section>
+
+    <section class="related-apps" aria-labelledby="relatedAppsTitle">
+      <h2 id="relatedAppsTitle">함께 많이 쓰는 계산기</h2>
+      <div class="related-grid">
+        <a class="related-app" href="../year-end-tax/">
+          <strong>연말정산 환급 계산기</strong>
+          <span>카드·의료비·월세까지 총정리</span>
+        </a>
+        <a class="related-app" href="../salary-net/">
+          <strong>연봉 실수령액 계산기</strong>
+          <span>총급여 확인하고 돌아오기</span>
+        </a>
+        <a class="related-app" href="../pension-tax/">
+          <strong>연금저축·IRP 계산기</strong>
+          <span>세액공제 900만원 채우기</span>
+        </a>
+        <a class="related-app" href="../kpass-transit/">
+          <strong>K-패스 환급 계산기</strong>
+          <span>대중교통 40% 공제와 함께</span>
+        </a>
+        <a class="related-app" href="../living-cost/">
+          <strong>고정비 체크기</strong>
+          <span>매달 새는 돈부터 찾기</span>
+        </a>
+        <a class="related-app" href="../">
+          <strong>전체 계산기</strong>
+          <span>생활 계산기 19종 모아 보기</span>
+        </a>
+      </div>
+    </section>
+
+    <footer class="app-footer">
+      <p class="disclaimer">
+        <strong>참고용 모의 계산입니다.</strong> 2026년 11월 26일 기준 조세특례제한법 제126조의2
+        (법률 제21223호, 2025.12.23. 일부개정, 2026.1.1. 시행·2028.12.31.까지 적용)와 같은 법
+        시행령 제121조의2, 국세청 안내를 따랐습니다. 공제율은 신용카드 15%, 체크·직불·선불카드와
+        현금영수증 30%, 전통시장·대중교통 40%, 문화체육 30%(총급여 7천만원 이하)이고, 기본한도는
+        총급여 7천만원 이하 300만원(자녀등 1명 350만·2명 이상 400만원), 초과 250만원(275만·300만원),
+        추가한도는 300만원(7천만원 이하)·200만원(초과)입니다. 2023년 한시 적용된 대중교통 80%·
+        전통시장 50%는 2024년부터 40%로 돌아왔습니다. 과세표준과 한계세율은 근로소득공제·국민연금
+        (4.75%)·기본공제(1인 150만원)만 반영한 추정치라, 부양가족·연금계좌·월세 등 다른 공제가
+        있으면 실제와 다를 수 있습니다. 실제 공제액은 국세청 연말정산 간소화 자료와 원천징수영수증으로
+        확정됩니다. 입력값은 기기 안에만 저장되고 어디로도 전송되지 않습니다.
+      </p>
+      <p class="footer-links">
+        <a href="https://www.hometax.go.kr/" target="_blank" rel="noopener">홈택스</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.nts.go.kr/" target="_blank" rel="noopener">국세청</a>
+        <span aria-hidden="true">·</span>
+        <a href="../">전체 계산기</a>
+        <span aria-hidden="true">·</span>
+        <a href="../year-end-tax/">연말정산</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://blog.naver.com/ufssdf987" target="_blank" rel="noopener">운영 블로그</a>
+        <span aria-hidden="true">·</span>
+        <a href="../privacy.html">개인정보처리방침</a>
+      </p>
+      <p class="footer-meta">
+        <span>기준일 <time id="dataDate" datetime="2026-11-26">2026-11-26</time></span>
+        <span aria-hidden="true">·</span>
+        <span>v<span id="appVersion">1.0.0</span></span>
+        <span aria-hidden="true">·</span>
+        <span>입력값은 기기 안에만 저장됩니다</span>
+      </p>
+      <p class="ad-disclosure" id="footerDisclosure" hidden></p>
+    </footer>
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<noscript>
+  <div class="noscript">이 계산기는 자바스크립트를 사용합니다. 브라우저 설정에서 자바스크립트를 켜 주세요.</div>
+</noscript>
+
+<script src="config.js"></script>
+<script src="calc.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+{
+  "id": "/card-tax/",
+  "name": "2026 신용·체크카드 황금비율 & 소득공제 계산기",
+  "short_name": "카드 황금비율",
+  "description": "2026년 귀속 신용카드 등 소득공제를 계산합니다. 총급여의 25%(최저사용금액)를 넘는 금액에 신용카드 15%, 체크·직불·현금영수증 30%, 전통시장·대중교통 40%, 문화체육 30%(총급여 7천만원 이하)를 적용하고, 총급여·자녀 수별 기본한도(300·350·400만원, 7천만원 초과 250·275·300만원)와 추가한도(300만·200만원)를 반영해 예상 절세액을 냅니다. 남은 12월 지출의 신용카드·체크카드·전통시장 배분 비교, 맞벌이 부부 카드 몰아주기, 공제 제외 항목 체크리스트를 제공합니다.",
+  "lang": "ko",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "portrait-primary",
+  "background_color": "#eef2f8",
+  "theme_color": "#0e1726",
+  "categories": ["finance", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "문턱·공제액",
+      "short_name": "공제액",
+      "url": "./index.html#basic",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "12월 비율",
+      "short_name": "12월",
+      "url": "./index.html#golden",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "부부 몰아주기",
+      "short_name": "부부",
+      "url": "./index.html#couple",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "제외 항목",
+      "short_name": "제외",
+      "url": "./index.html#guide",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "prefer_related_applications": false
+}

@@ -8,7 +8,7 @@
  * 3) siteUrl 은 공유 문구에 쓰는 실제 배포 주소로 바꿔 주세요.
  */
 window.APP_CONFIG = {
-  version: '1.0.11',
+  version: '1.0.12',
   siteName: '청약 가점·신생아 특례대출 계산기',
   siteUrl: 'https://ufssdf987-creator.github.io/housing-loan/',
 
