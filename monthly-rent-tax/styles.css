@@ -1480,3 +1480,21 @@ input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; marg
 @media (max-width: 359px) {
   .tabs .tab { font-size: 10.5px; }
 }
+
+/* ── 22호: 체크리스트 문장 중간 강조는 한 줄로 이어지게 ───────────── */
+.check-item span,
+.field-help,
+.lead,
+.insight,
+.card-sub,
+.after-box p,
+.faq > p,
+.disclaimer { word-break: keep-all; }
+.check-item span strong {
+  display: inline;
+  font-size: inherit;
+  font-weight: 800;
+  letter-spacing: inherit;
+  line-height: inherit;
+  color: var(--text-soft);
+}

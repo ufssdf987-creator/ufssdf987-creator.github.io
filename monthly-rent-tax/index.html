@@ -368,14 +368,14 @@
           </summary>
           <div class="table-wrap">
             <table class="data-table data-table--num" id="rtScaleTable">
-              <caption class="sr-only">월세액별 연간 월세, 공제 대상 월세, 세액공제, 지방소득세 포함 절세액</caption>
+              <caption class="sr-only">월세액별 공제 대상 월세, 세액공제, 지방소득세 포함 절세액</caption>
               <thead>
-                <tr><th scope="col">월세</th><th scope="col">연간</th><th scope="col">공제 대상</th><th scope="col">공제</th><th scope="col">지방세 포함</th></tr>
+                <tr><th scope="col">월세</th><th scope="col">공제 대상</th><th scope="col">세액공제</th><th scope="col">지방세 포함</th></tr>
               </thead>
               <tbody></tbody>
             </table>
           </div>
-          <p class="field-help">한도 1,000만원을 넘으면 더 내도 공제는 늘지 않습니다(월 약 83만원). 17% 구간은 최대 170만원, 15% 구간은 최대 150만원입니다.</p>
+          <p class="field-help">연간 월세는 월세 × 12개월입니다. 한도 1,000만원을 넘으면 더 내도 공제는 늘지 않습니다(월 약 83만원). 17% 구간은 최대 170만원, 15% 구간은 최대 150만원입니다.</p>
         </details>
 
         <details class="breakdown-box">
@@ -834,14 +834,27 @@
           <p class="card-sub">경정청구는 국세기본법 제45조의2에 따른 권리입니다.</p>
         </div>
         <div class="cap-box">
-          <div class="cap-head">
-            <span class="cap-row"><strong>경정청구 기한</strong><span>법정신고기한이 지난 후 5년</span></span>
-            <span class="cap-row"><strong>방법</strong><span>홈택스 → 종합소득세 신고 → 경정청구</span></span>
-            <span class="cap-row"><strong>준비물</strong><span>임대차계약서·납부 증빙·주민등록등본</span></span>
-            <span class="cap-row"><strong>환급</strong><span>세금 + 국세환급가산금</span></span>
+          <div class="cap-rows">
+            <span class="cap-row"><b>경정청구 기한</b><span>법정신고기한이 지난 후 5년</span></span>
+            <span class="cap-row"><b>방법</b><span>홈택스 → 종합소득세 신고 → 경정청구</span></span>
+            <span class="cap-row"><b>준비물</b><span>임대차계약서·납부 증빙·주민등록등본</span></span>
+            <span class="cap-row is-min"><b>환급</b><span>세금 + 국세환급가산금</span></span>
           </div>
           <p class="field-help">2026년 귀속분은 2027년 2월 연말정산이 기준이므로, 2032년 2월까지 청구할 수 있습니다. 회사를 그만두었어도 본인이 직접 종합소득세 신고를 하며 월세 공제를 넣을 수 있습니다.</p>
         </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>주말부부 — 배우자도 따로 받기 (2026년부터)</h2>
+          <p class="card-sub">2026년 1월 1일 이후 낸 월세부터 적용됩니다. 세대주가 먼저 공제받고, 배우자가 아래 세 조건을 갖추면 배우자도 자기 회사 연말정산에서 신청합니다.</p>
+        </div>
+        <ol class="steps">
+          <li><strong>배우자도 일반 요건을 모두 충족</strong> — 총급여 8,000만원·종합소득금액 7,000만원 이하, 무주택, 국민주택규모 85㎡ 또는 기준시가 4억원 이하 주택, 계약서 주소와 주민등록 주소 일치.</li>
+          <li><strong>주소지의 시·군·자치구가 다를 것</strong> — 같은 시의 일반구(용인 기흥구·수지구)는 다른 지역으로 보지 않습니다.</li>
+          <li><strong>배우자와 같은 주소에 사는 직계존비속·형제자매도 무주택</strong> — 12월 31일 기준입니다.</li>
+        </ol>
+        <p class="field-help">부부 합산 월세 1,000만원이 한도이고, 넘는 금액은 배우자 몫에서 뺍니다. 공제율은 각자 자기 총급여로 정해집니다. 배우자는 자기 회사 연말정산에서 신청하고, 담당자에게 세대주가 먼저 공제받았다는 사실을 알려 주세요.</p>
       </section>
 
       <section class="card">
@@ -879,18 +892,18 @@
           <table class="data-table" id="gdExTable">
             <caption class="sr-only">월세·전세대출 공제 가능 여부와 이유</caption>
             <thead>
-              <tr><th scope="col">상황</th><th scope="col">공제</th><th scope="col">이유</th></tr>
+              <tr><th scope="col">상황</th><th scope="col">공제 · 이유</th></tr>
             </thead>
             <tbody>
-              <tr><th scope="row">무주택 세대주, 총급여 4,000만원, 월세 60만원</th><td>가능(17%)</td><td>모든 요건 충족</td></tr>
-              <tr><th scope="row">세대주가 공제를 안 받는 세대원</th><td>가능</td><td>세대주가 월세·청약·주택자금 공제를 받지 않을 때</td></tr>
-              <tr><th scope="row">총급여 8,500만원</th><td>불가</td><td>총급여 8,000만원 초과</td></tr>
-              <tr><th scope="row">배우자 명의로 집이 한 채 있음</th><td>불가</td><td>‘세대’ 기준 무주택 아님</td></tr>
-              <tr><th scope="row">전입신고를 하지 않음</th><td>불가</td><td>계약서 주소 ≠ 주민등록 주소</td></tr>
-              <tr><th scope="row">전용 95㎡·기준시가 6억원</th><td>불가</td><td>면적·기준시가 요건 모두 초과</td></tr>
-              <tr><th scope="row">관리비·보증금·대출이자</th><td>불가</td><td>월세액이 아님</td></tr>
-              <tr><th scope="row">전세대출, 전용 95㎡·기준시가 3억원</th><td>불가</td><td>전세대출은 면적 요건만 봄(85㎡ 초과)</td></tr>
-              <tr><th scope="row">지인에게 개인적으로 빌린 보증금, 총급여 6,000만원</th><td>불가</td><td>개인 차입은 총급여 5,000만원 이하만</td></tr>
+              <tr><th scope="row">무주택 세대주 · 총급여 4,000만원 · 월세 60만원</th><td><strong>가능</strong> · 17%, 모든 요건 충족</td></tr>
+              <tr><th scope="row">세대주가 공제를 안 받는 세대원</th><td><strong>가능</strong> · 세대주가 월세·청약·주택자금 공제를 받지 않을 때</td></tr>
+              <tr><th scope="row">총급여 8,500만원</th><td>불가 · 총급여 8,000만원 초과</td></tr>
+              <tr><th scope="row">배우자 명의로 집이 한 채</th><td>불가 · ‘세대’ 기준 무주택 아님</td></tr>
+              <tr><th scope="row">전입신고를 하지 않음</th><td>불가 · 계약서 주소 ≠ 주민등록 주소</td></tr>
+              <tr><th scope="row">전용 95㎡ · 기준시가 6억원</th><td>불가 · 면적·기준시가 모두 초과</td></tr>
+              <tr><th scope="row">관리비·보증금·대출이자</th><td>불가 · 월세액이 아님</td></tr>
+              <tr><th scope="row">전세대출 · 전용 95㎡ · 기준시가 3억원</th><td>불가 · 전세대출은 면적만 봄(85㎡ 초과)</td></tr>
+              <tr><th scope="row">지인에게 빌린 보증금 · 총급여 6,000만원</th><td>불가 · 개인 차입은 총급여 5,000만원 이하만</td></tr>
             </tbody>
           </table>
         </div>

@@ -663,7 +663,7 @@
       },
       diff: diff,
       verdict: verdict,
-      marginal: cardA.saving.deduction > 0 ? marginalRate(cardA.taxable) : marginalRate(cardA.taxable),
+      marginal: marginalRate(cardA.taxable),
       rateScale: RATE_SCALE
     };
   }

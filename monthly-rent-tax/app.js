@@ -532,7 +532,6 @@
       var now = s.monthly === r.monthlyRent;
       tbody += '<tr' + (now ? ' class="is-now"' : '') + '>' +
         '<th scope="row">' + wonShort(s.monthly) + '</th>' +
-        '<td>' + wonShort(s.annual) + '</td>' +
         '<td>' + wonShort(s.base) + '</td>' +
         '<td><strong>' + wonShort(s.credit) + '</strong></td>' +
         '<td>' + wonShort(s.total) + '</td></tr>';
@@ -690,8 +689,8 @@
     crows += '<tr><th scope="row">월세 세액공제 ' + pct(rentRateValue, 0) + '</th><td>' +
       (rentEligible ? wonShort(rentMax) : '대상 아님') + '</td><td>' +
       (rentEligible ? wonShort(rentMax + Math.floor(rentMax * S.RULES.localTaxRate)) : '—') + '</td><td>세율과 무관하게 그대로</td></tr>';
-    crows += '<tr><th scope="row">월세 현금영수증 30%</th><td>' +
-      (rentEligible ? '사용액의 30%' : '사용액의 30%') + '</td><td>' + pct(S.RULES.card.cashRate * l.marginal * 1.1, 2) +
+    crows += '<tr><th scope="row">월세 현금영수증 30%</th><td>사용액의 30%</td><td>' +
+      pct(S.RULES.card.cashRate * l.marginal * 1.1, 2) +
       '</td><td>실효 절세율(한계세율 ' + pct(l.marginal, 0) + ')</td></tr>';
     $('tbody', el.lnCompareTable).innerHTML = crows;
   }
