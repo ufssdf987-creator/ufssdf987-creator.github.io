@@ -10,7 +10,7 @@
  * 3) siteUrl 은 공유 문구에 쓰는 배포 주소입니다.
  */
 window.APP_CONFIG = {
-  version: '1.0.12',
+  version: '1.0.13',
   siteName: '퇴직금·실업급여·주휴수당 계산기',
   siteUrl: 'https://ufssdf987-creator.github.io/severance-pay/',
 

@@ -1,0 +1,63 @@
+{
+  "id": "/donation-tax/",
+  "name": "2026 고향사랑기부제 & 기부금 세액공제 계산기",
+  "short_name": "기부금 공제",
+  "description": "2026년 기부분 기준 고향사랑기부금 세액공제를 계산합니다. 10만원까지 110분의 100, 10만원 초과 20만원 이하 40%(지방소득세 포함 44%), 20만원 초과 2,000만원 이하 15%(특별재난지역 30%)를 적용하고 연간 한도 2,000만원과 답례품 30%까지 합쳐 순이익을 보여 줍니다. 정치자금기부금(10만원까지 100/110, 3,000만원까지 15%, 초과분 25%), 특례·일반·종교단체기부금(합산 1,000만원까지 15%, 초과분 30%, 소득금액 한도)과 결정세액 0원일 때 공제가 사라지는 함정, 10년 이월 여부까지 제공합니다.",
+  "lang": "ko",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "portrait-primary",
+  "background_color": "#eef2f8",
+  "theme_color": "#0e1726",
+  "categories": ["finance", "utilities", "productivity"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "고향사랑 실익",
+      "short_name": "고향사랑",
+      "url": "./index.html#hometown",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "전체 기부금",
+      "short_name": "전체",
+      "url": "./index.html#all",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "0원 함정",
+      "short_name": "0원",
+      "url": "./index.html#zero",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "절차·체크리스트",
+      "short_name": "절차",
+      "url": "./index.html#guide",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "prefer_related_applications": false
+}

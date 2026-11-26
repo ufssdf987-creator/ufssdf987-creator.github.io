@@ -4,7 +4,7 @@
  */
 'use strict';
 
-var VERSION = '1.0.6';
+var VERSION = '1.0.7';
 var CACHE_NAME = 'ptx-v' + VERSION;
 var CORE_ASSETS = [
   './',
