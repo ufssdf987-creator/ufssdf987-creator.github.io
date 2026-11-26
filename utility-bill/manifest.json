@@ -1,0 +1,63 @@
+{
+  "id": "/utility-bill/",
+  "name": "2026 전기요금·도시가스·복지할인 계산기",
+  "short_name": "전기·가스 계산기",
+  "description": "한전 주택용 전기요금(누진 1~3단계·기본요금·기후환경 9원·연료비조정 5원·부가세 10%·기금 2.7%)과 도시가스 난방비(서울 22.5268원/MJ·기본 1,250원·516MJ 기준)를 계산합니다. 다자녀·대가족 30%, 장애인·수급자 요금경감과 2026 에너지바우처까지 진단합니다.",
+  "lang": "ko",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "portrait-primary",
+  "background_color": "#eef4f2",
+  "theme_color": "#0f172a",
+  "categories": ["utilities", "finance"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "전기요금",
+      "short_name": "전기요금",
+      "url": "./index.html#elec",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "도시가스",
+      "short_name": "도시가스",
+      "url": "./index.html#gas",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "복지할인",
+      "short_name": "복지할인",
+      "url": "./index.html#welfare",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "체크리스트·FAQ",
+      "short_name": "체크·FAQ",
+      "url": "./index.html#guide",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "prefer_related_applications": false
+}
