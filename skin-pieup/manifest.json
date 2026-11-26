@@ -1,0 +1,57 @@
+{
+  "id": "/skin-pieup/",
+  "name": "룰루뷰 피부케어 루틴 & 파이업 가이드",
+  "short_name": "룰루뷰 루틴",
+  "description": "피부 타입과 고민을 고르면 룰루뷰 제품 조합과 단계별 가격이 나오는 루틴 빌더, 파이업의 2차 모집 불인정·180일 재구매·승급 실적 구조와 수익 시뮬레이터, 크리에이터 신청 8단계 가이드.",
+  "lang": "ko",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "portrait-primary",
+  "background_color": "#fdf8f5",
+  "theme_color": "#2b1622",
+  "categories": ["health", "shopping", "lifestyle"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "피부 루틴",
+      "short_name": "루틴",
+      "url": "./index.html#routine",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "파이업 구조·시뮬레이터",
+      "short_name": "파이업",
+      "url": "./index.html#system",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "크리에이터 시작 가이드",
+      "short_name": "시작 가이드",
+      "url": "./index.html#start",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "prefer_related_applications": false
+}
