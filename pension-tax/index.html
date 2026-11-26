@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>연금저축·IRP 계산기 2026 | 세액공제 900만원·연금수령 세금 한 번에</title>
+<meta name="description" content="2026년 기준 연금저축·IRP 세액공제를 계산합니다. 총급여 5,500만원(종합소득 4,500만원) 이하 16.5%·초과 13.2%, 연금저축 600만원·IRP 합산 900만원, ISA 만기 60일 내 전환 추가 10%(최대 300만원)까지. 연금저축 vs IRP 배분, 만 55세 이후 연금수령한도·5.5%/4.4%/3.3% 연금소득세, 사적연금 1,500만원 초과 시 16.5% 분리과세 vs 종합과세, 중도해지 16.5%까지 한 화면에.">
+<meta name="keywords" content="연금저축 세액공제, IRP 세액공제, 연금저축 600만원, IRP 900만원, 연금계좌 세액공제 계산기, 16.5% 13.2%, 총급여 5500만원, ISA 만기 연금 전환, ISA 추가 세액공제 300만원, 연금저축 IRP 차이, IRP 중도인출, 위험자산 70%, 연금수령한도, 연금소득세 5.5%, 사적연금 1500만원, 16.5% 분리과세, 종합과세 비교, 연금저축 중도해지 16.5%, 12월 31일 연금저축 납입, 연말정산 연금저축">
+<meta name="author" content="이안이 아빠의 공간">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://ufssdf987-creator.github.io/pension-tax/">
+<meta name="theme-color" content="#eef2f8">
+<meta name="theme-color" content="#eef2f8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#070c16" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="연금저축·IRP 계산">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="2026 연금저축·IRP 계산기">
+<meta property="og:title" content="연금저축·IRP 계산기 2026 — 세액공제 900만원·연금수령 세금">
+<meta property="og:description" content="총급여 4,800만원이면 900만원 넣을 때 148만 5,000원 환급. 연금저축 600만원·IRP 합산 900만원, ISA 전환 추가 300만원, 만 55세 이후 연금수령한도와 5.5% 세금까지 3초에 계산합니다.">
+<meta property="og:url" content="https://ufssdf987-creator.github.io/pension-tax/">
+<meta property="og:image" content="https://ufssdf987-creator.github.io/pension-tax/icons/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="2026 연금저축·IRP 계산기 — 세액공제 900만원·연금수령 세금">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="연금저축·IRP 계산기 2026 — 세액공제 900만원·연금수령 세금">
+<meta name="twitter:description" content="연금저축 600만원·IRP 합산 900만원, ISA 전환 추가 300만원, 16.5%·13.2% 공제율과 만 55세 이후 연금수령한도·5.5% 세금을 2026년 기준으로 계산합니다.">
+<meta name="twitter:image" content="https://ufssdf987-creator.github.io/pension-tax/icons/og-image.png">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="styles.css">
+<script>
+  /* 첫 화면 깜빡임 방지: 저장된 테마를 CSS 적용 전에 반영 */
+  (function () {
+    try {
+      var saved = localStorage.getItem('pnx.theme');
+      var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', (saved === 'dark' || saved === 'light') ? saved : (dark ? 'dark' : 'light'));
+    } catch (e) { /* 저장소 접근 불가 시 기본 라이트 */ }
+  })();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "2026 연금저축·IRP 계산기",
+  "url": "https://ufssdf987-creator.github.io/pension-tax/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "inLanguage": "ko",
+  "description": "2026년 소득세법 기준으로 연금저축·IRP 세액공제(16.5%·13.2%, 600만·900만·ISA 300만 한도), 연금저축과 IRP 배분, 만 55세 이후 연금수령한도와 연금소득세(5.5%·4.4%·3.3%), 사적연금 1,500만원 초과 시 16.5% 분리과세와 종합과세 비교, 중도해지 기타소득세 16.5%를 계산합니다.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+  "featureList": [
+    "연금계좌 세액공제: 총급여 5,500만원·종합소득 4,500만원 이하 16.5%, 초과 13.2%",
+    "연금저축 600만원, 연금저축·IRP 합산 900만원 한도와 한도 남은 금액",
+    "ISA 만기 후 60일 내 전환 시 전환금액의 10%(최대 300만원) 추가 세액공제",
+    "연금저축 vs IRP 배분 추천과 중도인출·위험자산 70%·수수료 비교",
+    "연금수령한도 = 연초 평가액 ÷ (11 − 연차) × 120%, 11년차부터 한도 없음",
+    "나이별 연금소득세 5.5%·4.4%·3.3%, 종신형 3.3%",
+    "사적연금 1,500만원 초과 시 16.5% 분리과세 vs 종합과세 비교",
+    "중도해지·한도 초과 인출의 기타소득세 16.5%"
+  ]
+}
+</script>
+<!-- Google AdSense — 사이트 확인·광고 로딩용 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4355917079579050" crossorigin="anonymous"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+<div class="app-shell">
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" role="img" focusable="false">
+          <defs>
+            <linearGradient id="pgGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#7dd3fc"/><stop offset="1" stop-color="#2563eb"/>
+            </linearGradient>
+            <linearGradient id="pgGrad2" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#fcd34d"/><stop offset="1" stop-color="#d97706"/>
+            </linearGradient>
+          </defs>
+          <rect x="1" y="1" width="46" height="46" rx="13" fill="none" stroke="currentColor" stroke-opacity=".18"/>
+          <path d="M10 38V24M18 38V16M26 38V28M34 38V20M42 38V12" fill="none" stroke="url(#pgGrad)" stroke-width="3.4" stroke-linecap="round"/>
+          <path d="M9 14c6 0 9-4 14-4 6 0 9 5 16 4" fill="none" stroke="url(#pgGrad2)" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="1 5"/>
+        </svg>
+      </span>
+      <div class="brand-text">
+        <h1>연금저축·IRP 계산</h1>
+        <p>2026 세액공제 · 연금수령 세금</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button type="button" class="icon-btn install-btn" id="installBtn" hidden>앱 설치</button>
+      <button type="button" class="icon-btn theme-btn" id="themeBtn" aria-label="화면 테마 바꾸기" title="라이트/다크 전환">
+        <span id="themeIcon" aria-hidden="true">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="계산기 선택">
+    <button type="button" class="tab is-active" id="tabCredit" role="tab" aria-selected="true" aria-controls="panelCredit" tabindex="0">
+      <span class="tab-emoji" aria-hidden="true">💰</span>
+      <span class="tab-label">세액공제</span>
+    </button>
+    <button type="button" class="tab" id="tabCombo" role="tab" aria-selected="false" aria-controls="panelCombo" tabindex="-1">
+      <span class="tab-emoji" aria-hidden="true">⚖️</span>
+      <span class="tab-label">IRP 비교</span>
+    </button>
+    <button type="button" class="tab" id="tabPension" role="tab" aria-selected="false" aria-controls="panelPension" tabindex="-1">
+      <span class="tab-emoji" aria-hidden="true">🏦</span>
+      <span class="tab-label">수령 세금</span>
+    </button>
+    <button type="button" class="tab" id="tabCheck" role="tab" aria-selected="false" aria-controls="panelCheck" tabindex="-1">
+      <span class="tab-emoji" aria-hidden="true">✅</span>
+      <span class="tab-label">체크리스트</span>
+    </button>
+  </nav>
+
+  <main id="main">
+    <div class="ad-slot" data-ad-slot="top" aria-hidden="true" hidden></div>
+
+    <!-- ══════════ 탭 1: 세액공제 ══════════ -->
+    <section class="panel is-active" id="panelCredit" role="tabpanel" aria-labelledby="tabCredit" tabindex="0">
+      <p class="lead">12월 31일까지 넣은 돈이 이듬해 연말정산에서 <strong>세금으로 돌아옵니다</strong>. 연금저축 600만원, IRP를 합치면 900만원까지 — 내 총급여라면 얼마인지 바로 계산해 보세요.</p>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>내 소득과 올해 납입액</h2>
+          <p class="card-sub">공제율은 <strong>총급여 5,500만원</strong>(근로소득만 있을 때) 또는 <strong>종합소득금액 4,500만원</strong>을 기준으로 갈립니다.</p>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="incTypeLabel">소득 기준</span>
+          <div class="segmented segmented-sm segmented-rel" role="radiogroup" aria-labelledby="incTypeLabel" id="incTypeGroup">
+            <button type="button" role="radio" aria-checked="true" class="is-active" id="incTypeSalary" data-inc-type="salary">총급여<small>근로소득만</small></button>
+            <button type="button" role="radio" aria-checked="false" id="incTypeIncome" data-inc-type="income">종합소득금액<small>사업·기타 합산</small></button>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="crIncome" id="crIncomeLabel">총급여</label>
+            <span class="badge-soft" id="crIncomeBadge">4,800만원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="crIncome" type="number" inputmode="numeric" min="0" max="1000000000" step="1000000" value="48000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="소득 빠른 선택">
+            <button type="button" data-cr-income="30000000">3,000만</button>
+            <button type="button" data-cr-income="45000000">4,500만</button>
+            <button type="button" data-cr-income="55000000">5,500만</button>
+            <button type="button" data-cr-income="70000000">7,000만</button>
+            <button type="button" data-cr-income="100000000">1억</button>
+          </div>
+          <p class="field-help">5,500만원 이하면 <strong>16.5%</strong>, 넘으면 <strong>13.2%</strong>(지방소득세 포함)입니다. 비과세 식대를 뺀 총급여로 보세요.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="crPension">연금저축 납입액 <small>연간</small></label>
+            <span class="badge-soft" id="crPensionBadge">600만원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="crPension" type="number" inputmode="numeric" min="0" max="100000000000" step="100000" value="6000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="연금저축 납입액 빠른 선택">
+            <button type="button" data-cr-pension="0">없음</button>
+            <button type="button" data-cr-pension="3000000">300만</button>
+            <button type="button" data-cr-pension="6000000">600만</button>
+            <button type="button" data-cr-pension="9000000">900만</button>
+          </div>
+          <p class="field-help">연금저축보험·펀드·신탁에 본인이 넣은 금액입니다. 세액공제는 <strong>600만원까지만</strong> 인정됩니다.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="crIrp">IRP·DC 추가 납입액 <small>본인 부담금</small></label>
+            <span class="badge-soft" id="crIrpBadge">300만원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="crIrp" type="number" inputmode="numeric" min="0" max="100000000000" step="100000" value="3000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="IRP 납입액 빠른 선택">
+            <button type="button" data-cr-irp="0">없음</button>
+            <button type="button" data-cr-irp="1500000">150만</button>
+            <button type="button" data-cr-irp="3000000">300만</button>
+            <button type="button" data-cr-irp="6000000">600만</button>
+          </div>
+          <p class="field-help">IRP·DC형에 <strong>내가 추가로</strong> 넣은 돈입니다. 회사가 넣어 준 퇴직연금 부담금과 옮겨 온 퇴직금은 공제 대상이 아닙니다.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="crIsa">ISA 만기 전환금액 <small>선택</small></label>
+            <span class="badge-soft" id="crIsaBadge">없음</span>
+          </div>
+          <div class="input-wrap">
+            <input id="crIsa" type="number" inputmode="numeric" min="0" max="100000000000" step="1000000" value="0" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="ISA 전환금액 빠른 선택">
+            <button type="button" data-cr-isa="0">없음</button>
+            <button type="button" data-cr-isa="10000000">1,000만</button>
+            <button type="button" data-cr-isa="20000000">2,000만</button>
+            <button type="button" data-cr-isa="30000000">3,000만</button>
+          </div>
+          <p class="field-help">ISA 계약기간이 끝난 날부터 <strong>60일 이내</strong>에 연금계좌로 옮긴 금액입니다. 옮긴 금액의 <strong>10%(최대 300만원)</strong>가 900만원 한도 위에 더 붙습니다.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="crTaxBefore">공제 전 결정세액 <small>선택</small></label>
+            <span class="badge-soft" id="crTaxBeforeBadge">모름</span>
+          </div>
+          <div class="input-wrap">
+            <input id="crTaxBefore" type="number" inputmode="numeric" min="0" max="1000000000" step="10000" value="0" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <p class="field-help">연말정산에서 다른 공제를 다 받은 뒤 <strong>남은 소득세</strong>입니다. 넣으면 이 금액을 넘는 세액공제는 잘려 나가는 것까지 반영합니다. 모르면 비워 두세요.</p>
+        </div>
+      </section>
+
+      <section class="card result-card" id="crResultCard">
+        <div class="result-head">
+          <div>
+            <p class="result-label">2026년 귀속 예상 세액공제</p>
+            <p class="result-amount" aria-live="polite" aria-atomic="true"><span id="crTotal">0</span><span class="won">원</span></p>
+            <p class="result-sub" id="crSub"></p>
+          </div>
+          <span class="tier-badge" id="crVerdict" data-tier="2">계산 중</span>
+        </div>
+
+        <div class="breakdown" id="crRows"></div>
+
+        <div class="stat-grid">
+          <div class="stat-cell">
+            <span>공제대상 금액</span>
+            <strong id="crTarget">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>세액공제</span>
+            <strong id="crCredit">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>12/31까지 여력</span>
+            <strong id="crRoom">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>총 납입·전환</span>
+            <strong id="crPaid">0원</strong>
+          </div>
+        </div>
+
+        <div class="after-box" id="crNextBox">
+          <p class="after-title">올해 안에 더 넣는다면</p>
+          <p id="crNext"></p>
+        </div>
+
+        <p class="insight" id="crInsight"></p>
+
+        <details class="breakdown-box" open>
+          <summary>
+            <span>한도를 채우면 얼마씩 늘까</span>
+            <span class="summary-hint">내 소득 구간 기준</span>
+          </summary>
+          <div class="table-wrap">
+            <table class="data-table data-table--num" id="crTable">
+              <caption class="sr-only">납입 단계별 공제대상 금액과 세액공제</caption>
+              <thead>
+                <tr><th scope="col">납입 구성</th><th scope="col">공제대상</th><th scope="col">세액공제</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <p class="field-help">ISA 전환 3,000만원은 추가 한도 300만원을 모두 채우는 금액입니다. 전환금액 자체는 기본 900만원 한도에도 포함됩니다.</p>
+        </details>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="shareCredit">
+            <span aria-hidden="true">📋</span> 결과 복사하기
+          </button>
+        </div>
+      </section>
+
+      <div class="ad-slot" data-ad-slot="mid" aria-hidden="true" hidden></div>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>600만원과 900만원, 두 한도의 정체</h2>
+          <p class="card-sub">연금저축만으로는 600만원, IRP를 더하면 900만원, ISA에서 옮기면 1,200만원까지 공제 대상이 됩니다.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <caption class="sr-only">연금계좌 세액공제 한도 구조</caption>
+            <thead>
+              <tr><th scope="col">구분</th><th scope="col">공제대상 한도</th><th scope="col">최대 세액공제(16.5%)</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">연금저축 단독</th><td>600만원</td><td>99만원</td></tr>
+              <tr><th scope="row">연금저축 + IRP·DC</th><td>900만원</td><td>148만 5,000원</td></tr>
+              <tr><th scope="row">＋ ISA 만기 전환</th><td>900만 + 300만 = 1,200만원</td><td>198만원</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="tips">
+          <li><strong>IRP만으로 900만원을 채워도 됩니다.</strong> 연금저축 600만원은 '연금저축계좌'에만 걸리는 한도이고, IRP에는 따로 600만원 한도가 없습니다. 다만 IRP는 55세 전 중도인출이 법정 사유로 제한됩니다.</li>
+          <li><strong>납입한도와 공제한도는 다릅니다.</strong> 연금계좌에는 1년에 1,800만원까지 넣을 수 있지만(ISA 전환금액은 별도), 세액공제는 900만원(ISA 포함 1,200만원)까지만 됩니다. 넘는 금액도 과세이연 효과는 있습니다.</li>
+          <li><strong>공제받지 못한 납입액은 사라지지 않습니다.</strong> 금융기관에 '납입연도 전환'을 신청하면 다음 해 공제로 돌릴 수 있습니다(소득세법 시행령 제118조의3).</li>
+          <li><strong>결정세액이 적으면 공제도 잘립니다.</strong> 세액공제는 낼 세금을 0원 아래로 깎지 못합니다. 소득이 적은 해에는 한도를 다 채워도 효과가 작을 수 있습니다.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>12월에 놓치기 쉬운 세 가지</h2>
+          <p class="card-sub">한 해 공제는 12월 31일 납입분까지. 다음 날 넣으면 내년 공제입니다.</p>
+        </div>
+        <ul class="tips">
+          <li><strong>ISA 만기일부터 60일</strong>이 전환 기한입니다. 3년이 지났다면 계약기간이 남아 있어도 만기로 보고 옮길 수 있습니다(조세특례제한법 제91조의18⑪). 12월 만기라면 1월에 넣어도 되지만, 추가 한도 300만원은 두 해에 나눠 쓰면 합쳐서 300만원입니다.</li>
+          <li><strong>연금저축 600만원을 넘긴 돈은 IRP로.</strong> 같은 계좌에 더 넣어도 600만원 초과분은 공제되지 않습니다. 12월에 여유가 생겼다면 IRP 추가 납입이 900만원까지 채우는 길입니다.</li>
+          <li><strong>이체 마감시간을 확인하세요.</strong> 12월 31일은 은행·증권사 이체 마감이 일찍 끝날 수 있습니다. 미리 넣어 두고 납입확인서로 금액을 확인하는 편이 안전합니다.</li>
+        </ul>
+      </section>
+
+      <section class="card faq-card">
+        <h2>세액공제에서 자주 묻는 것</h2>
+        <details class="faq" open>
+          <summary>총급여 4,800만원, 연금저축 600만 + IRP 300만원이면 얼마 돌려받나요?</summary>
+          <p>공제대상 900만원 × 16.5% = <strong>148만 5,000원</strong>입니다. 소득세 135만원과 지방소득세 13만 5,000원으로 나뉩니다. 다른 공제를 다 받은 뒤 남은 결정세액이 이보다 적으면 그만큼만 줄어듭니다.</p>
+        </details>
+        <details class="faq">
+          <summary>IRP에 900만원을 몰아 넣어도 되나요?</summary>
+          <p>됩니다. IRP에는 연금저축과 달리 600만원 한도가 없어 900만원을 모두 채울 수 있습니다. 다만 IRP는 55세 전에 꺼낼 때 법정 사유가 필요하니, 목돈이 필요할 가능성이 있다면 연금저축 600만원을 먼저 채우는 편이 낫습니다.</p>
+        </details>
+        <details class="faq">
+          <summary>ISA 만기 자금을 옮기면 정말 300만원이 더 붙나요?</summary>
+          <p>네. 만기 후 60일 이내에 연금계좌로 옮긴 금액의 10%, 최대 300만원이 기본 900만원 한도 <strong>위에</strong> 더해집니다. 3,000만원을 옮기면 300만원이 추가되어 공제대상은 1,200만원, 16.5% 기준 198만원까지 가능합니다. 다만 전환금액 중 세액공제받지 않은 부분은 나중에 꺼낼 때 세금이 없습니다.</p>
+        </details>
+        <details class="faq">
+          <summary>올해 소득이 없으면 넣어도 의미가 없나요?</summary>
+          <p>세액공제는 낼 세금이 있어야 효과가 있습니다. 소득이 없는 해라면 '납입연도 전환'을 신청해 두었다가 소득이 있는 다음 해 공제로 돌리는 방법이 있습니다. 다만 금융기관별 처리 절차가 다르니 미리 확인하세요.</p>
+        </details>
+      </section>
+    </section>
+
+    <!-- ══════════ 탭 2: 연금저축 vs IRP ══════════ -->
+    <section class="panel" id="panelCombo" role="tabpanel" aria-labelledby="tabCombo" tabindex="0" hidden>
+      <p class="lead">세액공제 금액만 보면 <strong>어디에 넣어도 같습니다</strong>. 갈리는 건 꺼낼 수 있는 자유, 담을 수 있는 상품, 그리고 수수료입니다.</p>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>올해 넣을 수 있는 금액</h2>
+          <p class="card-sub">소득 구간은 세액공제 탭에서 정한 값을 그대로 씁니다. <button type="button" class="link-btn" data-goto="credit">소득 바꾸기</button></p>
+        </div>
+
+        <div class="rate-readout" id="cbIncomeReadout">
+          <strong id="cbIncomeText">총급여 4,800만원</strong>
+          <span id="cbRateText">공제율 16.5%</span>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="cbBudget">1년에 넣을 수 있는 금액</label>
+            <span class="badge-soft" id="cbBudgetBadge">900만원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="cbBudget" type="number" inputmode="numeric" min="0" max="100000000000" step="100000" value="9000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="연 납입 가능액 빠른 선택">
+            <button type="button" data-cb-budget="3000000">300만</button>
+            <button type="button" data-cb-budget="6000000">600만</button>
+            <button type="button" data-cb-budget="9000000">900만</button>
+            <button type="button" data-cb-budget="12000000">1,200만</button>
+            <button type="button" data-cb-budget="18000000">1,800만</button>
+          </div>
+          <p class="field-help">연금계좌 납입한도는 연 1,800만원입니다(ISA 전환금액은 별도). 여유 자금이 아니라 <strong>1년 동안 실제로 넣을 수 있는 돈</strong>을 넣으세요.</p>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label class="field-label" for="cbFeePension">연금저축 수수료율 <small>연</small></label>
+            <div class="input-wrap input-wrap-sm">
+              <input id="cbFeePension" type="number" inputmode="decimal" min="0" max="3" step="0.05" value="0.25" autocomplete="off">
+              <span class="unit">%</span>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label" for="cbFeeIrp">IRP 수수료율 <small>연</small></label>
+            <div class="input-wrap input-wrap-sm">
+              <input id="cbFeeIrp" type="number" inputmode="decimal" min="0" max="3" step="0.05" value="0.35" autocomplete="off">
+              <span class="unit">%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="cbYears">비교 기간</label>
+            <span class="badge-soft" id="cbYearsBadge">10년</span>
+          </div>
+          <div class="input-wrap input-wrap-sm">
+            <input id="cbYears" type="number" inputmode="numeric" min="1" max="40" step="1" value="10" autocomplete="off">
+            <span class="unit">년</span>
+          </div>
+          <p class="field-help">수수료는 상품·금융회사마다 다릅니다. 연금저축은 펀드 총보수(ETF 0.05~0.5%), IRP는 운용관리·자산관리수수료와 상품 보수가 함께 붙습니다. 여기서는 <strong>내가 넣은 가정치</strong>로만 비교합니다.</p>
+        </div>
+      </section>
+
+      <section class="card result-card">
+        <div class="result-head">
+          <div>
+            <p class="result-label">권장 배분의 예상 세액공제</p>
+            <p class="result-amount" aria-live="polite" aria-atomic="true"><span id="cbTotal">0</span><span class="won">원</span></p>
+            <p class="result-sub" id="cbSub"></p>
+          </div>
+          <span class="tier-badge" id="cbVerdict" data-tier="2">계산 중</span>
+        </div>
+
+        <div class="breakdown" id="cbRows"></div>
+
+        <div class="stat-grid">
+          <div class="stat-cell">
+            <span>연금저축 배분</span>
+            <strong id="cbPension">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>IRP 배분</span>
+            <strong id="cbIrp">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>공제 밖 납입</span>
+            <strong id="cbOverflow">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>수수료 차이</span>
+            <strong id="cbFeeDiff">0원</strong>
+          </div>
+        </div>
+
+        <div class="compare-rows" id="cbCompare"></div>
+
+        <p class="insight" id="cbInsight"></p>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="shareCombo">
+            <span aria-hidden="true">📋</span> 결과 복사하기
+          </button>
+        </div>
+      </section>
+
+      <div class="ad-slot" data-ad-slot="mid2" aria-hidden="true" hidden></div>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>연금저축과 IRP, 이렇게 다릅니다</h2>
+          <p class="card-sub">2026년 11월 현행 규정 기준입니다.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <caption class="sr-only">연금저축과 IRP의 제도 차이</caption>
+            <thead>
+              <tr><th scope="col">항목</th><th scope="col">연금저축</th><th scope="col">IRP·DC</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">세액공제 한도</th><td>연 600만원</td><td>합산 900만원까지</td></tr>
+              <tr><th scope="row">중도인출</th><td>사유 제한 없이 일부 인출</td><td>법정 사유가 있어야 일부 인출</td></tr>
+              <tr><th scope="row">위험자산</th><td>제한 없음(주식형 100% 가능)</td><td>적립금의 70%까지</td></tr>
+              <tr><th scope="row">담을 수 있는 상품</th><td>펀드·ETF·보험·신탁</td><td>예금·보험·펀드·ETF 등</td></tr>
+              <tr><th scope="row">퇴직금</th><td>받을 수 없음</td><td>퇴직금을 옮겨 담는 계좌</td></tr>
+              <tr><th scope="row">연금 지급</th><td>55세·가입 5년 후</td><td>55세 이후 5년 이상 나눠 지급</td></tr>
+              <tr><th scope="row">수수료</th><td>상품 보수 중심</td><td>운용관리·자산관리수수료 + 보수</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="tips">
+          <li><strong>연금저축펀드는 위험자산 70% 한도가 없습니다.</strong> 70% 한도는 근로자퇴직급여 보장법이 DC형·IRP에 정한 규정입니다. 다만 레버리지·인버스 ETF는 연금저축에서도 살 수 없습니다.</li>
+          <li><strong>IRP의 70%는 '위험자산 합계' 기준</strong>입니다. 적격 TDF·디폴트옵션·채권혼합형 등 한도 예외 상품이 있어 나머지 30%를 이들로 채울 수 있습니다. 2026년 10월 29일 정부가 단계적 완화 방안을 발표했지만, 아직 시행된 개정은 아닙니다.</li>
+          <li><strong>IRP는 '퇴직금 + 추가 납입'이 한 계좌에 섞입니다.</strong> 나중에 일부를 꺼내면 과세제외금액 → 퇴직금(이연퇴직소득) → 세액공제분·운용수익 순서로 나간 것으로 봅니다.</li>
+          <li><strong>수수료는 10년이면 무시할 수 없습니다.</strong> 900만원을 0.1%p 차이로 10년 굴리면 약 9만원 차이입니다. 같은 상품이라면 수수료가 낮은 계좌를 고르세요.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>IRP에서 55세 전에 꺼낼 수 있는 7가지</h2>
+          <p class="card-sub">근로자퇴직급여 보장법 시행령 제18조제2항.</p>
+        </div>
+        <ul class="tips">
+          <li><strong>무주택자 본인 명의 주택 구입</strong> — 매매계약부터 등기 후 1개월 안에 신청합니다.</li>
+          <li><strong>무주택자 전세금·임차보증금</strong> — 계약 체결일부터 잔금 후 1개월 안, 한 사업장에서 1회입니다.</li>
+          <li><strong>6개월 이상 요양 의료비</strong> — 본인·배우자·부양가족의 질병·부상 의료비입니다.</li>
+          <li><strong>재난 피해</strong> — 고용노동부 장관이 고시한 요건을 갖춘 경우입니다.</li>
+          <li><strong>파산선고</strong> — 신청일 기준 최근 5년 안에 선고받은 경우입니다.</li>
+          <li><strong>개인회생절차개시 결정</strong> — 신청일 기준 최근 5년 안에 결정을 받은 경우입니다.</li>
+          <li><strong>퇴직연금 담보대출 원리금 상환</strong> — 상환에 필요한 금액까지입니다.</li>
+        </ul>
+        <p class="field-help">주택 구입·전세금으로 꺼내면 인출은 되지만, 세액공제받은 돈과 운용수익에는 <strong>기타소득세 16.5%</strong>가 붙습니다. 천재지변·3개월 이상 요양·파산·개인회생 같은 세법상 '부득이한 사유'라면 연금소득세(3.3~5.5%)로 낮아집니다.</p>
+      </section>
+    </section>
+
+    <!-- ══════════ 탭 3: 연금 수령 & 세금 ══════════ -->
+    <section class="panel" id="panelPension" role="tabpanel" aria-labelledby="tabPension" tabindex="0" hidden>
+      <p class="lead">만 55세, 가입 5년, 연금수령한도 — <strong>셋 다 맞아야</strong> 5.5%로 받습니다. 한도를 넘기면 그 부분은 16.5%입니다.</p>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>연금계좌와 올해 인출 계획</h2>
+          <p class="card-sub">평가액은 <strong>올해 1월 1일</strong> 기준으로 넣습니다. 연금수령한도가 이 금액으로 정해집니다.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="pnBalance">연초 평가액 <small>1월 1일</small></label>
+            <span class="badge-soft" id="pnBalanceBadge">1억원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="pnBalance" type="number" inputmode="numeric" min="0" max="100000000000" step="1000000" value="100000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="연초 평가액 빠른 선택">
+            <button type="button" data-pn-balance="50000000">5,000만</button>
+            <button type="button" data-pn-balance="100000000">1억</button>
+            <button type="button" data-pn-balance="200000000">2억</button>
+            <button type="button" data-pn-balance="300000000">3억</button>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <div class="field-label-row">
+              <label class="field-label" for="pnYear">연금수령연차</label>
+              <span class="badge-soft" id="pnYearBadge">1년차</span>
+            </div>
+            <div class="input-wrap input-wrap-sm">
+              <input id="pnYear" type="number" inputmode="numeric" min="1" max="60" step="1" value="1" autocomplete="off">
+              <span class="unit">년차</span>
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label-row">
+              <label class="field-label" for="pnAge">나이</label>
+              <span class="badge-soft" id="pnAgeBadge">62세</span>
+            </div>
+            <div class="input-wrap input-wrap-sm">
+              <input id="pnAge" type="number" inputmode="numeric" min="55" max="120" step="1" value="62" autocomplete="off">
+              <span class="unit">세</span>
+            </div>
+          </div>
+        </div>
+        <div class="chips" role="group" aria-label="연차·나이 빠른 선택">
+          <button type="button" data-pn-year="1">1년차</button>
+          <button type="button" data-pn-year="5">5년차</button>
+          <button type="button" data-pn-year="10">10년차</button>
+          <button type="button" data-pn-year="11">11년차</button>
+          <button type="button" data-pn-age="55">55세</button>
+          <button type="button" data-pn-age="70">70세</button>
+          <button type="button" data-pn-age="80">80세</button>
+        </div>
+        <p class="field-help">연차는 처음 연금을 받을 수 있게 된 해가 1년차이고, 실제로 받지 않아도 해가 바뀌면 늘어납니다. 11년차부터는 한도가 없습니다.</p>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="pnWithdraw">올해 인출액</label>
+            <span class="badge-soft" id="pnWithdrawBadge">1,200만원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="pnWithdraw" type="number" inputmode="numeric" min="0" max="100000000000" step="1000000" value="12000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="인출액 빠른 선택">
+            <button type="button" data-pn-withdraw="0">0원</button>
+            <button type="button" data-pn-withdraw="10000000">1,000만</button>
+            <button type="button" data-pn-withdraw="12000000">1,200만</button>
+            <button type="button" data-pn-withdraw="20000000">2,000만</button>
+            <button type="button" data-pn-withdraw="30000000">3,000만</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="pnNonTaxable">공제받지 않은 원금 <small>선택</small></label>
+            <span class="badge-soft" id="pnNonTaxableBadge">없음</span>
+          </div>
+          <div class="input-wrap">
+            <input id="pnNonTaxable" type="number" inputmode="numeric" min="0" max="100000000000" step="1000000" value="0" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <p class="field-help">세액공제를 받지 않은 납입액(한도 초과분 등)은 꺼낼 때 세금이 없고, <strong>가장 먼저</strong> 나간 것으로 봅니다.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="pnOther">다른 사적연금 수령액 <small>선택</small></label>
+            <span class="badge-soft" id="pnOtherBadge">없음</span>
+          </div>
+          <div class="input-wrap">
+            <input id="pnOther" type="number" inputmode="numeric" min="0" max="100000000000" step="1000000" value="0" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <p class="field-help">다른 연금저축·IRP에서 올해 받는 연금입니다. <strong>1,500만원</strong> 기준을 판단할 때 합산합니다(퇴직금 연금은 제외).</p>
+        </div>
+
+        <label class="toggle toggle-line" for="pnLifetime">
+          <input type="checkbox" id="pnLifetime">
+          <span class="toggle-track" aria-hidden="true"></span>
+          <span class="toggle-text">종신형 연금계약<small>사망할 때까지 받고 중도 해지 불가 · 3.3%</small></span>
+        </label>
+      </section>
+
+      <section class="card result-card">
+        <div class="result-head">
+          <div>
+            <p class="result-label">올해 예상 세금</p>
+            <p class="result-amount" aria-live="polite" aria-atomic="true"><span id="pnTotal">0</span><span class="won">원</span></p>
+            <p class="result-sub" id="pnSub"></p>
+          </div>
+          <span class="tier-badge" id="pnVerdict" data-tier="2">계산 중</span>
+        </div>
+
+        <div class="breakdown" id="pnRows"></div>
+
+        <div class="stat-grid">
+          <div class="stat-cell">
+            <span>연금수령한도</span>
+            <strong id="pnLimit">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>과세대상</span>
+            <strong id="pnTaxable">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>연금소득세</span>
+            <strong id="pnTaxWithin">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>중도해지 대비</span>
+            <strong id="pnEarlyDiff">0원</strong>
+          </div>
+        </div>
+
+        <div class="after-box" id="pnEarlyBox">
+          <p class="after-title">같은 돈을 중도해지하면</p>
+          <p id="pnEarlyText"></p>
+        </div>
+
+        <div class="after-box after-box--warn" id="pnCompareBox" hidden>
+          <p class="after-title">사적연금 1,500만원 초과 — 세금 계산 방식 선택</p>
+          <p id="pnCompareText"></p>
+          <div class="breakdown" id="pnCompareRows"></div>
+        </div>
+
+        <p class="insight" id="pnInsight"></p>
+
+        <details class="breakdown-box" open>
+          <summary>
+            <span>연차별 연금수령한도</span>
+            <span class="summary-hint">연초 평가액 기준</span>
+          </summary>
+          <div class="table-wrap">
+            <table class="data-table data-table--num" id="pnTable">
+              <caption class="sr-only">연금수령연차에 따른 연금수령한도</caption>
+              <thead>
+                <tr><th scope="col">연차</th><th scope="col">비율</th><th scope="col">한도</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <p class="field-help">연금수령한도 = 연초 평가액 ÷ (11 − 연금수령연차) × 120%. 2013년 3월 1일 전 가입 계좌는 6년차부터 계산합니다.</p>
+        </details>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="sharePension">
+            <span aria-hidden="true">📋</span> 결과 복사하기
+          </button>
+        </div>
+      </section>
+
+      <div class="ad-slot" data-ad-slot="bottom" aria-hidden="true" hidden></div>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>연금으로 인정받는 세 가지 조건</h2>
+          <p class="card-sub">소득세법 시행령 제40조의2제3항. 하나라도 빠지면 '연금외수령'입니다.</p>
+        </div>
+        <div class="elig-list">
+          <div class="elig-item">
+            <span class="elig-mark" aria-hidden="true">1</span>
+            <span class="elig-body">
+              <span class="elig-name">55세 이후 연금수령 개시 신청</span>
+              <span class="elig-note">신청만 해두고 나중에 받아도 됩니다. 신청한 해가 1년차입니다.</span>
+            </span>
+          </div>
+          <div class="elig-item">
+            <span class="elig-mark" aria-hidden="true">2</span>
+            <span class="elig-body">
+              <span class="elig-name">가입일부터 5년 경과</span>
+              <span class="elig-note">퇴직금만 들어 있는 IRP는 5년 요건이 적용되지 않습니다.</span>
+            </span>
+          </div>
+          <div class="elig-item">
+            <span class="elig-mark" aria-hidden="true">3</span>
+            <span class="elig-body">
+              <span class="elig-name">연금수령한도 이내 인출</span>
+              <span class="elig-note">연초 평가액 ÷ (11 − 연차) × 120%. 11년차부터는 한도가 없습니다.</span>
+            </span>
+          </div>
+        </div>
+        <ul class="tips">
+          <li><strong>나이별 세율</strong> — 70세 미만 5.5%, 70~79세 4.4%, 80세 이상 3.3%. 종신형은 2026년 1월 1일 수령분부터 나이와 관계없이 3.3%입니다.</li>
+          <li><strong>세율은 받는 시점 기준</strong>입니다. 60세에 개시해도 70세가 되면 그해부터 4.4%가 적용됩니다.</li>
+          <li><strong>퇴직금 부분은 따로</strong> — 연금으로 받으면 퇴직소득세의 70%(1~10년차)·60%(11~20년차)·50%(21년차 이후)로 과세됩니다.</li>
+          <li><strong>1,500만원은 '받은 돈' 기준</strong> — 연금수령한도(계좌별)와 다른 기준입니다. 사적연금 합계가 1,500만원을 넘으면 그 연금 전액이 종합과세 또는 16.5% 분리과세 대상이 됩니다.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>1,500만원을 넘었을 때, 어느 쪽이 유리한가</h2>
+          <p class="card-sub">다른 소득이 많으면 16.5% 분리과세, 은퇴 후 소득이 적으면 종합과세가 유리한 경우가 많습니다.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <caption class="sr-only">사적연금 1,500만원 초과 시 과세 방식</caption>
+            <thead>
+              <tr><th scope="col">방식</th><th scope="col">세금</th><th scope="col">유리한 경우</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">16.5% 분리과세</th><td>연금 전액 × 16.5%</td><td>연금 외 소득이 많아 누진세율이 16.5%보다 높을 때</td></tr>
+              <tr><th scope="row">종합과세</th><td>연금소득공제 후 다른 소득과 합산, 6.6~49.5%</td><td>다른 소득이 적어 낮은 세율 구간에 머무를 때</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="field-help">이 계산기의 종합과세 금액은 <strong>다른 소득의 과세표준이 그대로일 때 늘어나는 세금(증분)</strong>입니다. 인적공제·다른 소득공제는 이미 반영됐다고 보고 계산했습니다. 실제 선택은 다음 해 5월 종합소득세 신고 때 홈택스에서 두 방식을 모두 계산해 보세요.</p>
+      </section>
+    </section>
+
+    <!-- ══════════ 탭 4: 12/31 체크리스트 ══════════ -->
+    <section class="panel" id="panelCheck" role="tabpanel" aria-labelledby="tabCheck" tabindex="0" hidden>
+      <p class="lead">12월 31일은 <strong>올해 세액공제의 마지막 날</strong>입니다. 순서대로 체크하면 놓칠 일이 없습니다.</p>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>2026년 납입 마감까지</h2>
+          <p class="card-sub">납입한 날이 속한 과세기간의 공제로 들어갑니다.</p>
+        </div>
+        <div class="dday-box" id="ddayBox">
+          <p class="dday-label">2026년 12월 31일까지</p>
+          <p class="dday-value" id="ddayValue">D-35</p>
+          <p class="dday-note" id="ddayNote">연금저축·IRP 납입과 ISA 전환을 모두 이 날 안에 마쳐야 2026년 공제 대상입니다.</p>
+        </div>
+        <div class="progress-wrap" aria-hidden="true">
+          <div class="progress-bar"><i id="checkBar" style="width:0%"></i></div>
+        </div>
+        <p class="check-count" id="checkCount" aria-live="polite">0 / 10 완료</p>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>납입 전에 확인할 것</h2>
+          <p class="card-sub">체크한 항목은 이 기기에 저장됩니다.</p>
+        </div>
+        <div class="check-list" id="checkList">
+          <label class="check-item">
+            <input type="checkbox" data-check="limit">
+            <span><strong>연금저축 600만원을 채웠다</strong><small>세액공제는 연금저축계좌에만 600만원 한도가 있습니다.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="irp">
+            <span><strong>IRP에 300만원을 더 넣었다</strong><small>합산 900만원을 채우는 마지막 300만원입니다.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="isa">
+            <span><strong>ISA 만기 후 60일 안에 전환했다</strong><small>전환금액의 10%(최대 300만원)가 추가 한도로 붙습니다.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="salary">
+            <span><strong>내 총급여 구간을 확인했다</strong><small>5,500만원 경계면 16.5%와 13.2%가 갈립니다.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="tax">
+            <span><strong>결정세액이 공제액보다 큰지 봤다</strong><small>낼 세금이 적으면 공제가 잘립니다.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="transfer">
+            <span><strong>12월 31일 이체 마감시간을 확인했다</strong><small>은행·증권사 마감이 평소보다 이를 수 있습니다.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="proof">
+            <span><strong>납입확인서를 받아 뒀다</strong><small>연말정산 간소화 자료에 반영됐는지 1월에 확인하세요.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="overflow">
+            <span><strong>600만원 초과분을 IRP로 돌렸다</strong><small>연금저축에 더 넣어도 600만원까지만 공제됩니다.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="liquid">
+            <span><strong>중도인출 가능성을 점검했다</strong><small>IRP는 법정 사유가 없으면 55세 전에 못 꺼냅니다.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="unused">
+            <span><strong>미공제 납입액 전환을 신청했다</strong><small>작년에 공제받지 못한 금액이 있다면 올해로 돌릴 수 있습니다.</small></span>
+          </label>
+        </div>
+      </section>
+
+      <section class="card faq-card">
+        <h2>연금저축·IRP 자주 묻는 것</h2>
+        <details class="faq" open>
+          <summary>12월 31일에 넣으면 정말 올해 공제인가요?</summary>
+          <p>됩니다. 1월 1일~12월 31일 납입분이 그해 공제 대상입니다. 다만 이체 마감시간이 평소보다 이르거나, 31일이 휴일이면 처리되지 않을 수 있어 <strong>미리 넣는 편</strong>이 안전합니다.</p>
+        </details>
+        <details class="faq">
+          <summary>연금저축 600만원과 IRP 900만원, 뭐가 맞나요?</summary>
+          <p>둘 다 맞습니다. <strong>연금저축계좌에만</strong> 연 600만원 한도가 있고, 연금저축 600만원 + IRP·DC 납입액을 합쳐 연 900만원까지 공제됩니다. IRP에는 600만원 한도가 없어 IRP만으로 900만원을 채울 수도 있습니다.</p>
+        </details>
+        <details class="faq">
+          <summary>IRP에 넣은 퇴직금도 세액공제되나요?</summary>
+          <p>아니요. 회사가 넣어 준 퇴직연금 부담금과 퇴직금을 옮긴 금액(이연퇴직소득)은 세액공제 대상이 아닙니다. <strong>본인이 추가로 납입한 금액</strong>만 공제됩니다. DC형도 가입자 추가 부담금은 공제됩니다.</p>
+        </details>
+        <details class="faq">
+          <summary>중도해지하면 세금이 얼마인가요?</summary>
+          <p>세액공제받은 납입액과 운용수익에 <strong>기타소득세 16.5%</strong>(지방소득세 포함)가 붙습니다. 1,000만원을 해지하면 165만원 수준입니다. 같은 돈을 55세 이후 연금으로 받으면 5.5%라 세금 차이가 큽니다.</p>
+        </details>
+        <details class="faq">
+          <summary>연금을 받기 시작하면 그만큼 1,500만원에서 빠지나요?</summary>
+          <p>1,500만원은 <strong>한 해 동안 받은 사적연금의 합계</strong>입니다. 연금수령한도(계좌별)와는 별개 기준이고, 퇴직금을 연금으로 받는 부분은 이 합계에서 빠집니다. 국민연금 같은 공적연금도 별도입니다.</p>
+        </details>
+        <details class="faq">
+          <summary>2026년에 달라진 점이 있나요?</summary>
+          <p>세액공제 한도(600만·900만원)와 공제율(16.5%·13.2%)은 그대로입니다. 2026년 1월 1일 수령분부터 <strong>종신형 연금 3.3%</strong>가 적용되고, 퇴직금을 20년 넘게 나눠 받으면 퇴직소득세의 50%로 낮아졌습니다. ISA 만기 전환 추가 한도(10%·300만원)도 유지됩니다.</p>
+        </details>
+        <details class="faq">
+          <summary>연금저축과 IRP 중 어디부터 채워야 하나요?</summary>
+          <p>900만원을 다 넣을 수 있다면 연금저축 600만원 + IRP 300만원이 일반적입니다. 연금저축은 중도인출이 자유롭고 위험자산 100% 운용이 가능해 유연합니다. IRP는 900만원을 채우는 용도와 퇴직금 보관에 강점이 있습니다.</p>
+        </details>
+        <details class="faq">
+          <summary>이 계산기 결과를 연말정산에 그대로 써도 되나요?</summary>
+          <p>참고용입니다. 실제 공제는 결정세액, 다른 소득공제·세액공제, 금융기관의 납입확인서에 따라 달라집니다. 국세청 홈택스의 연말정산 미리보기와 금융감독원 통합연금포털에서 최종 확인하세요.</p>
+        </details>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>공식 확인처</h2>
+          <p class="card-sub">납입·공제 내역은 아래에서 확인할 수 있습니다.</p>
+        </div>
+        <div class="related-grid">
+          <a class="related-app" href="https://www.hometax.go.kr/" target="_blank" rel="noopener">
+            <strong>홈택스</strong>
+            <span>연말정산 미리보기·공제 확인</span>
+          </a>
+          <a class="related-app" href="https://100lifeplan.fss.or.kr/" target="_blank" rel="noopener">
+            <strong>통합연금포털</strong>
+            <span>내 연금계좌·예상 수령액</span>
+          </a>
+          <a class="related-app" href="https://www.nts.go.kr/" target="_blank" rel="noopener">
+            <strong>국세청</strong>
+            <span>연금소득 과세 안내</span>
+          </a>
+          <a class="related-app" href="https://www.fss.or.kr/" target="_blank" rel="noopener">
+            <strong>금융감독원</strong>
+            <span>연금저축·IRP 제도 안내</span>
+          </a>
+        </div>
+      </section>
+    </section>
+
+    <!-- 제휴 상품: config.js 의 coupang.items 에 링크를 넣으면 나타납니다 -->
+    <section class="card promo-card" id="promoSection" hidden>
+      <div class="card-head">
+        <h2 id="promoHeading">12월 31일 밤, 앱 켜두고 계산할 때</h2>
+        <p class="card-sub" id="promoSub"></p>
+      </div>
+      <div class="promo-grid" id="promoList"></div>
+      <p class="ad-disclosure" id="promoDisclosure"></p>
+    </section>
+
+    <section class="related-apps" aria-labelledby="relatedAppsTitle">
+      <h2 id="relatedAppsTitle">함께 많이 쓰는 계산기</h2>
+      <div class="related-grid">
+        <a class="related-app" href="../year-end-tax/">
+          <strong>연말정산 환급 계산기</strong>
+          <span>카드 공제·월세·의료비까지</span>
+        </a>
+        <a class="related-app" href="../salary-net/">
+          <strong>연봉 실수령액 계산기</strong>
+          <span>총급여와 4대보험 확인</span>
+        </a>
+        <a class="related-app" href="../savings-tax/">
+          <strong>예적금·비과세 계산기</strong>
+          <span>ISA·비과세 한도와 세후 이자</span>
+        </a>
+        <a class="related-app" href="../njob-tax/">
+          <strong>N잡 세금 계산기</strong>
+          <span>3.3% 부업 세금과 건보료</span>
+        </a>
+        <a class="related-app" href="../health-insurance/">
+          <strong>건강보험료 계산기</strong>
+          <span>피부양자·지역가입자</span>
+        </a>
+        <a class="related-app" href="../">
+          <strong>전체 계산기</strong>
+          <span>생활 계산기 16종 모아 보기</span>
+        </a>
+      </div>
+    </section>
+
+    <footer class="app-footer">
+      <p class="disclaimer">
+        <strong>참고용 모의 계산입니다.</strong> 연금계좌세액공제는 소득세법 제59조의3과 같은 법 시행령
+        제118조의2·제118조의3, 연금수령은 같은 법 제20조의3·제129조와 시행령 제40조의2·제40조의3,
+        연금소득공제는 같은 법 제47조의2, IRP는 근로자퇴직급여 보장법 제24조·시행령 제18조를 따랐습니다.
+        ISA 전환금액은 기본 900만원 한도에도 포함되는 것으로 보고(같은 법 제59조의3제3항) 연금저축 600만원
+        한도를 넘는 부분은 IRP 쪽 한도로 계산했습니다. 종합과세 비교는 다른 소득의 과세표준이 그대로일 때
+        늘어나는 세금(증분) 기준이고, 인적공제·다른 소득공제는 반영하지 않았습니다. 수수료는 직접 넣은 가정치이며,
+        금융회사별 상품·수수료·원천징수 처리에 따라 실제 금액은 달라질 수 있습니다. 최종 확인은 홈택스와
+        금융회사 안내를 기준으로 하세요. 입력값은 기기 안에만 저장되고 어디로도 전송되지 않습니다.
+      </p>
+      <p class="footer-links">
+        <a href="https://www.nts.go.kr/" target="_blank" rel="noopener">국세청</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.hometax.go.kr/" target="_blank" rel="noopener">홈택스</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://100lifeplan.fss.or.kr/" target="_blank" rel="noopener">통합연금포털</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.law.go.kr/" target="_blank" rel="noopener">국가법령정보센터</a>
+        <span aria-hidden="true">·</span>
+        <a href="../">전체 계산기</a>
+        <span aria-hidden="true">·</span>
+        <a href="../year-end-tax/">연말정산</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://blog.naver.com/ufssdf987" target="_blank" rel="noopener">운영 블로그</a>
+        <span aria-hidden="true">·</span>
+        <a href="../privacy.html">개인정보처리방침</a>
+      </p>
+      <p class="footer-meta">
+        <span>기준일 <time id="dataDate" datetime="2026-11-26">2026-11-26</time></span>
+        <span aria-hidden="true">·</span>
+        <span>v<span id="appVersion">1.0.0</span></span>
+        <span aria-hidden="true">·</span>
+        <span>입력값은 기기 안에만 저장됩니다</span>
+      </p>
+      <p class="ad-disclosure" id="footerDisclosure" hidden></p>
+    </footer>
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<noscript>
+  <div class="noscript">이 계산기는 자바스크립트를 사용합니다. 브라우저 설정에서 자바스크립트를 켜 주세요.</div>
+</noscript>
+
+<script src="config.js"></script>
+<script src="calc.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
