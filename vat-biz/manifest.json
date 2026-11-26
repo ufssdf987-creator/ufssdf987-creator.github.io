@@ -1,0 +1,63 @@
+{
+  "id": "/vat-biz/",
+  "name": "2026 부가가치세·노란우산 계산기 — 일반과세·간이과세·절세",
+  "short_name": "부가세 절세",
+  "description": "일반과세 매출세액 10% − 매입세액, 간이과세 업종별 부가가치율 15~40%×10%, 납부면제·세금계산서 발급의무, 간이 vs 일반 비교, 노란우산공제 200~600만원 소득공제 절세액을 2026년 기준으로 계산합니다.",
+  "lang": "ko",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "portrait-primary",
+  "background_color": "#eef2f8",
+  "theme_color": "#0e1726",
+  "categories": ["finance", "business", "productivity"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "일반과세 부가세",
+      "short_name": "부가세",
+      "url": "./index.html#gen",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "간이과세 부가세",
+      "short_name": "간이과세",
+      "url": "./index.html#sim",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "간이 vs 일반 비교",
+      "short_name": "유리한쪽",
+      "url": "./index.html#cmp",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "노란우산 절세",
+      "short_name": "노란우산",
+      "url": "./index.html#yel",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "prefer_related_applications": false
+}
