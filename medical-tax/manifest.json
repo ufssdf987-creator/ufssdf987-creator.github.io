@@ -1,0 +1,63 @@
+{
+  "id": "/medical-tax/",
+  "name": "2026 의료비 세액공제 & 실손 차감 계산기",
+  "short_name": "의료비 공제",
+  "description": "2026년 귀속 의료비 세액공제를 계산합니다. 총급여의 3% 문턱, 일반 의료비 15%(연 700만원 한도), 본인·6세 이하·65세 이상·장애인·산정특례자 15%(한도 없음), 난임시술비 30%, 미숙아·선천성이상아 20%를 적용하고 실손의료보험금은 의료비에서 차감합니다. 안경 1명당 50만원, 산후조리원 출산 1회당 200만원 한도와 실손 청구 손익 비교, 맞벌이 부부 몰아주기, 공제 가능·불가능 체크리스트를 제공합니다.",
+  "lang": "ko",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "portrait-primary",
+  "background_color": "#eef2f8",
+  "theme_color": "#0e1726",
+  "categories": ["finance", "medical", "utilities"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "공제액",
+      "short_name": "공제액",
+      "url": "./index.html#basic",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "실손 vs 공제",
+      "short_name": "실손",
+      "url": "./index.html#insurance",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "부부 몰아주기",
+      "short_name": "부부",
+      "url": "./index.html#couple",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "가능·불가",
+      "short_name": "항목",
+      "url": "./index.html#guide",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "prefer_related_applications": false
+}
