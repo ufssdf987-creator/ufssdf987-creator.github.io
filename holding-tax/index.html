@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>보유세 계산기 2026 | 재산세·종부세·공동명의 비교</title>
+<meta name="description" content="2026년 기준으로 재산세(1주택 공정시장가액비율 43~45%, 특례세율 0.05~0.35%, 도시지역분 0.14%, 지방교육세 20%)와 종합부동산세(1주택 12억·일반 9억 공제, 60%, 0.5~2.7%·3주택 5.0%, 고령·장기보유 공제 80%, 농특세 20%)를 계산합니다. 단독명의와 부부 공동명의(각 9억 vs 12억 특례) 중 유리한 쪽도 비교합니다.">
+<meta name="keywords" content="보유세 계산기, 재산세 계산기, 종부세 계산기, 종합부동산세 계산기, 2026 재산세, 2026 종부세, 재산세율, 1세대 1주택 특례세율, 공정시장가액비율 43%, 44%, 45%, 60%, 도시지역분 0.14%, 지방교육세 20%, 과세표준상한 5%, 세부담상한 105% 110% 130%, 종부세 12억, 종부세 9억, 종부세 공정시장가액비율 60%, 3주택 중과 5%, 고령자 공제 20% 30% 40%, 장기보유 공제 20% 40% 50%, 세액공제 80%, 농어촌특별세 20%, 공동명의 종부세, 부부 공동명의 특례, 단독명의 비교, 6월 1일 과세기준일, 재산세 7월 9월, 종부세 12월, 분납 250만원, 합산배제 임대주택">
+<meta name="author" content="이안이 아빠의 공간">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://ufssdf987-creator.github.io/holding-tax/">
+<meta name="theme-color" content="#eef2f8">
+<meta name="theme-color" content="#eef2f8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#070c16" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="보유세 계산기">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="2026 재산세·종부세 보유세 계산기">
+<meta property="og:title" content="보유세 계산기 2026 — 재산세·종부세·공동명의 비교">
+<meta property="og:description" content="공시가격 6억 1주택 재산세 78만 7,200원, 20억 1주택 종부세 68만 2,560원(65세·10년 보유). 재산세 43~45%·특례 0.05~0.35%부터 종부세 12억/9억·80% 세액공제, 단독 vs 공동명의 손익까지 한 번에.">
+<meta property="og:url" content="https://ufssdf987-creator.github.io/holding-tax/">
+<meta property="og:image" content="https://ufssdf987-creator.github.io/holding-tax/icons/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="2026 재산세·종부세 보유세 계산기 — 공정시장가액비율·세액공제·공동명의 비교">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="보유세 계산기 2026 — 재산세·종부세·공동명의 비교">
+<meta name="twitter:description" content="1주택 재산세 43~45%·특례 0.05~0.35%, 종부세 12억 공제·최대 80% 세액공제, 부부 공동명의 18억 vs 12억 특례까지 3초에.">
+<meta name="twitter:image" content="https://ufssdf987-creator.github.io/holding-tax/icons/og-image.png">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="styles.css">
+<script>
+  /* 첫 화면 깜빡임 방지: 저장된 테마를 CSS 적용 전에 반영 */
+  (function () {
+    try {
+      var saved = localStorage.getItem('ctx.theme');
+      var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', (saved === 'dark' || saved === 'light') ? saved : (dark ? 'dark' : 'light'));
+    } catch (e) { /* 저장소 접근 불가 시 기본 라이트 */ }
+  })();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "2026 재산세·종합부동산세 보유세 계산기",
+  "url": "https://ufssdf987-creator.github.io/holding-tax/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "inLanguage": "ko",
+  "description": "2026년 지방세법·종합부동산세법 기준으로 주택 재산세와 종합부동산세를 계산합니다. 재산세는 1세대 1주택 공정시장가액비율 43·44·45%, 공시 9억 이하 특례세율 0.05~0.35%, 도시지역분 0.14%, 지방교육세 20%, 과세표준상한 5%를 반영합니다. 종합부동산세는 1세대 1주택 12억원·그 외 9억원 기본공제, 공정시장가액비율 60%, 2주택 이하 0.5~2.7%·3주택 이상 2.0~5.0% 세율, 재산세 중복분 공제, 고령자(20·30·40%)·장기보유(20·40·50%) 세액공제 최대 80%, 세부담상한 150%, 농어촌특별세 20%를 반영합니다. 부부 공동명의(각 9억씩 대 12억 특례)와 단독명의의 종부세를 나란히 비교합니다.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+  "featureList": [
+    "2026년 주택 재산세 — 1세대 1주택 공정시장가액비율 43%·44%·45%, 그 외 60%",
+    "공시가격 9억 이하 1세대 1주택 특례세율 0.05~0.35%와 일반세율 0.1~0.4% 비교",
+    "도시지역분 0.14%·지방교육세 20% 포함 고지서 합계와 7월·9월 분납액",
+    "과세표준상한 5%와 2024년 이전 과세 주택 경과조치 105%·110%·130%",
+    "종합부동산세 1주택 12억·일반 9억 기본공제, 공정시장가액비율 60%",
+    "2주택 이하 0.5~2.7%·3주택 이상 2.0~5.0% 세율과 재산세 중복분 공제",
+    "고령자 20·30·40% + 장기보유 20·40·50% 세액공제(최대 80%), 농어촌특별세 20%",
+    "부부 공동명의 각자 9억 공제 vs 12억 1주택 특례 vs 단독명의 3가지 비교"
+  ]
+}
+</script>
+<!-- Google AdSense — 사이트 확인·광고 로딩용 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4355917079579050" crossorigin="anonymous"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+<div class="app-shell">
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" role="img" focusable="false">
+          <defs>
+            <linearGradient id="htGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#7dd3fc"/><stop offset="1" stop-color="#2563eb"/>
+            </linearGradient>
+            <linearGradient id="htGrad2" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#fde68a"/><stop offset="1" stop-color="#f59e0b"/>
+            </linearGradient>
+          </defs>
+          <rect x="1" y="1" width="46" height="46" rx="13" fill="none" stroke="currentColor" stroke-opacity=".18"/>
+          <path d="M10 23l14-11 14 11" fill="none" stroke="url(#htGrad)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M13.5 21.5V38h21V21.5" fill="none" stroke="url(#htGrad)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20 38V28.5h8V38" fill="none" stroke="url(#htGrad2)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="35" cy="15" r="6.2" fill="none" stroke="url(#htGrad2)" stroke-width="2.4"/>
+          <path d="M32.4 17.4l5.2-4.8M32.4 12.6l5.2 4.8" stroke="url(#htGrad2)" stroke-width="1.9" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <div class="brand-text">
+        <h1>재산세·종부세 보유세 계산</h1>
+        <p>2026 지방세법·종부세법 기준</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button type="button" class="icon-btn install-btn" id="installBtn" hidden>앱 설치</button>
+      <button type="button" class="icon-btn theme-btn" id="themeBtn" aria-label="화면 테마 바꾸기" title="라이트/다크 전환">
+        <span id="themeIcon" aria-hidden="true">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="계산기 선택">
+    <button type="button" class="tab is-active" id="tabProp" role="tab" aria-selected="true" aria-controls="panelProp" tabindex="0">
+      <span class="tab-emoji" aria-hidden="true">🏠</span>
+      <span class="tab-label">재산세</span>
+    </button>
+    <button type="button" class="tab" id="tabHold" role="tab" aria-selected="false" aria-controls="panelHold" tabindex="-1">
+      <span class="tab-emoji" aria-hidden="true">🏛️</span>
+      <span class="tab-label">종부세</span>
+    </button>
+    <button type="button" class="tab" id="tabJoint" role="tab" aria-selected="false" aria-controls="panelJoint" tabindex="-1">
+      <span class="tab-emoji" aria-hidden="true">👫</span>
+      <span class="tab-label">공동명의</span>
+    </button>
+    <button type="button" class="tab" id="tabGuide" role="tab" aria-selected="false" aria-controls="panelGuide" tabindex="-1">
+      <span class="tab-emoji" aria-hidden="true">📋</span>
+      <span class="tab-label">체크·FAQ</span>
+    </button>
+  </nav>
+
+  <main id="main">
+    <div class="ad-slot" data-ad-slot="top" aria-hidden="true" hidden></div>
+
+    <!-- ══════════ 탭 1: 재산세 ══════════ -->
+    <section class="panel is-active" id="panelProp" role="tabpanel" aria-labelledby="tabProp" tabindex="0">
+      <p class="lead">2026년 1세대 1주택은 공시가격의 <strong>43~45%</strong>(3억 이하 43%·6억 이하 44%·6억 초과 45%)를 과세표준으로 잡고, 공시 <strong>9억 이하</strong>이면 특례세율 <strong>0.05~0.35%</strong>까지 적용됩니다. 여기에 <strong>도시지역분 0.14%</strong>와 <strong>지방교육세 20%</strong>가 붙어 고지서 합계가 됩니다.</p>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>주택 정보</h2>
+          <p class="card-sub">공시가격은 부동산공시가격알리미에서 확인할 수 있습니다.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="ptPrice">공시가격 <small>주택 공시가격</small></label>
+            <span class="badge-soft" id="ptPriceBadge">6억원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="ptPrice" type="number" inputmode="numeric" min="0" max="50000000000" step="10000000" value="600000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="ptSingleLabel">보유 형태 <small>1세대 1주택이면 비율·세율 특례</small></span>
+          <div class="chips" role="group" aria-labelledby="ptSingleLabel" id="ptSingleGroup">
+            <button type="button" data-single="yes" class="is-active" aria-checked="true">1세대 1주택</button>
+            <button type="button" data-single="no" aria-checked="false">다주택·법인</button>
+          </div>
+          <p class="field-help">1세대 1주택은 과세기준일(6월 1일) 세대원 중 1명이 주택 1채만 소유한 경우입니다. 부부 공동명의 1채도 1세대 1주택입니다.</p>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="ptCityLabel">도시지역분 <small>과세표준 × 0.14%</small></span>
+          <div class="chips" role="group" aria-labelledby="ptCityLabel" id="ptCityGroup">
+            <button type="button" data-city="yes" class="is-active" aria-checked="true">부과 (도시지역)</button>
+            <button type="button" data-city="no" aria-checked="false">미부과 (읍·면)</button>
+          </div>
+          <p class="field-help">도시지역 중 지방의회가 조례로 고시한 지역의 주택에 붙습니다. 시 지역 아파트는 대부분 해당됩니다.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="ptPrev">직전연도 공시가격 <small>선택 · 과세표준상한 5%</small></label>
+            <span class="badge-soft" id="ptPrevBadge">미적용</span>
+          </div>
+          <div class="input-wrap">
+            <input id="ptPrev" type="number" inputmode="numeric" min="0" max="50000000000" step="10000000" value="0" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <p class="field-help">올해 과세표준이 직전연도 공시가격 × 올해 비율 + 올해 과세표준의 5%를 넘지 않도록 제한합니다(2024년분부터). 모르면 0으로 두세요.</p>
+        </div>
+
+        <div class="field">
+          <label class="check-item check-item--single" for="ptLegacy">
+            <input type="checkbox" id="ptLegacy">
+            <span>2024년 1월 1일 전부터 재산세가 과세된 주택 — 경과조치 세부담상한(105·110·130%) 적용</span>
+          </label>
+          <label class="sr-only" for="ptLastTax">직전연도 재산세 본세</label>
+          <div class="input-wrap input-wrap-sm" style="margin-top:10px">
+            <input id="ptLastTax" type="number" inputmode="numeric" min="0" max="10000000000" step="10000" value="0" autocomplete="off" disabled>
+            <span class="unit">원</span>
+          </div>
+          <p class="field-help">직전연도 재산세 <strong>본세</strong>를 넣으면 공시 3억 이하 105%·6억 이하 110%·6억 초과 130%로 본세를 제한합니다. 주택 세액상한은 2024년 폐지됐지만 이 경과조치는 2028년 12월 31일까지 유지됩니다.</p>
+        </div>
+      </section>
+
+      <section class="card result-card" id="ptResultCard">
+        <div class="result-head">
+          <div>
+            <p class="result-label">2026년 재산세 합계</p>
+            <p class="result-amount" aria-live="polite" aria-atomic="true"><span id="ptTotal">0</span><span class="won">원</span></p>
+            <p class="result-sub" id="ptSub"></p>
+          </div>
+          <span class="tier-badge" id="ptVerdict" data-tier="2">계산 중</span>
+        </div>
+
+        <div class="breakdown" id="ptRows"></div>
+
+        <div class="stat-grid">
+          <div class="stat-cell">
+            <span>재산세 본세</span>
+            <strong id="ptStatGross">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>도시지역분</span>
+            <strong id="ptStatCity">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>지방교육세</span>
+            <strong id="ptStatEdu">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>공시가격 대비</span>
+            <strong id="ptStatRate">0%</strong>
+          </div>
+        </div>
+
+        <div class="elig-list" id="ptElig"></div>
+
+        <div class="after-box" id="ptNextBox">
+          <p class="after-title">납부 일정</p>
+          <p id="ptNext"></p>
+        </div>
+
+        <p class="insight" id="ptInsight"></p>
+
+        <details class="breakdown-box" open>
+          <summary>
+            <span>공시가격별 재산세</span>
+            <span class="summary-hint" id="ptScaleHint">현재 조건</span>
+          </summary>
+          <div class="table-wrap">
+            <table class="data-table data-table--num" id="ptScaleTable">
+              <caption class="sr-only">공시가격별 재산세 본세와 합계</caption>
+              <thead>
+                <tr><th scope="col">공시가격</th><th scope="col">과세표준</th><th scope="col">본세</th><th scope="col">합계</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <p class="field-help">도시지역분·지방교육세를 포함한 값입니다. 공시 9억을 넘으면 특례세율이 빠져 세 부담이 크게 올라갑니다.</p>
+        </details>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="ptShare">결과 복사하기</button>
+        </div>
+      </section>
+
+      <div class="ad-slot" data-ad-slot="mid" aria-hidden="true" hidden></div>
+    </section>
+
+    <!-- ══════════ 탭 2: 종합부동산세 ══════════ -->
+    <section class="panel" id="panelHold" role="tabpanel" aria-labelledby="tabHold" tabindex="0" hidden>
+      <p class="lead">공시가격 합계가 <strong>1세대 1주택 12억원, 그 외 9억원</strong>을 넘으면 12월에 종부세를 냅니다. 초과분의 <strong>60%</strong>가 과세표준이고, 2주택 이하 <strong>0.5~2.7%</strong>·3주택 이상 <strong>2.0~5.0%</strong> 세율에 재산세 중복분을 빼고, 1주택은 고령·장기보유 <strong>세액공제 최대 80%</strong>를 적용합니다.</p>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>보유 주택과 납세자</h2>
+          <p class="card-sub">과세기준일 6월 1일 현재 인별 합산 공시가격 기준입니다.</p>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="hdHouseLabel">주택 수 <small>3주택 이상은 12억 초과 구간부터 중과</small></span>
+          <div class="chips" role="group" aria-labelledby="hdHouseLabel" id="hdHouseGroup">
+            <button type="button" data-house="1" class="is-active" aria-checked="true">1주택</button>
+            <button type="button" data-house="2" aria-checked="false">2주택</button>
+            <button type="button" data-house="3" aria-checked="false">3주택 이상</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="hdPrice">공시가격 합계 <small>전국 주택 합산</small></label>
+            <span class="badge-soft" id="hdPriceBadge">20억원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="hdPrice" type="number" inputmode="numeric" min="0" max="50000000000" step="10000000" value="2000000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <div class="field-label-row">
+              <label class="field-label" for="hdAge">만 나이 <small>6월 1일 기준</small></label>
+              <span class="badge-soft" id="hdAgeBadge">65세</span>
+            </div>
+            <div class="input-wrap input-wrap-sm">
+              <input id="hdAge" type="number" inputmode="numeric" min="0" max="120" step="1" value="65" autocomplete="off">
+              <span class="unit">세</span>
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label-row">
+              <label class="field-label" for="hdYears">보유기간</label>
+              <span class="badge-soft" id="hdYearsBadge">10년</span>
+            </div>
+            <div class="input-wrap input-wrap-sm">
+              <input id="hdYears" type="number" inputmode="numeric" min="0" max="100" step="1" value="10" autocomplete="off">
+              <span class="unit">년</span>
+            </div>
+          </div>
+        </div>
+        <p class="field-help">고령자·장기보유 세액공제는 <strong>1세대 1주택 단독명의</strong>에만 적용됩니다. 2주택 이상에서는 입력값과 관계없이 공제 0%입니다.</p>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="hdPrev">직전연도 총세액 <small>선택 · 재산세+종부세, 세부담상한 150%</small></label>
+            <span class="badge-soft" id="hdPrevBadge">미적용</span>
+          </div>
+          <div class="input-wrap">
+            <input id="hdPrev" type="number" inputmode="numeric" min="0" max="10000000000" step="10000" value="0" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <p class="field-help">작년 재산세와 종부세를 합친 금액을 넣으면 올해 총세액이 그 150%를 넘지 않도록 조정합니다. 모르면 0으로 두세요.</p>
+        </div>
+      </section>
+
+      <section class="card result-card" id="hdResultCard">
+        <div class="result-head">
+          <div>
+            <p class="result-label">2026년 종부세 + 농어촌특별세</p>
+            <p class="result-amount" aria-live="polite" aria-atomic="true"><span id="hdTotal">0</span><span class="won">원</span></p>
+            <p class="result-sub" id="hdSub"></p>
+          </div>
+          <span class="tier-badge" id="hdVerdict" data-tier="2">계산 중</span>
+        </div>
+
+        <div class="breakdown" id="hdRows"></div>
+
+        <div class="stat-grid">
+          <div class="stat-cell">
+            <span>종부세 과세표준</span>
+            <strong id="hdStatTaxable">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>산출세액</span>
+            <strong id="hdStatGross">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>세액공제율</span>
+            <strong id="hdStatCredit">0%</strong>
+          </div>
+          <div class="stat-cell">
+            <span>농어촌특별세</span>
+            <strong id="hdStatFarm">0원</strong>
+          </div>
+        </div>
+
+        <div class="elig-list" id="hdElig"></div>
+
+        <div class="after-box" id="hdNextBox">
+          <p class="after-title">12월 납부</p>
+          <p id="hdNext"></p>
+        </div>
+
+        <p class="insight" id="hdInsight"></p>
+
+        <details class="breakdown-box" open>
+          <summary>
+            <span>공시가격별 종부세</span>
+            <span class="summary-hint" id="hdScaleHint">현재 조건</span>
+          </summary>
+          <div class="table-wrap">
+            <table class="data-table data-table--num" id="hdScaleTable">
+              <caption class="sr-only">공시가격별 종부세와 농특세 합계</caption>
+              <thead>
+                <tr><th scope="col">공시가격</th><th scope="col">과세표준</th><th scope="col">산출세액</th><th scope="col">총 납부액</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <p class="field-help">현재 주택 수·나이·보유기간을 그대로 적용한 값입니다. 공시가격이 12억(1주택)·9억(그 외) 이하면 0원입니다.</p>
+        </details>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="hdShare">결과 복사하기</button>
+        </div>
+      </section>
+
+      <div class="ad-slot" data-ad-slot="mid2" aria-hidden="true" hidden></div>
+    </section>
+
+    <!-- ══════════ 탭 3: 공동명의 vs 단독명의 ══════════ -->
+    <section class="panel" id="panelJoint" role="tabpanel" aria-labelledby="tabJoint" tabindex="0" hidden>
+      <p class="lead">부부 공동명의 1주택은 <strong>각자 9억씩(합 18억) 공제</strong>와 <strong>12억 공제 + 세액공제 특례</strong> 중 유리한 쪽을 고를 수 있습니다. 2026년부터는 지분율과 관계없이 <strong>부부 합의로 특례 납세의무자</strong>를 정합니다. 특례가 항상 유리한 것은 아닙니다.</p>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>집과 부부 정보</h2>
+          <p class="card-sub">두 사람 모두 다른 주택이 없어야 특례를 신청할 수 있습니다.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="jtPrice">공시가격 <small>1주택 전체</small></label>
+            <span class="badge-soft" id="jtPriceBadge">20억원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="jtPrice" type="number" inputmode="numeric" min="0" max="50000000000" step="10000000" value="2000000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <span class="field-label" id="jtShareLabel">본인 지분율</span>
+            <span class="badge-soft" id="jtShareBadge">본인 50 : 배우자 50</span>
+          </div>
+          <input type="range" id="jtShare" class="slider" min="10" max="90" step="5" value="50" aria-labelledby="jtShareLabel">
+          <div class="slider-scale" aria-hidden="true"><span>본인 10%</span><span>50%</span><span>본인 90%</span></div>
+          <p class="field-help">지분율은 각자 9억 공제를 받는 일반과세에서만 영향을 줍니다. 특례는 지분과 관계없이 12억을 공제합니다.</p>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <div class="field-label-row">
+              <label class="field-label" for="jtAgeA">본인 나이</label>
+              <span class="badge-soft" id="jtAgeABadge">62세</span>
+            </div>
+            <div class="input-wrap input-wrap-sm">
+              <input id="jtAgeA" type="number" inputmode="numeric" min="0" max="120" step="1" value="62" autocomplete="off">
+              <span class="unit">세</span>
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label-row">
+              <label class="field-label" for="jtYearsA">본인 보유기간</label>
+              <span class="badge-soft" id="jtYearsABadge">6년</span>
+            </div>
+            <div class="input-wrap input-wrap-sm">
+              <input id="jtYearsA" type="number" inputmode="numeric" min="0" max="100" step="1" value="6" autocomplete="off">
+              <span class="unit">년</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <div class="field-label-row">
+              <label class="field-label" for="jtAgeB">배우자 나이</label>
+              <span class="badge-soft" id="jtAgeBBadge">62세</span>
+            </div>
+            <div class="input-wrap input-wrap-sm">
+              <input id="jtAgeB" type="number" inputmode="numeric" min="0" max="120" step="1" value="62" autocomplete="off">
+              <span class="unit">세</span>
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label-row">
+              <label class="field-label" for="jtYearsB">배우자 보유기간</label>
+              <span class="badge-soft" id="jtYearsBBadge">6년</span>
+            </div>
+            <div class="input-wrap input-wrap-sm">
+              <input id="jtYearsB" type="number" inputmode="numeric" min="0" max="100" step="1" value="6" autocomplete="off">
+              <span class="unit">년</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card result-card" id="jtResultCard">
+        <div class="result-head">
+          <div>
+            <p class="result-label">가장 유리한 방식</p>
+            <p class="result-amount result-amount--text" aria-live="polite" aria-atomic="true"><span id="jtBest">0</span></p>
+            <p class="result-sub" id="jtSub"></p>
+          </div>
+          <span class="tier-badge" id="jtVerdict" data-tier="2">계산 중</span>
+        </div>
+
+        <div class="table-wrap">
+          <table class="data-table data-table--num" id="jtTable">
+            <caption class="sr-only">단독명의·공동명의 일반과세·공동명의 특례 종부세 비교</caption>
+            <thead>
+              <tr><th scope="col">방식</th><th scope="col">종부세</th><th scope="col">농특세 포함</th></tr>
+            </thead>
+            <tbody id="jtBody"></tbody>
+          </table>
+        </div>
+
+        <div class="stat-grid">
+          <div class="stat-cell">
+            <span>최대 절감액</span>
+            <strong id="jtStatSaving">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>단독명의</span>
+            <strong id="jtStatSingle">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>공동명의 일반</span>
+            <strong id="jtStatGeneral">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>공동명의 특례</span>
+            <strong id="jtStatSpecial">0원</strong>
+          </div>
+        </div>
+
+        <div class="breakdown" id="jtRows"></div>
+
+        <div class="elig-list" id="jtElig"></div>
+
+        <p class="insight" id="jtInsight"></p>
+
+        <details class="breakdown-box">
+          <summary>
+            <span>비교에 넣은 것과 뺀 것</span>
+            <span class="summary-hint">계산 범위</span>
+          </summary>
+          <div class="table-wrap">
+            <table class="data-table">
+              <caption class="sr-only">공동명의 비교 계산 범위</caption>
+              <thead>
+                <tr><th scope="col">항목</th><th scope="col">반영</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">종부세 산출세액·재산세 중복분 공제</th><td>반영</td></tr>
+                <tr><th scope="row">고령자·장기보유 세액공제(특례만)</th><td>반영 — 나이가 많은 쪽/공제율 높은 쪽 자동 선택</td></tr>
+                <tr><th scope="row">농어촌특별세 20%</th><td>반영</td></tr>
+                <tr><th scope="row">재산세(본세·도시지역분·지방교육세)</th><td>명의와 관계없이 같아서 비교에서 제외</td></tr>
+                <tr><th scope="row">세부담상한(150%)·합산배제·감면</th><td>제외 — 실제 고지서와 다를 수 있음</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="jtShareBtn">결과 복사하기</button>
+        </div>
+      </section>
+
+      <div class="ad-slot" data-ad-slot="bottom" aria-hidden="true" hidden></div>
+    </section>
+
+    <!-- ══════════ 탭 4: 체크리스트·FAQ ══════════ -->
+    <section class="panel" id="panelGuide" role="tabpanel" aria-labelledby="tabGuide" tabindex="0" hidden>
+      <p class="lead">보유세는 <strong>6월 1일</strong>에 보유한 사람이 1년치를 냅니다. 재산세는 7월·9월, 종부세는 12월에 나뉘어 고지되니 미리 챙겨두면 놓치지 않습니다.</p>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>보유세 체크리스트</h2>
+          <p class="card-sub">체크한 항목은 이 기기에만 저장됩니다.</p>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-bar"><i id="gdBar"></i></div>
+          <span class="check-count" id="gdCount">0 / 10</span>
+        </div>
+        <div class="check-list" id="gdList">
+          <label class="check-item"><input type="checkbox" data-check="g1"><span><strong>6월 1일</strong> 현재 집을 소유했는지 확인했다(그날 이후 매도해도 올해 보유세는 내가 낸다)</span></label>
+          <label class="check-item"><input type="checkbox" data-check="g2"><span>부동산공시가격알리미에서 <strong>올해 공시가격</strong>을 확인했다</span></label>
+          <label class="check-item"><input type="checkbox" data-check="g3"><span>세대원 전체 주택 수로 <strong>1세대 1주택</strong> 요건을 따져봤다</span></label>
+          <label class="check-item"><input type="checkbox" data-check="g4"><span>7월·9월 <strong>재산세 고지서</strong>의 본세·도시지역분·지방교육세를 확인했다</span></label>
+          <label class="check-item"><input type="checkbox" data-check="g5"><span>공시가격 <strong>9억원</strong>을 넘어 특례세율(0.05~0.35%)이 빠지지 않았는지 봤다</span></label>
+          <label class="check-item"><input type="checkbox" data-check="g6"><span>공시가격 합계가 <strong>12억(1주택)·9억(그 외)</strong>을 넘어 종부세 대상인지 확인했다</span></label>
+          <label class="check-item"><input type="checkbox" data-check="g7"><span>부부 공동명의라면 <strong>9월 16~30일</strong> 특례 신청 여부를 정했다</span></label>
+          <label class="check-item"><input type="checkbox" data-check="g8"><span>만 60세 이상·5년 이상 보유로 <strong>고령자·장기보유 세액공제</strong> 대상인지 봤다</span></label>
+          <label class="check-item"><input type="checkbox" data-check="g9"><span>임대주택 <strong>합산배제</strong> 신고(9월 16~30일)를 했거나 요건을 확인했다</span></label>
+          <label class="check-item"><input type="checkbox" data-check="g10"><span>12월 <strong>종부세 납부·분납(250만원 초과)·납부유예</strong> 일정을 달력에 넣었다</span></label>
+        </div>
+        <div class="result-actions">
+          <button type="button" class="btn btn-ghost" id="gdReset">체크 초기화</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>제도 한눈에</h2>
+          <p class="card-sub">같은 공시가격도 주택 수·나이·명의에 따라 결과가 달라집니다.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table" id="gdExTable">
+            <caption class="sr-only">보유세 상황별 적용 결과</caption>
+            <thead>
+              <tr><th scope="col">상황</th><th scope="col">적용 · 이유</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">공시 3억 1세대 1주택</th><td>재산세 <strong>29만 9,400원</strong> · 비율 43%, 특례 0.05%, 도시지역분·교육세 포함</td></tr>
+              <tr><th scope="row">공시 3억 다주택</th><td>재산세 <strong>57만 6,000원</strong> · 비율 60%, 일반세율 0.1% — 1주택의 약 1.9배</td></tr>
+              <tr><th scope="row">공시 9억 1주택</th><td>재산세 <strong>151만 2,000원</strong> · 특례 마지막 구간(0.35%), 9억을 넘으면 일반세율</td></tr>
+              <tr><th scope="row">공시 12억 1주택</th><td>재산세 <strong>259만 2,000원</strong> · 비율 45%만 적용, 세율은 일반 0.4%</td></tr>
+              <tr><th scope="row">공시 12억 이하 1주택</th><td>종부세 <strong>0원</strong> · 기본공제 12억 이하</td></tr>
+              <tr><th scope="row">공시 20억 1주택·65세·10년</th><td>종부세+농특세 <strong>68만 2,560원</strong> · 세액공제 70%(30+40)</td></tr>
+              <tr><th scope="row">공시 20억 2주택</th><td>기본공제 9억 · 세액공제 없음 · 2주택 이하 0.7% 구간</td></tr>
+              <tr><th scope="row">공시 30억 3주택</th><td>중과 <strong>2.0%</strong>(12억 초과 구간) · 세액공제 없음</td></tr>
+              <tr><th scope="row">공시 20억 부부 5:5</th><td>각자 9억 공제가 <strong>유리</strong> · 일반 46만 vs 특례 137만원</td></tr>
+              <tr><th scope="row">공시 24억 부부 5:5·70세·15년</th><td>12억 특례+80% 공제가 <strong>유리</strong> · 특례 84만 vs 일반 138만원</td></tr>
+              <tr><th scope="row">6월 1일 이후 매도</th><td>올해 재산세·종부세는 <strong>6월 1일 소유자</strong>가 부담</td></tr>
+              <tr><th scope="row">재산세 20만원 이하</th><td>조례로 7월에 <strong>한 번에</strong> 고지 가능</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card faq-card">
+        <h2>보유세에서 자주 묻는 것</h2>
+        <details class="faq" open>
+          <summary>재산세는 언제 내나요?</summary>
+          <p>주택 재산세는 <strong>7월 16~31일</strong>과 <strong>9월 16~30일</strong>에 절반씩 냅니다. 20만원 이하면 조례로 7월에 한 번에 고지할 수 있습니다. 도시지역분과 지방교육세도 같은 고지서에 함께 나옵니다.</p>
+        </details>
+        <details class="faq">
+          <summary>6월 1일 이후에 집을 팔면 세금은 누가 내나요?</summary>
+          <p>재산세와 종부세 모두 <strong>과세기준일 6월 1일</strong> 현재 소유자가 1년치를 부담합니다. 그날 이후 매도했어도 올해 세금은 매도자가 냅니다. 반대로 6월 2일 이후 매수했다면 내년부터 냅니다.</p>
+        </details>
+        <details class="faq">
+          <summary>1세대 1주택 특례는 신청해야 받나요?</summary>
+          <p>재산세는 지자체가 자동 적용합니다. 다만 세대 분리·상속 지분·공동명의 등으로 주택 수 판정이 어긋나면 특례 없이 고지될 수 있으니 고지서의 <strong>‘1세대 1주택 세율 특례 경감’</strong> 항목을 확인하세요. 착오가 있으면 관할 구청 세무과에 정정을 요청할 수 있습니다.</p>
+        </details>
+        <details class="faq">
+          <summary>공시가격 9억이 넘는 1주택은 특례가 없나요?</summary>
+          <p>세율 특례(0.05~0.35%)는 공시 <strong>9억 이하</strong>에만 적용됩니다. 다만 공정시장가액비율 43~45% 특례는 9억을 넘는 1주택에도 적용됩니다. 그래서 9억을 살짝 넘으면 세율이 0.35%에서 0.4%로 올라 세 부담이 한 번 뛰고, 그다음부터는 완만해집니다.</p>
+        </details>
+        <details class="faq">
+          <summary>재산세 세부담상한 105·110·130%는 없어졌나요?</summary>
+          <p>주택 재산세의 <strong>세액</strong> 세부담상한은 2024년 폐지됐습니다. 대신 과세표준이 직전연도 과세표준상당액 + 올해 과세표준의 <strong>5%</strong>를 넘지 않도록 하는 과세표준상한제가 적용됩니다. 2024년 1월 1일 전에 재산세가 과세된 주택은 2028년 12월 31일까지 경과조치로 종전 105·110·130% 상한이 본세와 도시지역분에 각각 적용됩니다.</p>
+        </details>
+        <details class="faq">
+          <summary>종부세는 언제, 어떻게 내나요?</summary>
+          <p><strong>12월 1~15일</strong>에 냅니다. 국세청이 고지서를 보내고 홈택스에서 신고납부도 할 수 있습니다. 납부할 세액이 <strong>250만원을 넘으면</strong> 6개월 이내 분납이 가능합니다(250만~500만원은 초과분, 500만원 초과는 50% 이하). 농어촌특별세는 종부세 분납비율에 따라 같이 분납됩니다.</p>
+        </details>
+        <details class="faq">
+          <summary>부부 공동명의는 18억까지 공제되나요?</summary>
+          <p>특례를 신청하지 않으면 부부가 각자 지분에 대해 <strong>9억원씩</strong> 공제받습니다. 지분이 반반이고 공시 18억 이하면 종부세가 0원입니다. 특례를 신청하면 <strong>12억원</strong>만 공제되지만 고령자·장기보유 세액공제(최대 80%)를 받을 수 있습니다. 지분이 한쪽에 몰릴수록 특례가 유리해집니다.</p>
+        </details>
+        <details class="faq">
+          <summary>고령자·장기보유 세액공제는 누가 받나요?</summary>
+          <p><strong>1세대 1주택 단독명의자</strong>가 대상입니다. 만 60세 이상 20%·65세 이상 30%·70세 이상 40%, 보유 5년 이상 20%·10년 이상 40%·15년 이상 50%를 더해 <strong>최대 80%</strong>입니다. 2주택 이상과 공동명의 일반과세에는 적용되지 않고, 공동명의 특례는 선택한 납세의무자의 나이·보유기간으로 계산합니다.</p>
+        </details>
+        <details class="faq">
+          <summary>3주택 이상은 얼마나 더 내나요?</summary>
+          <p>종부세 세율이 과세표준 <strong>12억원 초과</strong> 구간부터 2.0%·3.0%·4.0%·5.0%로 올라갑니다(2주택 이하는 1.3~2.7%). 12억 이하 구간은 2주택 이하와 같아서, 공시가격이 낮으면 중과 차이가 없습니다. 3주택 이상은 고령자·장기보유 세액공제도 받을 수 없습니다.</p>
+        </details>
+        <details class="faq">
+          <summary>임대주택 합산배제는 어떻게 하나요?</summary>
+          <p>민간임대주택법에 따라 등록한 임대주택 등은 요건을 갖추면 종부세 합산에서 뺄 수 있습니다. <strong>9월 16~30일</strong>에 홈택스로 신고해야 하고, 신고하지 않으면 합산됩니다. 임대료 증액 제한(5%)과 의무임대기간(10년) 요건을 지키지 못하면 추징되니 등록 상태를 먼저 확인하세요.</p>
+        </details>
+        <details class="faq">
+          <summary>종부세 납부유예를 받을 수 있나요?</summary>
+          <p>1세대 1주택자 중 만 60세 이상이거나 5년 이상 보유하고, 직전연도 총급여 7,000만원·종합소득 6,000만원 이하이며, 주택분 종부세가 100만원(농특세 포함 120만원)을 넘으면 담보를 제공하고 양도·상속·증여 때까지 납부를 미룰 수 있습니다. 홈택스에서 신청합니다.</p>
+        </details>
+        <details class="faq">
+          <summary>2027년에는 세금이 바뀌나요?</summary>
+          <p>정부의 2026년 세제개편안은 1세대 1주택 기본공제를 14억원으로 올리고, 공정시장가액비율을 70%(2028년 3주택 이상 80%)로 인상하며, 세율을 주택 수 대신 가액 기준으로 일원화하고, 보유기간 공제를 거주기간 공제로 바꾸는 내용을 담고 있습니다. <strong>2026년 11월 현재 국회 심사 중</strong>이라 2026년분에는 현행 법령이 적용됩니다. 확정·공포 여부를 확인한 뒤 내년 계산에 반영해야 합니다.</p>
+        </details>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>공식 확인처</h2>
+          <p class="card-sub">세율·공제·고지 내용은 원문과 고지서로 확인하세요.</p>
+        </div>
+        <div class="related-grid">
+          <a class="related-app" href="https://www.nts.go.kr/" target="_blank" rel="noopener">
+            <strong>국세청</strong>
+            <span>종합부동산세 안내·모의계산</span>
+          </a>
+          <a class="related-app" href="https://www.wetax.go.kr/" target="_blank" rel="noopener">
+            <strong>위택스</strong>
+            <span>재산세 조회·납부</span>
+          </a>
+          <a class="related-app" href="https://hometax.go.kr/" target="_blank" rel="noopener">
+            <strong>홈택스</strong>
+            <span>종부세 신고·납부·납부유예</span>
+          </a>
+          <a class="related-app" href="https://www.law.go.kr/" target="_blank" rel="noopener">
+            <strong>국가법령정보센터</strong>
+            <span>지방세법·종합부동산세법</span>
+          </a>
+        </div>
+      </section>
+    </section>
+
+    <!-- 제휴 상품: config.js 의 coupang.items 에 링크를 넣으면 나타납니다 -->
+    <section class="card promo-card" id="promoSection" hidden>
+      <div class="card-head">
+        <h2 id="promoHeading">고지서 확인하는 밤에 챙길 것</h2>
+        <p class="card-sub" id="promoSub"></p>
+      </div>
+      <div class="promo-grid" id="promoList"></div>
+      <p class="ad-disclosure" id="promoDisclosure"></p>
+    </section>
+
+    <section class="related-apps" aria-labelledby="relatedAppsTitle">
+      <h2 id="relatedAppsTitle">함께 많이 쓰는 계산기</h2>
+      <div class="related-grid">
+        <a class="related-app" href="../property-tax/">
+          <strong>부동산 세금 계산기</strong>
+          <span>취득세·양도세·증여세</span>
+        </a>
+        <a class="related-app" href="../housing-loan/">
+          <strong>청약 가점·특례대출</strong>
+          <span>내 집 마련 대출 한도</span>
+        </a>
+        <a class="related-app" href="../monthly-rent-tax/">
+          <strong>월세 세액공제 계산기</strong>
+          <span>월세 17%·전세대출 40%</span>
+        </a>
+        <a class="related-app" href="../rent-loan/">
+          <strong>전세·월세 전환 계산기</strong>
+          <span>주거비 손익 비교</span>
+        </a>
+        <a class="related-app" href="../living-cost/">
+          <strong>고정비 체크기</strong>
+          <span>새는 돈·숨은 지원금</span>
+        </a>
+        <a class="related-app" href="../">
+          <strong>전체 계산기</strong>
+          <span>생활 계산기 25종 모아 보기</span>
+        </a>
+      </div>
+    </section>
+
+    <footer class="app-footer">
+      <p class="disclaimer">
+        <strong>참고용 모의 계산입니다.</strong> 2026년 11월 27일 기준 지방세법(법률 제21308호, 2026. 1. 1. 시행) 제110조~제122조·제151조,
+        지방세법 시행령(대통령령 제36736호, 2026. 10. 1. 시행) 제109조·제109조의2, 종합부동산세법 제8조~제10조·제16조,
+        종합부동산세법 시행령 제2조의3·제2조의4·제4조의3, 농어촌특별세법 제5조를 따랐습니다.
+        재산세는 1세대 1주택 43·44·45%(그 외 60%), 특례세율 0.05~0.35%(공시 9억 이하, 2026년분), 도시지역분 0.14%,
+        지방교육세 20%, 과세표준상한 5%를 적용했습니다. 종부세는 1주택 12억·그 외 9억 공제, 공정시장가액비율 60%,
+        2주택 이하 0.5~2.7%·3주택 이상 2.0~5.0%, 재산세 중복분 공제, 고령·장기보유 세액공제 최대 80%, 세부담상한 150%,
+        농어촌특별세 20%를 적용했습니다. 다주택의 재산세는 주택별로 부과되지만 이 계산기는 합산 공시가격을 1채로 단순화했습니다.
+        소방분 지역자원시설세, 조례 가감세율, 감면·합산배제, 공동명의 지분별 재산세 배분은 반영하지 않았습니다.
+        실제 고지세액은 국세청·위택스 고지서로 확인하세요. 입력값은 기기 안에만 저장되고 어디로도 전송되지 않습니다.
+      </p>
+      <p class="footer-links">
+        <a href="https://www.nts.go.kr/" target="_blank" rel="noopener">국세청</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.wetax.go.kr/" target="_blank" rel="noopener">위택스</a>
+        <span aria-hidden="true">·</span>
+        <a href="../">전체 계산기</a>
+        <span aria-hidden="true">·</span>
+        <a href="../property-tax/">부동산 세금</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://blog.naver.com/ufssdf987" target="_blank" rel="noopener">운영 블로그</a>
+        <span aria-hidden="true">·</span>
+        <a href="../privacy.html">개인정보처리방침</a>
+      </p>
+      <p class="footer-meta">
+        <span>기준일 <time id="dataDate" datetime="2026-11-27">2026-11-27</time></span>
+        <span aria-hidden="true">·</span>
+        <span>v<span id="appVersion">1.0.0</span></span>
+        <span aria-hidden="true">·</span>
+        <span>입력값은 기기 안에만 저장됩니다</span>
+      </p>
+      <p class="ad-disclosure" id="footerDisclosure" hidden></p>
+    </footer>
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<noscript>
+  <div class="noscript">이 계산기는 자바스크립트를 사용합니다. 브라우저 설정에서 자바스크립트를 켜 주세요.</div>
+</noscript>
+
+<script src="config.js"></script>
+<script src="calc.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

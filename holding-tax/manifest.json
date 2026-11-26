@@ -1,0 +1,63 @@
+{
+  "id": "/holding-tax/",
+  "name": "2026 재산세·종부세 보유세 계산기 — 공동명의 비교",
+  "short_name": "보유세 계산기",
+  "description": "2026년 지방세법·종부세법 기준으로 재산세(1주택 43~45%·특례 0.05~0.35%·도시지역분 0.14%·교육세 20%)와 종합부동산세(12억/9억 공제·60%·0.5~2.7%·3주택 5%·세액공제 80%·농특세 20%)를 계산합니다. 단독명의와 부부 공동명의 18억 vs 12억 특례도 비교합니다.",
+  "lang": "ko",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "portrait-primary",
+  "background_color": "#eef2f8",
+  "theme_color": "#0e1726",
+  "categories": ["finance", "utilities"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "재산세",
+      "short_name": "재산세",
+      "url": "./index.html#prop",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "종합부동산세",
+      "short_name": "종부세",
+      "url": "./index.html#hold",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "공동명의 비교",
+      "short_name": "공동명의",
+      "url": "./index.html#joint",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "체크리스트·FAQ",
+      "short_name": "체크·FAQ",
+      "url": "./index.html#guide",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "prefer_related_applications": false
+}
