@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>부동산 세금 계산기 2026 | 취득세·양도소득세·증여세 한 번에</title>
+<meta name="description" content="2026년 기준 부동산 세금을 한 화면에서 계산합니다. 취득세는 1~3주택·조정대상지역·전용 85㎡ 초과 여부로 취득세·지방교육세·농어촌특별세를, 양도소득세는 1세대 1주택 12억 초과분 안분과 보유·거주 기간 장기보유특별공제로, 증여세는 배우자 6억·직계존비속 5천만원 공제와 혼인·출산 1억 추가 공제로 계산합니다.">
+<meta name="keywords" content="부동산 세금 계산기, 취득세 계산기, 양도소득세 계산기, 증여세 계산기, 2026 취득세율, 다주택 중과 8% 12%, 지방교육세, 농어촌특별세 85㎡, 생애최초 취득세 감면 200만원, 1세대 1주택 12억 비과세, 장기보유특별공제 80%, 증여재산공제 6억 5천만원, 혼인출산 증여공제 1억, 신고세액공제 3%">
+<meta name="author" content="이안이 아빠의 공간">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://ufssdf987-creator.github.io/property-tax/">
+<meta name="theme-color" content="#eef2f8">
+<meta name="theme-color" content="#eef2f8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#070c16" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="부동산 세금">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="2026 부동산 세금 계산기">
+<meta property="og:title" content="부동산 세금 계산기 2026 — 취득세·양도세·증여세">
+<meta property="og:description" content="8억 아파트 취득세는 얼마? 15억에 팔면 양도세는? 자녀에게 2억 증여하면? 2026년 세율로 취득세·양도소득세·증여세를 한 번에 계산합니다.">
+<meta property="og:url" content="https://ufssdf987-creator.github.io/property-tax/">
+<meta property="og:image" content="https://ufssdf987-creator.github.io/property-tax/icons/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="2026 부동산 세금 계산기 — 취득세·양도소득세·증여세">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="부동산 세금 계산기 2026 — 취득세·양도세·증여세">
+<meta name="twitter:description" content="취득세 1~3%·중과 8%·12%, 1세대 1주택 12억 초과분 안분, 증여재산공제 6억. 2026년 기준으로 3초에 계산합니다.">
+<meta name="twitter:image" content="https://ufssdf987-creator.github.io/property-tax/icons/og-image.png">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="styles.css">
+<script>
+  /* 첫 화면 깜빡임 방지: 저장된 테마를 CSS 적용 전에 반영 */
+  (function () {
+    try {
+      var saved = localStorage.getItem('ptx.theme');
+      var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', (saved === 'dark' || saved === 'light') ? saved : (dark ? 'dark' : 'light'));
+    } catch (e) { /* 저장소 접근 불가 시 기본 라이트 */ }
+  })();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "2026 부동산 세금 계산기",
+  "url": "https://ufssdf987-creator.github.io/property-tax/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "inLanguage": "ko",
+  "description": "2026년 지방세법·소득세법·상속세 및 증여세법 기준으로 주택 취득세(지방교육세·농어촌특별세 포함), 1세대 1주택 양도소득세(12억 초과분 안분·장기보유특별공제), 증여세(증여재산공제·혼인출산 공제·신고세액공제)를 계산합니다.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+  "featureList": [
+    "주택 취득세: 6억 이하 1%, 6~9억 비례세율, 9억 초과 3%",
+    "다주택 중과: 조정대상지역 2주택 8%·3주택 이상 12%, 그 밖의 지역 3주택 8%·4주택 이상 12%",
+    "지방교육세·농어촌특별세(전용 85㎡ 초과)와 생애최초 200만원 감면",
+    "양도소득세: 1세대 1주택 12억원 초과분 안분 과세",
+    "장기보유특별공제: 표1(최대 30%)·표2(보유·거주 각 40%, 최대 80%)",
+    "증여세: 배우자 6억·직계존비속 5천만원(미성년 2천만원)·혼인출산 1억 추가 공제",
+    "증여세 3% 신고세액공제와 세대생략 할증"
+  ]
+}
+</script>
+<!-- Google AdSense — 사이트 확인·광고 로딩용 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4355917079579050" crossorigin="anonymous"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+<div class="app-shell">
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" role="img" focusable="false">
+          <defs>
+            <linearGradient id="ptGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#fcd34d"/><stop offset="1" stop-color="#d97706"/>
+            </linearGradient>
+            <linearGradient id="ptGrad2" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#93c5fd"/><stop offset="1" stop-color="#2563eb"/>
+            </linearGradient>
+          </defs>
+          <rect x="1" y="1" width="46" height="46" rx="13" fill="none" stroke="currentColor" stroke-opacity=".18"/>
+          <path d="M9 23 24 11l15 12" fill="none" stroke="url(#ptGrad2)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M13 22v14h22V22" fill="none" stroke="url(#ptGrad2)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M19 29.5h10M21.5 34l3-9 3 9" fill="none" stroke="url(#ptGrad)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <div class="brand-text">
+        <h1>부동산 세금 계산</h1>
+        <p>2026 취득세 · 양도세 · 증여세</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button type="button" class="icon-btn install-btn" id="installBtn" hidden>앱 설치</button>
+      <button type="button" class="icon-btn theme-btn" id="themeBtn" aria-label="화면 테마 바꾸기" title="라이트/다크 전환">
+        <span id="themeIcon" aria-hidden="true">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="계산기 선택">
+    <button type="button" class="tab is-active" id="tabAcq" role="tab" aria-selected="true" aria-controls="panelAcq" tabindex="0">
+      <span class="tab-emoji" aria-hidden="true">🏠</span>
+      <span class="tab-label">취득세</span>
+    </button>
+    <button type="button" class="tab" id="tabGain" role="tab" aria-selected="false" aria-controls="panelGain" tabindex="-1">
+      <span class="tab-emoji" aria-hidden="true">📈</span>
+      <span class="tab-label">양도세</span>
+    </button>
+    <button type="button" class="tab" id="tabGift" role="tab" aria-selected="false" aria-controls="panelGift" tabindex="-1">
+      <span class="tab-emoji" aria-hidden="true">🎁</span>
+      <span class="tab-label">증여세</span>
+    </button>
+  </nav>
+
+  <main id="main">
+    <div class="ad-slot" data-ad-slot="top" aria-hidden="true" hidden></div>
+
+    <!-- ══════════ 탭 1: 취득세 ══════════ -->
+    <section class="panel is-active" id="panelAcq" role="tabpanel" aria-labelledby="tabAcq" tabindex="0">
+      <p class="lead">집을 사면 <strong>취득세·지방교육세·농어촌특별세</strong>를 함께 냅니다. 몇 번째 집인지, 조정대상지역인지에 따라 세율이 1%에서 12%까지 벌어집니다.</p>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>얼마짜리 집인가요</h2>
+          <p class="card-sub">매매계약서의 실거래가(취득당시가액)를 넣으세요. 취득세는 이 금액에 세율을 곱해 계산합니다.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="acqPrice">취득가액 <small>실거래가</small></label>
+            <span class="badge-soft" id="acqPriceBadge">8억원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="acqPrice" type="number" inputmode="numeric" min="0" max="50000000000" step="1000000" value="800000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="취득가액 빠른 선택">
+            <button type="button" data-acq-price="300000000">3억</button>
+            <button type="button" data-acq-price="500000000">5억</button>
+            <button type="button" data-acq-price="600000000">6억</button>
+            <button type="button" data-acq-price="800000000">8억</button>
+            <button type="button" data-acq-price="1000000000">10억</button>
+            <button type="button" data-acq-price="1200000000">12억</button>
+          </div>
+          <p class="field-help">6억원 이하 1%, 6억~9억원은 <strong>가액에 따라 1.01~2.99%</strong>, 9억원 초과 3%가 기본세율입니다.</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>어떤 조건으로 사나요</h2>
+          <p class="card-sub">이번에 사는 집을 포함한 세대 주택 수와 지역을 골라 주세요. 여기서 세율이 크게 달라집니다.</p>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="acqHousesLabel">취득 후 세대 주택 수</span>
+          <div class="segmented" role="group" aria-labelledby="acqHousesLabel" data-segment="acqhouses">
+            <button type="button" data-value="1" class="is-active">1주택 <span>세대 합산</span></button>
+            <button type="button" data-value="2">2주택</button>
+            <button type="button" data-value="3">3주택</button>
+            <button type="button" data-value="4">4주택 이상</button>
+          </div>
+          <p class="field-help">분양권·조합원입주권·주거용 오피스텔도 주택 수에 들어갑니다. 공시가격 1억원 이하 주택 등은 빼는 경우가 있습니다.</p>
+        </div>
+
+        <div class="toggle-grid">
+          <label class="toggle toggle-line">
+            <input type="checkbox" id="acqAdjust">
+            <span class="toggle-track" aria-hidden="true"></span>
+            <span class="toggle-text">조정대상지역<small>서울 25개 구 · 경기 15곳 (2026.7.1 기준)</small></span>
+          </label>
+          <label class="toggle toggle-line">
+            <input type="checkbox" id="acqOver85" checked>
+            <span class="toggle-track" aria-hidden="true"></span>
+            <span class="toggle-text">전용면적 85㎡ 초과<small>농어촌특별세 대상</small></span>
+          </label>
+          <label class="toggle toggle-line">
+            <input type="checkbox" id="acqTemp2">
+            <span class="toggle-track" aria-hidden="true"></span>
+            <span class="toggle-text">일시적 2주택<small>종전 집을 기한 안에 팔 때 (2주택 전용)</small></span>
+          </label>
+          <label class="toggle toggle-line">
+            <input type="checkbox" id="acqFirst">
+            <span class="toggle-track" aria-hidden="true"></span>
+            <span class="toggle-text">생애최초 주택 구입<small>12억원 이하 · 2028년까지</small></span>
+          </label>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="acqLimitLabel">생애최초 감면 한도</span>
+          <div class="segmented segmented-sm" role="group" aria-labelledby="acqLimitLabel" data-segment="acqlimit">
+            <button type="button" data-value="2000000" class="is-active">200만원 <span>일반 주택</span></button>
+            <button type="button" data-value="3000000">300만원 <span>소형·인구감소지역</span></button>
+          </div>
+          <p class="field-help">감면은 <strong>취득세 본세에서만</strong> 빼고, 지방교육세·농어촌특별세는 그대로 냅니다. 취득일부터 3년 안에 팔면 감면액을 추징합니다.</p>
+        </div>
+      </section>
+
+      <section class="card result-card" id="acqResultCard">
+        <div class="result-head">
+          <div>
+            <p class="result-label">취득할 때 내는 세금 합계</p>
+            <p class="result-amount" aria-live="polite" aria-atomic="true"><span id="acqTotal">0</span><span class="won">원</span></p>
+            <p class="result-sub" id="acqSub"></p>
+          </div>
+          <span class="tier-badge" id="acqVerdict" data-tier="2">계산 중</span>
+        </div>
+
+        <div class="breakdown" id="acqRows"></div>
+
+        <div class="stat-grid">
+          <div class="stat-cell">
+            <span>취득세</span>
+            <strong id="acqTax">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>지방교육세</span>
+            <strong id="acqEdu">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>농어촌특별세</span>
+            <strong id="acqRural">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>실효 부담률</span>
+            <strong id="acqEffective">0%</strong>
+          </div>
+        </div>
+
+        <p class="insight" id="acqInsight"></p>
+
+        <details class="breakdown-box" id="acqTableBox" open>
+          <summary>
+            <span>주택 수별 취득세</span>
+            <span class="summary-hint">같은 가액·지역 기준</span>
+          </summary>
+          <div class="table-wrap">
+            <table class="data-table data-table--num" id="acqTable">
+              <caption class="sr-only">취득 후 주택 수에 따른 취득세율과 취득세·지방교육세·농어촌특별세 합계</caption>
+              <thead>
+                <tr><th scope="col">주택 수</th><th scope="col">세율</th><th scope="col">취득세</th><th scope="col">지방교육세</th><th scope="col">농특세</th><th scope="col">합계</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <p class="field-help">지금 고른 조정대상지역·85㎡ 조건을 그대로 두고 주택 수만 바꾼 표입니다.</p>
+        </details>
+
+        <details class="breakdown-box" id="acqPriceBox">
+          <summary>
+            <span>가액별 1주택 취득세</span>
+            <span class="summary-hint">기본세율 구간 확인</span>
+          </summary>
+          <div class="table-wrap">
+            <table class="data-table data-table--num" id="acqPriceTable">
+              <caption class="sr-only">취득가액별 1주택 취득세율과 총 부담액</caption>
+              <thead>
+                <tr><th scope="col">취득가액</th><th scope="col">세율</th><th scope="col">취득세</th><th scope="col">총 부담</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <p class="field-help">85㎡ 초과 여부와 조정대상지역 설정에 따라 농특세·지방교육세가 달라집니다.</p>
+        </details>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="shareAcq">
+            <span aria-hidden="true">📋</span> 결과 복사하기
+          </button>
+        </div>
+      </section>
+
+      <div class="ad-slot" data-ad-slot="mid" aria-hidden="true" hidden></div>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>취득세는 이렇게 계산합니다</h2>
+          <p class="card-sub">취득세 본세에 지방교육세가 붙고, 85㎡를 넘는 주택에는 농어촌특별세까지 더해집니다.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <caption class="sr-only">취득세 계산 단계</caption>
+            <thead>
+              <tr><th scope="col">단계</th><th scope="col">계산</th><th scope="col">비고</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">① 취득세율</th><td>주택 수 × 조정대상지역 여부</td><td>1주택은 1~3%</td></tr>
+              <tr><th scope="row">② 취득세</th><td>취득가액 × 세율</td><td>원 미만 버림</td></tr>
+              <tr><th scope="row">③ 지방교육세</th><td>취득세 × 10% (중과는 0.4%)</td><td>지방세법 제151조</td></tr>
+              <tr><th scope="row">④ 농어촌특별세</th><td>85㎡ 초과 시 0.2~1.0%</td><td>국민주택규모는 비과세</td></tr>
+              <tr><th scope="row">⑤ 생애최초 감면</th><td>취득세에서 200만원(소형 300만원)</td><td>12억원 이하 1주택</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="tips">
+          <li><strong>조정대상지역은 2025년 10월 16일부터 서울 25개 구 전체</strong>와 경기 과천·광명·성남(분당·수정·중원)·수원(영통·장안·팔달)·안양(동안)·용인(수지)·의왕·하남입니다. 2026년 7월 1일부터 화성 동탄구·용인 기흥구·구리시가 추가됐습니다. 계약 전에 국토교통부 고시로 다시 확인하세요.</li>
+          <li><strong>2주택이라도 조정대상지역이 아니면 기본세율</strong>입니다. 반대로 조정대상지역 2주택은 8%로 뛰니, 같은 값이라도 지역에 따라 세금이 8배 가까이 차이 납니다.</li>
+          <li><strong>일시적 2주택</strong>은 종전 주택을 기한(두 집 모두 조정대상지역이면 2년, 그 밖에는 3년) 안에 팔면 중과하지 않습니다. 기한을 넘기면 중과세율과의 차액을 추징합니다.</li>
+          <li><strong>지방교육세</strong>는 1~3% 구간에서 취득세의 10%, 8%·12% 중과에서는 0.4%입니다. <strong>농어촌특별세</strong>는 전용 85㎡ 초과 주택에만 붙고 일반 0.2%, 중과 0.6%·1.0%입니다.</li>
+          <li><strong>신고·납부는 취득일부터 60일 이내</strong>입니다. 무신고 가산세 20%에 납부지연 가산세가 붙으니 잔금일을 기준으로 미리 준비하세요.</li>
+        </ul>
+      </section>
+
+      <section class="card faq-card">
+        <h2>취득세에서 자주 묻는 것</h2>
+        <details class="faq" open>
+          <summary>6억~9억 구간은 왜 세율이 1.67%처럼 소수인가요?</summary>
+          <p>지방세법이 6억원에서 1%, 9억원에서 3%가 되도록 <strong>(취득가액 × 2/3억원 − 3)%</strong>로 정해 두었기 때문입니다. 7억원은 1.6667%, 8억원은 2.3333%가 됩니다. 세율을 소수점 넷째 자리까지 계산해 원 단위에서 다른 계산기와 1만원 안팎 차이가 날 수 있습니다.</p>
+        </details>
+        <details class="faq">
+          <summary>조정대상지역이면 1주택도 8%인가요?</summary>
+          <p>아니요. 1주택은 지역과 관계없이 1~3%입니다. 조정대상지역에서 8%가 되는 것은 <strong>2주택째</strong>부터이고, 3주택 이상은 12%입니다. 조정대상지역 밖은 2주택까지 기본세율, 3주택 8%, 4주택 이상 12%입니다.</p>
+        </details>
+        <details class="faq">
+          <summary>생애최초 감면은 얼마까지 받나요?</summary>
+          <p>본인과 배우자가 주택을 가진 적이 없고, 12억원 이하 주택을 살 때 취득세 산출세액에서 <strong>200만원</strong>을 빼 줍니다. 소형주택·인구감소지역은 300만원입니다. 2028년 12월 31일까지 적용되고, 취득일부터 3년 안에 팔거나 다른 용도로 쓰면 감면액을 추징합니다.</p>
+        </details>
+        <details class="faq">
+          <summary>지방교육세와 농어촌특별세는 왜 같이 나오나요?</summary>
+          <p>취득세는 지방세라서 <strong>지방교육세</strong>가 함께 부과됩니다(취득세율의 10%, 중과 0.4%). <strong>농어촌특별세</strong>는 전용면적 85㎡를 넘는 주택을 살 때 붙는 국세로 0.2%(중과 0.6%·1.0%)입니다. 85㎡ 이하 국민주택규모는 농특세가 없습니다.</p>
+        </details>
+        <details class="faq">
+          <summary>지분으로 나눠 사면 세율이 낮아지나요?</summary>
+          <p>아니요. 부부가 절반씩 사도 세율은 <strong>주택 전체 취득가액</strong>으로 정합니다. 9억원짜리 집을 반씩 사도 3%가 적용됩니다. 다만 각자 낸 지분만큼 취득세를 나눠 부담합니다.</p>
+        </details>
+      </section>
+    </section>
+
+    <!-- ══════════ 탭 2: 양도소득세 ══════════ -->
+    <section class="panel" id="panelGain" role="tabpanel" aria-labelledby="tabGain" tabindex="0" hidden>
+      <p class="lead">집을 팔면 <strong>양도차익</strong>에 세금을 냅니다. 1세대 1주택은 12억원까지 비과세이고, 넘는 부분만 보유·거주 기간에 따라 공제됩니다.</p>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>얼마에 사고 얼마에 팔았나요</h2>
+          <p class="card-sub">취득가액에는 취득세·법무사 비용을, 필요경비에는 중개수수료·자본적지출을 넣습니다.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="gainSale">양도가액 <small>판 가격</small></label>
+            <span class="badge-soft" id="gainSaleBadge">15억원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="gainSale" type="number" inputmode="numeric" min="0" max="50000000000" step="1000000" value="1500000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="양도가액 빠른 선택">
+            <button type="button" data-gain-sale="800000000">8억</button>
+            <button type="button" data-gain-sale="1100000000">11억</button>
+            <button type="button" data-gain-sale="1200000000">12억</button>
+            <button type="button" data-gain-sale="1500000000">15억</button>
+            <button type="button" data-gain-sale="2000000000">20억</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="gainBuy">취득가액 <small>산 가격</small></label>
+            <span class="badge-soft" id="gainBuyBadge">7억원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="gainBuy" type="number" inputmode="numeric" min="0" max="50000000000" step="1000000" value="700000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="취득가액 빠른 선택">
+            <button type="button" data-gain-buy="300000000">3억</button>
+            <button type="button" data-gain-buy="500000000">5억</button>
+            <button type="button" data-gain-buy="700000000">7억</button>
+            <button type="button" data-gain-buy="900000000">9억</button>
+            <button type="button" data-gain-buy="1200000000">12억</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="gainExpense">필요경비 <small>중개수수료 등</small></label>
+            <span class="badge-soft" id="gainExpenseBadge">3,000만원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="gainExpense" type="number" inputmode="numeric" min="0" max="10000000000" step="100000" value="30000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="필요경비 빠른 선택">
+            <button type="button" data-gain-expense="0">없음</button>
+            <button type="button" data-gain-expense="10000000">1,000만</button>
+            <button type="button" data-gain-expense="30000000">3,000만</button>
+            <button type="button" data-gain-expense="50000000">5,000만</button>
+          </div>
+          <p class="field-help">대출 이자는 필요경비가 아닙니다. 취득세·등기비용은 취득가액에, 중개보수·샷시 교체 같은 자본적지출은 필요경비에 넣으세요.</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>보유·거주 기간</h2>
+          <p class="card-sub">기간이 길수록, 그리고 실제로 살수록 장기보유특별공제가 커집니다.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <span class="field-label">보유 기간</span>
+            <span class="badge-soft" id="gainHoldBadge">10년</span>
+          </div>
+          <div class="input-pair">
+            <div class="input-wrap input-wrap-sm">
+              <input id="gainHoldY" type="number" inputmode="numeric" min="0" max="100" step="1" value="10" autocomplete="off" aria-label="보유 기간 년">
+              <span class="unit">년</span>
+            </div>
+            <div class="input-wrap input-wrap-sm">
+              <input id="gainHoldM" type="number" inputmode="numeric" min="0" max="11" step="1" value="0" autocomplete="off" aria-label="보유 기간 개월">
+              <span class="unit">개월</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <span class="field-label">거주 기간</span>
+            <span class="badge-soft" id="gainLiveBadge">10년</span>
+          </div>
+          <div class="input-pair">
+            <div class="input-wrap input-wrap-sm">
+              <input id="gainLiveY" type="number" inputmode="numeric" min="0" max="100" step="1" value="10" autocomplete="off" aria-label="거주 기간 년">
+              <span class="unit">년</span>
+            </div>
+            <div class="input-wrap input-wrap-sm">
+              <input id="gainLiveM" type="number" inputmode="numeric" min="0" max="11" step="1" value="0" autocomplete="off" aria-label="거주 기간 개월">
+              <span class="unit">개월</span>
+            </div>
+          </div>
+        </div>
+        <div class="chips" role="group" aria-label="보유 기간 빠른 선택">
+          <button type="button" data-gain-hold="12">1년</button>
+          <button type="button" data-gain-hold="24">2년</button>
+          <button type="button" data-gain-hold="36">3년</button>
+          <button type="button" data-gain-hold="60">5년</button>
+          <button type="button" data-gain-hold="120">10년</button>
+          <button type="button" data-gain-hold="180">15년</button>
+        </div>
+
+        <div class="toggle-grid">
+          <label class="toggle toggle-line">
+            <input type="checkbox" id="gainOne" checked>
+            <span class="toggle-track" aria-hidden="true"></span>
+            <span class="toggle-text">1세대 1주택<small>12억원까지 비과세 · 표2 공제</small></span>
+          </label>
+          <label class="toggle toggle-line">
+            <input type="checkbox" id="gainAdjustBuy">
+            <span class="toggle-track" aria-hidden="true"></span>
+            <span class="toggle-text">취득 당시 조정대상지역<small>2년 이상 거주 요건</small></span>
+          </label>
+        </div>
+        <p class="field-help">거주 요건은 <strong>살 때</strong> 그 지역이 조정대상지역이었는지로 정합니다. 산 뒤에 지역이 풀렸어도 요건은 남습니다.</p>
+      </section>
+
+      <section class="card result-card" id="gainResultCard">
+        <div class="result-head">
+          <div>
+            <p class="result-label">내야 할 양도소득세</p>
+            <p class="result-amount" aria-live="polite" aria-atomic="true"><span id="gainTotal">0</span><span class="won">원</span></p>
+            <p class="result-sub" id="gainSub"></p>
+          </div>
+          <span class="tier-badge" id="gainVerdict" data-tier="2">계산 중</span>
+        </div>
+
+        <div class="breakdown" id="gainRows"></div>
+
+        <div class="stat-grid">
+          <div class="stat-cell">
+            <span>양도차익</span>
+            <strong id="gainProfit">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>과세 대상 차익</span>
+            <strong id="gainTaxed">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>장특공</span>
+            <strong id="gainDeduction">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>과세표준</span>
+            <strong id="gainBase">0원</strong>
+          </div>
+        </div>
+
+        <p class="insight" id="gainInsight"></p>
+
+        <details class="breakdown-box" id="gainTableBox" open>
+          <summary>
+            <span>거주기간별 양도세</span>
+            <span class="summary-hint">보유기간은 지금 값 기준</span>
+          </summary>
+          <div class="table-wrap">
+            <table class="data-table data-table--num" id="gainTable">
+              <caption class="sr-only">거주기간에 따른 장기보유특별공제율과 양도소득세</caption>
+              <thead>
+                <tr><th scope="col">거주</th><th scope="col">장특공</th><th scope="col">과세표준</th><th scope="col">양도세+지방세</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <p class="field-help">1세대 1주택은 보유 4%·거주 4%를 각각 최대 40%까지 더해 80%가 한도입니다. 거주 2년 미만이면 표1(최대 30%)만 적용됩니다.</p>
+        </details>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="shareGain">
+            <span aria-hidden="true">📋</span> 결과 복사하기
+          </button>
+        </div>
+      </section>
+
+      <div class="ad-slot" data-ad-slot="mid2" aria-hidden="true" hidden></div>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>양도소득세는 이렇게 계산합니다</h2>
+          <p class="card-sub">차익에서 공제를 빼고, 기본공제 250만원을 뺀 금액에 세율을 곱합니다. 지방소득세 10%가 따로 붙습니다.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <caption class="sr-only">양도소득세 계산 단계</caption>
+            <thead>
+              <tr><th scope="col">단계</th><th scope="col">계산</th><th scope="col">비고</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">① 양도차익</th><td>양도가액 − 취득가액 − 필요경비</td><td>실지거래가액</td></tr>
+              <tr><th scope="row">② 고가주택 안분</th><td>양도차익 × (양도가액 − 12억) ÷ 양도가액</td><td>1세대 1주택만</td></tr>
+              <tr><th scope="row">③ 장기보유특별공제</th><td>과세 차익 × 공제율</td><td>표1 30% / 표2 80%</td></tr>
+              <tr><th scope="row">④ 기본공제</th><td>250만원</td><td>연 1회</td></tr>
+              <tr><th scope="row">⑤ 세율</th><td>6~45% (1년 미만 70%, 2년 미만 60%)</td><td>누진세율</td></tr>
+              <tr><th scope="row">⑥ 지방소득세</th><td>양도소득세 × 10%</td><td>주소지 시·군·구</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="tips">
+          <li><strong>12억원을 넘어도 전부 과세되지 않습니다.</strong> 넘는 비율만큼만 양도차익을 떼어 과세하고, 장기보유특별공제도 같은 비율로 줄입니다.</li>
+          <li><strong>장기보유특별공제 80%</strong>는 10년 이상 보유하고 10년 이상 실제 거주한 1세대 1주택입니다. 보유만 10년이고 거주가 2년이면 40% + 8% = 48%입니다.</li>
+          <li><strong>다주택 중과 유예는 2026년 5월 9일 양도분으로 끝났습니다.</strong> 조정대상지역 주택은 2주택 +20%p, 3주택 이상 +30%p가 다시 붙고 장기보유특별공제도 배제됩니다.</li>
+          <li><strong>2026년 8월 3일 정부 세제개편안</strong>은 2028년 양도분부터 장기보유특별공제를 거주 중심으로 바꾸는 내용을 담고 있습니다. 국회 통과 여부를 확인하세요.</li>
+          <li><strong>신고는 양도일이 속한 달의 말일부터 2개월 이내</strong>입니다. 12억원 이하 1세대 1주택 비과세는 신고 대상이 아니지만, 고가주택은 예정신고를 해야 합니다.</li>
+        </ul>
+      </section>
+
+      <section class="card faq-card">
+        <h2>양도세에서 자주 묻는 것</h2>
+        <details class="faq" open>
+          <summary>15억에 팔면 세금이 얼마나 나오나요?</summary>
+          <p>7억에 사서 10년 보유·10년 거주하고 필요경비가 3,000만원이면, 양도차익 7억 7,000만원 중 <strong>20%</strong>(12억 초과분 비율)인 1억 5,400만원만 과세 대상입니다. 여기서 장특공 80%를 빼면 3,080만원, 기본공제 250만원을 빼면 과세표준 2,830만원이고 세금은 지방소득세 포함 약 <strong>328만원</strong>입니다.</p>
+        </details>
+        <details class="faq">
+          <summary>거주를 2년 못 채우면 어떻게 되나요?</summary>
+          <p>취득 당시 조정대상지역이었던 주택은 보유기간 중 2년 이상 거주해야 비과세와 표2 공제를 받습니다. 거주가 짧으면 <strong>전액 과세</strong>되고 장특공도 표1(최대 30%)로 떨어져 세금이 크게 늘어납니다.</p>
+        </details>
+        <details class="faq">
+          <summary>일시적 2주택도 12억 비과세를 받을 수 있나요?</summary>
+          <p>기한 안에 종전 주택을 팔면 1세대 1주택으로 보아 비과세를 받을 수 있습니다. 다만 두 집 모두 조정대상지역이면 처분 기한이 2026년 10월 1일 이후 취득분부터 <strong>2년</strong>으로 줄었습니다.</p>
+        </details>
+        <details class="faq">
+          <summary>상속받은 집을 팔면 취득가액은 어떻게 잡나요?</summary>
+          <p>상속개시일 당시 평가액(시가, 없으면 기준시가)이 취득가액이 됩니다. 오래전에 상속받아 실제 매입가를 모르면 환산취득가액(양도가액 × 취득시 기준시가 ÷ 양도시 기준시가)을 쓸 수 있고, 이때 필요경비는 기준시가의 3%로 인정됩니다.</p>
+        </details>
+        <details class="faq">
+          <summary>1년 안에 팔면 세금이 얼마나 되나요?</summary>
+          <p>보유 1년 미만은 양도차익에 <strong>70%</strong>, 1년 이상 2년 미만은 <strong>60%</strong> 단일세율을 적용하고 장기보유특별공제는 없습니다. 지방소득세 10%까지 더해지므로 단기 매매는 세 부담이 매우 큽니다.</p>
+        </details>
+      </section>
+    </section>
+
+    <!-- ══════════ 탭 3: 증여세 ══════════ -->
+    <section class="panel" id="panelGift" role="tabpanel" aria-labelledby="tabGift" tabindex="0" hidden>
+      <p class="lead">부모·배우자에게 재산을 받으면 <strong>10년 합산 공제 한도</strong>를 넘는 부분에 증여세를 냅니다. 혼인·출산 공제 1억원이 따로 있습니다.</p>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>누가 누구에게 얼마를 주나요</h2>
+          <p class="card-sub">공제 한도는 받는 사람과 주는 사람의 관계로 정해집니다.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="giftAmount">증여재산가액</label>
+            <span class="badge-soft" id="giftAmountBadge">2억원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="giftAmount" type="number" inputmode="numeric" min="0" max="50000000000" step="1000000" value="200000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="증여재산가액 빠른 선택">
+            <button type="button" data-gift-amount="50000000">5천만</button>
+            <button type="button" data-gift-amount="100000000">1억</button>
+            <button type="button" data-gift-amount="200000000">2억</button>
+            <button type="button" data-gift-amount="300000000">3억</button>
+            <button type="button" data-gift-amount="500000000">5억</button>
+            <button type="button" data-gift-amount="1000000000">10억</button>
+          </div>
+          <p class="field-help">부동산은 증여일 현재 시가(매매사례가·감정가)로 평가합니다. 시가를 알기 어려우면 기준시가를 씁니다.</p>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="giftRelation">증여자와의 관계</label>
+          <div class="select-wrap">
+            <select id="giftRelation">
+              <option value="parent" selected>직계존속 → 성년 자녀 (5,000만원)</option>
+              <option value="parent-minor">직계존속 → 미성년 자녀 (2,000만원)</option>
+              <option value="spouse">배우자 → 배우자 (6억원)</option>
+              <option value="child">직계비속 → 부모 (5,000만원)</option>
+              <option value="relative">그 밖의 친족 (1,000만원)</option>
+              <option value="other">그 밖의 사람 (공제 없음)</option>
+            </select>
+          </div>
+          <p class="field-help">공제 한도는 <strong>받는 사람 기준 10년 합산</strong>입니다. 아버지·어머니·조부모에게 받은 금액을 모두 더해 5,000만원까지입니다.</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>추가로 받을 수 있는 공제</h2>
+          <p class="card-sub">해당되는 항목만 켜면 자동으로 반영됩니다.</p>
+        </div>
+
+        <div class="toggle-grid">
+          <label class="toggle toggle-line">
+            <input type="checkbox" id="giftMarriage">
+            <span class="toggle-track" aria-hidden="true"></span>
+            <span class="toggle-text">혼인·출산 공제 1억원<small>혼인신고일 전후 2년 · 출생일부터 2년</small></span>
+          </label>
+          <label class="toggle toggle-line">
+            <input type="checkbox" id="giftSkip">
+            <span class="toggle-track" aria-hidden="true"></span>
+            <span class="toggle-text">세대생략 증여<small>조부모 → 손자녀 (30%, 미성년 40% 할증)</small></span>
+          </label>
+          <label class="toggle toggle-line">
+            <input type="checkbox" id="giftCredit" checked>
+            <span class="toggle-track" aria-hidden="true"></span>
+            <span class="toggle-text">기한 내 신고 (3% 공제)<small>증여일이 속한 달 말일부터 3개월</small></span>
+          </label>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="giftUsed">10년 내 이미 공제받은 금액</label>
+            <span class="badge-soft" id="giftUsedBadge">없음</span>
+          </div>
+          <div class="input-wrap">
+            <input id="giftUsed" type="number" inputmode="numeric" min="0" max="600000000" step="1000000" value="0" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="이미 공제받은 금액 빠른 선택">
+            <button type="button" data-gift-used="0">없음</button>
+            <button type="button" data-gift-used="10000000">1,000만</button>
+            <button type="button" data-gift-used="30000000">3,000만</button>
+            <button type="button" data-gift-used="50000000">5,000만</button>
+          </div>
+          <p class="field-help">10년 안에 같은 관계에서 이미 공제받았다면 그 금액만큼 한도가 줄어듭니다.</p>
+        </div>
+      </section>
+
+      <section class="card result-card" id="giftResultCard">
+        <div class="result-head">
+          <div>
+            <p class="result-label">내야 할 증여세</p>
+            <p class="result-amount" aria-live="polite" aria-atomic="true"><span id="giftPayable">0</span><span class="won">원</span></p>
+            <p class="result-sub" id="giftSub"></p>
+          </div>
+          <span class="tier-badge" id="giftVerdict" data-tier="2">계산 중</span>
+        </div>
+
+        <div class="breakdown" id="giftRows"></div>
+
+        <div class="stat-grid">
+          <div class="stat-cell">
+            <span>공제 합계</span>
+            <strong id="giftDeduction">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>과세표준</span>
+            <strong id="giftBase">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>산출세액</span>
+            <strong id="giftTax">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>실효세율</span>
+            <strong id="giftEffective">0%</strong>
+          </div>
+        </div>
+
+        <p class="insight" id="giftInsight"></p>
+
+        <details class="breakdown-box" id="giftTableBox" open>
+          <summary>
+            <span>증여액별 증여세</span>
+            <span class="summary-hint">지금 관계·공제 기준</span>
+          </summary>
+          <div class="table-wrap">
+            <table class="data-table data-table--num" id="giftTable">
+              <caption class="sr-only">증여재산가액에 따른 과세표준과 납부할 증여세</caption>
+              <thead>
+                <tr><th scope="col">증여액</th><th scope="col">과세표준</th><th scope="col">산출세액</th><th scope="col">납부세액</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <p class="field-help">신고세액공제와 세대생략 할증을 지금 설정 그대로 반영한 표입니다.</p>
+        </details>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="shareGift">
+            <span aria-hidden="true">📋</span> 결과 복사하기
+          </button>
+        </div>
+      </section>
+
+      <div class="ad-slot" data-ad-slot="bottom" aria-hidden="true" hidden></div>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>증여세는 이렇게 계산합니다</h2>
+          <p class="card-sub">공제를 빼고 남은 과세표준에 10~50% 누진세율을 곱한 뒤 신고세액공제를 뺍니다.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <caption class="sr-only">증여세 계산 단계</caption>
+            <thead>
+              <tr><th scope="col">단계</th><th scope="col">계산</th><th scope="col">비고</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">① 증여재산가액</th><td>시가 또는 기준시가</td><td>부동산은 시가 우선</td></tr>
+              <tr><th scope="row">② 증여재산공제</th><td>배우자 6억 · 직계존비속 5천만(미성년 2천만)</td><td>10년 합산</td></tr>
+              <tr><th scope="row">③ 혼인·출산 공제</th><td>1억원 (혼인·출산 합산 한도)</td><td>직계존속만</td></tr>
+              <tr><th scope="row">④ 과세표준</th><td>① − ② − ③</td><td>50만원 미만은 과세최저한으로 제외</td></tr>
+              <tr><th scope="row">⑤ 산출세액</th><td>과세표준 × 10~50% − 누진공제</td><td>세대생략 30%·40% 할증</td></tr>
+              <tr><th scope="row">⑥ 신고세액공제</th><td>(산출세액 + 할증) × 3%</td><td>기한 내 신고 시</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="tips">
+          <li><strong>증여세는 받는 사람이 냅니다.</strong> 10년 합산 한도이므로 10년마다 다시 채울 수 있지만, 그 사이 증여가 있으면 합산해 신고해야 합니다.</li>
+          <li><strong>혼인·출산 공제는 합쳐 1억원</strong>입니다. 결혼 때 1억을 받았다면 출산 때 또 받을 수 없고, 부모·조부모를 합쳐 1억입니다.</li>
+          <li><strong>세대생략 할증</strong>은 조부모가 손자녀에게 줄 때 산출세액의 30%(미성년 40%)를 더합니다.</li>
+          <li><strong>신고는 증여일이 속한 달의 말일부터 3개월 이내</strong>입니다. 기한 내 신고하면 3%를 공제하고, 무신고 시 20% 가산세가 붙습니다.</li>
+          <li><strong>부동산을 증여하면 취득세 3.5%</strong>도 따로 냅니다. 조정대상지역의 3억원 이상 주택을 다주택자에게 증여하면 12%가 적용될 수 있습니다.</li>
+        </ul>
+      </section>
+
+      <section class="card faq-card">
+        <h2>증여세에서 자주 묻는 것</h2>
+        <details class="faq" open>
+          <summary>자녀에게 2억을 주면 세금이 얼마인가요?</summary>
+          <p>성년 자녀라면 직계존속 공제 5,000만원을 빼고 과세표준 1억 5,000만원이 됩니다. 세율 20%에서 누진공제 1,000만원을 빼면 산출세액 2,000만원, 기한 내 신고 시 3% 공제로 <strong>1,940만원</strong>을 냅니다. 혼인신고 전후 2년 안이면 1억원을 더 공제해 <strong>485만원</strong>까지 줄어듭니다.</p>
+        </details>
+        <details class="faq">
+          <summary>10년마다 다시 공제받을 수 있나요?</summary>
+          <p>네. 증여재산공제는 <strong>10년 합산</strong>이라 10년이 지나면 다시 한도를 쓸 수 있습니다. 다만 10년 안에 같은 사람에게 받은 증여는 모두 합산해 신고해야 하고, 합산했을 때 한도를 넘으면 세금이 나옵니다.</p>
+        </details>
+        <details class="faq">
+          <summary>부모가 집을 사서 자녀 이름으로 등기하면 증여인가요?</summary>
+          <p>네. 자금을 대신 내고 자녀 명의로 등기하면 그 자금이 증여로 봅니다. 취득세는 증여 3.5%(조정대상지역 3억원 이상 다주택자는 12%)로 내고, 증여세도 별도로 신고해야 합니다. 명의신탁은 별도로 문제될 수 있습니다.</p>
+        </details>
+        <details class="faq">
+          <summary>신고세액공제 3%는 어떤 경우에 받나요?</summary>
+          <p>증여일이 속한 달의 말일부터 3개월 안에 <strong>적법하게 신고</strong>하면 산출세액(세대생략 할증 포함)의 3%를 공제합니다. 홈택스 전자신고가 아니어도 기한 내 신고면 받을 수 있습니다.</p>
+        </details>
+        <details class="faq">
+          <summary>세금이 많으면 나눠 낼 수 있나요?</summary>
+          <p>낼 세금이 1,000만원을 넘으면 납부기한이 지난 뒤 2개월 안에 나눠 낼 수 있습니다(분납). 납부기한을 넘기면 납부지연 가산세가 붙으니, 미리 신고하고 분납을 신청하세요.</p>
+        </details>
+      </section>
+    </section>
+
+    <!-- 제휴 상품: config.js 의 coupang.items 에 링크를 넣으면 나타납니다 -->
+    <section class="card promo-card" id="promoSection" hidden>
+      <div class="card-head">
+        <h2 id="promoHeading">세금 내고 남은 돈, 겨울 고정비부터</h2>
+        <p class="card-sub" id="promoSub"></p>
+      </div>
+      <div class="promo-grid" id="promoList"></div>
+      <p class="ad-disclosure" id="promoDisclosure"></p>
+    </section>
+
+    <section class="related-apps" aria-labelledby="relatedAppsTitle">
+      <h2 id="relatedAppsTitle">함께 많이 쓰는 계산기</h2>
+      <div class="related-grid">
+        <a class="related-app" href="../rent-loan/">
+          <strong>전세·월세 전환 계산기</strong>
+          <span>보증금·월세와 전세대출 이자 비교</span>
+        </a>
+        <a class="related-app" href="../housing-loan/">
+          <strong>청약 가점·특례대출 계산기</strong>
+          <span>내 집 마련 자금과 월 상환액</span>
+        </a>
+        <a class="related-app" href="../loan-switch/">
+          <strong>대출 갈아타기 계산기</strong>
+          <span>주담대 금리차와 중도상환수수료</span>
+        </a>
+        <a class="related-app" href="../year-end-tax/">
+          <strong>연말정산 환급 계산기</strong>
+          <span>세금 돌려받을 돈 확인</span>
+        </a>
+        <a class="related-app" href="../savings-tax/">
+          <strong>예적금·비과세 계산기</strong>
+          <span>세금 아낀 돈 굴리기</span>
+        </a>
+        <a class="related-app" href="../">
+          <strong>전체 계산기</strong>
+          <span>생활 계산기 14종 모아 보기</span>
+        </a>
+      </div>
+    </section>
+
+    <footer class="app-footer">
+      <p class="disclaimer">
+        <strong>참고용 모의 계산입니다.</strong> 취득세는 지방세법 제11조·제13조의2·제151조와 농어촌특별세법,
+        지방세특례제한법 제36조의3(생애최초)을 따랐고, 양도소득세는 소득세법 제89조·제92조·제95조·제103조·제104조와
+        시행령 제154조·제160조, 증여세는 상속세 및 증여세법 제53조·제53조의2·제55조·제56조·제57조·제69조를 따랐습니다.
+        세율·공제·조정대상지역 지정은 법 개정과 고시로 수시로 바뀌고, 개별 사실관계(주택 수 산정, 일시적 2주택,
+        상속·증여 취득, 각종 감면)에 따라 결과가 달라집니다. 실제 세액은 위택스·홈택스 신고 화면과 관할 시·군·구
+        고지서를 기준으로 확인하세요. 입력값은 기기 안에만 저장되고 어디로도 전송되지 않습니다.
+      </p>
+      <p class="footer-links">
+        <a href="https://www.molit.go.kr/" target="_blank" rel="noopener">국토교통부</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.mois.go.kr/" target="_blank" rel="noopener">행정안전부</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.nts.go.kr/" target="_blank" rel="noopener">국세청</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.wetax.go.kr/" target="_blank" rel="noopener">위택스</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.law.go.kr/" target="_blank" rel="noopener">국가법령정보센터</a>
+        <span aria-hidden="true">·</span>
+        <a href="../">전체 계산기</a>
+        <span aria-hidden="true">·</span>
+        <a href="../living-cost/">고정비 체크</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://blog.naver.com/ufssdf987" target="_blank" rel="noopener">운영 블로그</a>
+        <span aria-hidden="true">·</span>
+        <a href="../privacy.html">개인정보처리방침</a>
+      </p>
+      <p class="footer-meta">
+        <span>기준일 <time id="dataDate" datetime="2026-11-26">2026-11-26</time></span>
+        <span aria-hidden="true">·</span>
+        <span>v<span id="appVersion">1.0.0</span></span>
+        <span aria-hidden="true">·</span>
+        <span>입력값은 기기 안에만 저장됩니다</span>
+      </p>
+      <p class="ad-disclosure" id="footerDisclosure" hidden></p>
+    </footer>
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<noscript>
+  <div class="noscript">이 계산기는 자바스크립트를 사용합니다. 브라우저 설정에서 자바스크립트를 켜 주세요.</div>
+</noscript>
+
+<script src="config.js"></script>
+<script src="calc.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

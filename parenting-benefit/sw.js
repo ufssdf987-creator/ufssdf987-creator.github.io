@@ -3,7 +3,7 @@
  * 인터넷이 없을 때는 마지막으로 저장한 앱 셸로 열립니다.
  * 파일을 수정하면 VERSION 을 올려 주세요(예: v1.0.1).
  */
-const VERSION = "v1.0.8";
+const VERSION = "v1.0.9";
 const CACHE = `parenting-benefit-${VERSION}`;
 
 const PRECACHE = [
