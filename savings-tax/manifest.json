@@ -1,0 +1,57 @@
+{
+  "id": "/savings-tax/",
+  "name": "예적금·비과세 계산기",
+  "short_name": "예적금 계산",
+  "description": "2026년 이자소득세 15.4%로 적금·예금 만기 세후 수령액을 계산하고, 비과세·세금우대와 예금 vs 적금 차이, 목표 목돈의 월 납입액을 확인합니다.",
+  "lang": "ko",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "portrait-primary",
+  "background_color": "#eef2f8",
+  "theme_color": "#0e1726",
+  "categories": ["finance", "utilities"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "만기 세후 수령액",
+      "short_name": "만기 계산",
+      "url": "./index.html#maturity",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "예금 vs 적금",
+      "short_name": "예적금 비교",
+      "url": "./index.html#compare",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "목돈 역산",
+      "short_name": "목돈 역산",
+      "url": "./index.html#goal",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "prefer_related_applications": false
+}

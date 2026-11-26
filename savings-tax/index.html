@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>예적금 이자 계산기 2026 | 만기 세후 수령액 · 비과세 비교 · 목돈 역산</title>
+<meta name="description" content="2026년 이자소득세 15.4% 기준으로 적금·예금 만기 세후 수령액을 계산합니다. 단리·월복리, 일반과세 15.4% vs 세금우대 9.5%·농특세 1.4%·비과세 0%를 비교하고, 같은 총납입액의 예금 vs 적금 차이와 1,000만원·5,000만원 목돈을 모으는 월 납입액을 역산합니다.">
+<meta name="keywords" content="예적금 계산기, 적금 이자 계산기, 예금 이자 계산기, 만기 수령액, 세후 이자, 이자소득세 15.4%, 비과세종합저축 5000만원, 세금우대 9.5%, 농특세 1.4%, 단리 월복리, 목돈 모으기, 적금 역산, 예금 적금 차이, 2026 금리">
+<meta name="author" content="이안이 아빠의 공간">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://ufssdf987-creator.github.io/savings-tax/">
+<meta name="theme-color" content="#eef2f7">
+<meta name="theme-color" content="#eef2f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#070c16" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="예적금 계산">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="예적금·비과세 계산기">
+<meta property="og:title" content="예적금 이자 계산기 2026 — 만기 세후 수령액 · 비과세 비교">
+<meta property="og:description" content="적금 30만원씩 1년, 세후로 얼마 받을까? 단리·월복리와 일반과세 15.4%·비과세 0%를 나란히 비교하고, 목돈 1,000만원에 필요한 월 납입액까지 3초에 계산합니다.">
+<meta property="og:url" content="https://ufssdf987-creator.github.io/savings-tax/">
+<meta property="og:image" content="https://ufssdf987-creator.github.io/savings-tax/icons/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="예적금·비과세 계산기 — 2026년 이자소득세 15.4%, 만기 세후 수령액과 목돈 역산">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="예적금 이자 계산기 2026 — 만기 세후 수령액">
+<meta name="twitter:description" content="단리·월복리, 일반과세 15.4%·세금우대 9.5%·비과세 0%를 한 표에서. 예금 vs 적금 차이와 목돈 역산까지.">
+<meta name="twitter:image" content="https://ufssdf987-creator.github.io/savings-tax/icons/og-image.png">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="styles.css">
+<script>
+  /* 첫 화면 깜빡임 방지: 저장된 테마를 CSS 적용 전에 반영 */
+  (function () {
+    try {
+      var saved = localStorage.getItem('svt.theme');
+      var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', (saved === 'dark' || saved === 'light') ? saved : (dark ? 'dark' : 'light'));
+    } catch (e) { /* 저장소 접근 불가 시 기본 라이트 */ }
+  })();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "예적금·비과세 계산기",
+  "url": "https://ufssdf987-creator.github.io/savings-tax/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "inLanguage": "ko",
+  "description": "2026년 이자소득세 15.4%를 적용해 적금·예금 만기 세후 수령액을 계산하고, 일반과세·세금우대·농특세·비과세를 비교하며, 같은 총납입액의 예금 vs 적금 차이와 목표 목돈의 월 납입액을 역산합니다.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+  "featureList": [
+    "적금·예금 만기 세후 수령액 계산(단리·월복리)",
+    "일반과세 15.4%·세금우대 9.5%·농특세 1.4%·비과세 0% 비교",
+    "같은 총납입액 기준 예금 vs 적금 만기액 비교",
+    "목표 목돈(1,000만원·5,000만원) 월 납입액·거치 원금 역산"
+  ]
+}
+</script>
+<!-- Google AdSense — 사이트 확인·광고 로딩용 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4355917079579050" crossorigin="anonymous"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+<div class="app-shell">
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" role="img" focusable="false">
+          <defs>
+            <linearGradient id="svGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#86efac"/><stop offset="1" stop-color="#0f9d76"/>
+            </linearGradient>
+            <linearGradient id="svGrad2" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#7dd3fc"/><stop offset="1" stop-color="#2563eb"/>
+            </linearGradient>
+          </defs>
+          <rect x="1" y="1" width="46" height="46" rx="13" fill="none" stroke="currentColor" stroke-opacity=".18"/>
+          <ellipse cx="24" cy="35.5" rx="13" ry="4.6" fill="url(#svGrad)" opacity=".55"/>
+          <ellipse cx="24" cy="30" rx="13" ry="4.6" fill="url(#svGrad2)" opacity=".8"/>
+          <ellipse cx="24" cy="24.5" rx="13" ry="4.6" fill="url(#svGrad)"/>
+          <path d="M17.5 24.5v6.2c0 2 2.9 3.4 6.5 3.4s6.5-1.4 6.5-3.4v-6.2" fill="none" stroke="#f8fbff" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M24 10.5v9M20.4 13.2 24 10.5l3.6 2.7" fill="none" stroke="#f8fbff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <div class="brand-text">
+        <h1>예적금·비과세 계산</h1>
+        <p>2026년 이자소득세 15.4% · 만기 세후 수령액</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button type="button" class="icon-btn install-btn" id="installBtn" hidden>앱 설치</button>
+      <button type="button" class="icon-btn theme-btn" id="themeBtn" aria-label="화면 테마 바꾸기" title="라이트/다크 전환">
+        <span id="themeIcon" aria-hidden="true">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="계산기 선택">
+    <button type="button" class="tab is-active" id="tabMaturity" role="tab" aria-selected="true" aria-controls="panelMaturity" tabindex="0">
+      <span class="tab-emoji" aria-hidden="true">🏦</span>
+      <span class="tab-label">만기 실수령액</span>
+    </button>
+    <button type="button" class="tab" id="tabCompare" role="tab" aria-selected="false" aria-controls="panelCompare" tabindex="-1">
+      <span class="tab-emoji" aria-hidden="true">⚖️</span>
+      <span class="tab-label">예금 vs 적금</span>
+    </button>
+    <button type="button" class="tab" id="tabGoal" role="tab" aria-selected="false" aria-controls="panelGoal" tabindex="-1">
+      <span class="tab-emoji" aria-hidden="true">🎯</span>
+      <span class="tab-label">목돈 역산</span>
+    </button>
+  </nav>
+
+  <main id="main">
+    <div class="ad-slot" data-ad-slot="top" aria-hidden="true" hidden></div>
+
+    <!-- ══════════ 탭 1: 만기 실수령액 ══════════ -->
+    <section class="panel is-active" id="panelMaturity" role="tabpanel" aria-labelledby="tabMaturity" tabindex="0">
+      <section class="card">
+        <div class="card-head">
+          <h2>만기 때 얼마 받나</h2>
+          <p class="card-sub">이자는 세금을 떼고 나서 통장에 들어옵니다. 단리·월복리와 과세 유형을 바꿔 가며 세후 수령액을 확인해 보세요.</p>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="mtProductLabel">상품 종류</span>
+          <div class="segmented" role="group" aria-labelledby="mtProductLabel" data-segment="product">
+            <button type="button" data-value="installment" class="is-active">적금 <span>매달 납입</span></button>
+            <button type="button" data-value="lump">예금 <span>한 번에 예치</span></button>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="mtAmount" id="mtAmountLabel">월 납입액</label>
+            <span class="badge-soft" id="mtAmountBadge">총 납입 360만원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="mtAmount" type="number" inputmode="numeric" min="0" max="10000000000" step="10000" value="300000" autocomplete="off" aria-describedby="mtAmountHelp">
+            <span class="unit" id="mtAmountUnit">원 / 월</span>
+          </div>
+          <div class="chips" id="mtChipsInst" role="group" aria-label="월 납입액 빠른 선택">
+            <button type="button" data-mt-amount="100000">10만</button>
+            <button type="button" data-mt-amount="300000">30만</button>
+            <button type="button" data-mt-amount="500000">50만</button>
+            <button type="button" data-mt-amount="1000000">100만</button>
+          </div>
+          <div class="chips" id="mtChipsLump" role="group" aria-label="예치 원금 빠른 선택" hidden>
+            <button type="button" data-mt-amount="10000000">1,000만</button>
+            <button type="button" data-mt-amount="30000000">3,000만</button>
+            <button type="button" data-mt-amount="50000000">5,000만</button>
+            <button type="button" data-mt-amount="100000000">1억</button>
+          </div>
+          <p class="field-help" id="mtAmountHelp">적금은 매달 넣는 금액입니다. 첫 달에 넣은 돈이 가장 오래 이자를 받고, 마지막 달에 넣은 돈은 한 달치만 받습니다.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="mtMonths">가입 기간</label>
+            <span class="badge-soft" id="mtMonthsBadge">12개월</span>
+          </div>
+          <div class="input-wrap input-wrap-sm">
+            <input id="mtMonths" type="number" inputmode="numeric" min="1" max="120" step="1" value="12" autocomplete="off">
+            <span class="unit">개월</span>
+          </div>
+          <div class="chips" role="group" aria-label="가입 기간 빠른 선택">
+            <button type="button" data-mt-months="6">6개월</button>
+            <button type="button" data-mt-months="12">1년</button>
+            <button type="button" data-mt-months="24">2년</button>
+            <button type="button" data-mt-months="36">3년</button>
+            <button type="button" data-mt-months="60">5년</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="mtRate">연 이자율 <small>세전</small></label>
+            <span class="badge-soft" id="mtRateBadge">연 3.5%</span>
+          </div>
+          <div class="input-wrap input-wrap-sm">
+            <input id="mtRate" type="number" inputmode="decimal" min="0" max="30" step="0.1" value="3.5" autocomplete="off">
+            <span class="unit">% / 년</span>
+          </div>
+          <div class="chips" role="group" aria-label="연 이자율 빠른 선택">
+            <button type="button" data-mt-rate="2.5">2.5%</button>
+            <button type="button" data-mt-rate="3">3.0%</button>
+            <button type="button" data-mt-rate="3.5">3.5%</button>
+            <button type="button" data-mt-rate="4">4.0%</button>
+            <button type="button" data-mt-rate="5">5.0%</button>
+          </div>
+          <p class="field-help">우대금리를 포함한 <strong>세전 약정 이자율</strong>을 넣으세요. 만기 전에 깨면 중도해지 이율이 적용돼 훨씬 적게 받습니다.</p>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="mtMethodLabel">이자 방식</span>
+          <div class="segmented" role="group" aria-labelledby="mtMethodLabel" data-segment="mtmethod">
+            <button type="button" data-value="simple" class="is-active">단리 <span>만기 일시</span></button>
+            <button type="button" data-value="compound">월복리 <span>이자에 이자</span></button>
+          </div>
+          <p class="field-help">국내 적금은 대부분 <strong>단리</strong>입니다. 월복리는 이자가 매달 원금에 붙는 방식으로, 기간이 길수록 차이가 벌어집니다.</p>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="mtTaxLabel">과세 유형</span>
+          <div class="segmented segmented-wrap" role="group" aria-labelledby="mtTaxLabel" data-segment="mttax">
+            <button type="button" data-value="general" class="is-active">일반과세 <span>15.4%</span></button>
+            <button type="button" data-value="preferential">세금우대 <span>9.5%</span></button>
+            <button type="button" data-value="farm">농특세 <span>1.4%</span></button>
+            <button type="button" data-value="none">비과세 <span>0%</span></button>
+          </div>
+          <p class="field-help" id="mtTaxHelp">일반과세는 이자소득세 14%와 지방소득세 1.4%를 합친 15.4%를 이자에서 뗍니다.</p>
+        </div>
+      </section>
+
+      <section class="card result-card" id="mtResultCard">
+        <div class="result-head">
+          <div>
+            <p class="result-label" id="mtResultLabel">만기 수령액 (세후)</p>
+            <p class="result-amount" aria-live="polite" aria-atomic="true"><span id="mtMaturity">3,657,739</span><span class="won">원</span></p>
+            <p class="result-sub" id="mtSub">적금 30만원 × 12개월 · 연 3.5% 단리</p>
+          </div>
+          <span class="tier-badge" id="mtTier" data-tier="2">일반과세 15.4%</span>
+        </div>
+
+        <div class="breakdown" id="mtRows"></div>
+
+        <div class="stat-grid">
+          <div class="stat-cell">
+            <span>총 납입 원금</span>
+            <strong id="mtPrincipal">3,600,000원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>세전 이자</span>
+            <strong id="mtGross">68,250원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>이자소득세</span>
+            <strong id="mtTax">10,511원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>세후 이자</span>
+            <strong id="mtNet">57,739원</strong>
+          </div>
+        </div>
+
+        <p class="insight" id="mtInsight"></p>
+
+        <details class="breakdown-box" id="mtTableBox" open>
+          <summary>
+            <span>과세 유형 4가지 비교</span>
+            <span class="summary-hint">같은 조건 기준</span>
+          </summary>
+          <div class="table-wrap">
+            <table class="data-table data-table--num" id="mtTable">
+              <caption class="sr-only">같은 조건에서 과세 유형별 세후 이자와 만기 수령액</caption>
+              <thead>
+                <tr><th scope="col">과세</th><th scope="col">세율</th><th scope="col">세금</th><th scope="col">세후 이자</th><th scope="col">만기 수령액</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <p class="field-help">일반과세 대비 아낀 세금은 마지막 열에 표시합니다. 비과세종합저축은 원금 5,000만원까지만 혜택이 적용됩니다.</p>
+        </details>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="shareMaturity">
+            <span aria-hidden="true">📋</span> 결과 복사하기
+          </button>
+        </div>
+      </section>
+
+      <div class="ad-slot" data-ad-slot="mid" aria-hidden="true" hidden></div>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>이자는 이렇게 계산합니다</h2>
+          <p class="card-sub">적금과 예금은 이자를 받는 기간이 다릅니다. 같은 금리라도 만기액이 달라지는 이유가 여기에 있습니다.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <caption class="sr-only">상품·이자 방식별 이자 계산식</caption>
+            <thead>
+              <tr><th scope="col">구분</th><th scope="col">계산식</th><th scope="col">예시(월 30만원·연 3.5%·12개월)</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">적금 단리</th><td>월납입액 × (연이율÷12) × n(n+1)÷2</td><td>68,250원</td></tr>
+              <tr><th scope="row">적금 월복리</th><td>월납입액 × ((1+i)^n−1)÷i × (1+i) − 원금</td><td>단리보다 조금 더</td></tr>
+              <tr><th scope="row">예금 단리</th><td>원금 × 연이율 × 개월÷12</td><td>3,600,000원 기준 126,000원</td></tr>
+              <tr><th scope="row">예금 월복리</th><td>원금 × ((1+i)^n − 1)</td><td>이자에 이자가 붙어 더 큼</td></tr>
+              <tr><th scope="row">세금</th><td>세전 이자 × 세율(일반 15.4%)</td><td>68,250원 × 15.4% = 10,511원</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="tips">
+          <li><strong>적금 이자가 예금의 절반쯤인 이유</strong>는 평균 잔액이 다르기 때문입니다. 1년 적금은 첫 달 30만원이 12개월, 마지막 달 30만원이 1개월만 이자를 받습니다.</li>
+          <li><strong>비과세종합저축</strong>은 1인 원금 5,000만원까지 이자소득세가 0%입니다. 2026년 1월 1일부터는 65세 이상 중 <strong>기초연금 수급자</strong>만 새로 가입할 수 있습니다(장애인·유공자·기초생활수급자 등은 그대로).</li>
+          <li><strong>ISA</strong>는 일반형 순이익 200만원, 서민형·농어민형 400만원까지 비과세이고, 넘는 부분은 9.9%만 뗍니다.</li>
+          <li><strong>이자·배당이 연 2,000만원을 넘으면</strong> 금융소득종합과세 대상이 되어 15.4% 원천징수로 끝나지 않고 다음 해 종합소득세 신고 때 다시 계산됩니다.</li>
+          <li><strong>예금자보호 한도는 1인당 1억원</strong>(2025.9.1 시행)입니다. 한 금융회사에 1억원을 넘겨 넣는다면 나눠 두는 편이 안전합니다.</li>
+          <li><strong>세율 근거</strong>는 소득세법 제129조(이자소득 원천징수 14%)와 지방세법 제103조의13(지방소득세 1.4%), 비과세는 조세특례제한법 제88조의2입니다.</li>
+        </ul>
+      </section>
+
+      <section class="card faq-card">
+        <h2>만기 수령액에서 자주 묻는 것</h2>
+        <details class="faq" open>
+          <summary>계산한 금액과 은행 만기 안내가 몇 원 다른 이유는?</summary>
+          <p>은행은 이자를 <strong>10원 단위로 절사</strong>하고, 원천징수세액도 계산 순서에 따라 1~2원 달라집니다. 여기서는 원 단위 반올림으로 계산했으니 실제 입금액과 몇 원 차이가 날 수 있습니다.</p>
+        </details>
+        <details class="faq">
+          <summary>월복리 상품인지 어떻게 알 수 있나요?</summary>
+          <p>상품 설명서의 <strong>이자 계산 방법</strong>에 ‘월복리’라고 적혀 있으면 월복리입니다. 국내 정기적금은 대부분 단리이고, 일부 저축은행·인터넷은행의 특판 상품이 월복리를 씁니다. 같은 금리라면 월복리가 항상 유리합니다.</p>
+        </details>
+        <details class="faq">
+          <summary>중도에 깨면 얼마나 손해인가요?</summary>
+          <p>중도해지하면 약정금리가 아니라 <strong>중도해지 이율</strong>(보통 0.1~1%대)이 적용되고, 이미 받은 이자까지 되돌려 계산될 수 있습니다. 만기 전에 쓸 돈은 파킹통장처럼 언제든 꺼낼 수 있는 상품에 따로 두세요.</p>
+        </details>
+      </section>
+    </section>
+
+    <!-- ══════════ 탭 2: 예금 vs 적금 ══════════ -->
+    <section class="panel" id="panelCompare" role="tabpanel" aria-labelledby="tabCompare" tabindex="0" hidden>
+      <section class="card">
+        <div class="card-head">
+          <h2>같은 돈, 예금이 유리할까 적금이 유리할까</h2>
+          <p class="card-sub">총납입액과 금리가 같다면 예금이 유리합니다. 적금은 돈이 나눠 들어가서 이자를 받는 기간이 짧아지기 때문입니다. 차이가 얼마인지 확인해 보세요.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="cmpTotal">총납입액</label>
+            <span class="badge-soft" id="cmpTotalBadge">월 100만원 × 12개월</span>
+          </div>
+          <div class="input-wrap">
+            <input id="cmpTotal" type="number" inputmode="numeric" min="0" max="10000000000" step="1000000" value="12000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="총납입액 빠른 선택">
+            <button type="button" data-cmp-total="6000000">600만</button>
+            <button type="button" data-cmp-total="12000000">1,200만</button>
+            <button type="button" data-cmp-total="30000000">3,000만</button>
+            <button type="button" data-cmp-total="50000000">5,000만</button>
+            <button type="button" data-cmp-total="100000000">1억</button>
+          </div>
+          <p class="field-help">예금은 이 돈을 <strong>첫날 한 번에</strong> 넣고, 적금은 <strong>기간으로 나눠 매달</strong> 넣는 것으로 비교합니다.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="cmpMonths">가입 기간</label>
+            <span class="badge-soft" id="cmpMonthsBadge">12개월</span>
+          </div>
+          <div class="input-wrap input-wrap-sm">
+            <input id="cmpMonths" type="number" inputmode="numeric" min="1" max="120" step="1" value="12" autocomplete="off">
+            <span class="unit">개월</span>
+          </div>
+          <div class="chips" role="group" aria-label="가입 기간 빠른 선택">
+            <button type="button" data-cmp-months="6">6개월</button>
+            <button type="button" data-cmp-months="12">1년</button>
+            <button type="button" data-cmp-months="24">2년</button>
+            <button type="button" data-cmp-months="36">3년</button>
+            <button type="button" data-cmp-months="60">5년</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="cmpRate">연 이자율</label>
+            <span class="badge-soft" id="cmpRateBadge">연 3.5%</span>
+          </div>
+          <div class="input-wrap input-wrap-sm">
+            <input id="cmpRate" type="number" inputmode="decimal" min="0" max="30" step="0.1" value="3.5" autocomplete="off">
+            <span class="unit">% / 년</span>
+          </div>
+          <div class="chips" role="group" aria-label="연 이자율 빠른 선택">
+            <button type="button" data-cmp-rate="2.5">2.5%</button>
+            <button type="button" data-cmp-rate="3">3.0%</button>
+            <button type="button" data-cmp-rate="3.5">3.5%</button>
+            <button type="button" data-cmp-rate="4">4.0%</button>
+            <button type="button" data-cmp-rate="5">5.0%</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="cmpMethodLabel">이자 방식</span>
+          <div class="segmented" role="group" aria-labelledby="cmpMethodLabel" data-segment="cmpmethod">
+            <button type="button" data-value="simple" class="is-active">단리</button>
+            <button type="button" data-value="compound">월복리</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="cmpTaxLabel">과세 유형</span>
+          <div class="segmented segmented-wrap" role="group" aria-labelledby="cmpTaxLabel" data-segment="cmptax">
+            <button type="button" data-value="general" class="is-active">일반과세 <span>15.4%</span></button>
+            <button type="button" data-value="preferential">세금우대 <span>9.5%</span></button>
+            <button type="button" data-value="farm">농특세 <span>1.4%</span></button>
+            <button type="button" data-value="none">비과세 <span>0%</span></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card result-card" id="cmpResultCard">
+        <div class="result-head">
+          <div>
+            <p class="result-label" id="cmpDiffLabel">예금이 더 받는 금액</p>
+            <p class="result-amount" aria-live="polite" aria-atomic="true"><span id="cmpDiff">162,855</span><span class="won">원</span></p>
+            <p class="result-sub" id="cmpSub">1,200만원 · 12개월 · 연 3.5% 단리</p>
+          </div>
+          <span class="tier-badge" id="cmpWinner" data-tier="1">예금 유리</span>
+        </div>
+
+        <div class="breakdown" id="cmpRows"></div>
+
+        <div class="stat-grid">
+          <div class="stat-cell">
+            <span>예금 만기 수령액</span>
+            <strong id="cmpLumpMaturity">12,355,320원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>적금 만기 수령액</span>
+            <strong id="cmpInstMaturity">12,192,465원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>세후 이자 차이</span>
+            <strong id="cmpNetDiff">162,855원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>적금 월 납입액</span>
+            <strong id="cmpMonthly">1,000,000원</strong>
+          </div>
+        </div>
+
+        <p class="insight" id="cmpInsight"></p>
+
+        <details class="breakdown-box" id="cmpTableBox">
+          <summary>
+            <span>기간별 비교</span>
+            <span class="summary-hint">같은 총납입액 기준</span>
+          </summary>
+          <div class="table-wrap">
+            <table class="data-table data-table--num" id="cmpTable">
+              <caption class="sr-only">기간별 예금과 적금 만기 수령액 차이</caption>
+              <thead>
+                <tr><th scope="col">기간</th><th scope="col">예금</th><th scope="col">적금</th><th scope="col">차이</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <p class="field-help">적금은 매달 나눠 넣는 조건이므로, 기간이 길어질수록 예금과의 차이가 커집니다.</p>
+        </details>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="shareCompare">
+            <span aria-hidden="true">📋</span> 결과 복사하기
+          </button>
+        </div>
+      </section>
+
+      <div class="ad-slot" data-ad-slot="mid2" aria-hidden="true" hidden></div>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>그래서 뭘 골라야 하나</h2>
+          <p class="card-sub">숫자만 보면 예금이 이득이지만, 현실에서는 적금을 고르는 이유가 분명히 있습니다.</p>
+        </div>
+        <ul class="tips">
+          <li><strong>이미 목돈이 있다면 예금</strong>이 유리합니다. 같은 금리·같은 기간이면 이자를 받는 기간이 길수록 유리하기 때문입니다.</li>
+          <li><strong>매달 모아야 한다면 적금</strong>입니다. 목돈이 없는데 예금을 고르는 건 애초에 불가능한 선택입니다.</li>
+          <li><strong>적금을 예금처럼 쓰는 방법</strong>도 있습니다. 목돈을 파킹통장에 두고 매달 적금을 붓는 대신, 처음부터 예금에 넣고 생활비를 아껴 쓰는 쪽이 이자상 유리합니다.</li>
+          <li><strong>금리가 오를 것 같다면 짧게</strong>, 내릴 것 같다면 길게 가입하는 편이 유리합니다. 만기 후 재예치 때의 금리는 알 수 없기 때문입니다.</li>
+          <li><strong>중도해지 위험</strong>은 적금이 더 큽니다. 매달 나가는 돈이 부담이면 무리한 금액을 잡지 마세요.</li>
+        </ul>
+      </section>
+
+      <section class="card faq-card">
+        <h2>예금·적금 비교에서 자주 묻는 것</h2>
+        <details class="faq" open>
+          <summary>같은 금리인데 왜 예금 이자가 두 배 가까이 되나요?</summary>
+          <p>적금은 첫 달 납입금만 만기까지 이자를 받고, 마지막 달 납입금은 한 달치만 받습니다. 12개월 적금의 <strong>평균 잔액</strong>은 총납입액의 절반 남짓이라, 이자도 예금의 절반 수준이 됩니다.</p>
+        </details>
+        <details class="faq">
+          <summary>적금에 목돈을 미리 넣으면 이자가 늘어나나요?</summary>
+          <p>상품에 따라 다릅니다. ‘선납’ 기능이 있는 적금은 첫 달에 여러 회차를 미리 넣을 수 있어 이자가 늘지만, 대부분의 정기적금은 월 납입 한도가 정해져 있어 불가능합니다. 자유적립식이라면 초반에 몰아 넣는 편이 유리합니다.</p>
+        </details>
+        <details class="faq">
+          <summary>예금과 적금을 섞는 게 좋을까요?</summary>
+          <p>생활비 3~6개월치를 파킹통장에 두고, 남는 돈은 예금, 매달 저축할 돈은 적금으로 나누는 방식이 일반적입니다. 비과세·세금우대 한도가 있는 상품은 <strong>한도까지만</strong> 채우고 나머지는 일반과세로 두게 됩니다.</p>
+        </details>
+      </section>
+    </section>
+
+    <!-- ══════════ 탭 3: 목돈 역산 ══════════ -->
+    <section class="panel" id="panelGoal" role="tabpanel" aria-labelledby="tabGoal" tabindex="0" hidden>
+      <section class="card">
+        <div class="card-head">
+          <h2>목표 금액에서 거꾸로 계산</h2>
+          <p class="card-sub">“5,000만원을 3년 안에”처럼 목표를 정하면 매달 얼마를 넣어야 하는지, 지금 한 번에 넣는다면 얼마인지 계산합니다. 목표는 세후 수령액 기준입니다.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="glTarget">목표 금액 <small>세후</small></label>
+            <span class="badge-soft" id="glTargetBadge">1,000만원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="glTarget" type="number" inputmode="numeric" min="0" max="100000000000" step="1000000" value="10000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="목표 금액 빠른 선택">
+            <button type="button" data-gl-target="5000000">500만</button>
+            <button type="button" data-gl-target="10000000">1,000만</button>
+            <button type="button" data-gl-target="30000000">3,000만</button>
+            <button type="button" data-gl-target="50000000">5,000만</button>
+            <button type="button" data-gl-target="100000000">1억</button>
+          </div>
+          <p class="field-help">세금을 뗀 뒤 <strong>손에 쥐는 금액</strong>을 기준으로 계산합니다. 목표를 세전으로 잡았다면 조금 더 넣어야 합니다.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="glMonths">모으는 기간</label>
+            <span class="badge-soft" id="glMonthsBadge">36개월</span>
+          </div>
+          <div class="input-wrap input-wrap-sm">
+            <input id="glMonths" type="number" inputmode="numeric" min="1" max="120" step="1" value="36" autocomplete="off">
+            <span class="unit">개월</span>
+          </div>
+          <div class="chips" role="group" aria-label="모으는 기간 빠른 선택">
+            <button type="button" data-gl-months="6">6개월</button>
+            <button type="button" data-gl-months="12">1년</button>
+            <button type="button" data-gl-months="24">2년</button>
+            <button type="button" data-gl-months="36">3년</button>
+            <button type="button" data-gl-months="60">5년</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="glRate">연 이자율</label>
+            <span class="badge-soft" id="glRateBadge">연 3.5%</span>
+          </div>
+          <div class="input-wrap input-wrap-sm">
+            <input id="glRate" type="number" inputmode="decimal" min="0" max="30" step="0.1" value="3.5" autocomplete="off">
+            <span class="unit">% / 년</span>
+          </div>
+          <div class="chips" role="group" aria-label="연 이자율 빠른 선택">
+            <button type="button" data-gl-rate="2.5">2.5%</button>
+            <button type="button" data-gl-rate="3">3.0%</button>
+            <button type="button" data-gl-rate="3.5">3.5%</button>
+            <button type="button" data-gl-rate="4">4.0%</button>
+            <button type="button" data-gl-rate="5">5.0%</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="glMethodLabel">이자 방식</span>
+          <div class="segmented" role="group" aria-labelledby="glMethodLabel" data-segment="glmethod">
+            <button type="button" data-value="simple" class="is-active">단리</button>
+            <button type="button" data-value="compound">월복리</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="glTaxLabel">과세 유형</span>
+          <div class="segmented segmented-wrap" role="group" aria-labelledby="glTaxLabel" data-segment="gltax">
+            <button type="button" data-value="general" class="is-active">일반과세 <span>15.4%</span></button>
+            <button type="button" data-value="preferential">세금우대 <span>9.5%</span></button>
+            <button type="button" data-value="farm">농특세 <span>1.4%</span></button>
+            <button type="button" data-value="none">비과세 <span>0%</span></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card result-card" id="glResultCard">
+        <div class="result-head">
+          <div>
+            <p class="result-label">매달 넣어야 할 금액</p>
+            <p class="result-amount" aria-live="polite" aria-atomic="true"><span id="glMonthly">270,000</span><span class="won">원 / 월</span></p>
+            <p class="result-sub" id="glSub">목표 1,000만원 · 36개월 · 연 3.5% 단리</p>
+          </div>
+          <span class="tier-badge" id="glBadge" data-tier="1">적립식</span>
+        </div>
+
+        <div class="breakdown" id="glRows"></div>
+
+        <div class="stat-grid">
+          <div class="stat-cell">
+            <span>목표 금액</span>
+            <strong id="glTargetStat">10,000,000원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>총 납입 원금</span>
+            <strong id="glTotalPaid">9,720,000원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>세전 이자 합계</span>
+            <strong id="glGrossNeeded">524,813원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>예금으로 한 번에</span>
+            <strong id="glLump">9,190,000원</strong>
+          </div>
+        </div>
+
+        <p class="insight" id="glInsight"></p>
+
+        <details class="breakdown-box" id="glTableBox">
+          <summary>
+            <span>기간별 필요 금액</span>
+            <span class="summary-hint">같은 목표·금리 기준</span>
+          </summary>
+          <div class="table-wrap">
+            <table class="data-table data-table--num" id="glTable">
+              <caption class="sr-only">목표 금액까지 걸리는 기간별 필요 월 납입액</caption>
+              <thead>
+                <tr><th scope="col">기간</th><th scope="col">월 납입액</th><th scope="col">예금 한 번에</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <p class="field-help">필요 금액은 1만원 단위로 올림한 값을 보여줍니다.</p>
+        </details>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="shareGoal">
+            <span aria-hidden="true">📋</span> 결과 복사하기
+          </button>
+        </div>
+      </section>
+
+      <div class="ad-slot" data-ad-slot="bottom" aria-hidden="true" hidden></div>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>목돈 모을 때 같이 챙길 것</h2>
+          <p class="card-sub">금리만 높다고 다가 아닙니다. 세제 혜택과 한도를 함께 봐야 실제로 남는 돈이 달라집니다.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <caption class="sr-only">목돈 마련 시 확인할 제도와 한도</caption>
+            <thead>
+              <tr><th scope="col">제도</th><th scope="col">혜택</th><th scope="col">한도</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">비과세종합저축</th><td>이자소득세 0%</td><td>1인 원금 5,000만원</td></tr>
+              <tr><th scope="row">ISA 일반형</th><td>순이익 비과세</td><td>200만원 (초과분 9.9%)</td></tr>
+              <tr><th scope="row">ISA 서민형·농어민형</th><td>순이익 비과세</td><td>400만원 (초과분 9.9%)</td></tr>
+              <tr><th scope="row">청년도약계좌 등 정책 상품</th><td>정부 기여금·비과세</td><td>상품별 조건 확인</td></tr>
+              <tr><th scope="row">예금자보호</th><td>원리금 보호</td><td>1인당 1억원</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="tips">
+          <li><strong>1만원 올림값을 쓰세요.</strong> 역산한 금액을 그대로 자동이체하면 반올림 때문에 목표에 몇 천 원 모자랄 수 있습니다.</li>
+          <li><strong>목표는 세후 기준</strong>입니다. 은행 앱에서 보이는 예상 만기액은 세전인 경우가 많으니, 세금을 뺀 금액으로 목표를 잡으세요.</li>
+          <li><strong>금리가 1%p 오르면</strong> 3년 적금에서 필요한 월 납입액이 몇 % 줄어듭니다. 금리 비교만으로도 목표 달성이 쉬워질 수 있습니다.</li>
+          <li><strong>비과세 상품은 한도가 정해져 있습니다.</strong> 5,000만원을 넘는 원금부터는 일반과세로 돌아가니, 한도 안에서 먼저 채우세요.</li>
+        </ul>
+      </section>
+
+      <section class="card faq-card">
+        <h2>목돈 역산에서 자주 묻는 것</h2>
+        <details class="faq" open>
+          <summary>계산한 금액보다 조금 더 넣어야 하나요?</summary>
+          <p>네. 여기서는 원 단위로 계산했지만 실제로는 10원 절사와 세금 계산 순서 때문에 몇 원 차이가 납니다. <strong>1만원 단위로 올림</strong>한 금액으로 자동이체를 걸어 두면 목표를 넘길 수 있습니다.</p>
+        </details>
+        <details class="faq">
+          <summary>예금으로 한 번에 넣는 금액이 더 적은 이유는?</summary>
+          <p>예금은 원금 전액이 만기까지 이자를 받습니다. 적금은 매달 나눠 넣어 평균 잔액이 작기 때문에, 같은 목표라도 월 납입액의 합이 예금 원금보다 커집니다.</p>
+        </details>
+        <details class="faq">
+          <summary>목표를 세전으로 잡았는데 어떻게 바꾸나요?</summary>
+          <p>이 계산기는 <strong>세후 목표</strong> 기준입니다. 세전 목표가 있다면 목표 금액에 세율을 곱한 만큼을 빼고 넣으세요. 예를 들어 세전 1,000만원이 목표이고 일반과세라면, 이자 부분의 15.4%가 빠지므로 계산기에는 1,000만원보다 조금 적은 금액을 넣으면 됩니다.</p>
+        </details>
+      </section>
+    </section>
+
+    <!-- 제휴 상품: config.js 의 coupang.items 에 링크를 넣으면 나타납니다 -->
+    <section class="card promo-card" id="promoSection" hidden>
+      <div class="card-head">
+        <h2 id="promoHeading">적금 깨지 않으려면, 고정비부터</h2>
+        <p class="card-sub" id="promoSub"></p>
+      </div>
+      <div class="promo-grid" id="promoList"></div>
+      <p class="ad-disclosure" id="promoDisclosure"></p>
+    </section>
+
+    <section class="related-apps" aria-labelledby="relatedAppsTitle">
+      <h2 id="relatedAppsTitle">함께 많이 쓰는 계산기</h2>
+      <div class="related-grid">
+        <a class="related-app" href="../rent-loan/">
+          <strong>전세·월세 전환 계산기</strong>
+          <span>목돈이 필요한 순간, 주거비부터 점검</span>
+        </a>
+        <a class="related-app" href="../living-cost/">
+          <strong>고정비 체크기</strong>
+          <span>매달 새는 돈을 아끼면 적금이 커집니다</span>
+        </a>
+        <a class="related-app" href="../housing-loan/">
+          <strong>청약 가점·특례대출 계산기</strong>
+          <span>내 집 목돈 계획과 대출 조건</span>
+        </a>
+        <a class="related-app" href="../salary-net/">
+          <strong>연봉 실수령액 계산기</strong>
+          <span>월급에서 실제로 남는 돈 확인</span>
+        </a>
+        <a class="related-app" href="../">
+          <strong>전체 계산기</strong>
+          <span>생활 계산기 12종 모아 보기</span>
+        </a>
+      </div>
+    </section>
+
+    <footer class="app-footer">
+      <p class="disclaimer">
+        <strong>참고용 모의 계산입니다.</strong> 2026년 기준 이자소득세 15.4%(소득세 14% + 지방소득세 1.4%),
+        세금우대 9.5%, 농특세 1.4%, 비과세 0%를 적용했습니다. 비과세종합저축은 조세특례제한법 제88조의2에 따라
+        1인 원금 5,000만원까지이고, 2026년 1월 1일 이후 가입분은 대상이 일부 조정되었습니다.
+        원 단위 반올림으로 계산해 실제 입금액(10원 절사)과 몇 원 차이가 날 수 있고, 우대금리 조건·중도해지 이율·
+        금융소득종합과세는 반영하지 않았습니다. 최종 금리는 취급 금융회사 상품설명서에서 확인하세요.
+        입력값은 기기 안에만 저장되고 어디로도 전송되지 않습니다.
+      </p>
+      <p class="footer-links">
+        <a href="https://www.fss.or.kr/" target="_blank" rel="noopener">금융감독원</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.nts.go.kr/" target="_blank" rel="noopener">국세청</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.law.go.kr/" target="_blank" rel="noopener">국가법령정보센터</a>
+        <span aria-hidden="true">·</span>
+        <a href="../">전체 계산기</a>
+        <span aria-hidden="true">·</span>
+        <a href="../living-cost/">고정비 체크</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://blog.naver.com/ufssdf987" target="_blank" rel="noopener">운영 블로그</a>
+        <span aria-hidden="true">·</span>
+        <a href="../privacy.html">개인정보처리방침</a>
+      </p>
+      <p class="footer-meta">
+        <span>기준일 <time id="dataDate" datetime="2026-11-26">2026-11-26</time></span>
+        <span aria-hidden="true">·</span>
+        <span>v<span id="appVersion">1.0.0</span></span>
+        <span aria-hidden="true">·</span>
+        <span>개인정보를 저장하지 않습니다</span>
+      </p>
+      <p class="ad-disclosure" id="footerDisclosure" hidden></p>
+    </footer>
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<noscript>
+  <div class="noscript">이 계산기는 자바스크립트를 사용합니다. 브라우저 설정에서 자바스크립트를 켜 주세요.</div>
+</noscript>
+
+<script src="config.js"></script>
+<script src="calc.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
