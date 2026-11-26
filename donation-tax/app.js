@@ -226,6 +226,11 @@
     el.promoSub = $('#promoSub');
     el.promoList = $('#promoList');
     el.promoDisclosure = $('#promoDisclosure');
+    el.welloSection = $('#welloSection');
+    el.welloHeading = $('#welloHeading');
+    el.welloSub = $('#welloSub');
+    el.welloList = $('#welloList');
+    el.welloDisclosure = $('#welloDisclosure');
     el.footerDisclosure = $('#footerDisclosure');
     el.dataDate = $('#dataDate');
     el.appVersion = $('#appVersion');
@@ -917,6 +922,28 @@
     }).join('');
   }
 
+  /* ── 웰로 파트너스 카드 ───────────────────────────────── */
+  function initWello() {
+    var wello = CFG.wello || {};
+    var it = wello.item || {};
+    if (!it.url) {
+      el.welloSection.hidden = true;
+      return;
+    }
+    el.welloSection.hidden = false;
+    el.welloHeading.textContent = wello.heading || '답례품부터 보고 기부하기';
+    el.welloSub.textContent = wello.subheading || '';
+    el.welloDisclosure.textContent = wello.disclosure || '';
+    el.welloList.innerHTML = '<div class="promo-item">' +
+      '<span class="promo-thumb" aria-hidden="true">' + (it.emoji || '🎁') + '</span>' +
+      '<div class="promo-body">' +
+      '<p class="promo-name">' + it.name + '</p>' +
+      '<p class="promo-meta">' + (it.tag || '') + '</p>' +
+      '</div>' +
+      '<a class="promo-cta" href="' + it.url + '" target="_blank" rel="sponsored nofollow noopener">' +
+      (it.cta || '웰로에서 보기') + '</a></div>';
+  }
+
   /* ── PWA ──────────────────────────────────────────────── */
   function initInstall() {
     var deferred = null;
@@ -1107,6 +1134,7 @@
     initTheme();
     initAds();
     initPromo();
+    initWello();
     initInstall();
     initSW();
   }

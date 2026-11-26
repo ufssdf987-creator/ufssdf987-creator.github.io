@@ -8,7 +8,7 @@
  * 3) siteUrl 은 공유 문구에 쓰는 실제 배포 주소입니다.
  */
 window.APP_CONFIG = {
-  version: '1.0.2',
+  version: '1.0.3',
   siteName: '2026 고향사랑기부제·기부금 세액공제 계산기',
   siteUrl: 'https://ufssdf987-creator.github.io/donation-tax/',
 
@@ -21,6 +21,21 @@ window.APP_CONFIG = {
       bottom: ''  // 0원 함정 결과 아래
     },
     showPlaceholders: false
+  },
+
+  wello: {
+    // 웰로 파트너스 추천 링크. url 이 비어 있으면 카드가 나타나지 않습니다.
+    // 대가성 문구는 카드 하단에 그대로 노출됩니다.
+    disclosure: '이 계산기 운영자는 웰로 파트너스 활동의 일환으로, 아래 링크를 통한 기부가 확정되면 기부금의 2%를 웰포인트로 지급받습니다. 기부금 세액공제와 답례품 혜택은 기부 경로와 관계없이 같습니다.',
+    heading: '답례품부터 보고 기부하기',
+    subheading: '웰로에서 지자체별 답례품과 연말 이벤트를 한 화면에서 볼 수 있습니다. 2027 춘식이 다이어리는 대상 지역에 10만 원 이상 기부하면 받을 수 있어요.',
+    item: {
+      name: '웰로 고향사랑기부 · 지역별 답례품 모아보기',
+      tag: '기부금 2% 웰포인트 적립 · 지자체별 연말 혜택',
+      emoji: '🎁',
+      url: 'https://www.welfarehello.com/r/P6Yxbj',
+      cta: '웰로에서 보기'
+    }
   },
 
   coupang: {
