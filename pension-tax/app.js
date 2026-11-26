@@ -443,12 +443,10 @@
     setInsight(el.crInsight, lines.join(' '), r.capped ? 'is-warn' : (r.target > 0 ? 'is-ok' : ''));
 
     var steps = S.creditSteps({ incomeType: r.incomeType, income: r.income });
-    el.crTable.tBodies[0].innerHTML = steps.map(function (t, i) {
-      var prev = i > 0 ? steps[i - 1].credit : 0;
-      var add = t.credit - prev;
+    el.crTable.tBodies[0].innerHTML = steps.map(function (t) {
       var now = Math.abs(t.target - r.target) < 1;
       return '<tr' + (now ? ' class="is-now"' : '') + '><th scope="row">' + t.label + '</th>' +
-        '<td>' + won(t.target) + (add > 0 ? '<small> +' + won(add) + '원</small>' : '') + '</td>' +
+        '<td>' + won(t.target) + '</td>' +
         '<td>' + won(t.credit) + '</td></tr>';
     }).join('');
   }
