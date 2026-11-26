@@ -427,8 +427,12 @@
 
     var lines = [];
     if (r.valid) {
-      lines.push('납입 <strong>' + won(r.paidTotal) + '원</strong> 중 <strong>' + won(r.target) +
-        '원</strong>이 공제 대상이 되어 세금 <strong>' + won(r.credit) + '원</strong>이 줄어듭니다.');
+      if (Math.abs(r.target - r.paidTotal) < 1) {
+        lines.push('납입한 <strong>' + won(r.paidTotal) + '원</strong> 전액이 공제 대상이 되어 세금 <strong>' + won(r.credit) + '원</strong>이 줄어듭니다.');
+      } else {
+        lines.push('납입·전환 <strong>' + won(r.paidTotal) + '원</strong> 중 <strong>' + won(r.target) +
+          '원</strong>이 공제 대상이 되어 세금 <strong>' + won(r.credit) + '원</strong>이 줄어듭니다.');
+      }
       if (r.applied < r.credit) {
         lines.push('다만 결정세액 한도 때문에 실제 적용은 ' + won(r.applied) + '원입니다.');
       }
