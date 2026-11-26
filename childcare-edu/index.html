@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>보육료·유아학비 계산기 2026 | 어린이집·유치원 지원금·교육비 세액공제</title>
+<meta name="description" content="2026년 어린이집 보육료(0세 584,000원·1세 515,000원·2세 426,000원)와 유치원 유아학비(국공립 10만·사립 28만, 방과후 5만·7만, 추가 5만), 4~5세 무상교육·보육(사립 11만·공립 2만·어린이집 7만)까지 월 지원금과 학부모 부담을 계산합니다. 초등 늘봄 초1·2 매일 2시간 무상, 초3 방과후 이용권 연 50만원과 연말정산 교육비 세액공제 15%·1명당 300만원 한도까지.">
+<meta name="keywords" content="보육료 계산기, 유아학비 계산기, 2026 보육료, 어린이집 보육료, 누리과정, 유아학비 지원, 4~5세 무상교육, 무상보육, 사립유치원 유아학비, 국공립유치원, 방과후 과정비, 누리과정 추가지원 5만원, 초등 늘봄학교, 온동네 초등돌봄, 초3 방과후 이용권 50만원, 교육비 세액공제, 교육비 15%, 300만원 한도, 취학전 아동 학원비, 초등 1학년 예능학원, 체육시설 수강료, 교복 50만원, 현장체험학습비 30만원, 연말정산 교육비, 2026 귀속">
+<meta name="author" content="이안이 아빠의 공간">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://ufssdf987-creator.github.io/childcare-edu/">
+<meta name="theme-color" content="#eef2f8">
+<meta name="theme-color" content="#eef2f8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#070c16" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="보육료·교육비 계산기">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="2026 보육료·유아학비·교육비 계산기">
+<meta property="og:title" content="보육료·유아학비 계산기 2026 — 어린이집·유치원 지원금">
+<meta property="og:description" content="만 0세 58만 4천원, 만 2세 42만 6천원, 사립유치원 28만+방과후 7만+추가 5만+무상 11만. 우리 아이가 실제로 받는 지원금과 학부모 부담, 초등 늘봄·교육비 세액공제 15%까지 계산합니다.">
+<meta property="og:url" content="https://ufssdf987-creator.github.io/childcare-edu/">
+<meta property="og:image" content="https://ufssdf987-creator.github.io/childcare-edu/icons/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="2026 보육료·유아학비·교육비 세액공제 계산기 — 어린이집·유치원 지원금">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="보육료·유아학비 계산기 2026 — 어린이집·유치원 지원금">
+<meta name="twitter:description" content="사립유치원 4세 방과후 이용이면 월 51만원, 어린이집 2세는 42만 6천원. 월 지원금과 학부모 부담을 3초에.">
+<meta name="twitter:image" content="https://ufssdf987-creator.github.io/childcare-edu/icons/og-image.png">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="styles.css">
+<script>
+  /* 첫 화면 깜빡임 방지: 저장된 테마를 CSS 적용 전에 반영 */
+  (function () {
+    try {
+      var saved = localStorage.getItem('ctx.theme');
+      var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', (saved === 'dark' || saved === 'light') ? saved : (dark ? 'dark' : 'light'));
+    } catch (e) { /* 저장소 접근 불가 시 기본 라이트 */ }
+  })();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "2026 보육료·유아학비·교육비 세액공제 계산기",
+  "url": "https://ufssdf987-creator.github.io/childcare-edu/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "inLanguage": "ko",
+  "description": "2026년도 보육사업안내와 2026학년도 유아학비 지원계획, 2026년도 누리과정 부담비용 고시에 따라 어린이집 보육료와 유치원 유아학비, 방과후 과정비, 3~5세 누리과정 추가지원 5만원, 4~5세 무상교육·보육(사립유치원 11만원·공립유치원 방과후 2만원·어린이집 기타 필요경비 7만원)을 계산합니다. 초등 늘봄학교 초1·2 매일 2시간 무상 맞춤형 프로그램과 2026년 신설된 초3 방과후 프로그램 이용권 연 50만원, 소득세법 제59조의4 제3항에 따른 교육비 세액공제 15%(취학 전 아동·초중고 1명당 연 300만원, 대학생 900만원, 본인·장애인 한도 없음, 2026년부터 직계비속 소득요건 폐지와 초등 9세 미만·2학년 이하 예능학원·체육시설 수강료 추가)까지 한 번에 계산합니다.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+  "featureList": [
+    "2026년 어린이집 보육료(0세 584,000원·1세 515,000원·2세 426,000원·3~5세 280,000원)와 24시간 보육 단가 계산",
+    "유치원 유아학비(국공립 10만원·사립 28만원)와 방과후 과정비(5만원·7만원), 누리과정 추가지원 5만원 계산",
+    "4~5세 무상교육·보육(사립 11만원·공립 방과후 2만원·어린이집 7만원) 차감 반영",
+    "어린이집 연장보육료 시간당 단가(0세 3,000원·영아 2,000원·유아 1,000원)와 야간연장 4,000원 계산",
+    "사립유치원 법정저소득층 추가지원 월 최대 20만원과 장애아 보육료 634,000원",
+    "초1·2 매일 2시간 무상 맞춤형 프로그램과 초3 방과후 프로그램 이용권 연 50만원 계산",
+    "교육비 세액공제 15%, 취학 전·초중고 1명당 300만원·대학생 900만원·본인 한도 없음",
+    "2026년 귀속 변경 — 직계비속 소득요건 폐지, 초등 저학년 예능학원·체육시설 수강료 공제, 교복 50만원·현장체험학습 30만원"
+  ]
+}
+</script>
+<!-- Google AdSense — 사이트 확인·광고 로딩용 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4355917079579050" crossorigin="anonymous"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+<div class="app-shell">
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" role="img" focusable="false">
+          <defs>
+            <linearGradient id="ccGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#7dd3fc"/><stop offset="1" stop-color="#2563eb"/>
+            </linearGradient>
+            <linearGradient id="ccGrad2" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#fde68a"/><stop offset="1" stop-color="#f59e0b"/>
+            </linearGradient>
+          </defs>
+          <rect x="1" y="1" width="46" height="46" rx="13" fill="none" stroke="currentColor" stroke-opacity=".18"/>
+          <circle cx="24" cy="16" r="5.4" fill="none" stroke="url(#ccGrad)" stroke-width="2.6"/>
+          <path d="M14 33c0-5.4 4.5-9 10-9s10 3.6 10 9" fill="none" stroke="url(#ccGrad)" stroke-width="2.6" stroke-linecap="round"/>
+          <path d="M13 37.5h22" stroke="url(#ccGrad2)" stroke-width="3.4" stroke-linecap="round"/>
+          <path d="M17 33.5v8M31 33.5v8" stroke="url(#ccGrad2)" stroke-width="1.8" stroke-linecap="round" opacity=".75"/>
+        </svg>
+      </span>
+      <div class="brand-text">
+        <h1>보육료·교육비 계산</h1>
+        <p>2026 어린이집·유치원·늘봄</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button type="button" class="icon-btn install-btn" id="installBtn" hidden>앱 설치</button>
+      <button type="button" class="icon-btn theme-btn" id="themeBtn" aria-label="화면 테마 바꾸기" title="라이트/다크 전환">
+        <span id="themeIcon" aria-hidden="true">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="계산기 선택">
+    <button type="button" class="tab is-active" id="tabCare" role="tab" aria-selected="true" aria-controls="panelCare" tabindex="0">
+      <span class="tab-emoji" aria-hidden="true">🧸</span>
+      <span class="tab-label">보육·학비</span>
+    </button>
+    <button type="button" class="tab" id="tabElem" role="tab" aria-selected="false" aria-controls="panelElem" tabindex="-1">
+      <span class="tab-emoji" aria-hidden="true">🎒</span>
+      <span class="tab-label">초등 늘봄</span>
+    </button>
+    <button type="button" class="tab" id="tabEdu" role="tab" aria-selected="false" aria-controls="panelEdu" tabindex="-1">
+      <span class="tab-emoji" aria-hidden="true">🧾</span>
+      <span class="tab-label">교육비 공제</span>
+    </button>
+    <button type="button" class="tab" id="tabGuide" role="tab" aria-selected="false" aria-controls="panelGuide" tabindex="-1">
+      <span class="tab-emoji" aria-hidden="true">📋</span>
+      <span class="tab-label">서류·FAQ</span>
+    </button>
+  </nav>
+
+  <main id="main">
+    <div class="ad-slot" data-ad-slot="top" aria-hidden="true" hidden></div>
+
+    <!-- ══════════ 탭 1: 어린이집·유치원 지원금 ══════════ -->
+    <section class="panel is-active" id="panelCare" role="tabpanel" aria-labelledby="tabCare" tabindex="0">
+      <p class="lead">2026년 보육료는 <strong>만 0세 58만 4천원, 1세 51만 5천원, 2세 42만 6천원</strong>이고, 만 3~5세는 <strong>누리보육료 28만원 + 추가지원 5만원</strong>입니다. 유치원은 <strong>국공립 10만원·사립 28만원</strong>에 방과후 과정비(5만·7만원)와 추가지원 5만원이 붙고, <strong>4~5세는 사립 11만원·공립 방과후 2만원·어린이집 7만원</strong>이 원비에서 한 번 더 빠집니다.</p>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>아이 나이와 다니는 곳</h2>
+          <p class="card-sub">2026학년도(2026. 3. ~ 2027. 2.) 반 편성 기준입니다. 생일이 1~2월이면 아래 출생연도를 확인하세요.</p>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="careAgeLabel">아이 나이</span>
+          <div class="chips" role="group" aria-label="아이 나이 선택" id="careAgeChips">
+            <button type="button" data-care-age="0" aria-label="만 0세">0세</button>
+            <button type="button" data-care-age="1" aria-label="만 1세">1세</button>
+            <button type="button" data-care-age="2" aria-label="만 2세">2세</button>
+            <button type="button" data-care-age="3" aria-label="만 3세">3세</button>
+            <button type="button" data-care-age="4" class="is-active" aria-label="만 4세">4세</button>
+            <button type="button" data-care-age="5" aria-label="만 5세">5세</button>
+          </div>
+          <p class="field-help" id="careBirth">2026학년도 만 4세는 2021. 1. 1. ~ 12. 31. 출생입니다.</p>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="careFacilityLabel">다니는 기관</span>
+          <div class="segmented segmented-sm" role="radiogroup" aria-labelledby="careFacilityLabel" id="careFacilityGroup">
+            <button type="button" role="radio" aria-checked="true" class="is-active" data-care-facility="kinder_private">사립유치원</button>
+            <button type="button" role="radio" aria-checked="false" data-care-facility="kinder_public">국공립유치원</button>
+            <button type="button" role="radio" aria-checked="false" data-care-facility="daycare">어린이집</button>
+            <button type="button" role="radio" aria-checked="false" data-care-facility="daycare_private">민간·가정</button>
+          </div>
+          <p class="field-help">국공립·사회복지·법인·직장 어린이집은 <strong>어린이집</strong>, 인건비 지원을 받지 않는 민간·가정 어린이집은 <strong>민간·가정</strong>을 고르세요. 만 0~2세는 두 곳의 지원 방식이 다릅니다.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="careFee">월 원비 <small>지원금 차감 전</small></label>
+            <span class="badge-soft" id="careFeeBadge">50만원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="careFee" type="number" inputmode="numeric" min="0" max="2000000" step="10000" value="500000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="월 원비 빠른 선택">
+            <button type="button" data-care-fee="280000">28만</button>
+            <button type="button" data-care-fee="385000">38.5만</button>
+            <button type="button" data-care-fee="450000">45만</button>
+            <button type="button" data-care-fee="500000">50만</button>
+            <button type="button" data-care-fee="600000">60만</button>
+          </div>
+          <p class="field-help">원비 고지서의 <strong>월 납부액</strong>입니다. 정부 지원금을 빼기 전 금액으로 넣으면 실제 부담이 계산됩니다. 유치원은 입학금·급식비를 12개월로 나눠 넣어도 됩니다.</p>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <div class="field-label-row">
+              <label class="field-label" for="careExtra">그 밖에 따로 내는 비용</label>
+              <span class="badge-soft" id="careExtraBadge">5만원</span>
+            </div>
+            <div class="input-wrap input-wrap-sm">
+              <input id="careExtra" type="number" inputmode="numeric" min="0" max="1000000" step="10000" value="50000" autocomplete="off">
+              <span class="unit">원</span>
+            </div>
+          </div>
+          <div class="field" id="careExtWrap">
+            <div class="field-label-row">
+              <label class="field-label" for="careExtHours">연장보육 이용 <small>월 시간</small></label>
+              <span class="badge-soft" id="careExtBadge">0시간</span>
+            </div>
+            <div class="input-wrap input-wrap-sm">
+              <input id="careExtHours" type="number" inputmode="numeric" min="0" max="120" step="1" value="0" autocomplete="off">
+              <span class="unit">시간</span>
+            </div>
+          </div>
+        </div>
+        <div class="chips" role="group" aria-label="연장보육 시간 빠른 선택" id="careExtChips">
+          <button type="button" data-care-ext="0">안 함</button>
+          <button type="button" data-care-ext="20">20시간</button>
+          <button type="button" data-care-ext="40">40시간</button>
+          <button type="button" data-care-ext="60">60시간</button>
+        </div>
+        <p class="field-help">특별활동비·교재비·차량비·급식비처럼 지원 단가에 없는 비용입니다. 연장보육은 <strong>17시 이후 이용시간</strong>을 30분 단위로 넣으세요. 0세반 시간당 3,000원, 영아반 2,000원, 유아반 1,000원입니다.</p>
+
+        <div class="check-list" id="careChecks">
+          <label class="check-item"><input type="checkbox" data-check="c_after" id="careAfter"><span>유치원 <strong>방과후 과정</strong>을 이용한다(하루 8시간 이상, 월 15일 이상)</span></label>
+          <label class="check-item"><input type="checkbox" data-check="c_night" id="careNight"><span>어린이집 <strong>24시간(야간 12시간·24시) 보육</strong>을 이용한다</span></label>
+          <label class="check-item"><input type="checkbox" data-check="c_low" id="careLow"><span>사립유치원 <strong>법정저소득층</strong>(기초·차상위·한부모)이다</span></label>
+          <label class="check-item"><input type="checkbox" data-check="c_dis" id="careDisabled"><span><strong>장애아 보육료</strong> 대상이다(만 12세 이하)</span></label>
+        </div>
+      </section>
+
+      <section class="card result-card" id="careResultCard">
+        <div class="result-head">
+          <div>
+            <p class="result-label">월 정부지원금</p>
+            <p class="result-amount" aria-live="polite" aria-atomic="true"><span id="careTotal">0</span><span class="won">원</span></p>
+            <p class="result-sub" id="careSub"></p>
+          </div>
+          <span class="tier-badge" id="careVerdict" data-tier="2">계산 중</span>
+        </div>
+
+        <div class="refund-line" id="careAnnualWrap">
+          <span>1년(12개월) 지원금<small>학기·방학 포함 단순 환산</small></span>
+          <strong id="careAnnual">0원</strong>
+        </div>
+
+        <div class="breakdown" id="careRows"></div>
+
+        <div class="stat-grid">
+          <div class="stat-cell">
+            <span>월 원비 합계</span>
+            <strong id="careStatFee">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>월 학부모 부담</span>
+            <strong id="careStatBurden">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>연간 부담</span>
+            <strong id="careStatAnnual">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>지원율</span>
+            <strong id="careStatRate">0%</strong>
+          </div>
+        </div>
+
+        <div class="fee-meter">
+          <div class="fee-meter__track"><i class="fee-meter__fill" id="careMeterFill"></i></div>
+          <div class="fee-meter__legend">
+            <span id="careMeterLeft">원비 중 지원 비율 0%</span>
+            <span id="careMeterRight">100% 지원</span>
+          </div>
+        </div>
+
+        <div class="elig-list" id="careElig"></div>
+
+        <div class="after-box" id="careNextBox">
+          <p class="after-title" id="careNextTitle">다음에 할 일</p>
+          <p id="careNext"></p>
+        </div>
+
+        <p class="insight" id="careInsight"></p>
+
+        <details class="breakdown-box" open>
+          <summary>
+            <span>연령별 월 지원 단가</span>
+            <span class="summary-hint">2026년 기준</span>
+          </summary>
+          <div class="table-wrap">
+            <table class="data-table data-table--num" id="careScaleTable">
+              <caption class="sr-only">어린이집·유치원 연령별 월 정부지원금</caption>
+              <thead>
+                <tr><th scope="col">나이</th><th scope="col">어린이집</th><th scope="col">국공립유치원</th><th scope="col">사립유치원</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <p class="field-help">방과후 과정을 이용하지 않는 기본 지원입니다. 유치원은 방과후 과정비(국공립 5만·사립 7만원)와 4~5세 무상교육이 더해질 수 있습니다.</p>
+        </details>
+
+        <details class="breakdown-box">
+          <summary>
+            <span>4~5세 무상교육·보육 — 기관별 차감액</span>
+            <span class="summary-hint">2026. 3. ~</span>
+          </summary>
+          <div class="table-wrap">
+            <table class="data-table" id="careKinderTable">
+              <caption class="sr-only">2026년 4~5세 무상교육·보육 기관별 지원 단가</caption>
+              <thead>
+                <tr><th scope="col">기관</th><th scope="col">차감 항목</th><th scope="col">월 금액</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">사립유치원</th><td>유아교육비</td><td>110,000원</td></tr>
+                <tr><th scope="row">국공립유치원</th><td>방과후 과정비</td><td>20,000원</td></tr>
+                <tr><th scope="row">어린이집</th><td>기타 필요경비</td><td>70,000원</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="field-help">별도 신청 없이 원비에서 빠집니다. 2025년 5세에서 시작해 2026년 4~5세로 넓어졌고, 2027년에는 3세까지 확대할 계획입니다(국회 예산 심의).</p>
+        </details>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="careShare">결과 복사하기</button>
+        </div>
+      </section>
+
+      <div class="ad-slot" data-ad-slot="mid" aria-hidden="true" hidden></div>
+    </section>
+
+    <!-- ══════════ 탭 2: 초등 늘봄·방과후 ══════════ -->
+    <section class="panel" id="panelElem" role="tabpanel" aria-labelledby="tabElem" tabindex="0" hidden>
+      <p class="lead">2026년부터 늘봄학교는 <strong>온동네 초등돌봄·교육</strong>으로 바뀝니다. <strong>초1·2는 매일 2시간 맞춤형 프로그램이 무상</strong>이고, <strong>초3은 방과후 프로그램 이용권 연 50만원</strong>(학기당 25만원)이 새로 생겼습니다. 초4~6은 돌봄과 방과후를 이용할 수 있지만 수강료는 본인 부담입니다.</p>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>학년과 방과후 수강료</h2>
+          <p class="card-sub">학교에서 받은 방과후학교 수강료 고지서를 보고 넣으세요. 학원비는 여기가 아니라 교육비 공제 탭에서 계산합니다.</p>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="elemGradeLabel">학년</span>
+          <div class="chips" role="group" aria-label="학년 선택" id="elemGradeChips">
+            <button type="button" data-elem-grade="1">초1</button>
+            <button type="button" data-elem-grade="2">초2</button>
+            <button type="button" data-elem-grade="3" class="is-active">초3</button>
+            <button type="button" data-elem-grade="4">초4</button>
+            <button type="button" data-elem-grade="5">초5</button>
+            <button type="button" data-elem-grade="6">초6</button>
+          </div>
+          <p class="field-help">2026년 이용권은 <strong>초3</strong>만 대상입니다. 초4 이상 확대는 2026년 하반기에 검토합니다.</p>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <div class="field-label-row">
+              <label class="field-label" for="elemFee">월 방과후 수강료</label>
+              <span class="badge-soft" id="elemFeeBadge">6만원</span>
+            </div>
+            <div class="input-wrap input-wrap-sm">
+              <input id="elemFee" type="number" inputmode="numeric" min="0" max="1000000" step="5000" value="60000" autocomplete="off">
+              <span class="unit">원</span>
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label-row">
+              <label class="field-label" for="elemMonths">수강 개월</label>
+              <span class="badge-soft" id="elemMonthsBadge">10개월</span>
+            </div>
+            <div class="input-wrap input-wrap-sm">
+              <input id="elemMonths" type="number" inputmode="numeric" min="0" max="12" step="1" value="10" autocomplete="off">
+              <span class="unit">개월</span>
+            </div>
+          </div>
+        </div>
+        <div class="chips" role="group" aria-label="수강료 빠른 선택">
+          <button type="button" data-elem-fee="30000">3만</button>
+          <button type="button" data-elem-fee="60000">6만</button>
+          <button type="button" data-elem-fee="100000">10만</button>
+          <button type="button" data-elem-fee="150000">15만</button>
+        </div>
+        <p class="field-help">한 과목 기준입니다. 여러 과목이면 합쳐서 넣으세요. 방학 특강은 수강한 달에 더해 12개월을 넘지 않게 넣습니다.</p>
+
+        <div class="check-list" id="elemChecks">
+          <label class="check-item"><input type="checkbox" data-check="e_care" id="elemCare" checked><span><strong>늘봄교실(선택형 돌봄)</strong>을 함께 이용한다 — 무상, 급·간식비는 별도</span></label>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="elemSnack">돌봄 급·간식비 <small>월</small></label>
+            <span class="badge-soft" id="elemSnackBadge">0원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="elemSnack" type="number" inputmode="numeric" min="0" max="300000" step="5000" value="0" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <p class="field-help">늘봄교실 급·간식비는 학교마다 다르고 무상인 곳도 있습니다. 방과후 수강료와 별도로 부담하는 금액만 넣으세요.</p>
+        </div>
+      </section>
+
+      <section class="card result-card" id="elemResultCard">
+        <div class="result-head">
+          <div>
+            <p class="result-label">연간 지원금</p>
+            <p class="result-amount" aria-live="polite" aria-atomic="true"><span id="elemTotal">0</span><span class="won">원</span></p>
+            <p class="result-sub" id="elemSub"></p>
+          </div>
+          <span class="tier-badge" id="elemVerdict" data-tier="2">계산 중</span>
+        </div>
+
+        <div class="refund-line" id="elemPaidWrap">
+          <span>연간 실제 부담<small>수강료 − 지원금 + 급·간식비</small></span>
+          <strong id="elemPaid">0원</strong>
+        </div>
+
+        <div class="breakdown" id="elemRows"></div>
+
+        <div class="stat-grid">
+          <div class="stat-cell">
+            <span>연간 수강료</span>
+            <strong id="elemStatFee">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>월 평균 부담</span>
+            <strong id="elemStatMonth">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>교육비 공제 15%</span>
+            <strong id="elemStatCredit">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>학기당 지원</span>
+            <strong id="elemStatTerm">0원</strong>
+          </div>
+        </div>
+
+        <div class="elig-list" id="elemElig"></div>
+
+        <div class="after-box">
+          <p class="after-title" id="elemNextTitle">다음에 할 일</p>
+          <p id="elemNext"></p>
+        </div>
+
+        <p class="insight" id="elemInsight"></p>
+
+        <details class="breakdown-box" open>
+          <summary>
+            <span>학년별로 무엇이 지원되나</span>
+            <span class="summary-hint">2026년</span>
+          </summary>
+          <div class="table-wrap">
+            <table class="data-table" id="elemTable">
+              <caption class="sr-only">2026년 학년별 늘봄·방과후 지원 내용</caption>
+              <thead>
+                <tr><th scope="col">학년</th><th scope="col">무상 프로그램</th><th scope="col">방과후 수강료</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">초1·2</th><td>맞춤형 프로그램 매일 2시간 무상</td><td>본인 부담(자유수강권은 저소득)</td></tr>
+                <tr><th scope="row">초3</th><td>선택형 돌봄·교육</td><td>이용권 연 50만원(학기당 25만원)</td></tr>
+                <tr><th scope="row">초4~6</th><td>선택형 돌봄·교육</td><td>본인 부담</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="field-help">초1·2의 무상 프로그램은 <strong>현금으로 받는 돈이 아니라 수강료가 없는 것</strong>입니다. 방과후학교 수강료는 초3 이용권과 별개로 본인이 내는 금액이며, 연말정산 교육비 공제(15%) 대상입니다.</p>
+        </details>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="elemShare">결과 복사하기</button>
+        </div>
+      </section>
+
+      <div class="ad-slot" data-ad-slot="mid2" aria-hidden="true" hidden></div>
+    </section>
+
+    <!-- ══════════ 탭 3: 교육비 세액공제 ══════════ -->
+    <section class="panel" id="panelEdu" role="tabpanel" aria-labelledby="tabEdu" tabindex="0" hidden>
+      <p class="lead">연말정산에서 <strong>교육비의 15%</strong>를 세금에서 빼 줍니다. 취학 전 아동과 초·중·고는 <strong>1명당 연 300만원</strong>, 대학생은 <strong>900만원</strong>, 본인과 장애인 특수교육비는 <strong>한도가 없습니다</strong>. 2026년 귀속분부터 자녀 소득요건이 사라지고, <strong>초등 9세 미만·2학년 이하의 예능학원·체육시설 수강료</strong>도 공제됩니다.</p>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>올해 산출세액</h2>
+          <p class="card-sub">세액공제는 <strong>낼 세금이 있어야</strong> 돌려받습니다. 원천징수영수증의 산출세액을 모르면 그대로 두세요.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="eduTax">올해 산출세액</label>
+            <span class="badge-soft" id="eduTaxBadge">120만원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="eduTax" type="number" inputmode="numeric" min="0" max="200000000" step="100000" value="1200000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="산출세액 빠른 선택">
+            <button type="button" data-edu-tax="300000">30만</button>
+            <button type="button" data-edu-tax="600000">60만</button>
+            <button type="button" data-edu-tax="1200000">120만</button>
+            <button type="button" data-edu-tax="2400000">240만</button>
+          </div>
+          <p class="field-help">결정세액이 0원이면 교육비를 더 내도 환급액은 늘지 않습니다. 산출세액을 넘는 공제액은 사라지고 다음 해로 넘어가지 않습니다.</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>아이별 교육비</h2>
+          <p class="card-sub">2026년 1월 1일 ~ 12월 31일에 <strong>실제로 낸 금액</strong>만 넣습니다. 학교·직장 장학금으로 낸 부분은 빼세요.</p>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="eduTypeLabel1">첫째</span>
+          <div class="segmented segmented-sm" role="radiogroup" aria-labelledby="eduTypeLabel1" id="eduTypeGroup1">
+            <button type="button" role="radio" aria-checked="false" data-edu-type1="none">해당 없음</button>
+            <button type="button" role="radio" aria-checked="true" class="is-active" data-edu-type1="preschool">취학 전</button>
+            <button type="button" role="radio" aria-checked="false" data-edu-type1="school">초·중·고</button>
+            <button type="button" role="radio" aria-checked="false" data-edu-type1="college">대학생</button>
+          </div>
+          <div id="eduAmtWrap1">
+            <div class="field-label-row">
+              <label class="field-label" for="eduAmt1">연간 낸 교육비</label>
+              <span class="badge-soft" id="eduAmtBadge1">150만원</span>
+            </div>
+            <div class="input-wrap">
+              <input id="eduAmt1" type="number" inputmode="numeric" min="0" max="30000000" step="100000" value="1500000" autocomplete="off">
+              <span class="unit">원</span>
+            </div>
+            <div class="chips" role="group" aria-label="교육비 빠른 선택">
+              <button type="button" data-edu-amt1="1000000">100만</button>
+              <button type="button" data-edu-amt1="2000000">200만</button>
+              <button type="button" data-edu-amt1="3000000">300만</button>
+              <button type="button" data-edu-amt1="5000000">500만</button>
+            </div>
+            <p class="field-help">유치원·어린이집 보육비용, 방과후 수업료, 급식비, 교과서대금, 학원비(취학 전·초1·2 예능)를 합친 <strong>학부모 부담분</strong>입니다. 정부 지원금은 빼고 넣으세요.</p>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="eduTypeLabel2">둘째</span>
+          <div class="segmented segmented-sm" role="radiogroup" aria-labelledby="eduTypeLabel2" id="eduTypeGroup2">
+            <button type="button" role="radio" aria-checked="false" data-edu-type2="none">해당 없음</button>
+            <button type="button" role="radio" aria-checked="false" data-edu-type2="preschool">취학 전</button>
+            <button type="button" role="radio" aria-checked="true" class="is-active" data-edu-type2="school">초·중·고</button>
+            <button type="button" role="radio" aria-checked="false" data-edu-type2="college">대학생</button>
+          </div>
+          <div id="eduAmtWrap2">
+            <div class="field-label-row">
+              <label class="field-label" for="eduAmt2">연간 낸 교육비</label>
+              <span class="badge-soft" id="eduAmtBadge2">120만원</span>
+            </div>
+            <div class="input-wrap">
+              <input id="eduAmt2" type="number" inputmode="numeric" min="0" max="30000000" step="100000" value="1200000" autocomplete="off">
+              <span class="unit">원</span>
+            </div>
+            <p class="field-help">교복은 1명당 연 50만원, 현장체험학습비는 30만원까지 별도 한도로 인정되지만 <strong>같은 300만원 안에서</strong> 합산됩니다.</p>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="eduTypeLabel3">셋째</span>
+          <div class="segmented segmented-sm" role="radiogroup" aria-labelledby="eduTypeLabel3" id="eduTypeGroup3">
+            <button type="button" role="radio" aria-checked="true" class="is-active" data-edu-type3="none">해당 없음</button>
+            <button type="button" role="radio" aria-checked="false" data-edu-type3="preschool">취학 전</button>
+            <button type="button" role="radio" aria-checked="false" data-edu-type3="school">초·중·고</button>
+            <button type="button" role="radio" aria-checked="false" data-edu-type3="college">대학생</button>
+          </div>
+          <div id="eduAmtWrap3" hidden>
+            <div class="field-label-row">
+              <label class="field-label" for="eduAmt3">연간 낸 교육비</label>
+              <span class="badge-soft" id="eduAmtBadge3">0원</span>
+            </div>
+            <div class="input-wrap">
+              <input id="eduAmt3" type="number" inputmode="numeric" min="0" max="30000000" step="100000" value="0" autocomplete="off">
+              <span class="unit">원</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <div class="field-label-row">
+              <label class="field-label" for="eduSelf">본인 교육비 <small>한도 없음</small></label>
+              <span class="badge-soft" id="eduSelfBadge">0원</span>
+            </div>
+            <div class="input-wrap input-wrap-sm">
+              <input id="eduSelf" type="number" inputmode="numeric" min="0" max="30000000" step="100000" value="0" autocomplete="off">
+              <span class="unit">원</span>
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label-row">
+              <label class="field-label" for="eduDisabled">장애인 특수교육비</label>
+              <span class="badge-soft" id="eduDisabledBadge">0원</span>
+            </div>
+            <div class="input-wrap input-wrap-sm">
+              <input id="eduDisabled" type="number" inputmode="numeric" min="0" max="30000000" step="100000" value="0" autocomplete="off">
+              <span class="unit">원</span>
+            </div>
+          </div>
+        </div>
+        <p class="field-help">본인 교육비는 대학원·직업능력개발훈련·학자금대출 원리금도 포함합니다. 장애인 특수교육비는 직계존속도 되고 나이·소득 제한이 없습니다.</p>
+      </section>
+
+      <section class="card result-card" id="eduResultCard">
+        <div class="result-head">
+          <div>
+            <p class="result-label">교육비 세액공제</p>
+            <p class="result-amount" aria-live="polite" aria-atomic="true"><span id="eduTotal">0</span><span class="won">원</span></p>
+            <p class="result-sub" id="eduSub"></p>
+          </div>
+          <span class="tier-badge" id="eduVerdict" data-tier="2">계산 중</span>
+        </div>
+
+        <div class="refund-line" id="eduRefundWrap">
+          <span>지방소득세까지 합친 절세액<small>소득세 공제의 10%</small></span>
+          <strong id="eduRefund">0원</strong>
+        </div>
+
+        <div class="breakdown" id="eduRows"></div>
+
+        <div class="stat-grid">
+          <div class="stat-cell">
+            <span>공제 대상 금액</span>
+            <strong id="eduStatBase">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>공제율</span>
+            <strong id="eduStatRate">15%</strong>
+          </div>
+          <div class="stat-cell">
+            <span>한도까지 남은 금액</span>
+            <strong id="eduStatLeft">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>산출세액 반영</span>
+            <strong id="eduStatApplied">0원</strong>
+          </div>
+        </div>
+
+        <div class="elig-list" id="eduElig"></div>
+
+        <div class="after-box" id="eduNextBox">
+          <p class="after-title" id="eduNextTitle">다음에 할 일</p>
+          <p id="eduNext"></p>
+        </div>
+
+        <p class="insight" id="eduInsight"></p>
+
+        <details class="breakdown-box" open>
+          <summary>
+            <span>교육비별 한도와 공제액</span>
+            <span class="summary-hint">2026년 귀속</span>
+          </summary>
+          <div class="table-wrap">
+            <table class="data-table data-table--num" id="eduScaleTable">
+              <caption class="sr-only">취학 전 아동 교육비 금액별 세액공제와 지방소득세 포함 절세액</caption>
+              <thead>
+                <tr><th scope="col">취학 전 교육비</th><th scope="col">공제 대상</th><th scope="col">세액공제</th><th scope="col">지방세 포함</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <p class="field-help">한도 300만원을 채우면 45만원(지방세 포함 49만 5천원)이 최대입니다. 300만원을 넘는 교육비는 아무리 많아도 공제가 늘지 않습니다.</p>
+        </details>
+
+        <details class="breakdown-box">
+          <summary>
+            <span>2026년에 달라진 교육비 공제</span>
+            <span class="summary-hint">2026. 1. 1. 지급분부터</span>
+          </summary>
+          <div class="table-wrap">
+            <table class="data-table" id="eduChangeTable">
+              <caption class="sr-only">2026년 귀속 교육비 세액공제 변경 내용</caption>
+              <thead>
+                <tr><th scope="col">구분</th><th scope="col">2025년까지</th><th scope="col">2026년 귀속</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">가족 소득요건</th><td>소득요건 적용</td><td>소득과 관계없이 공제</td></tr>
+                <tr><th scope="row">초등 학원·체육시설</th><td>공제 없음</td><td>9세 미만 또는 2학년 이하 예능·체육만</td></tr>
+                <tr><th scope="row">교복·현장체험학습</th><td>한도 안에서 인정</td><td>그대로(교복 50만·체험 30만)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="eduShare">결과 복사하기</button>
+        </div>
+      </section>
+
+      <div class="ad-slot" data-ad-slot="bottom" aria-hidden="true" hidden></div>
+    </section>
+
+    <!-- ══════════ 탭 4: 서류·신청·FAQ ══════════ -->
+    <section class="panel" id="panelGuide" role="tabpanel" aria-labelledby="tabGuide" tabindex="0" hidden>
+      <p class="lead">보육료·유아학비는 <strong>신청한 날부터</strong> 지원됩니다. 입소·입학 전에 복지로나 주민센터에서 신청하고, 연말정산 교육비는 <strong>12월 31일까지 낸 금액</strong>으로 정산됩니다.</p>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>신청 전에 확인할 체크리스트</h2>
+          <p class="card-sub">체크한 항목은 이 기기에만 저장됩니다.</p>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-bar"><i id="gdBar"></i></div>
+          <span class="check-count" id="gdCount">0 / 10</span>
+        </div>
+        <div class="check-list" id="gdList">
+          <label class="check-item"><input type="checkbox" data-check="g1"><span>아이 주민등록 주소지 <strong>주민센터 또는 복지로</strong>에서 보육료·유아학비를 신청했다</span></label>
+          <label class="check-item"><input type="checkbox" data-check="g2"><span>입소·입학 <strong>전에</strong> 신청했다(입소 후 신청하면 그날부터 지원)</span></label>
+          <label class="check-item"><input type="checkbox" data-check="g3"><span>기관 유형(<strong>국공립·사립 유치원 / 어린이집</strong>)과 반(연령)을 확인했다</span></label>
+          <label class="check-item"><input type="checkbox" data-check="g4"><span>유치원 <strong>방과후 과정</strong>을 이용하면 하루 8시간·월 15일 기준을 채운다</span></label>
+          <label class="check-item"><input type="checkbox" data-check="g5"><span>어린이집 <strong>연장보육</strong>은 17시 이후 전자출결로 기록된다</span></label>
+          <label class="check-item"><input type="checkbox" data-check="g6"><span>4~5세 <strong>무상교육·보육</strong> 차감이 원비에 반영됐다(신청 불필요)</span></label>
+          <label class="check-item"><input type="checkbox" data-check="g7"><span>사립유치원 <strong>저소득층 추가지원</strong>은 따로 신청했다(소급 불가)</span></label>
+          <label class="check-item"><input type="checkbox" data-check="g8"><span>초3이면 <strong>방과후 프로그램 이용권</strong> 신청·사용처를 확인했다</span></label>
+          <label class="check-item"><input type="checkbox" data-check="g9"><span>학원비·체육시설 <strong>교육비 납입증명서</strong>를 받아 두었다(간소화 미조회)</span></label>
+          <label class="check-item"><input type="checkbox" data-check="g10"><span>12월 31일까지 낼 교육비를 미리 확인했다(해 넘기면 다음 해)</span></label>
+        </div>
+        <div class="result-actions">
+          <button type="button" class="btn btn-ghost" id="gdReset">체크 초기화</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>지원 가능·불가 한눈에</h2>
+          <p class="card-sub">같은 나이여도 기관과 이용 형태에 따라 금액이 달라집니다.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table" id="gdExTable">
+            <caption class="sr-only">보육료·유아학비·교육비 공제 가능 여부와 이유</caption>
+            <thead>
+              <tr><th scope="col">상황</th><th scope="col">지원 · 이유</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">만 2세 · 정부지원 어린이집</th><td><strong>42만 6천원</strong> · 부모보육료 전액</td></tr>
+              <tr><th scope="row">만 1세 · 민간어린이집</th><td>기관보육료 37만 7천원 · 원비 차액은 본인 부담</td></tr>
+              <tr><th scope="row">만 4세 · 사립유치원 방과후 이용</th><td><strong>51만원</strong> · 유아학비 28+방과후 7+추가 5+무상 11</td></tr>
+              <tr><th scope="row">만 4세 · 국공립유치원 방과후 미이용</th><td>15만원 · 유아학비 10+추가 5(무상 2만원은 방과후 이용 시)</td></tr>
+              <tr><th scope="row">만 5세 · 어린이집</th><td><strong>40만원</strong> · 누리보육료 28+추가 5+무상 7</td></tr>
+              <tr><th scope="row">만 6세 · 어린이집</th><td>지원 없음 · 누리과정은 만 3~5세까지(취학 전 3년)</td></tr>
+              <tr><th scope="row">초1 · 늘봄 맞춤형 프로그램</th><td>무상 · 매일 2시간, 현금 지급 아님</td></tr>
+              <tr><th scope="row">초3 · 방과후 수강료 60만원</th><td>지원 50만원 · 본인 부담 10만원</td></tr>
+              <tr><th scope="row">초4 · 방과후 수강료</th><td>지원 없음 · 본인 부담(교육비 공제 15%)</td></tr>
+              <tr><th scope="row">초등 3학년 · 영어학원비</th><td>공제 불가 · 예능(음악·미술·무용)·체육시설만</td></tr>
+              <tr><th scope="row">취학 전 아동 · 태권도장</th><td>공제 가능 · 월 단위·주 1회 이상 과정</td></tr>
+              <tr><th scope="row">대학생 자녀 · 아르바이트 소득</th><td>공제 가능 · 2026년부터 소득요건 폐지</td></tr>
+              <tr><th scope="row">직계존속(부모님) 일반 교육비</th><td>공제 불가 · 장애인 특수교육비만 가능</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card faq-card">
+        <h2>보육료·교육비에서 자주 묻는 것</h2>
+        <details class="faq" open>
+          <summary>어린이집과 유치원 중 어디가 더 지원이 많나요?</summary>
+          <p>단가만 보면 만 3~5세 사립유치원이 <strong>월 28만원 + 방과후 7만원 + 추가 5만원</strong>이고, 여기에 4~5세 무상교육 11만원이 붙어 <strong>최대 51만원</strong>입니다. 어린이집은 <strong>28만 + 5만 + (4~5세) 7만 = 최대 40만원</strong>입니다. 다만 유치원은 방과후 이용·출석 요건이 있고, 원비가 더 높은 경우가 많아 실제 부담은 기관마다 다릅니다.</p>
+        </details>
+        <details class="faq">
+          <summary>4~5세 무상교육은 신청해야 하나요?</summary>
+          <p>아니요. <strong>별도 신청 없이</strong> 원비에서 차감됩니다. 사립유치원은 유아교육비 11만원, 국공립유치원은 방과후 과정비 2만원, 어린이집은 기타 필요경비 7만원입니다. 다만 기관이 차감을 빠뜨리면 학부모가 확인해야 합니다.</p>
+        </details>
+        <details class="faq">
+          <summary>3세는 2026년에 무상교육을 받나요?</summary>
+          <p>2026년 3월 기준으로는 <strong>4~5세까지</strong>입니다. 3세 확대는 2027년 계획으로, 2026년 11월 현재 국회 예산 심의가 남아 있습니다. 이 계산기는 확정된 4~5세 기준으로 계산합니다.</p>
+        </details>
+        <details class="faq">
+          <summary>연장보육료는 어떻게 계산하나요?</summary>
+          <p>17시 이후 실제로 이용한 시간에 따라 <strong>30분 단위</strong>로 붙습니다. 0세반 시간당 3,000원, 영아반 2,000원, 유아반 1,000원입니다. 24시간(야간) 보육은 기본보육료가 따로 적용되고 연장보육료는 지원되지 않습니다.</p>
+        </details>
+        <details class="faq">
+          <summary>어린이집 특별활동비도 지원되나요?</summary>
+          <p>아니요. 특별활동비·교재교구비·차량비는 <strong>학부모 부담</strong>입니다. 단, 4~5세는 기타 필요경비로 월 7만원까지 차감됩니다. 지자체나 어린이집 자체 지원이 있으면 별도로 확인하세요.</p>
+        </details>
+        <details class="faq">
+          <summary>초3 방과후 이용권은 현금으로 받나요?</summary>
+          <p>현금이 아니라 <strong>방과후 프로그램 수강료를 내는 이용권</strong>입니다. 연 50만원(학기당 25만원)이 원칙이고, 교육청·학교 여건에 따라 대상과 금액이 조금 달라질 수 있습니다. 학원비에는 쓸 수 없습니다.</p>
+        </details>
+        <details class="faq">
+          <summary>교육비 세액공제는 얼마까지 돌려받나요?</summary>
+          <p>취학 전·초중고 자녀 1명당 <strong>연 300만원의 15% = 45만원</strong>, 대학생은 900만원의 15% = <strong>135만원</strong>이 최대입니다. 본인 교육비와 장애인 특수교육비는 한도가 없습니다. 지방소득세 10%까지 줄어 실제 절세액은 여기에 1.1을 곱한 금액입니다.</p>
+        </details>
+        <details class="faq">
+          <summary>초등 1학년 피아노 학원비도 공제되나요?</summary>
+          <p>2026년 귀속분부터 됩니다. <strong>12월 31일 현재 9세 미만이거나 2학년 이하</strong>인 초등학생이 낸 예능(음악·미술·무용) 학원비와 체육시설 수강료가 대상입니다. 월 단위·주 1회 이상 과정이어야 하고, 영어·수학 학원비는 안 됩니다.</p>
+        </details>
+        <details class="faq">
+          <summary>학원비는 왜 간소화에서 안 보이나요?</summary>
+          <p>취학 전 아동과 초등 저학년 학원비는 연말정산 간소화에 조회되지 않습니다. 학원에서 <strong>교육비 납입증명서</strong>를 받아 회사에 내야 합니다. 유치원·어린이집·학교 납입금은 조회됩니다.</p>
+        </details>
+        <details class="faq">
+          <summary>작년에 놓친 교육비 공제도 받을 수 있나요?</summary>
+          <p>법정신고기한이 지난 뒤 <strong>5년 이내</strong>면 홈택스에서 경정청구할 수 있습니다. 2025년 귀속분은 2031년까지 가능하고, 국세환급가산금도 함께 받습니다.</p>
+        </details>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>공식 확인처</h2>
+          <p class="card-sub">단가와 요건은 매년 바뀝니다. 신청 전에 원문을 확인하세요.</p>
+        </div>
+        <div class="related-grid">
+          <a class="related-app" href="https://www.bokjiro.go.kr/" target="_blank" rel="noopener">
+            <strong>복지로</strong>
+            <span>보육료·유아학비 신청</span>
+          </a>
+          <a class="related-app" href="https://www.moe.go.kr/" target="_blank" rel="noopener">
+            <strong>교육부</strong>
+            <span>유아학비 지원계획·누리과정 고시</span>
+          </a>
+          <a class="related-app" href="https://central.childcare.go.kr/" target="_blank" rel="noopener">
+            <strong>중앙육아종합지원센터</strong>
+            <span>보육료 지원 단가</span>
+          </a>
+          <a class="related-app" href="https://www.nts.go.kr/" target="_blank" rel="noopener">
+            <strong>국세청</strong>
+            <span>교육비 세액공제 안내</span>
+          </a>
+        </div>
+      </section>
+    </section>
+
+    <!-- 제휴 상품: config.js 의 coupang.items 에 링크를 넣으면 나타납니다 -->
+    <section class="card promo-card" id="promoSection" hidden>
+      <div class="card-head">
+        <h2 id="promoHeading">아이 낮잠·등원 준비에 챙길 것</h2>
+        <p class="card-sub" id="promoSub"></p>
+      </div>
+      <div class="promo-grid" id="promoList"></div>
+      <p class="ad-disclosure" id="promoDisclosure"></p>
+    </section>
+
+    <section class="related-apps" aria-labelledby="relatedAppsTitle">
+      <h2 id="relatedAppsTitle">함께 많이 쓰는 계산기</h2>
+      <div class="related-grid">
+        <a class="related-app" href="../parenting-benefit/">
+          <strong>육아휴직·부모급여 계산기</strong>
+          <span>육아휴직 급여·아동수당</span>
+        </a>
+        <a class="related-app" href="../year-end-tax/">
+          <strong>연말정산 환급 계산기</strong>
+          <span>카드·연금·의료비 한 번에</span>
+        </a>
+        <a class="related-app" href="../living-cost/">
+          <strong>고정비 체크기</strong>
+          <span>숨은 지원금·구독 정리</span>
+        </a>
+        <a class="related-app" href="../medical-tax/">
+          <strong>의료비 세액공제 계산기</strong>
+          <span>3% 문턱·실손 차감</span>
+        </a>
+        <a class="related-app" href="../monthly-rent-tax/">
+          <strong>월세 세액공제 계산기</strong>
+          <span>17%·15%·월세 1,000만원</span>
+        </a>
+        <a class="related-app" href="../card-tax/">
+          <strong>카드 황금비율 계산기</strong>
+          <span>25% 문턱·체크 30%</span>
+        </a>
+        <a class="related-app" href="../donation-tax/">
+          <strong>고향사랑기부제 계산기</strong>
+          <span>10만원 전액·답례품 30%</span>
+        </a>
+        <a class="related-app" href="../">
+          <strong>전체 계산기</strong>
+          <span>생활 계산기 23종 모아 보기</span>
+        </a>
+      </div>
+    </section>
+
+    <footer class="app-footer">
+      <p class="disclaimer">
+        <strong>참고용 모의 계산입니다.</strong> 2026년 11월 27일 기준 2026년도 보육사업안내(보건복지부),
+        2026학년도 유아학비 지원계획·2026년도 누리과정 부담비용 고시(교육부고시 제2026-2호),
+        2026년 온동네 초등돌봄·교육 추진 방안(교육부), 소득세법 제59조의4 제3항·같은 법 시행령
+        제118조의6(2026년 10월 1일 시행)을 따랐습니다. 어린이집 보육료는 만 0세 584,000원·1세
+        515,000원·2세 426,000원·3~5세 280,000원에 2026년 3월부터 3~5세 추가지원 50,000원이 붙고,
+        유아학비는 국공립 100,000원·사립 280,000원에 방과후 과정비 50,000원·70,000원이 더해집니다.
+        4~5세 무상교육·보육은 사립유치원 110,000원·국공립유치원 방과후 20,000원·어린이집 70,000원을
+        원비에서 차감하며, 3세 확대는 2027년 계획으로 확정되지 않았습니다. 교육비 세액공제는 낸 금액의
+        15%로 취학 전 아동·초중고 1명당 연 300만원, 대학생 900만원, 본인·장애인은 한도가 없고,
+        결정세액이 0원이면 공제가 사라집니다. 실제 지원액은 지자체·기관·출석일수에 따라 달라질 수
+        있으니 신청 전 복지로나 주민센터에서 확인하세요. 입력값은 기기 안에만 저장되고 어디로도
+        전송되지 않습니다.
+      </p>
+      <p class="footer-links">
+        <a href="https://www.bokjiro.go.kr/" target="_blank" rel="noopener">복지로</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.moe.go.kr/" target="_blank" rel="noopener">교육부</a>
+        <span aria-hidden="true">·</span>
+        <a href="../">전체 계산기</a>
+        <span aria-hidden="true">·</span>
+        <a href="../parenting-benefit/">육아휴직·부모급여</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://blog.naver.com/ufssdf987" target="_blank" rel="noopener">운영 블로그</a>
+        <span aria-hidden="true">·</span>
+        <a href="../privacy.html">개인정보처리방침</a>
+      </p>
+      <p class="footer-meta">
+        <span>기준일 <time id="dataDate" datetime="2026-11-27">2026-11-27</time></span>
+        <span aria-hidden="true">·</span>
+        <span>v<span id="appVersion">1.0.0</span></span>
+        <span aria-hidden="true">·</span>
+        <span>입력값은 기기 안에만 저장됩니다</span>
+      </p>
+      <p class="ad-disclosure" id="footerDisclosure" hidden></p>
+    </footer>
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<noscript>
+  <div class="noscript">이 계산기는 자바스크립트를 사용합니다. 브라우저 설정에서 자바스크립트를 켜 주세요.</div>
+</noscript>
+
+<script src="config.js"></script>
+<script src="calc.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+{
+  "id": "/childcare-edu/",
+  "name": "2026 보육료·유아학비·교육비 세액공제 계산기",
+  "short_name": "보육료·교육비",
+  "description": "2026년 어린이집 보육료와 유치원 유아학비, 방과후 과정비, 3~5세 누리과정 추가지원 5만원, 4~5세 무상교육·보육(사립 11만원·공립 방과후 2만원·어린이집 7만원)을 계산합니다. 초1·2 매일 2시간 무상 맞춤형 프로그램과 초3 방과후 프로그램 이용권 연 50만원, 교육비 세액공제 15%(취학 전·초중고 300만원, 대학생 900만원, 초등 저학년 예능학원·체육시설)까지 한 번에.",
+  "lang": "ko",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "portrait-primary",
+  "background_color": "#eef2f8",
+  "theme_color": "#0e1726",
+  "categories": ["finance", "education", "utilities"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "보육료·유아학비",
+      "short_name": "보육·학비",
+      "url": "./index.html#care",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "초등 늘봄·방과후",
+      "short_name": "늘봄",
+      "url": "./index.html#elem",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "교육비 세액공제",
+      "short_name": "교육비",
+      "url": "./index.html#edu",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "서류·신청",
+      "short_name": "서류",
+      "url": "./index.html#guide",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "prefer_related_applications": false
+}
