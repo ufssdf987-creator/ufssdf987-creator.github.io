@@ -1,0 +1,57 @@
+{
+  "id": "/loan-switch/",
+  "name": "대출 갈아타기·중도상환 계산기",
+  "short_name": "대출 갈아타기",
+  "description": "잔여 원금·금리차·중도상환수수료·부대비용으로 대환 순절감액과 손익분기 개월 수를 계산하고, 경과일수로 중도상환수수료를 일할 계산하며, 일부 상환과 유지를 비교합니다.",
+  "lang": "ko",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "portrait-primary",
+  "background_color": "#eef2f8",
+  "theme_color": "#0e1726",
+  "categories": ["finance", "utilities"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "갈아타기 손익",
+      "short_name": "갈아타기",
+      "url": "./index.html#refi",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "중도상환수수료",
+      "short_name": "수수료 계산",
+      "url": "./index.html#prepay",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "일부 상환 비교",
+      "short_name": "일부 상환",
+      "url": "./index.html#partial",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "prefer_related_applications": false
+}
