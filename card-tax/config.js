@@ -8,7 +8,7 @@
  * 3) siteUrl 은 공유 문구에 쓰는 실제 배포 주소입니다.
  */
 window.APP_CONFIG = {
-  version: '1.0.2',
+  version: '1.0.3',
   siteName: '신용·체크카드 황금비율 계산기',
   siteUrl: 'https://ufssdf987-creator.github.io/card-tax/',
 

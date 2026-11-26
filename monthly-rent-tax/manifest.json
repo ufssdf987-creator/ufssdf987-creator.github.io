@@ -1,0 +1,63 @@
+{
+  "id": "/monthly-rent-tax/",
+  "name": "2026 월세 세액공제 & 전세대출 소득공제 계산기",
+  "short_name": "월세 세액공제",
+  "description": "2026년 귀속분 기준 월세 세액공제를 계산합니다. 총급여 5,500만원 이하(종합소득금액 4,500만원 이하) 17%, 총급여 8,000만원 이하 15%, 월세 연 1,000만원 한도에 국민주택규모 85㎡ 또는 기준시가 4억원 이하 요건을 적용하고, 2026년 신설된 주말부부 배우자 추가공제(부부 합산 1,000만원)와 산출세액 한도까지 반영합니다. 전세대출(주택임차차입금) 원리금 상환액 40%, 청약저축 공제와 합산 연 400만원 한도와 한계세율별 실제 절세액, 월세 세액공제와 현금영수증 30% 소득공제의 유불리, 서류·경정청구 5년까지 제공합니다.",
+  "lang": "ko",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "portrait-primary",
+  "background_color": "#eef2f8",
+  "theme_color": "#0e1726",
+  "categories": ["finance", "utilities", "productivity"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "월세 세액공제",
+      "short_name": "월세",
+      "url": "./index.html#rent",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "전세대출 공제",
+      "short_name": "전세대출",
+      "url": "./index.html#loan",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "현금영수증 비교",
+      "short_name": "비교",
+      "url": "./index.html#compare",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "서류·경정청구",
+      "short_name": "서류",
+      "url": "./index.html#guide",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "prefer_related_applications": false
+}
