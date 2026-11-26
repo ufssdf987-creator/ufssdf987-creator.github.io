@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>건강보험료 계산기 2026 | 직장 vs 지역 7.19% · 피부양자 자격 · 임의계속가입</title>
+<meta name="description" content="2026년 건강보험료율 7.19%로 직장가입자와 지역가입자(소득+재산, 자동차 폐지) 월 보험료를 비교하고, 피부양자 자격(소득 2,000만원·재산세 과세표준 5.4억원)을 판정하며, 퇴직 후 임의계속가입과 지역가입자 중 유리한 쪽을 계산합니다.">
+<meta name="keywords" content="건강보험료 계산기, 2026 건강보험료율 7.19%, 지역가입자 건강보험료 계산, 직장가입자 건강보험료, 피부양자 자격 조건, 피부양자 소득 2000만원, 재산세 과세표준 5.4억, 임의계속가입, 퇴직 후 건강보험료, 장기요양보험료 0.9448%, 재산보험료부과점수 211.5원, 자동차 건강보험료 폐지">
+<meta name="author" content="이안이 아빠의 공간">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://ufssdf987-creator.github.io/health-insurance/">
+<meta name="theme-color" content="#eef2f7">
+<meta name="theme-color" content="#eef2f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#070c16" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="건강보험료 계산">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="건강보험료·피부양자 계산기">
+<meta property="og:title" content="건강보험료 계산기 2026 — 직장 vs 지역 · 피부양자 자격">
+<meta property="og:description" content="2026년 7.19% 기준으로 직장·지역 건강보험료를 비교하고, 피부양자 자격과 퇴직 후 임의계속가입이 유리한지 3초에 확인하세요.">
+<meta property="og:url" content="https://ufssdf987-creator.github.io/health-insurance/">
+<meta property="og:image" content="https://ufssdf987-creator.github.io/health-insurance/icons/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="건강보험료·피부양자 계산기 — 2026년 7.19%, 자격 판정과 임의계속가입 비교">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="건강보험료 계산기 2026 — 직장 vs 지역 7.19%">
+<meta name="twitter:description" content="직장가입자와 지역가입자, 피부양자, 퇴직 후 임의계속가입까지. 2026년 기준으로 한 번에 비교합니다.">
+<meta name="twitter:image" content="https://ufssdf987-creator.github.io/health-insurance/icons/og-image.png">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="styles.css">
+<script>
+  /* 첫 화면 깜빡임 방지: 저장된 테마를 CSS 적용 전에 반영 */
+  (function () {
+    try {
+      var saved = localStorage.getItem('hln.theme');
+      var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', (saved === 'dark' || saved === 'light') ? saved : (dark ? 'dark' : 'light'));
+    } catch (e) { /* 저장소 접근 불가 시 기본 라이트 */ }
+  })();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "건강보험료·피부양자 계산기",
+  "url": "https://ufssdf987-creator.github.io/health-insurance/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "inLanguage": "ko",
+  "description": "2026년 건강보험료율 7.19%와 재산보험료부과점수로 직장가입자·지역가입자 월 보험료를 비교하고, 피부양자 자격을 판정하며, 퇴직 후 임의계속가입과 지역가입자의 부담을 비교합니다.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+  "featureList": [
+    "직장가입자와 지역가입자 월 건강보험료·장기요양보험료 비교",
+    "지역가입자 소득분·재산분 부과 구조와 재산 등급별 보험료",
+    "피부양자 자격 판정(소득 2,000만원·사업소득·재산세 과세표준 5.4억원)",
+    "퇴직 후 임의계속가입과 지역가입자 36개월 부담 비교"
+  ]
+}
+</script>
+<!-- Google AdSense — 사이트 확인·광고 로딩용 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4355917079579050" crossorigin="anonymous"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+<div class="app-shell">
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" role="img" focusable="false">
+          <defs>
+            <linearGradient id="hlGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#7dd3fc"/><stop offset="1" stop-color="#2563eb"/>
+            </linearGradient>
+            <linearGradient id="hlGrad2" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#5eead4"/><stop offset="1" stop-color="#0f9d76"/>
+            </linearGradient>
+          </defs>
+          <rect x="1" y="1" width="46" height="46" rx="13" fill="none" stroke="currentColor" stroke-opacity=".18"/>
+          <path d="M24 6.5 11 12v11.5c0 8.2 5.5 14.4 13 17 7.5-2.6 13-8.8 13-17V12L24 6.5Z" fill="url(#hlGrad)"/>
+          <path d="M24 16.5v13M17.5 23h13" stroke="#f8fbff" stroke-width="3.4" stroke-linecap="round"/>
+          <path d="M31 35.5c3.2-2.6 5.2-6.2 5.7-10.3" fill="none" stroke="url(#hlGrad2)" stroke-width="2.6" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <div class="brand-text">
+        <h1>건강보험료 계산</h1>
+        <p>2026년 7.19% · 피부양자 자격 · 임의계속가입</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button type="button" class="icon-btn install-btn" id="installBtn" hidden>앱 설치</button>
+      <button type="button" class="icon-btn theme-btn" id="themeBtn" aria-label="화면 테마 바꾸기" title="라이트/다크 전환">
+        <span id="themeIcon" aria-hidden="true">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="계산기 선택">
+    <button type="button" class="tab is-active" id="tabCost" role="tab" aria-selected="true" aria-controls="panelCost" tabindex="0">
+      <span class="tab-emoji" aria-hidden="true">⚖️</span>
+      <span class="tab-label">보험료 비교</span>
+    </button>
+    <button type="button" class="tab" id="tabDependent" role="tab" aria-selected="false" aria-controls="panelDependent" tabindex="-1">
+      <span class="tab-emoji" aria-hidden="true">👨‍👩‍👧</span>
+      <span class="tab-label">피부양자 판정</span>
+    </button>
+    <button class="tab" id="tabRetire" type="button" role="tab" aria-selected="false" aria-controls="panelRetire" tabindex="-1">
+      <span class="tab-emoji" aria-hidden="true">🚪</span>
+      <span class="tab-label">퇴직 후 비교</span>
+    </button>
+  </nav>
+
+  <main id="main">
+    <div class="ad-slot" data-ad-slot="top" aria-hidden="true" hidden></div>
+
+    <!-- ══════════ 탭 1: 보험료 비교 ══════════ -->
+    <section class="panel is-active" id="panelCost" role="tabpanel" aria-labelledby="tabCost" tabindex="0">
+      <section class="card">
+        <div class="card-head">
+          <h2>직장가입자 vs 지역가입자</h2>
+          <p class="card-sub">같은 소득·재산이라도 어느 쪽 가입자인지에 따라 매달 나가는 건강보험료가 달라집니다. 2026년 기준으로 나란히 계산합니다.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="csSalary">보수월액 (월급여)</label>
+            <span class="badge-soft" id="csSalaryBadge">직장 본인 50% 부담</span>
+          </div>
+          <div class="input-wrap">
+            <input id="csSalary" type="number" inputmode="numeric" min="0" max="100000000" step="100000" value="3500000" autocomplete="off" aria-describedby="csSalaryHelp">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="보수월액 빠른 선택">
+            <button type="button" data-cs-salary="2500000">250만</button>
+            <button type="button" data-cs-salary="3000000">300만</button>
+            <button type="button" data-cs-salary="3500000">350만</button>
+            <button type="button" data-cs-salary="5000000">500만</button>
+            <button type="button" data-cs-salary="8000000">800만</button>
+          </div>
+          <p class="field-help" id="csSalaryHelp">세전 월급여(보수월액)입니다. 직장가입자는 <strong>보수월액 × 7.19%</strong>를 근로자와 사업주가 절반씩 부담합니다.</p>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="csExtra">보수 외 소득 <small>연간, 선택</small></label>
+          <div class="input-wrap input-wrap-sm">
+            <input id="csExtra" type="number" inputmode="numeric" min="0" max="1000000000" step="1000000" value="0" autocomplete="off">
+            <span class="unit">원 / 년</span>
+          </div>
+          <p class="field-help">이자·배당·사업·근로·연금 등 월급 외 소득입니다. <strong>연 2,000만원을 넘는 부분</strong>만 보험료가 붙고, 회사 몫 없이 본인이 전액 부담합니다.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="csIncome">지역가입자 소득 <small>연간</small></label>
+            <span class="badge-soft" id="csIncomeBadge">소득월액 175만원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="csIncome" type="number" inputmode="numeric" min="0" max="1000000000" step="1000000" value="42000000" autocomplete="off">
+            <span class="unit">원 / 년</span>
+          </div>
+          <div class="chips" role="group" aria-label="연 소득 빠른 선택">
+            <button type="button" data-cs-income="12000000">1,200만</button>
+            <button type="button" data-cs-income="24000000">2,400만</button>
+            <button type="button" data-cs-income="42000000">4,200만</button>
+            <button type="button" data-cs-income="60000000">6,000만</button>
+            <button type="button" data-cs-income="100000000">1억</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="csTypeLabel">소득 종류 <small>지역가입자 반영률</small></span>
+          <div class="segmented" role="group" aria-labelledby="csTypeLabel" data-segment="cstype">
+            <button type="button" data-value="earned" class="is-active">근로·연금 <span>50%만 반영</span></button>
+            <button type="button" data-value="business">사업·기타 <span>100% 반영</span></button>
+          </div>
+          <p class="field-help">지역가입자는 소득 전부가 아니라 <strong>근로·연금은 절반</strong>만 소득월액으로 잡습니다. 사업·기타·임대소득은 전액 반영됩니다.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="csProperty">재산세 과세표준 합</label>
+            <span class="badge-soft" id="csPropertyBadge">24등급 · 586점</span>
+          </div>
+          <div class="input-wrap">
+            <input id="csProperty" type="number" inputmode="numeric" min="0" max="5000000000" step="10000000" value="300000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="재산세 과세표준 빠른 선택">
+            <button type="button" data-cs-property="0">없음</button>
+            <button type="button" data-cs-property="150000000">1.5억</button>
+            <button type="button" data-cs-property="300000000">3억</button>
+            <button type="button" data-cs-property="500000000">5억</button>
+            <button type="button" data-cs-property="700000000">7억</button>
+          </div>
+          <p class="field-help">공시가격이나 시세가 아니라 <strong>재산세 고지서의 과세표준</strong>입니다. 여기서 기본공제 1억원을 빼고 60등급 점수를 매깁니다.</p>
+        </div>
+
+        <div class="after-box" style="margin-top:14px">
+          <p class="after-title">자동차 보험료는 폐지됐어요</p>
+          <p>2022년 7월 부과체계 개편으로 자동차분 건강보험료가 폐지되어, 2026년 재산보험료부과점수표에도 자동차 항목이 없습니다. 차가 있어도 지역 보험료에는 잡히지 않습니다.</p>
+        </div>
+      </section>
+
+      <section class="card result-card" id="csResultCard">
+        <div class="result-head">
+          <div>
+            <p class="result-label" id="csDiffLabel">직장가입자가 월 덜 내는 금액</p>
+            <p class="result-amount" aria-live="polite" aria-atomic="true"><span id="csDiff">140,225</span><span class="won" id="csDiffUnit">원 / 월</span></p>
+            <p class="result-sub" id="csSub">보수월액 350만원 · 지역 소득 4,200만원 · 재산 3억원</p>
+          </div>
+          <span class="tier-badge" id="csWinner" data-tier="1">직장 유리</span>
+        </div>
+
+        <div class="breakdown" id="csRows"></div>
+
+        <div class="stat-grid">
+          <div class="stat-cell">
+            <span>직장 본인부담 합계</span>
+            <strong id="csEmpTotal">142,359원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>직장 사업주 포함</span>
+            <strong id="csEmpBoth">284,718원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>지역 건강보험료</span>
+            <strong id="csRegHealth">249,764원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>지역 장기요양보험료</span>
+            <strong id="csRegLtc">32,820원</strong>
+          </div>
+        </div>
+
+        <p class="insight" id="csInsight"></p>
+
+        <details class="breakdown-box" id="csTableBox">
+          <summary>
+            <span>재산 구간별 지역 보험료</span>
+            <span class="summary-hint">같은 소득 기준</span>
+          </summary>
+          <div class="table-wrap">
+            <table class="data-table data-table--num" id="csTable">
+              <caption class="sr-only">재산세 과세표준에 따른 지역가입자 월 보험료</caption>
+              <thead>
+                <tr><th scope="col">과세표준</th><th scope="col">등급</th><th scope="col">재산분</th><th scope="col">월 합계</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <p class="field-help">소득은 위에 입력한 값을 그대로 씁니다. 장기요양보험료를 포함한 금액입니다.</p>
+        </details>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="shareCost">
+            <span aria-hidden="true">📋</span> 결과 복사하기
+          </button>
+        </div>
+      </section>
+
+      <div class="ad-slot" data-ad-slot="mid" aria-hidden="true" hidden></div>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>지역가입자 보험료는 어떻게 매기나</h2>
+          <p class="card-sub">2026년 기준 소득분과 재산분을 더합니다. 2022년 7월 부과체계 개편 이후 소득은 점수가 아니라 요율을 곱합니다.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <caption class="sr-only">2026년 지역가입자 건강보험료 산정 구조</caption>
+            <thead>
+              <tr><th scope="col">구분</th><th scope="col">계산</th><th scope="col">근거</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">소득분</th><td>소득월액 × 7.19%</td><td>법 제69조제5항</td></tr>
+              <tr><th scope="row">재산분</th><td>재산보험료부과점수 × 211.5원</td><td>시행령 제44조제2항</td></tr>
+              <tr><th scope="row">재산 공제</th><td>재산세 과세표준 합 − 1억원</td><td>시행령 별표 4</td></tr>
+              <tr><th scope="row">장기요양</th><td>건강보험료 × 13.14%</td><td>노인장기요양보험법</td></tr>
+              <tr><th scope="row">상한·하한</th><td>월 4,591,740원 / 20,160원</td><td>복지부 고시 제2025-222호</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="table-wrap" style="margin-top:10px">
+          <table class="data-table">
+            <caption class="sr-only">소득 종류별 보험료 반영 비율</caption>
+            <thead>
+              <tr><th scope="col">소득</th><th scope="col">반영</th><th scope="col">비고</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">근로·연금</th><td>50%</td><td>국민연금 등 공적연금은 받은 금액 전부를 소득으로 봄</td></tr>
+              <tr><th scope="row">사업·기타</th><td>100%</td><td>주택임대소득 포함</td></tr>
+              <tr><th scope="row">이자·배당</th><td>100%</td><td>연 1,000만원 이하면 아예 합산하지 않음</td></tr>
+              <tr><th scope="row">퇴직·양도소득</th><td>제외</td><td>건강보험료 부과 대상 소득이 아님</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="tips">
+          <li><strong>소득월액이 28만원 이하면</strong> 하한 보험료 20,160원을 기준으로 계산합니다. 소득이 없어도 최소 금액은 나옵니다.</li>
+          <li><strong>재산 기본공제는 세대 단위 1억원</strong>입니다. 무주택 세대는 임차보증금과 월세를 평가해 더합니다.</li>
+          <li><strong>자동차는 부과 대상이 아닙니다.</strong> 2022년 7월 개편으로 자동차분 보험료가 폐지되어 2026년 별표에도 자동차 항목이 없습니다.</li>
+        </ul>
+      </section>
+
+      <section class="card faq-card">
+        <h2>보험료 비교에서 자주 묻는 것</h2>
+        <details class="faq" open>
+          <summary>직장가입자인데 왜 지역가입자와 비교하나요?</summary>
+          <p>퇴직·이직·프리랜서 전환처럼 신분이 바뀌면 같은 소득·재산에도 부담이 크게 달라집니다. 직장가입자는 회사가 절반을 내지만 지역가입자는 <strong>전액 본인 부담</strong>이라, 사업주 몫까지 합친 금액과 지역 보험료가 비슷해지는 경우가 많습니다.</p>
+        </details>
+        <details class="faq">
+          <summary>계산 결과가 고지서와 다른 이유는?</summary>
+          <p>공단은 세대 단위로 소득·재산을 합산하고, 소득 자료는 1~10월에 전전년도, 11~12월에 전년도 것을 씁니다. 여기 계산은 입력한 값 하나로 산정한 <strong>1인 기준 모의 계산</strong>이며, 원 단위 처리와 경감·정산은 반영하지 않았습니다.</p>
+        </details>
+        <details class="faq">
+          <summary>소득이 줄면 보험료도 바로 줄어드나요?</summary>
+          <p>바로 줄지 않습니다. 폐업·실직 등으로 소득이 줄었다면 증명서류를 붙여 <strong>소득월액 조정</strong>을 신청할 수 있습니다(시행령 제41조의2). 신청하면 부과 시점 자료로 다시 계산합니다.</p>
+        </details>
+      </section>
+    </section>
+
+    <!-- ══════════ 탭 2: 피부양자 판정 ══════════ -->
+    <section class="panel" id="panelDependent" role="tabpanel" aria-labelledby="tabDependent" tabindex="0" hidden>
+      <section class="card">
+        <div class="card-head">
+          <h2>피부양자 자격 판정</h2>
+          <p class="card-sub">배우자·부모·자녀가 직장가입자의 피부양자가 되려면 소득·재산·부양 요건을 모두 채워야 합니다. 소득과 재산만으로 미리 확인해 보세요.</p>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="dpRelationLabel">직장가입자와의 관계</span>
+          <div class="segmented segmented-rel" role="group" aria-labelledby="dpRelationLabel" data-segment="relation">
+            <button type="button" data-value="spouse">배우자</button>
+            <button type="button" data-value="parent" class="is-active">부모</button>
+            <button type="button" data-value="child">자녀</button>
+            <button type="button" data-value="sibling">형제·자매</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="dpIncome">연 소득 합계</label>
+            <span class="badge-soft" id="dpIncomeBadge">한도까지 800만원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="dpIncome" type="number" inputmode="numeric" min="0" max="500000000" step="1000000" value="12000000" autocomplete="off">
+            <span class="unit">원 / 년</span>
+          </div>
+          <div class="chips" role="group" aria-label="연 소득 빠른 선택">
+            <button type="button" data-dp-income="0">0원</button>
+            <button type="button" data-dp-income="6000000">600만</button>
+            <button type="button" data-dp-income="12000000">1,200만</button>
+            <button type="button" data-dp-income="20000000">2,000만</button>
+            <button type="button" data-dp-income="24000000">2,400만</button>
+          </div>
+          <p class="field-help">이자·배당·사업·근로·연금·기타소득을 <strong>모두 더한 금액</strong>입니다. 비과세소득은 빠지고, 공적연금은 받은 금액 전부가 들어갑니다.</p>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="dpBusiness">사업소득 <small>연간</small></label>
+          <div class="input-wrap input-wrap-sm">
+            <input id="dpBusiness" type="number" inputmode="numeric" min="0" max="500000000" step="100000" value="0" autocomplete="off">
+            <span class="unit">원 / 년</span>
+          </div>
+          <label class="toggle toggle-line" for="dpRegistered">
+            <input type="checkbox" id="dpRegistered">
+            <span class="toggle-track" aria-hidden="true"></span>
+            <span class="toggle-text">사업자등록이 되어 있다<small>등록자는 사업소득이 0원이어야 인정</small></span>
+          </label>
+          <label class="toggle toggle-line" for="dpRental">
+            <input type="checkbox" id="dpRental">
+            <span class="toggle-track" aria-hidden="true"></span>
+            <span class="toggle-text">주택임대소득이 있다<small>있으면 사업자등록 여부와 무관하게 탈락</small></span>
+          </label>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="dpProperty">재산세 과세표준 합</label>
+            <span class="badge-soft" id="dpPropertyBadge">5.4억원 이하</span>
+          </div>
+          <div class="input-wrap">
+            <input id="dpProperty" type="number" inputmode="numeric" min="0" max="5000000000" step="10000000" value="300000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="재산세 과세표준 빠른 선택">
+            <button type="button" data-dp-property="0">없음</button>
+            <button type="button" data-dp-property="300000000">3억</button>
+            <button type="button" data-dp-property="540000000">5.4억</button>
+            <button type="button" data-dp-property="700000000">7억</button>
+            <button type="button" data-dp-property="950000000">9.5억</button>
+          </div>
+          <p class="field-help">본인과 배우자(기혼자) 재산의 재산세 과세표준 합입니다. 시세가 아니라 고지서의 과세표준으로 봅니다.</p>
+        </div>
+
+        <div class="field" id="dpSiblingField" hidden>
+          <label class="toggle" for="dpSiblingOk">
+            <input type="checkbox" id="dpSiblingOk" checked>
+            <span class="toggle-track" aria-hidden="true"></span>
+            <span class="toggle-text">30세 미만·65세 이상·장애인·유공자에 해당<small>형제·자매는 이 요건도 필요</small></span>
+          </label>
+        </div>
+
+        <div class="field">
+          <label class="toggle" for="dpMarried">
+            <input type="checkbox" id="dpMarried">
+            <span class="toggle-track" aria-hidden="true"></span>
+            <span class="toggle-text">기혼자다<small>부부 모두 소득·재산 요건을 충족해야 인정</small></span>
+          </label>
+        </div>
+      </section>
+
+      <section class="card result-card" id="dpResultCard">
+        <div class="result-head">
+          <div>
+            <p class="result-label" id="dpResultLabel">판정 결과</p>
+            <p class="result-amount result-amount--text" aria-live="polite" aria-atomic="true"><span id="dpVerdict">피부양자 가능</span></p>
+            <p class="result-sub" id="dpSub">부모 · 연 소득 1,200만원 · 재산 3억원</p>
+          </div>
+          <span class="tier-badge" id="dpBadge" data-tier="1">요건 충족</span>
+        </div>
+
+        <div class="breakdown" id="dpChecks"></div>
+
+        <div class="stat-grid">
+          <div class="stat-cell">
+            <span>소득 한도까지</span>
+            <strong id="dpRoom">800만원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>재산 구간</span>
+            <strong id="dpBand">5.4억원 이하</strong>
+          </div>
+          <div class="stat-cell">
+            <span>탈락 시 지역보험료</span>
+            <strong id="dpAlt">180,899원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>피부양자면</span>
+            <strong id="dpZero">0원</strong>
+          </div>
+        </div>
+
+        <p class="insight" id="dpInsight"></p>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="shareDependent">
+            <span aria-hidden="true">📋</span> 결과 복사하기
+          </button>
+        </div>
+      </section>
+
+      <div class="ad-slot" data-ad-slot="mid2" aria-hidden="true" hidden></div>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>2026년 피부양자 소득·재산 기준</h2>
+          <p class="card-sub">국민건강보험법 시행규칙 별표 1의2(2025.4.23 개정) 기준입니다. 부양 요건은 별표 1에서 따로 봅니다.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <caption class="sr-only">피부양자 자격 소득·재산 요건</caption>
+            <thead>
+              <tr><th scope="col">요건</th><th scope="col">기준</th><th scope="col">비고</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">소득 합계</th><td>연 2,000만원 이하</td><td>6종 소득 합산, 비과세 제외</td></tr>
+              <tr><th scope="row">사업소득</th><td>없을 것</td><td>사업자등록이 없으면 500만원 이하까지 인정</td></tr>
+              <tr><th scope="row">재산</th><td>과세표준 5억 4,000만원 이하</td><td>5.4억 초과 9억 이하 + 소득 1,000만원 이하</td></tr>
+              <tr><th scope="row">형제·자매</th><td>과세표준 1억 8,000만원 이하</td><td>30세 미만·65세 이상·장애인 등에 한정</td></tr>
+              <tr><th scope="row">기혼자</th><td colspan="2">부부 모두 위 요건을 충족해야 함</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="tips">
+          <li><strong>주택임대소득이 있으면</strong> 사업자등록이 없어도 500만원 예외를 쓸 수 없습니다. 소득이 조금이라도 있으면 탈락입니다.</li>
+          <li><strong>소득 자료는 바로 반영되지 않습니다.</strong> 1~10월은 전전년도, 11~12월은 전년도 소득 자료를 씁니다.</li>
+          <li><strong>부양 요건</strong>은 관계와 생계 의존도를 봅니다. 부모님이 따로 사시면 동거·비동거 기준을 공단에 확인하세요.</li>
+          <li>판정은 어디까지나 <strong>모의 판정</strong>입니다. 최종 자격은 국민건강보험공단(1577-1000)이 결정합니다.</li>
+        </ul>
+      </section>
+
+      <section class="card faq-card">
+        <h2>피부양자에서 자주 묻는 것</h2>
+        <details class="faq" open>
+          <summary>국민연금을 받으면 피부양자가 될 수 없나요?</summary>
+          <p>연금도 소득 합계에 <strong>전액</strong> 들어갑니다. 월 166만원(연 2,000만원)을 넘으면 소득 요건에서 탈락합니다. 다만 건강보험료를 매길 때는 연금의 50%만 반영하므로, 피부양자 탈락 후 지역가입자 보험료는 생각보다 낮을 수 있습니다.</p>
+        </details>
+        <details class="faq">
+          <summary>재산이 5.4억원을 넘으면 무조건 탈락인가요?</summary>
+          <p>아닙니다. 과세표준 5억 4,000만원 초과 9억원 이하 구간은 <strong>연 소득 1,000만원 이하</strong>이면 인정됩니다. 9억원을 넘으면 소득과 관계없이 탈락합니다. 과세표준은 공시가격에 공정시장가액비율을 곱한 값이라 시세보다 낮습니다.</p>
+        </details>
+        <details class="faq">
+          <summary>부모님 두 분 중 한 분만 될 수도 있나요?</summary>
+          <p>기혼자는 부부 모두 요건을 충족해야 합니다. 한 분의 연금이 기준을 넘으면 두 분 모두 피부양자로 인정되지 않아 각각 지역가입자가 됩니다.</p>
+        </details>
+      </section>
+    </section>
+
+    <!-- ══════════ 탭 3: 퇴직 후 비교 ══════════ -->
+    <section class="panel" id="panelRetire" role="tabpanel" aria-labelledby="tabRetire" tabindex="0" hidden>
+      <section class="card">
+        <div class="card-head">
+          <h2>퇴직 후 건강보험료</h2>
+          <p class="card-sub">퇴직하면 다음 날부터 지역가입자가 됩니다. 임의계속가입을 신청하면 최대 36개월 직장가입자 자격을 유지할 수 있습니다.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="rtSalary">퇴직 전 보수월액 <small>최근 12개월 평균</small></label>
+            <span class="badge-soft">50% 경감 반영</span>
+          </div>
+          <div class="input-wrap">
+            <input id="rtSalary" type="number" inputmode="numeric" min="0" max="100000000" step="100000" value="4000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="보수월액 빠른 선택">
+            <button type="button" data-rt-salary="2500000">250만</button>
+            <button type="button" data-rt-salary="3000000">300만</button>
+            <button type="button" data-rt-salary="4000000">400만</button>
+            <button type="button" data-rt-salary="6000000">600만</button>
+            <button type="button" data-rt-salary="8000000">800만</button>
+          </div>
+          <p class="field-help">임의계속가입 보험료는 <strong>최근 12개월 보수월액 평균</strong>으로 정하고, 본인이 전액 부담하되 50%를 경감합니다.</p>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="rtIncome">지역가입자 부과 연 소득</label>
+            <span class="badge-soft" id="rtIncomeBadge">소득월액 200만원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="rtIncome" type="number" inputmode="numeric" min="0" max="1000000000" step="1000000" value="48000000" autocomplete="off">
+            <span class="unit">원 / 년</span>
+          </div>
+          <div class="chips" role="group" aria-label="부과 연 소득 빠른 선택">
+            <button type="button" data-rt-income="0">0원</button>
+            <button type="button" data-rt-income="24000000">2,400만</button>
+            <button type="button" data-rt-income="36000000">3,600만</button>
+            <button type="button" data-rt-income="48000000">4,800만</button>
+            <button type="button" data-rt-income="72000000">7,200만</button>
+          </div>
+          <p class="field-help">퇴직 직후에는 <strong>전년도 근로소득</strong>이 그대로 잡혀 지역 보험료가 높게 나오는 경우가 많습니다. 실제 부과 자료를 넣어 보세요.</p>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="rtTypeLabel">소득 종류</span>
+          <div class="segmented" role="group" aria-labelledby="rtTypeLabel" data-segment="rttype">
+            <button type="button" data-value="earned" class="is-active">근로·연금 <span>50% 반영</span></button>
+            <button type="button" data-value="business">사업·기타 <span>100% 반영</span></button>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="rtProperty">재산세 과세표준 합</label>
+            <span class="badge-soft" id="rtPropertyBadge">24등급 · 586점</span>
+          </div>
+          <div class="input-wrap">
+            <input id="rtProperty" type="number" inputmode="numeric" min="0" max="5000000000" step="10000000" value="300000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="재산세 과세표준 빠른 선택">
+            <button type="button" data-rt-property="0">없음</button>
+            <button type="button" data-rt-property="200000000">2억</button>
+            <button type="button" data-rt-property="300000000">3억</button>
+            <button type="button" data-rt-property="500000000">5억</button>
+            <button type="button" data-rt-property="800000000">8억</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="toggle" for="rtHistory">
+            <input type="checkbox" id="rtHistory" checked>
+            <span class="toggle-track" aria-hidden="true"></span>
+            <span class="toggle-text">퇴직 전 18개월 중 직장가입자 기간이 통산 1년 이상<small>임의계속가입 신청 자격</small></span>
+          </label>
+        </div>
+      </section>
+
+      <section class="card result-card" id="rtResultCard">
+        <div class="result-head">
+          <div>
+            <p class="result-label" id="rtDiffLabel">임의계속가입이 월 덜 내는 금액</p>
+            <p class="result-amount" aria-live="polite" aria-atomic="true"><span id="rtDiff">140,225</span><span class="won" id="rtDiffUnit">원 / 월</span></p>
+            <p class="result-sub" id="rtSub">보수월액 400만원 · 지역 소득 4,800만원 · 재산 3억원</p>
+          </div>
+          <span class="tier-badge" id="rtWinner" data-tier="1">임의계속 유리</span>
+        </div>
+
+        <div class="breakdown" id="rtRows"></div>
+
+        <div class="stat-grid">
+          <div class="stat-cell">
+            <span>임의계속 월 보험료</span>
+            <strong id="rtCont">162,696원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>지역 월 보험료</span>
+            <strong id="rtReg">302,921원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>36개월 차액</span>
+            <strong id="rtSave36">5,048,100원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>유지 가능 기간</span>
+            <strong id="rtMonths">최대 36개월</strong>
+          </div>
+        </div>
+
+        <p class="insight" id="rtInsight"></p>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="shareRetire">
+            <span aria-hidden="true">📋</span> 결과 복사하기
+          </button>
+        </div>
+      </section>
+
+      <div class="ad-slot" data-ad-slot="bottom" aria-hidden="true" hidden></div>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>임의계속가입, 언제까지 신청하나</h2>
+          <p class="card-sub">국민건강보험법 제110조, 시행령 제77조, 시행규칙 제62조 기준입니다.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <caption class="sr-only">임의계속가입 조건과 기한</caption>
+            <thead>
+              <tr><th scope="col">항목</th><th scope="col">내용</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">신청 자격</th><td>퇴직 전 18개월 중 직장가입자 기간 통산 1년 이상</td></tr>
+              <tr><th scope="row">신청 기한</th><td>처음 받은 지역보험료 납부기한부터 2개월이 지나기 전</td></tr>
+              <tr><th scope="row">유지 기간</th><td>퇴직 다음 날부터 최대 36개월</td></tr>
+              <tr><th scope="row">보험료</th><td>최근 12개월 보수월액 평균 × 7.19% × 50% (경감)</td></tr>
+              <tr><th scope="row">끝나는 때</th><td>재취업·자격 상실·36개월 도래</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="tips">
+          <li><strong>자동이 아닙니다.</strong> 신청하지 않으면 지역가입자로 부과되고, 기한을 놓치면 다시 신청할 수 없습니다.</li>
+          <li><strong>항상 유리한 것도 아닙니다.</strong> 퇴직 전 급여가 높으면 임의계속 보험료가 지역 보험료보다 클 수 있습니다.</li>
+          <li><strong>첫 보험료를 밀리면</strong> 자격이 소급해 상실됩니다. 신청 후 첫 고지서 납부기한을 꼭 챙기세요.</li>
+          <li>지역 보험료가 더 낮아졌다면 <strong>임의계속 탈퇴 신청</strong>으로 빠질 수 있습니다.</li>
+        </ul>
+      </section>
+
+      <section class="card faq-card">
+        <h2>퇴직 후 보험료에서 자주 묻는 것</h2>
+        <details class="faq" open>
+          <summary>퇴사하면 바로 지역가입자가 되나요?</summary>
+          <p>직장가입자 자격은 퇴직한 다음 날 상실되고, 그날부터 지역가입자가 됩니다. 가족 중 직장가입자의 피부양자로 들어갈 수 있으면 보험료가 0원이 되므로, 지역가입자·임의계속가입과 함께 먼저 확인해 보세요.</p>
+        </details>
+        <details class="faq">
+          <summary>임의계속 보험료가 재직 때보다 비싼가요?</summary>
+          <p>경감 50% 덕분에 대개 재직 때 본인이 내던 금액과 비슷합니다. 다만 보수 외 소득이 있으면 그 보험료가 따로 붙고, 장기요양보험료도 함께 납니다. “두 배가 된다”는 말은 경감 규정을 빼고 한 설명입니다.</p>
+        </details>
+        <details class="faq">
+          <summary>36개월이 지나면 어떻게 되나요?</summary>
+          <p>자동으로 지역가입자로 바뀝니다. 그때는 그해 소득·재산 자료로 보험료가 다시 매겨지므로, 36개월이 끝나기 전에 소득·재산 변동을 공단에 알려 두면 급격한 인상을 줄일 수 있습니다.</p>
+        </details>
+      </section>
+    </section>
+
+    <!-- 제휴 상품: config.js 의 coupang.items 에 링크를 넣으면 나타납니다 -->
+    <section class="card promo-card" id="promoSection" hidden>
+      <div class="card-head">
+        <h2 id="promoHeading">부모님 댁 겨울나기</h2>
+        <p class="card-sub" id="promoSub"></p>
+      </div>
+      <div class="promo-grid" id="promoList"></div>
+      <p class="ad-disclosure" id="promoDisclosure"></p>
+    </section>
+
+    <section class="related-apps" aria-labelledby="relatedAppsTitle">
+      <h2 id="relatedAppsTitle">함께 많이 쓰는 계산기</h2>
+      <div class="related-grid">
+        <a class="related-app" href="../salary-net/">
+          <strong>연봉 실수령액 계산기</strong>
+          <span>월급에서 건강보험료가 얼마나 빠지나</span>
+        </a>
+        <a class="related-app" href="../njob-tax/">
+          <strong>N잡 세금 계산기</strong>
+          <span>부업 소득이 피부양자 자격을 흔들 때</span>
+        </a>
+        <a class="related-app" href="../severance-pay/">
+          <strong>퇴직금·실업급여 계산기</strong>
+          <span>퇴직 후 받을 돈과 공백기 준비</span>
+        </a>
+        <a class="related-app" href="../living-cost/">
+          <strong>고정비 체크기</strong>
+          <span>보험료 오르기 전 새는 돈 점검</span>
+        </a>
+        <a class="related-app" href="../">
+          <strong>전체 계산기</strong>
+          <span>생활 계산기 11종 모아 보기</span>
+        </a>
+      </div>
+    </section>
+
+    <footer class="app-footer">
+      <p class="disclaimer">
+        <strong>참고용 모의 계산입니다.</strong> 2026년 건강보험료율 7.19%, 장기요양보험료율 0.9448%,
+        재산보험료부과점수당 211.5원(국민건강보험법 시행령 제44조)을 적용했습니다. 피부양자 기준은
+        같은 법 시행규칙 별표 1의2(2025.4.23 개정), 임의계속가입은 법 제110조·시행령 제77조를 따랐습니다.
+        세대 단위 합산·소득 자료 반영 시기·경감·정산은 반영하지 않았으므로 실제 고지액과 다를 수 있습니다.
+        최종 금액과 자격은 국민건강보험공단(1577-1000)에서 확인하세요. 입력값은 기기 안에만 저장되고
+        어디로도 전송되지 않습니다.
+      </p>
+      <p class="footer-links">
+        <a href="https://www.law.go.kr/" target="_blank" rel="noopener">국가법령정보센터</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.nhis.or.kr/" target="_blank" rel="noopener">국민건강보험공단</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.mohw.go.kr/" target="_blank" rel="noopener">보건복지부</a>
+        <span aria-hidden="true">·</span>
+        <a href="../">전체 계산기</a>
+        <span aria-hidden="true">·</span>
+        <a href="../salary-net/">연봉 실수령</a>
+        <span aria-hidden="true">·</span>
+        <a href="../njob-tax/">N잡 세금</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://blog.naver.com/ufssdf987" target="_blank" rel="noopener">운영 블로그</a>
+        <span aria-hidden="true">·</span>
+        <a href="../privacy.html">개인정보처리방침</a>
+      </p>
+      <p class="footer-meta">
+        <span>기준일 <time id="dataDate" datetime="2026-11-26">2026-11-26</time></span>
+        <span aria-hidden="true">·</span>
+        <span>v<span id="appVersion">1.0.0</span></span>
+        <span aria-hidden="true">·</span>
+        <span>개인정보를 저장하지 않습니다</span>
+      </p>
+      <p class="ad-disclosure" id="footerDisclosure" hidden></p>
+    </footer>
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<noscript>
+  <div class="noscript">이 계산기는 자바스크립트를 사용합니다. 브라우저 설정에서 자바스크립트를 켜 주세요.</div>
+</noscript>
+
+<script src="config.js"></script>
+<script src="calc.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
