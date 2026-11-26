@@ -1265,3 +1265,35 @@ a { color: var(--brand); }
 .related-app strong { color: var(--ink); font-size: 13px; font-weight: 800; }
 .related-app span { color: var(--ink-3); font-size: 11px; line-height: 1.5; }
 @media (max-width: 360px) { .related-grid { grid-template-columns: 1fr; } }
+
+/* ── 제휴 링크 카드 (쿠팡파트너스 · 네이버 쇼핑커넥트) ─────────── */
+.promo-card .card-head, .promo-card .card__head { margin-bottom: 12px; }
+.promo-grid { display: grid; gap: 8px; }
+.promo-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm, 14px);
+  background: var(--field, var(--surface-2, #f7faf8));
+}
+.promo-thumb {
+  display: flex; align-items: center; justify-content: center;
+  flex: 0 0 46px; width: 46px; height: 46px;
+  border-radius: 13px;
+  background: var(--brand-soft);
+  font-size: 19px; line-height: 1;
+}
+.promo-body { min-width: 0; flex: 1 1 auto; }
+.promo-name { font-size: 13px; font-weight: 800; line-height: 1.3; letter-spacing: -.02em; color: var(--ink); }
+.promo-meta { margin-top: 3px; font-size: 10.5px; color: var(--ink-3, var(--muted)); }
+.promo-cta {
+  flex: 0 0 auto;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: var(--brand-soft);
+  color: var(--brand);
+  font-size: 11px; font-weight: 800; white-space: nowrap;
+  text-decoration: none;
+}
+.promo-cta:hover { text-decoration: none; background: color-mix(in srgb, var(--brand) 15%, transparent); }
+.ad-disclosure { margin-top: 10px; font-size: 10.5px; line-height: 1.5; color: var(--ink-3, var(--muted)); }
