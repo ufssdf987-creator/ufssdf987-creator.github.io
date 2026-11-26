@@ -4,7 +4,7 @@
  */
 'use strict';
 
-var VERSION = '1.0.18';
+var VERSION = '1.0.19';
 var CACHE_NAME = 'wpc-v' + VERSION;
 var CORE_ASSETS = [
   './',

@@ -1,0 +1,63 @@
+{
+  "id": "/national-pension/",
+  "name": "2026 국민연금·기초연금 계산기 — 예상수령액·조기연기 손익분기",
+  "short_name": "국민연금 계산기",
+  "description": "2026년 연금개혁 기준(보험료율 9.5%, 소득대체율 43%, A값 3,193,511원)으로 국민연금 예상수령액과 부양가족연금액을 계산합니다. 조기노령연금(연 6% 감액)·정상수령·연기연금(연 7.2% 증액)의 월액 비교와 누적 손익분기 나이, 2026년 기초연금 선정기준액(단독 247만·부부 395.2만원) 소득인정액 모의계산까지 한 번에.",
+  "lang": "ko",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "portrait-primary",
+  "background_color": "#eef2f8",
+  "theme_color": "#0e1726",
+  "categories": ["finance", "utilities"],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "예상수령액",
+      "short_name": "예상수령액",
+      "url": "./index.html#expect",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "조기·연기 손익분기",
+      "short_name": "조기·연기",
+      "url": "./index.html#timing",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "기초연금 모의계산",
+      "short_name": "기초연금",
+      "url": "./index.html#basic",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "체크리스트·FAQ",
+      "short_name": "체크·FAQ",
+      "url": "./index.html#guide",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "prefer_related_applications": false
+}

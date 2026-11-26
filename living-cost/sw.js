@@ -2,7 +2,7 @@
    - 앱 셸을 미리 캐시해 오프라인에서도 진단이 열립니다.
    - 새 버전을 배포할 때는 VERSION을 올려 주세요. */
 
-const VERSION = '1.0.16';
+const VERSION = '1.0.17';
 const CACHE = 'lcc-cache-' + VERSION;
 
 const APP_SHELL = [

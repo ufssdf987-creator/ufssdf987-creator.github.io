@@ -4,7 +4,7 @@
  */
 'use strict';
 
-var VERSION = '1.0.14';
+var VERSION = '1.0.15';
 var CACHE_NAME = 'spc-v' + VERSION;
 var CORE_ASSETS = [
   './',

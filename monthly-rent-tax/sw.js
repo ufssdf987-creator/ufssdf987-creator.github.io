@@ -4,7 +4,7 @@
  */
 'use strict';
 
-var VERSION = '1.0.1';
+var VERSION = '1.0.2';
 var CACHE_NAME = 'mrt-v' + VERSION;
 var CORE_ASSETS = [
   './',
