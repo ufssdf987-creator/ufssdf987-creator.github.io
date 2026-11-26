@@ -4,7 +4,7 @@
  */
 'use strict';
 
-var VERSION = '1.0.7';
+var VERSION = '1.0.8';
 var CACHE_NAME = 'rln-v' + VERSION;
 var CORE_ASSETS = [
   './',
