@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>복비·중개수수료 계산기 2026 | 매매·전세·월세 상한요율과 이사비용 한 번에</title>
+<meta name="description" content="2026년 공인중개사법 시행규칙 별표 1 기준으로 부동산 중개보수(복비) 상한을 계산합니다. 매매 0.4~0.7%·한도 25만·80만원, 임대차 0.3~0.6%·한도 20만·30만원, 월세는 보증금+월세×100(5천만원 미만이면 ×70) 환산. 부가세 일반 10%·간이 4% 비교, 협의요율 입력, 분양권 납입액+프리미엄, 이사비·입주청소·인지세·등기수수료·확정일자까지 총비용.">
+<meta name="keywords" content="복비 계산기, 중개수수료 계산기, 부동산 중개보수, 매매 복비 0.4%, 9억 0.5%, 15억 0.7%, 전세 복비 0.3%, 월세 복비 환산보증금, 월세 100배 70배, 5천만원 미만 중개보수, 중개보수 한도 25만 80만 20만 30만, 부가세 10% 간이 4%, 4,800만원 부가세 면제, 중개보수 협의요율, 분양권 중개보수 프리미엄, 이사비용 계산기, 포장이사 반포장이사 비용, 입주청소 평당, 인지세 15만원, 등기신청 수수료 1만원, 확정일자 600원, 전세보증금 반환보증 보증료">
+<meta name="author" content="이안이 아빠의 공간">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://ufssdf987-creator.github.io/brokerage-fee/">
+<meta name="theme-color" content="#eef2f8">
+<meta name="theme-color" content="#eef2f8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#070c16" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="복비·이사비용">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="2026 복비·이사비용 계산기">
+<meta property="og:title" content="복비 계산기 2026 — 매매·전세·월세 중개수수료 상한과 이사비용">
+<meta property="og:description" content="5억 매매면 1인당 200만원(부가세 포함 220만원), 3억 전세면 90만원(99만원). 법정 상한요율과 한도액, 월세 환산보증금, 부가세 10%·4%, 이사·청소·등기비까지 3초에 계산합니다.">
+<meta property="og:url" content="https://ufssdf987-creator.github.io/brokerage-fee/">
+<meta property="og:image" content="https://ufssdf987-creator.github.io/brokerage-fee/icons/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="2026 복비·이사비용 계산기 — 매매·전세·월세 중개수수료 상한과 이사비용">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="복비 계산기 2026 — 매매·전세·월세 중개수수료 상한과 이사비용">
+<meta name="twitter:description" content="매매 0.4~0.7%, 임대차 0.3~0.6%, 한도 25만·80만·20만·30만원. 월세 환산보증금과 부가세 10%·4%, 이사비·입주청소·인지세·확정일자까지 2026년 기준으로 계산합니다.">
+<meta name="twitter:image" content="https://ufssdf987-creator.github.io/brokerage-fee/icons/og-image.png">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="styles.css">
+<script>
+  /* 첫 화면 깜빡임 방지: 저장된 테마를 CSS 적용 전에 반영 */
+  (function () {
+    try {
+      var saved = localStorage.getItem('bfx.theme');
+      var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', (saved === 'dark' || saved === 'light') ? saved : (dark ? 'dark' : 'light'));
+    } catch (e) { /* 저장소 접근 불가 시 기본 라이트 */ }
+  })();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "2026 복비·이사비용 계산기",
+  "url": "https://ufssdf987-creator.github.io/brokerage-fee/",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Any",
+  "inLanguage": "ko",
+  "description": "공인중개사법 시행규칙 별표 1의 주택 중개보수 상한요율(매매 0.4~0.7%, 임대차 0.3~0.6%)과 한도액(25만·80만·20만·30만원)으로 1인당 복비를 계산하고, 월세 환산보증금(×100, 5천만원 미만 ×70), 부가세 일반과세 10%·간이과세 4%, 협의요율 비교, 분양권 납입액+프리미엄, 이사비·입주청소·인지세·등기신청수수료·확정일자까지 합산합니다.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+  "featureList": [
+    "매매·분양권 중개보수: 5천만원 미만 0.6%(한도 25만원), 5천만~2억 0.5%(80만원), 2억~9억 0.4%, 9억~12억 0.5%, 12억~15억 0.6%, 15억 이상 0.7%",
+    "전세·월세 중개보수: 5천만원 미만 0.5%(한도 20만원), 5천만~1억 0.4%(30만원), 1억~6억 0.3%, 6억~12억 0.4%, 12억~15억 0.5%, 15억 이상 0.6%",
+    "월세 환산보증금 = 보증금 + 월세×100, 합이 5천만원 미만이면 보증금 + 월세×70",
+    "부가세 일반과세 10% vs 간이과세 4%(부가가치율 40%) vs 미청구 비교",
+    "협의요율 입력 시 법정 상한과 차액, 상한 초과 여부 판정",
+    "이사비(포장·반포장·일반)와 입주청소 시세 범위, 성수기·사다리차 가산",
+    "인지세(주택 1억원 이하 비과세), 등기신청수수료 서면 18,000원·전자 10,000원, 확정일자 600원",
+    "전세사기 예방 체크리스트와 계약 특약 문구 예시"
+  ]
+}
+</script>
+<!-- Google AdSense — 사이트 확인·광고 로딩용 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4355917079579050" crossorigin="anonymous"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+<div class="app-shell">
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" role="img" focusable="false">
+          <defs>
+            <linearGradient id="bfGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#7dd3fc"/><stop offset="1" stop-color="#2563eb"/>
+            </linearGradient>
+            <linearGradient id="bfGrad2" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#fcd34d"/><stop offset="1" stop-color="#d97706"/>
+            </linearGradient>
+          </defs>
+          <rect x="1" y="1" width="46" height="46" rx="13" fill="none" stroke="currentColor" stroke-opacity=".18"/>
+          <path d="M11 33 19 21l7 6 11-14" fill="none" stroke="url(#bfGrad)" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="37" cy="13" r="4.2" fill="none" stroke="url(#bfGrad2)" stroke-width="2.8"/>
+          <path d="M11 38h26" stroke="url(#bfGrad2)" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="1 5"/>
+        </svg>
+      </span>
+      <div class="brand-text">
+        <h1>복비·이사비용 계산</h1>
+        <p>2026 중개보수 상한 · 이사 총비용</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button type="button" class="icon-btn install-btn" id="installBtn" hidden>앱 설치</button>
+      <button type="button" class="icon-btn theme-btn" id="themeBtn" aria-label="화면 테마 바꾸기" title="라이트/다크 전환">
+        <span id="themeIcon" aria-hidden="true">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="계산기 선택">
+    <button type="button" class="tab is-active" id="tabSale" role="tab" aria-selected="true" aria-controls="panelSale" tabindex="0">
+      <span class="tab-emoji" aria-hidden="true">🏷️</span>
+      <span class="tab-label">매매 복비</span>
+    </button>
+    <button type="button" class="tab" id="tabLease" role="tab" aria-selected="false" aria-controls="panelLease" tabindex="-1">
+      <span class="tab-emoji" aria-hidden="true">🏠</span>
+      <span class="tab-label">전세·월세</span>
+    </button>
+    <button type="button" class="tab" id="tabMove" role="tab" aria-selected="false" aria-controls="panelMove" tabindex="-1">
+      <span class="tab-emoji" aria-hidden="true">📦</span>
+      <span class="tab-label">이사 총비용</span>
+    </button>
+    <button type="button" class="tab" id="tabCheck" role="tab" aria-selected="false" aria-controls="panelCheck" tabindex="-1">
+      <span class="tab-emoji" aria-hidden="true">✅</span>
+      <span class="tab-label">체크리스트</span>
+    </button>
+  </nav>
+
+  <main id="main">
+    <div class="ad-slot" data-ad-slot="top" aria-hidden="true" hidden></div>
+
+    <!-- ══════════ 탭 1: 매매·분양권 복비 ══════════ -->
+    <section class="panel is-active" id="panelSale" role="tabpanel" aria-labelledby="tabSale" tabindex="0">
+      <p class="lead">중개보수 요율표의 숫자는 <strong>정가가 아니라 상한</strong>입니다. 거래금액을 넣으면 1인당 법정 상한과 부가세까지, 협의요율로 낮췄을 때 얼마가 줄어드는지 함께 보여 드립니다.</p>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>어떤 거래인가요</h2>
+          <p class="card-sub">매매는 매매가격, 분양권은 <strong>거래당시까지 납입한 금액(융자 포함) + 프리미엄</strong>이 거래금액입니다.</p>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="saleKindLabel">거래 종류</span>
+          <div class="segmented segmented-rel" role="radiogroup" aria-labelledby="saleKindLabel" id="saleKindGroup">
+            <button type="button" role="radio" aria-checked="true" class="is-active" id="saleKindSale" data-sale-kind="sale">매매·교환<small>아파트·주택</small></button>
+            <button type="button" role="radio" aria-checked="false" id="saleKindPresale" data-sale-kind="presale">분양권<small>입주권 포함</small></button>
+          </div>
+        </div>
+
+        <div class="field" id="saPriceWrap">
+          <div class="field-label-row">
+            <label class="field-label" for="saPrice">매매가격</label>
+            <span class="badge-soft" id="saPriceBadge">5억원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="saPrice" type="number" inputmode="numeric" min="0" max="100000000000" step="1000000" value="500000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="매매가 빠른 선택">
+            <button type="button" data-sa-price="100000000">1억</button>
+            <button type="button" data-sa-price="300000000">3억</button>
+            <button type="button" data-sa-price="500000000">5억</button>
+            <button type="button" data-sa-price="900000000">9억</button>
+            <button type="button" data-sa-price="1500000000">15억</button>
+          </div>
+          <p class="field-help">취득세·양도세는 이 계산기에 없습니다. <a href="../property-tax/">부동산 세금 계산기</a>에서 따로 확인하세요.</p>
+        </div>
+
+        <div id="saPresaleWrap" hidden>
+          <div class="field">
+            <div class="field-label-row">
+              <label class="field-label" for="saPaid">납입한 분양대금 <small>융자 포함</small></label>
+              <span class="badge-soft" id="saPaidBadge">3억원</span>
+            </div>
+            <div class="input-wrap">
+              <input id="saPaid" type="number" inputmode="numeric" min="0" max="100000000000" step="1000000" value="300000000" autocomplete="off">
+              <span class="unit">원</span>
+            </div>
+            <p class="field-help">계약금·중도금까지 실제로 납입한 금액입니다. 대출로 낸 돈도 포함합니다.</p>
+          </div>
+          <div class="field">
+            <div class="field-label-row">
+              <label class="field-label" for="saPremium">프리미엄</label>
+              <span class="badge-soft" id="saPremiumBadge">5,000만원</span>
+            </div>
+            <div class="input-wrap">
+              <input id="saPremium" type="number" inputmode="numeric" min="0" max="100000000000" step="1000000" value="50000000" autocomplete="off">
+              <span class="unit">원</span>
+            </div>
+            <p class="field-help">분양권에 붙은 웃돈입니다. <strong>납입액 + 프리미엄</strong>이 거래금액이 되어 매매 요율표를 적용합니다.</p>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="saRateLabel">적용 요율</span>
+          <div class="segmented segmented-sm segmented-rel" role="radiogroup" aria-labelledby="saRateLabel" id="saRateGroup">
+            <button type="button" role="radio" aria-checked="true" class="is-active" id="saRateCap" data-sa-rate-mode="cap">법정 상한<small>표의 최대치</small></button>
+            <button type="button" role="radio" aria-checked="false" id="saRateCustom" data-sa-rate-mode="custom">협의요율<small>중개사와 정한 %</small></button>
+          </div>
+        </div>
+
+        <div class="field" id="saRateWrap" hidden>
+          <div class="field-label-row">
+            <label class="field-label" for="saRate">협의한 요율</label>
+            <span class="badge-soft" id="saRateBadge">0.3%</span>
+          </div>
+          <div class="input-wrap">
+            <input id="saRate" type="number" inputmode="decimal" min="0" max="2" step="0.05" value="0.3" autocomplete="off">
+            <span class="unit">%</span>
+          </div>
+          <p class="field-help">계약 전에 중개사와 정한 요율입니다. 상한을 넘으면 넘는 부분은 무효이고, 초과 수수는 신고 대상입니다.</p>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="saVatLabel">중개사무소 과세유형</span>
+          <div class="segmented segmented-sm segmented-rel" role="radiogroup" aria-labelledby="saVatLabel" id="saVatGroup">
+            <button type="button" role="radio" aria-checked="true" class="is-active" data-sa-vat="general">일반과세<small>부가세 10%</small></button>
+            <button type="button" role="radio" aria-checked="false" data-sa-vat="simple">간이과세<small>약 4%</small></button>
+            <button type="button" role="radio" aria-checked="false" data-sa-vat="none">미청구<small>부가세 없음</small></button>
+          </div>
+          <p class="field-help">홈택스 <strong>사업자등록상태 조회</strong>에 사업자등록번호를 넣으면 일반·간이과세인지 로그인 없이 확인됩니다.</p>
+        </div>
+      </section>
+
+      <section class="card result-card" id="saResultCard">
+        <div class="result-head">
+          <div>
+            <p class="result-label">내가 낼 중개보수 (부가세 포함)</p>
+            <p class="result-amount" aria-live="polite" aria-atomic="true"><span id="saTotal">0</span><span class="won">원</span></p>
+            <p class="result-sub" id="saSub"></p>
+          </div>
+          <span class="tier-badge" id="saVerdict" data-tier="2">계산 중</span>
+        </div>
+
+        <div class="breakdown" id="saRows"></div>
+
+        <div class="stat-grid">
+          <div class="stat-cell">
+            <span>법정 상한(부가세 별도)</span>
+            <strong id="saMax">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>산출 보수</span>
+            <strong id="saFee">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>부가세</span>
+            <strong id="saVat">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>매도인+매수인 합계</span>
+            <strong id="saBoth">0원</strong>
+          </div>
+        </div>
+
+        <div class="after-box" id="saNextBox">
+          <p class="after-title" id="saNextTitle">한도액이 걸렸습니다</p>
+          <p id="saNext"></p>
+        </div>
+
+        <p class="insight" id="saInsight"></p>
+
+        <details class="breakdown-box" open>
+          <summary>
+            <span>내 거래금액이 속한 구간</span>
+            <span class="summary-hint">매매·교환 상한요율</span>
+          </summary>
+          <div class="table-wrap">
+            <table class="data-table data-table--num" id="saTable">
+              <caption class="sr-only">매매·교환 거래금액 구간별 상한요율과 한도액</caption>
+              <thead>
+                <tr><th scope="col">거래금액</th><th scope="col">상한요율</th><th scope="col">한도액</th><th scope="col">이 금액이면</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <p class="field-help">구간 경계는 <strong>이상·미만</strong>입니다. 정확히 2억원·9억원이면 위쪽 구간이 적용됩니다.</p>
+        </details>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="shareSale">
+            <span aria-hidden="true">📋</span> 결과 복사하기
+          </button>
+        </div>
+      </section>
+
+      <div class="ad-slot" data-ad-slot="mid" aria-hidden="true" hidden></div>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>상한표의 숫자를 읽는 세 가지</h2>
+          <p class="card-sub">이 0.4%는 '받아야 하는 돈'이 아니라 '받을 수 있는 최대'입니다.</p>
+        </div>
+        <ul class="tips">
+          <li><strong>쌍방이 각각 냅니다.</strong> 5억원 매매에서 200만원은 매수인과 매도인이 <em>각각</em> 내는 상한입니다. 한 사람이 400만원을 내는 구조가 아닙니다.</li>
+          <li><strong>한도액이 요율보다 먼저입니다.</strong> 1억 8,000만원 매매는 0.5%로 90만원이지만, 그 구간 한도액이 80만원이라 상한은 80만원입니다.</li>
+          <li><strong>부가세는 상한과 별개입니다.</strong> 요율표의 금액은 부가세를 뺀 값입니다. 일반과세 사무소는 여기에 10%를 더 받을 수 있고, 부가세를 뺀 보수가 상한 이하라면 초과 수수가 아닙니다.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>같은 보수, 부가세만 다르게</h2>
+          <p class="card-sub">중개사무소가 일반과세자인지 간이과세자인지에 따라 총액이 달라집니다.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table" id="saVatTable">
+            <caption class="sr-only">과세유형별 부가세 비교</caption>
+            <thead>
+              <tr><th scope="col">과세유형</th><th scope="col">부가세율</th><th scope="col">부가세</th><th scope="col">총 납부액</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <ul class="tips">
+          <li><strong>간이과세는 4%가 법정 세율이 아닙니다.</strong> 부동산 관련 서비스업 부가가치율 40%에 세율 10%를 곱해 공급대가의 약 4%가 되는 계산값입니다. 실무에서는 이 수준으로 정산합니다.</li>
+          <li><strong>연 매출 4,800만원 미만 간이과세자</strong>는 부가세 납부의무가 면제되어, 부가세를 따로 받지 않는 사무소도 있습니다.</li>
+          <li><strong>간이과세자인데 10%를 요구하면</strong> 초과보수 문제가 될 수 있습니다. 국토교통부 유권해석과 행정심판 사례에서 업무정지 처분이 나온 경우가 있습니다.</li>
+        </ul>
+      </section>
+
+      <section class="card faq-card">
+        <h2>매매 복비에서 자주 묻는 것</h2>
+        <details class="faq" open>
+          <summary>5억원 아파트를 사면 복비가 얼마인가요?</summary>
+          <p>2억~9억원 구간이라 상한요율 0.4%입니다. 5억 × 0.4% = <strong>200만원</strong>이 1인당 상한이고, 여기에 부가세 10%를 더하면 <strong>220만원</strong>입니다. 매도인도 같은 금액을 내므로 양쪽 합계는 440만원입니다. 실제 금액은 이 안에서 협의해 정합니다.</p>
+        </details>
+        <details class="faq">
+          <summary>1억 8,000만원인데 90만원을 달라고 합니다. 맞나요?</summary>
+          <p>아닙니다. 5,000만~2억원 구간은 상한요율 0.5%에 <strong>한도액 80만원</strong>이 걸립니다. 요율로 계산한 90만원보다 한도액이 우선이라 1인당 상한은 80만원(부가세 포함 88만원)입니다.</p>
+        </details>
+        <details class="faq">
+          <summary>9억원에서 요율이 왜 갑자기 올라가나요?</summary>
+          <p>8억 9,999만원은 0.4%로 359만 9,960원이지만, 9억원이 되면 9억~12억원 구간 0.5%가 되어 450만원입니다. <strong>1만원 차이로 90만원</strong>이 갈립니다. 계약금액을 조정할 수 있다면 이 경계를 확인해 보세요.</p>
+        </details>
+        <details class="faq">
+          <summary>분양권은 어떻게 계산하나요?</summary>
+          <p>거래금액이 <strong>거래당시까지 납입한 금액(융자 포함) + 프리미엄</strong>입니다. 3억원을 납입하고 프리미엄 5,000만원이면 3억 5,000만원으로 보고 매매 요율표(2억~9억 0.4%)를 적용해 140만원이 상한입니다.</p>
+        </details>
+        <details class="faq">
+          <summary>상한보다 많이 요구하면 어떻게 하나요?</summary>
+          <p>상한을 넘는 약정은 넘는 부분이 무효이고, 초과 수수는 공인중개사법 위반으로 업무정지·과태료 처분 대상입니다. 영수증을 받고, 중개사무소 소재지 구청 부동산과나 한국공인중개사협회, 1372 소비자상담센터에 상담하세요. 현금영수증은 10만원 이상 거래에 의무 발급입니다.</p>
+        </details>
+        <details class="faq">
+          <summary>오피스텔은 같은 요율인가요?</summary>
+          <p>아닙니다. 전용면적 85㎡ 이하이면서 부엌·화장실·목욕시설을 갖춘 주거용 오피스텔은 별표 2가 적용되어 매매 0.5%·임대차 0.4% 상한입니다(2026년 8월 28일 시행 규칙에서 '상한 안에서 협의'가 명확해졌습니다). 그 밖의 상가·토지 등은 거래금액의 0.9% 이내에서 협의합니다.</p>
+        </details>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>공식 확인처</h2>
+          <p class="card-sub">요율은 시·도 조례가 정합니다. 중개사무소 소재지 기준으로 확인하세요.</p>
+        </div>
+        <div class="related-grid">
+          <a class="related-app" href="https://www.law.go.kr/" target="_blank" rel="noopener">
+            <strong>국가법령정보센터</strong>
+            <span>공인중개사법 시행규칙 별표 1</span>
+          </a>
+          <a class="related-app" href="https://land.seoul.go.kr/" target="_blank" rel="noopener">
+            <strong>서울시 부동산정보광장</strong>
+            <span>중개보수 요율표·계산기</span>
+          </a>
+          <a class="related-app" href="https://www.kar.or.kr/" target="_blank" rel="noopener">
+            <strong>한국공인중개사협회</strong>
+            <span>중개사무소·자격 확인</span>
+          </a>
+          <a class="related-app" href="https://www.consumer.go.kr/" target="_blank" rel="noopener">
+            <strong>1372 소비자상담</strong>
+            <span>초과 수수 신고·상담</span>
+          </a>
+        </div>
+      </section>
+    </section>
+
+    <!-- ══════════ 탭 2: 전세·월세 복비 ══════════ -->
+    <section class="panel" id="panelLease" role="tabpanel" aria-labelledby="tabLease" tabindex="0" hidden>
+      <p class="lead">전세는 보증금이 곧 거래금액이지만, <strong>월세는 보증금 + 월세×100</strong>으로 환산합니다. 환산액이 5,000만원 미만이면 <strong>월세×70</strong>으로 다시 계산하는 특례가 붙습니다 — 여기서 금액이 크게 달라집니다.</p>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>계약 조건</h2>
+          <p class="card-sub">보증금과 월세를 넣으면 환산보증금과 상한요율을 자동으로 찾습니다.</p>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="leaseTypeLabel">계약 종류</span>
+          <div class="segmented segmented-rel" role="radiogroup" aria-labelledby="leaseTypeLabel" id="leaseTypeGroup">
+            <button type="button" role="radio" aria-checked="true" class="is-active" id="leaseTypeJeonse" data-lease-type="jeonse">전세<small>월세 없음</small></button>
+            <button type="button" role="radio" aria-checked="false" id="leaseTypeMonthly" data-lease-type="monthly">월세·반전세<small>보증금+월세</small></button>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="lsDeposit">보증금</label>
+            <span class="badge-soft" id="lsDepositBadge">3억원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="lsDeposit" type="number" inputmode="numeric" min="0" max="100000000000" step="1000000" value="300000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="보증금 빠른 선택">
+            <button type="button" data-ls-deposit="30000000">3천만</button>
+            <button type="button" data-ls-deposit="100000000">1억</button>
+            <button type="button" data-ls-deposit="200000000">2억</button>
+            <button type="button" data-ls-deposit="300000000">3억</button>
+            <button type="button" data-ls-deposit="600000000">6억</button>
+          </div>
+        </div>
+
+        <div class="field" id="lsMonthlyWrap" hidden>
+          <div class="field-label-row">
+            <label class="field-label" for="lsMonthly">월세</label>
+            <span class="badge-soft" id="lsMonthlyBadge">50만원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="lsMonthly" type="number" inputmode="numeric" min="0" max="100000000" step="10000" value="500000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+          <div class="chips" role="group" aria-label="월세 빠른 선택">
+            <button type="button" data-ls-monthly="300000">30만</button>
+            <button type="button" data-ls-monthly="500000">50만</button>
+            <button type="button" data-ls-monthly="700000">70만</button>
+            <button type="button" data-ls-monthly="1000000">100만</button>
+          </div>
+          <p class="field-help">관리비는 거래금액에 들어가지 않습니다. 월세만 넣으세요.</p>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="lsRateLabel">적용 요율</span>
+          <div class="segmented segmented-sm segmented-rel" role="radiogroup" aria-labelledby="lsRateLabel" id="lsRateGroup">
+            <button type="button" role="radio" aria-checked="true" class="is-active" id="lsRateCap" data-ls-rate-mode="cap">법정 상한<small>표의 최대치</small></button>
+            <button type="button" role="radio" aria-checked="false" id="lsRateCustom" data-ls-rate-mode="custom">협의요율<small>중개사와 정한 %</small></button>
+          </div>
+        </div>
+
+        <div class="field" id="lsRateWrap" hidden>
+          <div class="field-label-row">
+            <label class="field-label" for="lsRate">협의한 요율</label>
+            <span class="badge-soft" id="lsRateBadge">0.2%</span>
+          </div>
+          <div class="input-wrap">
+            <input id="lsRate" type="number" inputmode="decimal" min="0" max="2" step="0.05" value="0.2" autocomplete="off">
+            <span class="unit">%</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="lsVatLabel">중개사무소 과세유형</span>
+          <div class="segmented segmented-sm segmented-rel" role="radiogroup" aria-labelledby="lsVatLabel" id="lsVatGroup">
+            <button type="button" role="radio" aria-checked="true" class="is-active" data-ls-vat="general">일반과세<small>10%</small></button>
+            <button type="button" role="radio" aria-checked="false" data-ls-vat="simple">간이과세<small>약 4%</small></button>
+            <button type="button" role="radio" aria-checked="false" data-ls-vat="none">미청구<small>없음</small></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card result-card" id="lsResultCard">
+        <div class="result-head">
+          <div>
+            <p class="result-label">내가 낼 중개보수 (부가세 포함)</p>
+            <p class="result-amount" aria-live="polite" aria-atomic="true"><span id="lsTotal">0</span><span class="won">원</span></p>
+            <p class="result-sub" id="lsSub"></p>
+          </div>
+          <span class="tier-badge" id="lsVerdict" data-tier="2">계산 중</span>
+        </div>
+
+        <div class="breakdown" id="lsRows"></div>
+
+        <div class="stat-grid">
+          <div class="stat-cell">
+            <span>환산보증금</span>
+            <strong id="lsAmount">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>법정 상한(부가세 별도)</span>
+            <strong id="lsMax">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>부가세</span>
+            <strong id="lsVat">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>보증보험료 참고(연)</span>
+            <strong id="lsGuarantee">0원</strong>
+          </div>
+        </div>
+
+        <div class="after-box after-box--special" id="lsSpecial">
+          <p class="after-title" id="lsSpecialTitle">월세 환산 특례</p>
+          <p id="lsSpecialText"></p>
+        </div>
+
+        <div class="after-box" id="lsNextBox">
+          <p class="after-title" id="lsNextTitle">한도액이 걸렸습니다</p>
+          <p id="lsNext"></p>
+        </div>
+
+        <p class="insight" id="lsInsight"></p>
+
+        <details class="breakdown-box" open>
+          <summary>
+            <span>내 환산보증금이 속한 구간</span>
+            <span class="summary-hint">임대차 상한요율</span>
+          </summary>
+          <div class="table-wrap">
+            <table class="data-table data-table--num" id="lsTable">
+              <caption class="sr-only">임대차 거래금액 구간별 상한요율과 한도액</caption>
+              <thead>
+                <tr><th scope="col">거래금액</th><th scope="col">상한요율</th><th scope="col">한도액</th><th scope="col">이 금액이면</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </details>
+
+        <details class="breakdown-box">
+          <summary>
+            <span>월세를 조금 바꾸면 얼마가 달라지나</span>
+            <span class="summary-hint">경계 확인용</span>
+          </summary>
+          <div class="table-wrap">
+            <table class="data-table data-table--num" id="lsSensTable">
+              <caption class="sr-only">월세 변화에 따른 환산보증금과 중개보수 상한</caption>
+              <thead>
+                <tr><th scope="col">월세</th><th scope="col">환산보증금</th><th scope="col">상한(부가세 별도)</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </details>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="shareLease">
+            <span aria-hidden="true">📋</span> 결과 복사하기
+          </button>
+        </div>
+      </section>
+
+      <div class="ad-slot" data-ad-slot="mid2" aria-hidden="true" hidden></div>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>월세 환산, 100배와 70배</h2>
+          <p class="card-sub">100배로 먼저 더해 보고, 합이 5,000만원 미만일 때만 70배로 다시 계산합니다.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table data-table--num">
+            <caption class="sr-only">월세 환산보증금 계산 예시</caption>
+            <thead>
+              <tr><th scope="col">보증금</th><th scope="col">월세</th><th scope="col">×100 환산</th><th scope="col">적용 거래금액</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">1,000만원</th><td>50만원</td><td>6,000만원</td><td>6,000만원 (×100)</td></tr>
+              <tr><th scope="row">1,000만원</th><td>40만원</td><td>5,000만원</td><td>5,000만원 (경계, ×100)</td></tr>
+              <tr><th scope="row">1,000만원</th><td>39만원</td><td>4,900만원</td><td>3,730만원 (×70)</td></tr>
+              <tr><th scope="row">500만원</th><td>40만원</td><td>4,500만원</td><td>3,300만원 (×70)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="tips">
+          <li><strong>70배는 요율을 깎는 게 아닙니다.</strong> 거래금액 자체를 다시 계산하는 특례입니다. 바뀐 금액으로 구간을 다시 찾습니다.</li>
+          <li><strong>월세 1만원 차이로 1,000만원 이상 벌어질 수 있습니다.</strong> 위 표에서 월세 39만원과 40만원 사이가 그렇습니다. 상한은 18만 6,500원에서 20만원으로 올라갑니다.</li>
+          <li><strong>반전세·단기임대도 같은 표</strong>입니다. 매매·교환 이외의 거래는 모두 '임대차 등' 구간을 씁니다.</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>전세 계약 뒤에 드는 돈</h2>
+          <p class="card-sub">확정일자는 600원, 전입신고는 무료입니다. 보증보험료는 보증금과 요율로 달라집니다.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <caption class="sr-only">전세 계약 부대비용</caption>
+            <thead>
+              <tr><th scope="col">항목</th><th scope="col">비용</th><th scope="col">비고</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">확정일자</th><td>600원</td><td>주민센터·인터넷등기소, 전입신고와 함께</td></tr>
+              <tr><th scope="row">전입신고</th><td>무료</td><td>잔금일 열쇠 인도 후 바로</td></tr>
+              <tr><th scope="row">등기사항증명서</th><td>발급 1,000원 · 열람 700원</td><td>계약 전·잔금 전 2회 확인 권장</td></tr>
+              <tr><th scope="row">전세보증금 반환보증</th><td>연 0.097~0.211%</td><td>HUG, 2025년 3월 개편 기준 · 주택 유형·부채비율에 따라 다름</td></tr>
+              <tr><th scope="row">전세권 설정 등기</th><td>전세금의 0.24% + 수수료</td><td>등록면허세 0.2% + 지방교육세, 집주인 동의 필요</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="card faq-card">
+        <h2>전세·월세 복비에서 자주 묻는 것</h2>
+        <details class="faq" open>
+          <summary>3억원 전세면 복비가 얼마인가요?</summary>
+          <p>1억~6억원 구간 0.3%라 <strong>90만원</strong>, 부가세 10%를 더하면 <strong>99만원</strong>입니다. 임대인도 같은 금액을 내며, 실제 금액은 이 안에서 협의합니다.</p>
+        </details>
+        <details class="faq">
+          <summary>보증금 1,000만원에 월세 40만원이면?</summary>
+          <p>1,000만 + 40만×100 = 5,000만원이라 '5,000만원 미만'이 아닙니다. 그래서 ×70을 쓰지 않고 5,000만~1억원 구간 0.4%를 적용해 <strong>20만원</strong>이 상한입니다(한도 30만원은 걸리지 않습니다).</p>
+        </details>
+        <details class="faq">
+          <summary>8,000만원 전세인데 32만원을 달라고 합니다.</summary>
+          <p>5,000만~1억원 구간은 0.4%에 <strong>한도액 30만원</strong>이 걸립니다. 0.4%로는 32만원이지만 한도액이 우선이라 상한은 30만원(부가세 포함 33만원)입니다.</p>
+        </details>
+        <details class="faq">
+          <summary>복비는 언제 내나요?</summary>
+          <p>계약이 성립하면 지급 의무가 생기고, 지급 시기는 약정에 따릅니다. 약정이 없으면 <strong>거래대금 지급이 완료된 날</strong>(잔금일)입니다. 계약서에 시기를 적어 두면 다툼이 줄어듭니다.</p>
+        </details>
+        <details class="faq">
+          <summary>전세보증금 반환보증 보증료는 얼마인가요?</summary>
+          <p>HUG 기준 연 0.097~0.211%입니다(2025년 3월 개편). 3억원이면 연 29만~63만원 수준이고, 보증금이 높거나 부채비율이 크면 요율이 올라갑니다. 정확한 금액은 안심전세앱이나 HUG에서 보증금·주택가격을 넣어 확인하세요.</p>
+        </details>
+      </section>
+    </section>
+
+    <!-- ══════════ 탭 3: 이사·입주 총비용 ══════════ -->
+    <section class="panel" id="panelMove" role="tabpanel" aria-labelledby="tabMove" tabindex="0" hidden>
+      <p class="lead">복비만 준비하면 이사 당일이 더 아픕니다. <strong>복비 + 이사비 + 입주청소 + 인지세·등기수수료·확정일자</strong>를 한 표에 모아 총액을 보여 드립니다.</p>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>거래와 집 크기</h2>
+          <p class="card-sub">복비는 거래 종류·금액으로, 이사·청소는 공급면적 평수로 계산합니다.</p>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="mvDealLabel">거래 종류</span>
+          <div class="segmented segmented-sm segmented-rel" role="radiogroup" aria-labelledby="mvDealLabel" id="mvDealGroup">
+            <button type="button" role="radio" aria-checked="false" id="mvDealSale" data-mv-deal="sale">매매</button>
+            <button type="button" role="radio" aria-checked="true" class="is-active" id="mvDealJeonse" data-mv-deal="jeonse">전세</button>
+            <button type="button" role="radio" aria-checked="false" id="mvDealMonthly" data-mv-deal="monthly">월세</button>
+          </div>
+        </div>
+
+        <div class="field" id="mvPriceWrap" hidden>
+          <div class="field-label-row">
+            <label class="field-label" for="mvPrice">매매가격</label>
+            <span class="badge-soft" id="mvPriceBadge">5억원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="mvPrice" type="number" inputmode="numeric" min="0" max="100000000000" step="1000000" value="500000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+        </div>
+
+        <div class="field" id="mvDepositWrap">
+          <div class="field-label-row">
+            <label class="field-label" for="mvDeposit">보증금</label>
+            <span class="badge-soft" id="mvDepositBadge">3억원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="mvDeposit" type="number" inputmode="numeric" min="0" max="100000000000" step="1000000" value="300000000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+        </div>
+
+        <div class="field" id="mvMonthlyWrap" hidden>
+          <div class="field-label-row">
+            <label class="field-label" for="mvMonthly">월세</label>
+            <span class="badge-soft" id="mvMonthlyBadge">50만원</span>
+          </div>
+          <div class="input-wrap">
+            <input id="mvMonthly" type="number" inputmode="numeric" min="0" max="100000000" step="10000" value="500000" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="mvVatLabel">중개사무소 과세유형</span>
+          <div class="segmented segmented-sm segmented-rel" role="radiogroup" aria-labelledby="mvVatLabel" id="mvVatGroup">
+            <button type="button" role="radio" aria-checked="true" class="is-active" data-mv-vat="general">일반과세 10%</button>
+            <button type="button" role="radio" aria-checked="false" data-mv-vat="simple">간이과세 4%</button>
+            <button type="button" role="radio" aria-checked="false" data-mv-vat="none">미청구</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="mvPyeong">공급면적</label>
+            <span class="badge-soft" id="mvPyeongBadge">24평</span>
+          </div>
+          <div class="input-wrap">
+            <input id="mvPyeong" type="number" inputmode="numeric" min="1" max="200" step="1" value="24" autocomplete="off">
+            <span class="unit">평</span>
+          </div>
+          <div class="chips" role="group" aria-label="평수 빠른 선택">
+            <button type="button" data-mv-pyeong="10">10평</button>
+            <button type="button" data-mv-pyeong="17">17평</button>
+            <button type="button" data-mv-pyeong="24">24평</button>
+            <button type="button" data-mv-pyeong="32">32평</button>
+            <button type="button" data-mv-pyeong="42">42평</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>이사와 청소</h2>
+          <p class="card-sub">시세는 업체 공개 견적 범위입니다. 견적을 받았다면 그 금액을 넣으면 그대로 반영됩니다.</p>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="mvMethodLabel">이사 방식</span>
+          <div class="segmented segmented-sm segmented-rel" role="radiogroup" aria-labelledby="mvMethodLabel" id="mvMethodGroup">
+            <button type="button" role="radio" aria-checked="false" data-mv-method="general">일반이사<small>짐만 운반</small></button>
+            <button type="button" role="radio" aria-checked="false" data-mv-method="half">반포장<small>큰 짐만</small></button>
+            <button type="button" role="radio" aria-checked="true" class="is-active" data-mv-method="full">포장이사<small>전부</small></button>
+          </div>
+        </div>
+
+        <div class="switch-row">
+          <label class="check-item">
+            <input type="checkbox" id="mvSeason">
+            <span><strong>성수기·주말 이사</strong><small>3월·10월, 손없는 날, 주말은 10~45% 비쌉니다.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" id="mvLadder">
+            <span><strong>사다리차 필요</strong><small>엘리베이터 없음·큰 가구 반입 불가 시 25만~35만원 추가.</small></span>
+          </label>
+        </div>
+
+        <div class="field">
+          <div class="field-label-row">
+            <label class="field-label" for="mvMoveQuote">받은 이사 견적 <small>선택</small></label>
+            <span class="badge-soft">0원 = 시세로 계산</span>
+          </div>
+          <div class="input-wrap">
+            <input id="mvMoveQuote" type="number" inputmode="numeric" min="0" max="100000000" step="10000" value="0" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-label" id="mvCleanLabel">입주청소</span>
+          <div class="segmented segmented-sm segmented-rel" role="radiogroup" aria-labelledby="mvCleanLabel" id="mvCleanGroup">
+            <button type="button" role="radio" aria-checked="true" class="is-active" data-mv-clean="in">입주청소<small>빈집</small></button>
+            <button type="button" role="radio" aria-checked="false" data-mv-clean="new">신축 준공<small>분진 제거</small></button>
+            <button type="button" role="radio" aria-checked="false" data-mv-clean="none">안 함</button>
+          </div>
+        </div>
+
+        <div class="field" id="mvCleanQuoteWrap">
+          <div class="field-label-row">
+            <label class="field-label" for="mvCleanQuote">받은 청소 견적 <small>선택</small></label>
+            <span class="badge-soft">0원 = 시세로 계산</span>
+          </div>
+          <div class="input-wrap">
+            <input id="mvCleanQuote" type="number" inputmode="numeric" min="0" max="100000000" step="10000" value="0" autocomplete="off">
+            <span class="unit">원</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>등기·서류 비용</h2>
+          <p class="card-sub" id="mvDocsSub">임대차는 확정일자 600원과 등기사항증명서 발급료가 전부입니다.</p>
+        </div>
+
+        <div id="mvSaleDocs" hidden>
+          <div class="field">
+            <span class="field-label" id="mvStampLabel">매매계약서 통수</span>
+            <div class="segmented segmented-sm segmented-rel" role="radiogroup" aria-labelledby="mvStampLabel" id="mvStampGroup">
+              <button type="button" role="radio" aria-checked="false" data-mv-stamp="1">1통<small>공동 보관</small></button>
+              <button type="button" role="radio" aria-checked="true" class="is-active" data-mv-stamp="2">2통<small>각자 보관</small></button>
+            </div>
+            <p class="field-help">인지세는 1통마다 붙습니다. 주택은 기재금액 1억원 이하면 비과세입니다.</p>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="mvRegMethod">등기 신청 방식</label>
+            <span class="select-wrap"><select id="mvRegMethod">
+              <option value="online" selected>전자신청 — 10,000원</option>
+              <option value="eform">전자표준양식 — 15,000원</option>
+              <option value="paper">서면 방문 — 18,000원</option>
+            </select></span>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="mvRegCount">등기할 부동산 수</label>
+            <span class="select-wrap"><select id="mvRegCount">
+              <option value="1" selected>1개 — 아파트 등 집합건물</option>
+              <option value="2">2개 — 단독·다가구(토지+건물)</option>
+              <option value="3">3개 이상</option>
+            </select></span>
+            <p class="field-help">수수료는 <strong>부동산 1개마다</strong> 붙습니다. 셀프 등기면 법무사 비용 없이 이 금액만 듭니다.</p>
+          </div>
+
+          <div class="field">
+            <div class="field-label-row">
+              <label class="field-label" for="mvLawyer">법무사 대행료 <small>선택</small></label>
+              <span class="badge-soft">0원 = 셀프 등기</span>
+            </div>
+            <div class="input-wrap">
+              <input id="mvLawyer" type="number" inputmode="numeric" min="0" max="10000000" step="10000" value="0" autocomplete="off">
+              <span class="unit">원</span>
+            </div>
+            <p class="field-help">법정 요금이 없어 사무소마다 다릅니다. 견적을 받았다면 넣으세요. 국민주택채권 매입·즉시매도 손실은 포함하지 않았습니다.</p>
+          </div>
+        </div>
+
+        <div id="mvLeaseDocs">
+          <div class="switch-row">
+            <label class="check-item">
+              <input type="checkbox" id="mvFixed" checked>
+              <span><strong>확정일자 받기</strong><small>600원 · 전입신고(무료)와 함께 하면 우선변제권이 생깁니다.</small></span>
+            </label>
+          </div>
+          <div class="field">
+            <label class="field-label" for="mvCopyCount">등기사항증명서 발급 통수</label>
+            <span class="select-wrap"><select id="mvCopyCount">
+              <option value="0">발급 안 함</option>
+              <option value="1" selected>1통 — 1,000원</option>
+              <option value="2">2통 — 2,000원</option>
+              <option value="3">3통 — 3,000원</option>
+            </select></span>
+          </div>
+          <div class="switch-row">
+            <label class="check-item">
+              <input type="checkbox" id="mvInsurance">
+              <span><strong>전세보증금 반환보증 가입</strong><small>보증료를 총비용에 넣습니다. 요율은 보증금·부채비율에 따라 다릅니다.</small></span>
+            </label>
+          </div>
+          <div class="field" id="mvInsuranceWrap" hidden>
+            <div class="field-label-row">
+              <label class="field-label" for="mvInsuranceRate">보증료율 <small>연</small></label>
+              <span class="badge-soft">0.128%</span>
+            </div>
+            <div class="input-wrap">
+              <input id="mvInsuranceRate" type="number" inputmode="decimal" min="0" max="2" step="0.001" value="0.128" autocomplete="off">
+              <span class="unit">%</span>
+            </div>
+            <p class="field-help">HUG 보증료는 연 0.097~0.211%입니다. 안심전세앱에서 내 조건의 요율을 확인해 넣으세요.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card result-card" id="mvResultCard">
+        <div class="result-head">
+          <div>
+            <p class="result-label">이사·입주에 드는 총비용</p>
+            <p class="result-amount result-amount--range" aria-live="polite" aria-atomic="true">
+              <span id="mvTotalMin">0</span><span class="tilde" aria-hidden="true">~</span><span id="mvTotalMax">0</span><span class="won">원</span>
+            </p>
+            <p class="result-sub" id="mvSub"></p>
+          </div>
+          <span class="tier-badge" id="mvVerdict" data-tier="2">계산 중</span>
+        </div>
+
+        <div class="table-wrap">
+          <table class="data-table data-table--num" id="mvTable">
+            <caption class="sr-only">이사·입주 항목별 비용</caption>
+            <thead>
+              <tr><th scope="col">항목</th><th scope="col">최소</th><th scope="col">최대</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div class="stat-grid">
+          <div class="stat-cell">
+            <span>복비</span>
+            <strong id="mvBroker">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>이사비</span>
+            <strong id="mvMove">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>청소</span>
+            <strong id="mvClean">0원</strong>
+          </div>
+          <div class="stat-cell">
+            <span>등기·서류</span>
+            <strong id="mvDocs">0원</strong>
+          </div>
+        </div>
+
+        <div class="after-box" id="mvTipBox">
+          <p class="after-title">이 금액에서 줄일 수 있는 것</p>
+          <p id="mvTip"></p>
+        </div>
+
+        <p class="insight" id="mvInsight"></p>
+
+        <div class="result-actions">
+          <button type="button" class="btn btn-primary" id="shareMove">
+            <span aria-hidden="true">📋</span> 결과 복사하기
+          </button>
+        </div>
+      </section>
+
+      <div class="ad-slot" data-ad-slot="bottom" aria-hidden="true"></div>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>이사비 시세, 이렇게 봅니다</h2>
+          <p class="card-sub">정부 공식 통계는 없습니다. 업체 공개 견적을 모은 범위이니 3곳 이상 비교하세요.</p>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table data-table--num">
+            <caption class="sr-only">평수별 포장이사 시세(2026년)</caption>
+            <thead>
+              <tr><th scope="col">규모</th><th scope="col">차량</th><th scope="col">포장이사</th><th scope="col">반포장이사</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">원룸(10평 이하)</th><td>1톤</td><td>40만~70만원</td><td>30만~40만원</td></tr>
+              <tr><th scope="row">투룸·17~20평</th><td>2.5톤</td><td>70만~110만원</td><td>50만~90만원</td></tr>
+              <tr><th scope="row">25~32평</th><td>3.5~5톤</td><td>90만~140만원</td><td>70만~110만원</td></tr>
+              <tr><th scope="row">34~40평</th><td>5톤</td><td>130만~190만원</td><td>100만~150만원</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="tips">
+          <li><strong>성수기와 평일 오전의 차이가 가장 큽니다.</strong> 같은 짐, 같은 방식인데 3월·10월 손없는 날 주말과 1~2월 평일 오전이 30% 이상 벌어집니다.</li>
+          <li><strong>사다리차는 짐이 적을수록 부담이 큽니다.</strong> 원룸 이사비보다 사다리차가 더 나오는 경우도 있습니다. 견적서에 포함됐는지 먼저 확인하세요.</li>
+          <li><strong>입주청소는 평당 1만 2,000~1만 8,000원</strong>이 2026년 시세입니다. 24평이면 29만~36만원, 신축 준공은 분진 제거 때문에 더 비쌉니다.</li>
+        </ul>
+      </section>
+
+      <section class="card faq-card">
+        <h2>이사 총비용에서 자주 묻는 것</h2>
+        <details class="faq" open>
+          <summary>인지세는 누가 내나요?</summary>
+          <p>계약서를 작성한 사람이 냅니다. 2인이 함께 작성하면 <strong>연대 납부 의무</strong>가 있고, 1통마다 붙으므로 각자 1통씩 보관하면 2배입니다. 5억원 매매계약서 1통은 15만원, 2통이면 30만원입니다. 주택은 1억원 이하이면 비과세입니다.</p>
+        </details>
+        <details class="faq">
+          <summary>등기신청 수수료는 얼마인가요?</summary>
+          <p>매매 소유권이전등기는 <strong>부동산 1개당</strong> 서면 18,000원, 전자표준양식 15,000원, 전자신청 10,000원입니다(등기사항증명서 등 수수료규칙 제5조의2·제5조의5). 아파트는 보통 1개, 단독·다가구는 토지와 건물로 2개입니다. 여기에 취득세와 국민주택채권 매입이 따로 붙습니다.</p>
+        </details>
+        <details class="faq">
+          <summary>확정일자만 받으면 안전한가요?</summary>
+          <p>확정일자만으로는 부족합니다. <strong>전입신고로 대항력</strong>을, <strong>확정일자로 우선변제권</strong>을 갖춰야 하고, 보증금이 크면 <strong>반환보증</strong>까지 가입하는 편이 안전합니다. 세 가지는 서로 대체하지 못합니다.</p>
+        </details>
+        <details class="faq">
+          <summary>법무사 비용은 왜 자동으로 안 나오나요?</summary>
+          <p>법무사 보수는 법정 요금이 없어 사무소·물건마다 다릅니다. 계산기에 임의 숫자를 넣으면 오히려 오해를 부르므로, 견적을 받은 경우에만 입력하도록 비워 두었습니다. 셀프 등기면 0원 그대로 두세요.</p>
+        </details>
+      </section>
+    </section>
+
+    <!-- ══════════ 탭 4: 체크리스트 & FAQ ══════════ -->
+    <section class="panel" id="panelCheck" role="tabpanel" aria-labelledby="tabCheck" tabindex="0" hidden>
+      <p class="lead">계약서에 도장을 찍기 전에 확인할 것, 특약에 넣을 문구, 잔금 당일 할 일을 순서대로 모았습니다. 체크한 항목은 이 기기에만 저장됩니다.</p>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>진행률</h2>
+          <p class="card-sub">18개 항목 중 확인한 것만 체크하세요. 잔금일 전날 다시 열어 보면 좋습니다.</p>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="체크리스트 진행률" id="checkBar"><i style="width:0%"></i></div>
+          <p class="check-count" id="checkCount">0 / 18</p>
+        </div>
+        <div class="result-actions">
+          <button type="button" class="btn btn-ghost" id="checkReset">체크 초기화</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>계약 전 — 서류부터</h2>
+          <p class="card-sub">집과 사람을 확인하는 단계입니다. 등기부등본은 계약 전과 잔금 전 두 번 봅니다.</p>
+        </div>
+        <div class="check-list" id="checkList">
+          <label class="check-item">
+            <input type="checkbox" data-check="c1">
+            <span><strong>등기부등본 갑구·을구 확인</strong><small>소유자가 계약 상대방과 같은지, 근저당·가압류·신탁등기가 있는지 봅니다. 신탁등기가 있으면 임대인 아닌 신탁사가 임대 권한을 갖습니다.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="c2">
+            <span><strong>중개사무소 등록·자격 확인</strong><small>등록번호와 공인중개사 자격을 확인합니다. 계약 전에 중개보수를 서면(확인·설명서)으로 정하게 하세요.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="c3">
+            <span><strong>건축물대장 확인</strong><small>위반건축물(불법 증축·용도변경)이면 전세보증보험과 대출이 막힐 수 있습니다.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="c4">
+            <span><strong>국세·지방세 완납증명 요청</strong><small>임대인의 체납이 있으면 경매 때 세금이 보증금보다 먼저 배당됩니다.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="c5">
+            <span><strong>보증금 시세와 선순위 채권 확인</strong><small>임대인의 기존 대출 + 내 보증금이 집값 대비 너무 높지 않은지 봅니다. 보증보험 가입 가능 여부와 직결됩니다.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="c6">
+            <span><strong>중개보수 상한 확인</strong><small>거래금액 구간의 상한요율과 한도액을 직접 계산해 봅니다. 이 앱의 첫 탭이 그 계산입니다.</small></span>
+          </label>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>계약서 특약 — 문구로 남기기</h2>
+          <p class="card-sub">구두 약속은 나중에 증명되지 않습니다. 아래 문구를 상황에 맞게 고쳐 넣으세요.</p>
+        </div>
+        <div class="check-list">
+          <label class="check-item">
+            <input type="checkbox" data-check="c7">
+            <span><strong>잔금일까지 권리변동 시 해제</strong><small>"잔금일까지 근저당·가압류 등 권리변동이 발생하면 계약을 해제하고 계약금을 반환한다."</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="c8">
+            <span><strong>전입신고·확정일자 협조</strong><small>"임대인은 잔금일 열쇠 인도와 동시에 임차인의 전입신고·확정일자에 협조한다."</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="c9">
+            <span><strong>보증금 반환 계좌·기한</strong><small>"보증금은 계약 만료일로부터 3일 이내 임차인 명의 계좌로 반환한다."</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="c10">
+            <span><strong>수리·하자 특약</strong><small>누수·곰팡이·보일러·샷시 등 입주 전 수리 항목과 완료 기한을 구체적으로 적습니다.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="c11">
+            <span><strong>보증보험 가입 협조</strong><small>"임대인은 임차인의 전세보증금 반환보증 가입에 필요한 서류 제공에 협조한다."</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="c12">
+            <span><strong>중개보수·부가세 명시</strong><small>보수와 부가세를 각각 얼마로 정했는지 확인·설명서에 적게 합니다. 간이과세 사무소가 10%를 요구하는 경우를 막습니다.</small></span>
+          </label>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>계약 후·잔금일</h2>
+          <p class="card-sub">잔금일 하루에 몰아서 하면 놓칩니다. 대출·보증보험은 미리 심사받으세요.</p>
+        </div>
+        <div class="check-list">
+          <label class="check-item">
+            <input type="checkbox" data-check="c13">
+            <span><strong>전입신고 + 확정일자</strong><small>잔금일 열쇠를 받은 뒤 바로. 전입신고는 무료, 확정일자는 600원입니다. 다음 날로 넘기면 그 사이 권리가 붙을 수 있습니다.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="c14">
+            <span><strong>전세보증금 반환보증 가입</strong><small>HUG·SGI·HF 중 조건이 맞는 곳을 골라 잔금 전에 심사받습니다. 보증료는 연 0.1~0.2% 수준입니다.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="c15">
+            <span><strong>전세자금대출 실행·질권 설정</strong><small>대출 실행일과 잔금일을 맞추고, 임차권등기나 질권 설정 여부를 확인합니다.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="c16">
+            <span><strong>임대차 신고 대상 확인</strong><small>보증금 6억원 초과 또는 월세 30만원 초과 계약은 30일 안에 신고해야 합니다(주택임대차보호법).</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="c17">
+            <span><strong>이사·청소 예약</strong><small>손없는 날·주말은 30~50% 비쌉니다. 평일 오전으로 옮기면 같은 짐도 예산이 줄어듭니다.</small></span>
+          </label>
+          <label class="check-item">
+            <input type="checkbox" data-check="c18">
+            <span><strong>관리비·공과금 정산</strong><small>이사 당일 전기·수도·가스 검침과 관리비 정산 내역을 사진으로 남깁니다.</small></span>
+          </label>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card-head">
+          <h2>전세사기 예방 — 이 셋은 따로 봅니다</h2>
+          <p class="card-sub">집값, 사람, 권리. 하나라도 어긋나면 보증금은 돌아오지 않을 수 있습니다.</p>
+        </div>
+        <ul class="tips">
+          <li><strong>집값:</strong> 임대인의 기존 대출과 내 보증금을 합쳐 공시가격·시세와 비교합니다. 보증보험 가입 가능 비율을 넘으면 위험 신호입니다.</li>
+          <li><strong>사람:</strong> 임대인이 여러 채를 가진 '갭투자'인지, 세금 체납이 있는지, 등기부상 소유자와 계약 상대가 같은지 봅니다. 대리인 계약이면 위임장과 인감증명서 원본을 확인합니다.</li>
+          <li><strong>권리:</strong> 신탁등기, 가압류, 근저당, 임차권등기명령 기록을 확인합니다. 신탁된 집은 신탁사 동의 없이 계약하면 보증금을 보호받기 어렵습니다.</li>
+        </ul>
+        <div class="related-grid" style="margin-top:12px">
+          <a class="related-app" href="https://www.khug.or.kr/" target="_blank" rel="noopener">
+            <strong>HUG 안심전세</strong>
+            <span>보증보험 가능 여부·보증료 확인</span>
+          </a>
+          <a class="related-app" href="https://www.iros.go.kr/" target="_blank" rel="noopener">
+            <strong>인터넷등기소</strong>
+            <span>등기부등본 열람·발급</span>
+          </a>
+          <a class="related-app" href="https://www.gov.kr/" target="_blank" rel="noopener">
+            <strong>정부24</strong>
+            <span>전입신고·건축물대장</span>
+          </a>
+          <a class="related-app" href="https://www.easylaw.go.kr/" target="_blank" rel="noopener">
+            <strong>찾기쉬운 생활법령</strong>
+            <span>주택임대차·등기 절차</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="card faq-card">
+        <h2>이사 준비에서 자주 묻는 것</h2>
+        <details class="faq" open>
+          <summary>전입신고를 늦게 하면 어떻게 되나요?</summary>
+          <p>대항력은 전입신고를 마친 다음 날 0시에 생깁니다. 하루 늦으면 그 사이에 붙은 근저당보다 순위가 밀릴 수 있어, 잔금일 당일 처리하는 것이 원칙입니다. 확정일자를 함께 받으면 경매 때 보증금을 우선 배당받습니다.</p>
+        </details>
+        <details class="faq">
+          <summary>이사비를 아끼는 가장 확실한 방법은?</summary>
+          <p>날짜를 옮기는 것입니다. 같은 짐·같은 포장이사라도 3월·10월 손없는 날 주말과 1~2월 평일 오전은 30% 이상 차이가 납니다. 다음은 포장 범위를 줄이는 것(포장 → 반포장)이고, 견적은 3곳 이상 비교하세요.</p>
+        </details>
+        <details class="faq">
+          <summary>입주청소는 꼭 해야 하나요?</summary>
+          <p>의무는 아니지만, 이전 세입자가 남긴 먼지와 수리 후 분진은 직접 청소하기 어렵습니다. 신축은 준공청소가 따로 필요하고, 평당 1만 2,000~1만 8,000원이 2026년 시세입니다.</p>
+        </details>
+        <details class="faq">
+          <summary>중개보수 영수증은 꼭 받아야 하나요?</summary>
+          <p>받으세요. 중개보수는 현금영수증 의무발행 대상(건당 10만원 이상)이고, 영수증에는 보수와 부가세가 나뉘어 찍힙니다. 나중에 초과 수수를 다툴 때 유일한 증빙이 됩니다.</p>
+        </details>
+      </section>
+    </section>
+
+    <!-- 제휴 상품: config.js 의 coupang.items 에 링크를 넣으면 나타납니다 -->
+    <section class="card promo-card" id="promoSection" hidden>
+      <div class="card-head">
+        <h2 id="promoHeading">이사 첫날, 새집에서 잘 때</h2>
+        <p class="card-sub" id="promoSub"></p>
+      </div>
+      <div class="promo-grid" id="promoList"></div>
+      <p class="ad-disclosure" id="promoDisclosure"></p>
+    </section>
+
+    <section class="related-apps" aria-labelledby="relatedAppsTitle">
+      <h2 id="relatedAppsTitle">함께 많이 쓰는 계산기</h2>
+      <div class="related-grid">
+        <a class="related-app" href="../property-tax/">
+          <strong>부동산 세금 계산기</strong>
+          <span>취득세·양도세·증여세</span>
+        </a>
+        <a class="related-app" href="../rent-loan/">
+          <strong>전세·월세 전환 계산기</strong>
+          <span>전월세전환율·주거비 비교</span>
+        </a>
+        <a class="related-app" href="../housing-loan/">
+          <strong>청약·특례대출 계산기</strong>
+          <span>가점과 월 이자</span>
+        </a>
+        <a class="related-app" href="../living-cost/">
+          <strong>고정비 체크기</strong>
+          <span>이사 후 새 고정비 점검</span>
+        </a>
+        <a class="related-app" href="../savings-tax/">
+          <strong>예적금 계산기</strong>
+          <span>남은 돈 굴리기</span>
+        </a>
+        <a class="related-app" href="../">
+          <strong>전체 계산기</strong>
+          <span>생활 계산기 17종 모아 보기</span>
+        </a>
+      </div>
+    </section>
+
+    <footer class="app-footer">
+      <p class="disclaimer">
+        <strong>참고용 모의 계산입니다.</strong> 중개보수는 공인중개사법 제32조제4항과 같은 법 시행규칙
+        제20조·별표 1(시행 2026.8.28.) 및 시·도 조례를 따랐고, 표의 요율은 상한입니다. 실제 금액은
+        중개의뢰인과 개업공인중개사가 협의해 정하며, 시·도 조례가 별표와 다르면 그 조례가 우선합니다.
+        월세 거래금액은 보증금 + 월세×100, 그 합이 5천만원 미만이면 보증금 + 월세×70으로 계산했습니다.
+        부가세는 일반과세 10%, 간이과세 약 4%(부가가치율 40%), 미청구 0% 가정입니다. 인지세는 인지세법
+        제3조·제6조, 등기신청 수수료는 등기사항증명서 등 수수료규칙 제5조의2·제5조의5, 확정일자는
+        600원을 적용했습니다. 이사·입주청소 금액은 업체 공개 견적을 모은 참고 시세이며 정부 공식 통계가
+        아닙니다. 취득세·국민주택채권·법무사 보수는 포함하지 않았거나 입력값으로만 반영했습니다.
+        입력값은 기기 안에만 저장되고 어디로도 전송되지 않습니다.
+      </p>
+      <p class="footer-links">
+        <a href="https://www.law.go.kr/" target="_blank" rel="noopener">국가법령정보센터</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.iros.go.kr/" target="_blank" rel="noopener">인터넷등기소</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.khug.or.kr/" target="_blank" rel="noopener">HUG</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.kar.or.kr/" target="_blank" rel="noopener">공인중개사협회</a>
+        <span aria-hidden="true">·</span>
+        <a href="../">전체 계산기</a>
+        <span aria-hidden="true">·</span>
+        <a href="../property-tax/">부동산 세금</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://blog.naver.com/ufssdf987" target="_blank" rel="noopener">운영 블로그</a>
+        <span aria-hidden="true">·</span>
+        <a href="../privacy.html">개인정보처리방침</a>
+      </p>
+      <p class="footer-meta">
+        <span>기준일 <time id="dataDate" datetime="2026-11-26">2026-11-26</time></span>
+        <span aria-hidden="true">·</span>
+        <span>v<span id="appVersion">1.0.0</span></span>
+        <span aria-hidden="true">·</span>
+        <span>입력값은 기기 안에만 저장됩니다</span>
+      </p>
+      <p class="ad-disclosure" id="footerDisclosure" hidden></p>
+    </footer>
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<noscript>
+  <div class="noscript">이 계산기는 자바스크립트를 사용합니다. 브라우저 설정에서 자바스크립트를 켜 주세요.</div>
+</noscript>
+
+<script src="config.js"></script>
+<script src="calc.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
