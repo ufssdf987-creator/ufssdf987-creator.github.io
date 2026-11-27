@@ -370,7 +370,7 @@
     if (m.overCap > 0) setBadge(el.hsVerdict, '연 한도 초과', 3);
     else if (capped) setBadge(el.hsVerdict, '산출세액 초과', 3);
     else if (m.cumulative <= S.RULES.hometown.mid && m.cumulative > S.RULES.hometown.first) setBadge(el.hsVerdict, '44% 구간', 1);
-    else if (m.cumulative <= S.RULES.hometown.first) setBadge(el.hsVerdict, '전액 환급', 1);
+    else if (m.cumulative <= S.RULES.hometown.first) setBadge(el.hsVerdict, '기부금 전액 공제', 1);
     else setBadge(el.hsVerdict, '16.5% 구간', 2);
 
     el.hsRefund.textContent = (m.net >= 0 ? '+' : '−') + won(Math.abs(m.net)) + '원';
