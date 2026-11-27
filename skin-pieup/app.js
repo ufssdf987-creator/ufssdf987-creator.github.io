@@ -316,9 +316,9 @@
 
   function renderGrades() {
     $('#gradeBody').innerHTML = GRADES.map(function (g) {
-      return '<tr><th scope="row">' + g.name + '</th><td>' +
+      return '<tr><th scope="row">' + g.name + '</th><td data-label="필요 소개">' +
         (g.need === 0 ? '신청 즉시' : g.need.toLocaleString('ko-KR') + '세트') +
-        '</td><td>' + g.pools + '개 등급 풀</td></tr>';
+        '</td><td data-label="받는 풀">' + g.pools + '개 등급 풀</td></tr>';
     }).join('');
   }
 

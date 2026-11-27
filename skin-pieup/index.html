@@ -474,14 +474,14 @@
             <tr><th scope="col">구분</th><th scope="col">흔한 다단계</th><th scope="col">파이업</th></tr>
           </thead>
           <tbody>
-            <tr><th scope="row">실적 인정 범위</th><td>하위 여러 단계</td><td><b>내가 직접 소개한 1단계만</b></td></tr>
-            <tr><th scope="row">소개한 사람이 또 소개하면</th><td>내 실적에 반영</td><td><b>반영 없음</b>(집계 기능 없음)</td></tr>
-            <tr><th scope="row">인정 기간</th><td>제한 없음</td><td><b>첫 결제 후 180일</b>까지만</td></tr>
-            <tr><th scope="row">인정된 구매 → 현금</th><td>수당으로 지급</td><td><b>등급 세트로만 환산</b></td></tr>
-            <tr><th scope="row">같은 등급끼리</th><td>조직 규모에 따라 차등</td><td><b>누구를 소개했든 같은 금액</b></td></tr>
-            <tr><th scope="row">상하 관계·소속</th><td>있음</td><td><b>없음</b>(교육·안내는 회사가 직접)</td></tr>
-            <tr><th scope="row">가입비·의무 구매</th><td>있는 경우 많음</td><td><b>없음</b>(세트는 상품, 신청은 선택)</td></tr>
-            <tr><th scope="row">판매·결제·환불 주체</th><td>개인 판매자</td><td><b>회사(㈜제이비엠파트너스)</b></td></tr>
+            <tr><th scope="row">실적 인정 범위</th><td data-label="흔한 다단계">하위 여러 단계</td><td data-label="파이업"><b>내가 직접 소개한 1단계만</b></td></tr>
+            <tr><th scope="row">소개한 사람이 또 소개하면</th><td data-label="흔한 다단계">내 실적에 반영</td><td data-label="파이업"><b>반영 없음</b>(집계 기능 없음)</td></tr>
+            <tr><th scope="row">인정 기간</th><td data-label="흔한 다단계">제한 없음</td><td data-label="파이업"><b>첫 결제 후 180일</b>까지만</td></tr>
+            <tr><th scope="row">인정된 구매 → 현금</th><td data-label="흔한 다단계">수당으로 지급</td><td data-label="파이업"><b>등급 세트로만 환산</b></td></tr>
+            <tr><th scope="row">같은 등급끼리</th><td data-label="흔한 다단계">조직 규모에 따라 차등</td><td data-label="파이업"><b>누구를 소개했든 같은 금액</b></td></tr>
+            <tr><th scope="row">상하 관계·소속</th><td data-label="흔한 다단계">있음</td><td data-label="파이업"><b>없음</b>(교육·안내는 회사가 직접)</td></tr>
+            <tr><th scope="row">가입비·의무 구매</th><td data-label="흔한 다단계">있는 경우 많음</td><td data-label="파이업"><b>없음</b>(세트는 상품, 신청은 선택)</td></tr>
+            <tr><th scope="row">판매·결제·환불 주체</th><td data-label="흔한 다단계">개인 판매자</td><td data-label="파이업"><b>회사(㈜제이비엠파트너스)</b></td></tr>
           </tbody>
         </table>
       </div>
@@ -531,6 +531,13 @@
         <div class="step__body">
           <h2>추천 링크로 접속하고 이메일로 가입</h2>
           <p>가입 화면에서 <b>이메일 주소</b>를 넣고 인증합니다. 소개 코드는 링크에 포함되어 있어 따로 입력할 필요가 없습니다.</p>
+          <div class="step__cta">
+            <a class="step__cta-btn" href="https://pie-up.com/signup?ref=BTETPK9Z" target="_blank" rel="sponsored noopener noreferrer">
+              파이업 추천 링크로 가입하기
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+            </a>
+            <span class="step__cta-note">추천 코드 <code>BTETPK9Z</code>가 자동으로 들어갑니다. 이 링크로 가입하면 마이페이지의 소개자가 민석 님으로 표시됩니다.</span>
+          </div>
           <div class="step__check"><b>확인</b> 가입 후 마이페이지에 추천인(소개자)이 민석 님 계정으로 표시되는지 봅니다.</div>
         </div>
       </li>
@@ -622,11 +629,11 @@
           <caption class="sr-only">파이업 정산·출금 일정</caption>
           <thead><tr><th scope="col">단계</th><th scope="col">언제</th><th scope="col">무엇이</th></tr></thead>
           <tbody>
-            <tr><th scope="row">적립 발생</th><td>결제 즉시</td><td>예상 적립으로 표시</td></tr>
-            <tr><th scope="row">확정</th><td>매출일 + 7일(8일차 0시)</td><td>금액 고정, 출금 가능</td></tr>
-            <tr><th scope="row">출금 신청</th><td>월~일</td><td>10,000원 단위</td></tr>
-            <tr><th scope="row">입금</th><td>다음 주 금요일</td><td>3.3% 원천징수 후</td></tr>
-            <tr><th scope="row">세금 정산</th><td>다음 해 5월</td><td>종합소득세 신고</td></tr>
+            <tr><th scope="row">적립 발생</th><td data-label="언제">구매 확정 · 크리에이터 신청·승인 후</td><td data-label="무엇이">예상 적립으로 표시</td></tr>
+            <tr><th scope="row">확정</th><td data-label="언제">매출일 + 7일(8일차 0시)</td><td data-label="무엇이">금액 고정, 출금 가능</td></tr>
+            <tr><th scope="row">출금 신청</th><td data-label="언제">월~일</td><td data-label="무엇이">10,000원 단위</td></tr>
+            <tr><th scope="row">입금</th><td data-label="언제">다음 주 금요일</td><td data-label="무엇이">3.3% 원천징수 후</td></tr>
+            <tr><th scope="row">세금 정산</th><td data-label="언제">다음 해 5월</td><td data-label="무엇이">종합소득세 신고</td></tr>
           </tbody>
         </table>
       </div>
@@ -643,11 +650,11 @@
           <caption class="sr-only">쓰면 안 되는 표현과 대체 표현</caption>
           <thead><tr><th scope="col">쓰지 말 것</th><th scope="col">이렇게</th></tr></thead>
           <tbody>
-            <tr><td>원금 보장 · 확정 수익 · 배당 · 재테크</td><td>매출에 따라 매일 달라지는 성과 보상</td></tr>
-            <tr><td>라인 · 하부 · 산하 · 조직</td><td>내가 직접 소개한 분</td></tr>
-            <tr><td>이 제품 쓰면 피부병이 낫습니다</td><td>사용감·성분·용량 (효능은 제품 표시 기준)</td></tr>
-            <tr><td>가입만 하면 월 100만원</td><td>제가 받은 실제 금액과 날짜</td></tr>
-            <tr><td>내돈내산 (실제로는 제공받음)</td><td>제품을 제공받아 써 본 후기입니다</td></tr>
+            <tr><td data-label="쓰지 말 것">원금 보장 · 확정 수익 · 배당 · 재테크</td><td data-label="이렇게">매출에 따라 매일 달라지는 성과 보상</td></tr>
+            <tr><td data-label="쓰지 말 것">라인 · 하부 · 산하 · 조직</td><td data-label="이렇게">내가 직접 소개한 분</td></tr>
+            <tr><td data-label="쓰지 말 것">이 제품 쓰면 피부병이 낫습니다</td><td data-label="이렇게">사용감·성분·용량 (효능은 제품 표시 기준)</td></tr>
+            <tr><td data-label="쓰지 말 것">가입만 하면 월 100만원</td><td data-label="이렇게">제가 받은 실제 금액과 날짜</td></tr>
+            <tr><td data-label="쓰지 말 것">내돈내산 (실제로는 제공받음)</td><td data-label="이렇게">제품을 제공받아 써 본 후기입니다</td></tr>
           </tbody>
         </table>
       </div>
@@ -729,7 +736,7 @@
     <p class="footer-meta">
       <span>기준일 <time id="dataDate" datetime="2026-11-27">2026-11-27</time></span>
       <span aria-hidden="true">·</span>
-      <span>v<span id="appVersion">1.0.0</span></span>
+      <span>v<span id="appVersion">1.0.1</span></span>
       <span aria-hidden="true">·</span>
       <span>입력값은 기기 안에만 저장됩니다</span>
     </p>

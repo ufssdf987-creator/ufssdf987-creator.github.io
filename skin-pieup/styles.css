@@ -1187,6 +1187,34 @@ html[data-theme="dark"] .cta { background: linear-gradient(135deg, #2a1a22, #5a2
   padding-bottom: 1px;
 }
 
+/* 1단계: 추천 링크 가입 버튼 */
+.step__cta { margin: 10px 0 9px; }
+.step__cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 11px 18px;
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: -.01em;
+  color: #fff;
+  background: linear-gradient(135deg, var(--rose), var(--rose-deep));
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 12px 24px -16px rgba(163, 60, 97, .9);
+  transition: transform .16s, box-shadow .16s;
+}
+.step__cta-btn:hover { transform: translateY(-1px); box-shadow: 0 16px 28px -16px rgba(163, 60, 97, 1); }
+.step__cta-btn svg { width: 15px; height: 15px; }
+.step__cta-note {
+  display: block;
+  margin-top: 7px;
+  font-size: 11px;
+  color: var(--ink-3);
+  line-height: 1.55;
+}
+
 /* ── 정산 주기 / FAQ / 참고 ─────────────────────────────── */
 .cycle, .words, .faq, .refs { margin-bottom: 26px; }
 
@@ -1442,6 +1470,42 @@ html[data-theme="dark"] .cta { background: linear-gradient(135deg, #2a1a22, #5a2
   .step__no { width: 32px; height: 32px; border-radius: 10px; font-size: 13px; }
   .step:not(:last-child)::before { left: 15px; top: 34px; }
   .step__body { padding: 13px 14px; }
+  .step__cta-btn { width: 100%; }
+
+  /* 표 → 한 행씩 카드로 쌓아 가로 잘림 없이 읽기 */
+  .table-wrap { overflow: visible; border: 0; background: transparent; border-radius: 0; }
+  .table { display: block; min-width: 0; font-size: 12.5px; }
+  .table thead { display: none; }
+  .table tbody { display: block; }
+  .table tbody tr {
+    display: block;
+    padding: 11px 13px;
+    margin-bottom: 8px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: var(--shadow-s);
+  }
+  .table tbody tr:nth-child(even) { background: var(--surface); }
+  .table tbody tr:last-child { margin-bottom: 0; }
+  .table tbody th, .table tbody td { display: block; border: 0; padding: 0; }
+  .table tbody th { font-size: 13px; line-height: 1.45; margin-bottom: 5px; }
+  .table tbody td { font-size: 12.5px; line-height: 1.55; }
+  .table tbody td + td { margin-top: 2px; }
+  .table tbody td::before {
+    content: attr(data-label);
+    display: inline-block;
+    min-width: 52px;
+    margin-right: 6px;
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: .03em;
+    color: var(--ink-3);
+  }
+  /* ‘쓰지 말 것’은 취소선으로 구분되므로 라벨을 숨긴다 */
+  .table--words tbody td:first-child { margin-bottom: 4px; }
+  .table--words tbody td:first-child::before { content: none; }
+
   .grid { grid-template-columns: 1fr; }
   .btn--primary { flex: 1 1 100%; }
   .footcta__btn { width: 100%; }
