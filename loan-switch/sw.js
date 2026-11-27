@@ -4,7 +4,7 @@
  */
 'use strict';
 
-var VERSION = '1.0.13';
+var VERSION = '1.0.14';
 var CACHE_NAME = 'lsw-v' + VERSION;
 var CORE_ASSETS = [
   './',
