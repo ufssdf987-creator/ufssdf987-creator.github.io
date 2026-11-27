@@ -8,7 +8,7 @@
  * 3) siteUrl 은 공유 문구에 쓰는 실제 배포 주소입니다.
  */
 window.APP_CONFIG = {
-  version: '1.0.0',
+  version: '1.0.1',
   siteName: '2026 전기요금·도시가스·복지할인 계산기',
   siteUrl: 'https://ufssdf987-creator.github.io/utility-bill/',
 

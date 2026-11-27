@@ -8,7 +8,7 @@
  * 3) siteUrl 은 공유 문구에 쓰는 실제 배포 주소입니다.
  */
 window.APP_CONFIG = {
-  version: '1.0.2',
+  version: '1.0.3',
   siteName: '2026 월세 세액공제·전세대출 공제 계산기',
   siteUrl: 'https://ufssdf987-creator.github.io/monthly-rent-tax/',
 

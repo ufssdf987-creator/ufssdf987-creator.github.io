@@ -310,6 +310,8 @@ a:hover { text-decoration: underline; }
 .section-head p { margin-top: 6px; color: var(--muted); font-size: 14px; }
 
 .stack { display: grid; gap: 14px; }
+/* 그리드 항목의 자동 최소 폭 때문에 390px 화면에서 카드가 화면 밖으로 넓어지는 것을 막습니다 */
+.stack > * { min-width: 0; }
 
 /* ---------- card ---------- */
 .card {
@@ -392,9 +394,11 @@ a:hover { text-decoration: underline; }
 /* ---------- inputs ---------- */
 .field-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
 }
+.field-grid > * { min-width: 0; }
+.input__box, .input__box input, .input__box select { min-width: 0; }
 .field-grid--single { grid-template-columns: 1fr; }
 @media (max-width: 359px) { .field-grid { grid-template-columns: 1fr; } }
 

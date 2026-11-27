@@ -4,7 +4,7 @@
  */
 'use strict';
 
-var VERSION = '1.0.0';
+var VERSION = '1.0.1';
 var CACHE_NAME = 'ub-v' + VERSION;
 var CORE_ASSETS = [
   './',

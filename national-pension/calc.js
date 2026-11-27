@@ -62,7 +62,8 @@
       assetAnnualRate: 0.04,    // 재산 소득환산율 연 4%
       assetBase: { metro: 135000000, city: 85000000, rural: 72500000 },
       npsFullCapRatio: 1.5,     // 국민연금 급여액 ≤ 기준연금액의 150%면 기준연금액 전액
-      npsDeductRatio: 2 / 3,    // 초과 시 기준연금액 − 소득재분배급여금액 × 2/3 + 부가연금액(1/2)
+      npsDeductRatio: 2 / 3,    // A급여(소득재분배급여금액)의 2/3를 기준연금액에서 뺌
+      npsARatio: 0.5,           // A급여를 모를 때 국민연금 급여액의 절반으로 가정
       npsSupplementRatio: 0.5
     }
   };
@@ -318,13 +319,20 @@
     var selectLimit = couple ? B.selectCouple : B.selectSingle;
     var eligible = incomeRecognized <= selectLimit;
 
-    // 기초연금액: 국민연금 수급권자는 소득재분배급여금액으로 감액, 아니면 기준연금액
+    // 기초연금액: 국민연금 수급권자는 소득재분배급여금액(A급여)으로 감액, 아니면 기준연금액
+    //  · 기준연금액의 150% 이하 → 기준연금액 전액(법 제6조①)
+    //  · 150~200% → 시행령 제10조(기준연금액×250% − 연금액)와 제5조 산정식 중 큰 금액
+    //  · 200% 초과 → 제5조 산정식(기준연금액 − A급여×2/3 + 부가연금액)
+    //  A급여는 개인 가입이력에 따라 달라 입력받지 않으므로, 국민연금 급여액의 절반으로 가정합니다.
     function amountFor(nps) {
       var n = won0(nps);
       if (n === 0) return B.basePension;
       if (n <= B.basePension * B.npsFullCapRatio) return B.basePension; // 법 제6조 ①
-      var reduced = Math.max(0, B.basePension - n * B.npsDeductRatio) + B.basePension * B.npsSupplementRatio;
-      return Math.min(reduced, B.basePension);
+      var aValue = n * B.npsARatio;
+      var byFormula = Math.max(0, B.basePension - aValue * B.npsDeductRatio) + B.basePension * B.npsSupplementRatio;
+      var by250 = B.basePension * 2.5 - n; // 시행령 제10조(150~200% 구간)
+      var reduced = n <= B.basePension * 2 ? Math.max(byFormula, by250) : byFormula;
+      return Math.min(Math.max(reduced, 0), B.basePension);
     }
 
     var selfAmount = eligible ? amountFor(d.nps) : 0;
@@ -339,7 +347,7 @@
       notes.push('부부가구는 1인만 수급해도 배우자의 소득·재산을 함께 조사합니다. 두 분 모두 수급하면 각 20% 감액됩니다.');
     }
     if (d.nps > 0) {
-      notes.push('국민연금을 받으면 소득역전방지 기준에 따라 기초연금이 감액됩니다. 월 524,550원(기준연금액의 150%) 이하면 전액 지급되고, 그 위에서는 약 17만 4,850원 수준으로 줄어듭니다.');
+      notes.push('국민연금을 받으면 소득연계 감액이 적용됩니다. 월 524,550원(기준연금액의 150%) 이하면 전액 지급되고, 그 위에서는 소득재분배급여금액에 따라 줄어들며 가장 적어도 17만 4,850원은 받습니다. 이 계산기는 소득재분배급여금액을 국민연금 급여액의 절반으로 가정했습니다.');
     }
     notes.push('기초연금액은 소득인정액이 선정기준액 이하일 때 기준연금액(349,700원)이 원칙입니다. 실제로는 가구 조사와 감액 규정에 따라 달라질 수 있습니다.');
 

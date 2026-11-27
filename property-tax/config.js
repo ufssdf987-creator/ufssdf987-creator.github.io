@@ -8,7 +8,7 @@
  * 3) siteUrl 은 공유 문구에 쓰는 실제 배포 주소입니다.
  */
 window.APP_CONFIG = {
-  version: '1.0.9',
+  version: '1.0.10',
   siteName: '부동산 세금 계산기',
   siteUrl: 'https://ufssdf987-creator.github.io/property-tax/',
 
