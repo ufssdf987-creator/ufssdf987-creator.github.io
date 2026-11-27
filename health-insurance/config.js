@@ -8,7 +8,7 @@
  * 3) siteUrl 은 공유 문구에 쓰는 실제 배포 주소입니다.
  */
 window.APP_CONFIG = {
-  version: '1.0.13',
+  version: '1.0.15',
   siteName: '건강보험료·피부양자 계산기',
   siteUrl: 'https://ufssdf987-creator.github.io/health-insurance/',
 
@@ -29,13 +29,9 @@ window.APP_CONFIG = {
     heading: '부모님 댁 겨울나기',
     subheading: '피부양자 신청하러 가기 전, 댁 난방부터 한 번 살펴보세요.',
     items: [
-      {
-        name: '한일의료기 탄소열선 고급 전기요 HL-D205',
-        tag: '150W · 탄소열선 전기요',
-        emoji: '🔌',
-        url: 'https://link.coupang.com/a/iUKxRtUptk',
-        cta: '쿠팡에서 보기'
-      }
+      { name: '한일의료기 탄소열선 고급 전기요 HL-D205', tag: '150W · 탄소열선 전기요', emoji: '🔌', url: 'https://link.coupang.com/a/iUKxRtUptk', cta: '쿠팡에서 보기' },
+      { name: 'RYNOVEX USB 전기무릎담요 SML-201DY', tag: '9W · 150×85cm · 워셔블', emoji: '🧣', url: 'https://link.coupang.com/a/i0ieOKw9ZI', cta: '쿠팡에서 보기' },
+      { name: '탐사 군인 포켓타입 핫팩 200g 10개입', tag: '200g · 국내생산 · KC인증', emoji: '🔥', url: 'https://link.coupang.com/a/iVlbr5H31M', cta: '쿠팡에서 보기' }
     ]
   },
 

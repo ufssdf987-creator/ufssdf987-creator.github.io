@@ -8,7 +8,7 @@
  * 3) siteUrl 은 공유 문구에 쓰는 실제 배포 주소입니다.
  */
 window.APP_CONFIG = {
-  version: '1.0.6',
+  version: '1.0.8',
   siteName: 'K-패스·대중교통 환급 계산기',
   siteUrl: 'https://ufssdf987-creator.github.io/kpass-transit/',
 
@@ -26,16 +26,12 @@ window.APP_CONFIG = {
   coupang: {
     // 공정위 문구는 카드·푸터에 그대로 노출됩니다.
     disclosure: '쿠팡파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.',
-    heading: '환급받은 교통비, 난방비로 새지 않게',
-    subheading: '겨울 출퇴근하고 돌아온 방, 필요한 곳만 데우는 소형 파티션 히터입니다. 전기요금 계산기와 함께 보면 겨울 고정비가 잡힙니다.',
+    heading: '겨울 출퇴근, 돌아온 방',
+    subheading: '정류장에서 기다리는 시간과 돌아온 방의 냉기, 둘 다 줄이는 물건이에요.',
     items: [
-      {
-        name: '홈플래닛 접이식 파티션 히터 D2401',
-        tag: '개인용 소형 히터 · 필요할 때만',
-        emoji: '🔥',
-        url: 'https://link.coupang.com/a/iW05pEKhWK',
-        cta: '쿠팡에서 보기'
-      }
+      { name: '탐사 군인 포켓타입 핫팩 200g 10개입', tag: '200g · 국내생산 · KC인증', emoji: '🔥', url: 'https://link.coupang.com/a/iVlbr5H31M', cta: '쿠팡에서 보기' },
+      { name: 'RYNOVEX USB 전기무릎담요 SML-201DY', tag: '9W · 150×85cm · 워셔블', emoji: '🧣', url: 'https://link.coupang.com/a/i0ieOKw9ZI', cta: '쿠팡에서 보기' },
+      { name: '락앤락 메트로 머그 텀블러 600ml', tag: '600ml · 스테인리스 304 · 보온보냉', emoji: '☕', url: 'https://link.coupang.com/a/iUQfdkygHQ', cta: '쿠팡에서 보기' }
     ]
   },
 

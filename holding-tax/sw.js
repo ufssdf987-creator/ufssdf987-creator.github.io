@@ -4,7 +4,7 @@
  */
 'use strict';
 
-var VERSION = '1.0.1';
+var VERSION = '1.0.3';
 var CACHE_NAME = 'ht-v' + VERSION;
 var CORE_ASSETS = [
   './',

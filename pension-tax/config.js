@@ -8,7 +8,7 @@
  * 3) siteUrl 은 공유 문구에 쓰는 실제 배포 주소입니다.
  */
 window.APP_CONFIG = {
-  version: '1.0.8',
+  version: '1.0.10',
   siteName: '연금저축·IRP 계산기',
   siteUrl: 'https://ufssdf987-creator.github.io/pension-tax/',
 
@@ -27,15 +27,11 @@ window.APP_CONFIG = {
     // 공정위 문구는 카드·푸터에 그대로 노출됩니다.
     disclosure: '쿠팡파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.',
     heading: '12월 31일 밤, 앱 켜두고 계산할 때',
-    subheading: '연금계좌 이체와 납입확인서를 확인하다 보면 밤이 깁니다. 전기요 하나면 보일러를 낮춰도 발밑이 따뜻합니다.',
+    subheading: '연금저축·IRP 한도를 채우는 밤, 책상 앞 온열용품이에요.',
     items: [
-      {
-        name: '한일의료기 탄소열선 고급 전기요 HL-D205',
-        tag: '150W · 탄소열선 전기요',
-        emoji: '🔌',
-        url: 'https://link.coupang.com/a/iUKxRtUptk',
-        cta: '쿠팡에서 보기'
-      }
+      { name: '한일의료기 탄소열선 고급 전기요 HL-D205', tag: '150W · 탄소열선 전기요', emoji: '🔌', url: 'https://link.coupang.com/a/iUKxRtUptk', cta: '쿠팡에서 보기' },
+      { name: 'RYNOVEX USB 전기무릎담요 SML-201DY', tag: '9W · 150×85cm · 워셔블', emoji: '🧣', url: 'https://link.coupang.com/a/i0ieOKw9ZI', cta: '쿠팡에서 보기' },
+      { name: '탐사 군인 포켓타입 핫팩 200g 10개입', tag: '200g · 국내생산 · KC인증', emoji: '🔥', url: 'https://link.coupang.com/a/iVlbr5H31M', cta: '쿠팡에서 보기' }
     ]
   },
 

@@ -4,7 +4,7 @@
  */
 'use strict';
 
-var VERSION = '1.0.4';
+var VERSION = '1.0.6';
 var CACHE_NAME = 'mtc-v' + VERSION;
 var CORE_ASSETS = [
   './',

@@ -4,7 +4,7 @@
  */
 'use strict';
 
-var VERSION = '1.0.8';
+var VERSION = '1.0.10';
 var CACHE_NAME = 'pnx-v' + VERSION;
 var CORE_ASSETS = [
   './',

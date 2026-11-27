@@ -1060,3 +1060,9 @@ input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; marg
 .data-table tbody tr.is-now th,
 .data-table tbody tr.is-now td { font-weight: 800; color: var(--text); }
 .data-table tbody tr.is-now th small { font-weight: 700; color: var(--brand); margin-left: 4px; }
+
+/* 좁은 화면에서 상품명이 단어 중간에서 끊기지 않도록 합니다 */
+@media (max-width: 430px) {
+  .promo-name, .promo-meta { word-break: keep-all; overflow-wrap: break-word; }
+  .promo-cta { padding-left: 8px; padding-right: 8px; }
+}

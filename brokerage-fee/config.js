@@ -8,7 +8,7 @@
  * 3) siteUrl 은 공유 문구에 쓰는 실제 배포 주소입니다.
  */
 window.APP_CONFIG = {
-  version: '1.0.7',
+  version: '1.0.9',
   siteName: '복비·이사비용 계산기',
   siteUrl: 'https://ufssdf987-creator.github.io/brokerage-fee/',
 
@@ -25,17 +25,13 @@ window.APP_CONFIG = {
 
   coupang: {
     // 공정위 문구는 카드·푸터에 그대로 노출됩니다.
-    disclosure: '쿠팡파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.',
+    disclosure: '쿠팡파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다. 이 포스팅은 네이버 쇼핑 커넥트 활동의 일환으로, 판매 발생 시 수수료를 제공받습니다.',
     heading: '이사 첫날, 새집에서 잘 때',
-    subheading: '짐을 다 풀고 첫날 밤. 계절 상관없이 쓰는 차렵이불 하나면 이불장을 비워 두지 않아도 됩니다.',
+    subheading: '짐을 다 풀고 첫날 밤. 결로·건조함과 이불 하나면 첫 겨울이 편해집니다.',
     items: [
-      {
-        name: '코멧 홈 양면 극세사 차렵이불',
-        tag: 'SS 150×200cm · 사계절 겸용',
-        emoji: '🛏️',
-        url: 'https://link.coupang.com/a/iUOXTBaGe4',
-        cta: '쿠팡에서 보기'
-      }
+      { name: '위닉스 뽀송 인버터 제습기 22L', tag: '22L · 340W · 1등급', emoji: '🌫️', url: 'https://naver.me/FTduLTjB', cta: '네이버에서 보기' },
+      { name: '듀플렉스 3.5L 통세척 가습기', tag: '3.5L · 통세척 · 상품평 2만 건 이상', emoji: '💧', url: 'https://naver.me/xONoH7O5', cta: '네이버에서 보기' },
+      { name: '코멧 홈 양면 극세사 차렵이불', tag: 'SS 150×200cm · 사계절 겸용', emoji: '🛏️', url: 'https://link.coupang.com/a/iUOXTBaGe4', cta: '쿠팡에서 보기' }
     ]
   },
 

@@ -8,7 +8,7 @@
  * 3) siteUrl 은 공유 문구에 쓰는 실제 배포 주소입니다.
  */
 window.APP_CONFIG = {
-  version: '1.0.6',
+  version: '1.0.8',
   siteName: '2026 고향사랑기부제·기부금 세액공제 계산기',
   siteUrl: 'https://ufssdf987-creator.github.io/donation-tax/',
 
@@ -42,15 +42,10 @@ window.APP_CONFIG = {
     // 공정위 문구는 카드·푸터에 그대로 노출됩니다.
     disclosure: '쿠팡파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.',
     heading: '기부하고 받은 답례품, 명절 선물로',
-    subheading: '연말정산 환급금이 들어오는 2월, 겨울 끝자락에 쓰기 좋은 차렵이불입니다. 기부 혜택을 먼저 계산해 보세요.',
+    subheading: '연말정산 환급금이 들어오는 2월, 겨울 끝자락에 쓰기 좋은 물건이에요.',
     items: [
-      {
-        name: '코멧 홈 양면 극세사 차렵이불',
-        tag: 'SS 150×200cm · 사계절 겸용',
-        emoji: '🛏️',
-        url: 'https://link.coupang.com/a/iUOXTBaGe4',
-        cta: '쿠팡에서 보기'
-      }
+      { name: '코멧 홈 양면 극세사 차렵이불', tag: 'SS 150×200cm · 사계절 겸용', emoji: '🛏️', url: 'https://link.coupang.com/a/iUOXTBaGe4', cta: '쿠팡에서 보기' },
+      { name: '키친아트 솔리드 전기주전자 1.5L', tag: '1.5L · 자동 전원차단 · KC인증', emoji: '🫖', url: 'https://link.coupang.com/a/iWeEd4KCXY', cta: '쿠팡에서 보기' }
     ]
   },
 

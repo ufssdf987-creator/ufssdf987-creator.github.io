@@ -4,7 +4,7 @@
  */
 'use strict';
 
-var VERSION = '1.0.9';
+var VERSION = '1.0.11';
 var CACHE_NAME = 'vtz-v' + VERSION;
 var CORE_ASSETS = [
   './',

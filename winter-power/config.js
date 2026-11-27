@@ -8,7 +8,7 @@
  * 3) siteUrl 은 공유 문구와 sitemap 에 쓰는 실제 배포 주소로 바꿔 주세요.
  */
 window.APP_CONFIG = {
-  version: '1.0.20',
+  version: '1.0.22',
   siteName: '겨울 전기요금 계산기',
   siteUrl: 'https://ufssdf987-creator.github.io/winter-power/',
 
@@ -24,35 +24,14 @@ window.APP_CONFIG = {
   },
 
   coupang: {
-    // 공정위 문구는 화면 하단에 그대로 노출됩니다.
+    // 공정위 문구는 카드·푸터에 그대로 노출됩니다.
     disclosure: '쿠팡파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.',
     heading: '전기 덜 먹는 겨울 가전',
     subheading: '같은 난방이라도 소비전력에 따라 요금 차이가 커요.',
     items: [
-      {
-        name: '한일의료기 탄소열선 고급 전기요 HL-D205',
-        watt: 150,
-        tag: '150W · 탄소열선 전기요',
-        note: '온수매트(250W)의 60% 수준',
-        url: 'https://link.coupang.com/a/iUKxRtUptk',
-        cta: '쿠팡에서 보기'
-      },
-      {
-        name: '홈플래닛 접이식 파티션 히터 D2401',
-        watt: 195,
-        tag: '195W · 접이식 파티션',
-        url: 'https://link.coupang.com/a/iW05pEKhWK',
-        cta: '쿠팡에서 보기'
-      },
-      {
-        name: '일월 숲속애 온수매트',
-        watt: 480,
-        tag: '480W · 온수매트(더블 기준)',
-        url: 'https://link.coupang.com/a/iV0FQzRrHg',
-        cta: '쿠팡에서 보기'
-      }
-      // ▼ 아래처럼 항목을 추가하면 카드가 자동으로 늘어납니다.
-      // { name: '파티션 히터 195W', watt: 195, tag: '195W', note: '', url: 'https://link.coupang.com/a/...', cta: '쿠팡에서 보기' }
+      { name: '한일의료기 탄소열선 고급 전기요 HL-D205', tag: '150W · 탄소열선 전기요', emoji: '🔌', url: 'https://link.coupang.com/a/iUKxRtUptk', cta: '쿠팡에서 보기', watt: 150 },
+      { name: '홈플래닛 접이식 파티션 히터 D2401', tag: '195W · 접이식 파티션 히터', emoji: '🟧', url: 'https://link.coupang.com/a/iW05pEKhWK', cta: '쿠팡에서 보기', watt: 195 },
+      { name: '일월 숲속애 온수매트', tag: '480W · 온수매트(더블 기준)', emoji: '♨️', url: 'https://link.coupang.com/a/iV0FQzRrHg', cta: '쿠팡에서 보기', watt: 480 }
     ]
   },
 

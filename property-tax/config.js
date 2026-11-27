@@ -8,7 +8,7 @@
  * 3) siteUrl 은 공유 문구에 쓰는 실제 배포 주소입니다.
  */
 window.APP_CONFIG = {
-  version: '1.0.10',
+  version: '1.0.12',
   siteName: '부동산 세금 계산기',
   siteUrl: 'https://ufssdf987-creator.github.io/property-tax/',
 
@@ -26,16 +26,12 @@ window.APP_CONFIG = {
   coupang: {
     // 공정위 문구는 카드·푸터에 그대로 노출됩니다.
     disclosure: '쿠팡파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.',
-    heading: '세금 내고 남은 돈, 겨울 고정비부터',
-    subheading: '취득세·양도세를 내고 나면 지출을 줄이는 게 답입니다. 전기요는 보일러 가스비를 덜 쓰게 해 겨울 난방비를 아껴 줍니다.',
+    heading: '고지서 확인하는 밤, 발은 따뜻하게',
+    subheading: '재산세·종부세 계산하다 보면 밤이 깊어집니다. 온열용품으로 책상 앞을 데워 두세요.',
     items: [
-      {
-        name: '한일의료기 탄소열선 고급 전기요 HL-D205',
-        tag: '150W · 탄소열선 전기요',
-        emoji: '🔌',
-        url: 'https://link.coupang.com/a/iUKxRtUptk',
-        cta: '쿠팡에서 보기'
-      }
+      { name: '한일의료기 탄소열선 고급 전기요 HL-D205', tag: '150W · 탄소열선 전기요', emoji: '🔌', url: 'https://link.coupang.com/a/iUKxRtUptk', cta: '쿠팡에서 보기' },
+      { name: 'RYNOVEX USB 전기무릎담요 SML-201DY', tag: '9W · 150×85cm · 워셔블', emoji: '🧣', url: 'https://link.coupang.com/a/i0ieOKw9ZI', cta: '쿠팡에서 보기' },
+      { name: '탐사 군인 포켓타입 핫팩 200g 10개입', tag: '200g · 국내생산 · KC인증', emoji: '🔥', url: 'https://link.coupang.com/a/iVlbr5H31M', cta: '쿠팡에서 보기' }
     ]
   },
 

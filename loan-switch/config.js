@@ -8,7 +8,7 @@
  * 3) siteUrl 은 공유 문구에 쓰는 실제 배포 주소입니다.
  */
 window.APP_CONFIG = {
-  version: '1.0.11',
+  version: '1.0.13',
   siteName: '대출 갈아타기·중도상환 계산기',
   siteUrl: 'https://ufssdf987-creator.github.io/loan-switch/',
 
@@ -26,16 +26,12 @@ window.APP_CONFIG = {
   coupang: {
     // 공정위 문구는 카드·푸터에 그대로 노출됩니다.
     disclosure: '쿠팡파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.',
-    heading: '이자 아낀 돈, 겨울 고정비부터',
-    subheading: '대출 이자를 줄인 만큼 난방비를 아끼면 체감이 두 배입니다. 전기요는 보일러 가스비를 덜 쓰게 해요.',
+    heading: '이자 아낀 돈, 고정비부터',
+    subheading: '금리를 낮춰도 새는 돈을 잡지 않으면 통장은 그대로예요.',
     items: [
-      {
-        name: '한일의료기 탄소열선 고급 전기요 HL-D205',
-        tag: '150W · 탄소열선 전기요',
-        emoji: '🔌',
-        url: 'https://link.coupang.com/a/iUKxRtUptk',
-        cta: '쿠팡에서 보기'
-      }
+      { name: '한일의료기 탄소열선 고급 전기요 HL-D205', tag: '150W · 탄소열선 전기요', emoji: '🔌', url: 'https://link.coupang.com/a/iUKxRtUptk', cta: '쿠팡에서 보기' },
+      { name: '락앤락 메트로 머그 텀블러 600ml', tag: '600ml · 스테인리스 304 · 보온보냉', emoji: '☕', url: 'https://link.coupang.com/a/iUQfdkygHQ', cta: '쿠팡에서 보기' },
+      { name: '키친아트 솔리드 전기주전자 1.5L', tag: '1.5L · 자동 전원차단 · KC인증', emoji: '🫖', url: 'https://link.coupang.com/a/iWeEd4KCXY', cta: '쿠팡에서 보기' }
     ]
   },
 

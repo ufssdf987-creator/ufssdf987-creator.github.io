@@ -8,7 +8,7 @@
  * 3) siteUrl 은 공유 문구에 쓰는 실제 배포 주소입니다.
  */
 window.APP_CONFIG = {
-  version: '1.0.5',
+  version: '1.0.7',
   siteName: '신용·체크카드 황금비율 계산기',
   siteUrl: 'https://ufssdf987-creator.github.io/card-tax/',
 
@@ -25,17 +25,13 @@ window.APP_CONFIG = {
 
   coupang: {
     // 공정위 문구는 카드·푸터에 그대로 노출됩니다.
-    disclosure: '쿠팡파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.',
+    disclosure: '쿠팡파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다. 이 포스팅은 네이버 쇼핑 커넥트 활동의 일환으로, 판매 발생 시 수수료를 제공받습니다.',
     heading: '13월의 월급으로 채우는 겨울',
-    subheading: '환급받은 카드 공제만큼 새 이불 하나 바꾸는 겨울입니다. 전기요금 계산기와 함께 보면 겨울 고정비가 잡힙니다.',
+    subheading: '환급받은 카드 공제만큼 겨울 생활용품을 장만해 보세요.',
     items: [
-      {
-        name: '코멧 홈 양면 극세사 차렵이불',
-        tag: 'SS 150×200cm · 사계절 겸용',
-        emoji: '🛏️',
-        url: 'https://link.coupang.com/a/iUOXTBaGe4',
-        cta: '쿠팡에서 보기'
-      }
+      { name: '코멧 홈 양면 극세사 차렵이불', tag: 'SS 150×200cm · 사계절 겸용', emoji: '🛏️', url: 'https://link.coupang.com/a/iUOXTBaGe4', cta: '쿠팡에서 보기' },
+      { name: '듀플렉스 3.5L 통세척 가습기', tag: '3.5L · 통세척 · 상품평 2만 건 이상', emoji: '💧', url: 'https://naver.me/xONoH7O5', cta: '네이버에서 보기' },
+      { name: '락앤락 메트로 머그 텀블러 600ml', tag: '600ml · 스테인리스 304 · 보온보냉', emoji: '☕', url: 'https://link.coupang.com/a/iUQfdkygHQ', cta: '쿠팡에서 보기' }
     ]
   },
 

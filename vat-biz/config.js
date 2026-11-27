@@ -8,7 +8,7 @@
  * 3) siteUrl 은 공유 문구에 쓰는 실제 배포 주소입니다.
  */
 window.APP_CONFIG = {
-  version: '1.0.9',
+  version: '1.0.11',
   siteName: '부가가치세·노란우산 계산기',
   siteUrl: 'https://ufssdf987-creator.github.io/vat-biz/',
 
@@ -27,15 +27,11 @@ window.APP_CONFIG = {
     // 공정위 문구는 카드·푸터에 그대로 노출됩니다.
     disclosure: '쿠팡파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.',
     heading: '부가세 신고 끝나면, 매장·작업실 난방비부터',
-    subheading: '사무실·매장 한쪽만 덥히는 파티션 히터는 195W로 전기요금 부담을 줄여 줍니다. 신고철 야근에도 덜 춥고요.',
+    subheading: '손님 없는 시간의 난방은 소비전력이 낮은 기기로 바꾸는 게 먼저예요.',
     items: [
-      {
-        name: '홈플래닛 접이식 파티션 히터 D2401',
-        tag: '195W · 접이식 파티션',
-        emoji: '🔥',
-        url: 'https://link.coupang.com/a/iW05pEKhWK',
-        cta: '쿠팡에서 보기'
-      }
+      { name: '홈플래닛 접이식 파티션 히터 D2401', tag: '195W · 접이식 파티션 히터', emoji: '🟧', url: 'https://link.coupang.com/a/iW05pEKhWK', cta: '쿠팡에서 보기' },
+      { name: '시프이컴 PTC 미니 온풍기 CIF-FH04W', tag: '500W · 책상 위 미니 온풍기', emoji: '♨️', url: 'https://link.coupang.com/a/iUNrRsAlDE', cta: '쿠팡에서 보기' },
+      { name: '락앤락 메트로 머그 텀블러 600ml', tag: '600ml · 스테인리스 304 · 보온보냉', emoji: '☕', url: 'https://link.coupang.com/a/iUQfdkygHQ', cta: '쿠팡에서 보기' }
     ]
   },
 
