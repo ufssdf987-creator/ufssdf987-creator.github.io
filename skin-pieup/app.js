@@ -17,6 +17,14 @@
   function won(n) {
     return Math.round(n).toLocaleString('ko-KR') + '원';
   }
+
+  /* GA4 이벤트 — 배포 빌드(deploy/build_site.py)가 넣는 gtag 설정을 그대로 쓰고,
+     여기서는 이벤트만 보냅니다. gtag 가 없으면(로컬 미리보기·차단) 조용히 건너뜁니다. */
+  function track(name, params) {
+    try {
+      if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
+    } catch (e) { /* 측정 실패는 화면 동작에 영향 없음 */ }
+  }
   function $(sel, root) { return (root || document).querySelector(sel); }
   function $$(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
 
@@ -202,7 +210,7 @@
     return list.reduce(function (s, i) { return s + (BY_KEY[i.key] ? (BY_KEY[i.key].list || BY_KEY[i.key].price) : 0); }, 0);
   }
 
-  function productCard(p, why) {
+  function productCard(p, why, place) {
     var save = p.list ? p.list - p.price : 0;
     var badge = p.soon ? '<span class="badge badge--soon">출시 예정</span>' : '';
     return '' +
@@ -219,7 +227,7 @@
             (p.list ? '<s>' + won(p.list) + '</s>' : '') +
             (save ? '<i>' + Math.round(save / p.list * 100) + '% 할인</i>' : '') +
           '</span>' +
-          '<a class="pcard__link" href="' + link(p.slug) + '" target="_blank" rel="sponsored noopener noreferrer">제품 보기<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>' +
+          '<a class="pcard__link" href="' + link(p.slug) + '" target="_blank" rel="sponsored noopener noreferrer" data-ga-cta data-ga-kind="product" data-ga-pos="' + (place || 'catalog') + '" data-ga-name="' + p.key + '">제품 보기<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>' +
         '</div>' +
       '</li>';
   }
@@ -245,7 +253,7 @@
       if (!p) return;
       html += '<li class="step-item">' +
         '<span class="step-item__no">' + (idx + 1) + '</span>' +
-        '<div class="step-item__body">' + productCard(p, it.why) + '</div>' +
+        '<div class="step-item__body">' + productCard(p, it.why, 'routine') + '</div>' +
       '</li>';
     });
     $('#routineList').innerHTML = html;
@@ -284,7 +292,7 @@
       r.plus.forEach(function (it) {
         var p = BY_KEY[it.key];
         if (!p) return;
-        ph += productCard(p, it.why);
+        ph += productCard(p, it.why, 'plus');
       });
       $('#plusList').innerHTML = ph + '<li class="plus__total">플러스 케어 합계 <b>' + won(plusTotal) + '</b></li>';
     }
@@ -294,7 +302,7 @@
   function renderCatalog() {
     var html = '';
     PRODUCTS.forEach(function (p) {
-      html += productCard(p, '');
+      html += productCard(p, '', 'catalog');
     });
     $('#catalogGrid').innerHTML = html;
   }
@@ -448,7 +456,7 @@
     ['파이업은 다단계인가요?',
       '보상이 계산되는 방식이 다릅니다. 직접 소개한 분까지만 계산하며, 내가 소개한 분이 다시 다른 분을 소개해도 그 실적은 나에게 반영되지 않습니다(전산에 집계 기능 자체가 없습니다). 내가 소개한 분의 구매는 첫 결제 후 180일 안의 금액만 등급 세트로 환산됩니다. 크리에이터 사이에 상하 관계나 소속은 없고, 교육과 안내는 회사가 직접 합니다.'],
     ['돈을 넣으면 돌려받는 구조인가요?',
-      '아닙니다. 베이직 장려금은 1인당 누적 35만 원이 한도이고 크리에이터 세트 가격(36만 5천 원)보다 적으며, 한도에 이르면 시스템에서 자동으로 지급이 멈춥니다. 이 한도는 상한일 뿐 보장 금액이 아니고, 장려금은 매일 플랫폼 전체 매출과 인원에 따라 달라지며, 그날 회사 전체 매출이 없으면 지급되지 않습니다. 파이업의 어떤 상품도 투자·금융상품이 아닙니다.'],
+      '아닙니다. 성과 보상 구조이고, 베이직 장려금은 1인당 누적 35만 원 한도가 있어 한도에 이르면 자동으로 지급이 멈춥니다. 이 한도는 상한일 뿐 보장 금액이 아니고, 장려금은 매일 플랫폼 전체 매출과 인원에 따라 달라지며, 그날 회사 전체 매출이 없으면 지급되지 않습니다. 파이업의 어떤 상품도 투자·금융상품이 아닙니다.'],
     ['계속 사야 등급이 유지되나요?',
       '아닙니다. 등급 유지 조건이나 의무 구매가 없고, 한 번 오른 등급은 내려가지 않습니다. 다만 재구매로 등급 실적을 올리려면 산 제품을 모두 콘텐츠로 만들어 회사의 인증을 받아야 합니다. 제품을 사기만 해서는 실적이 오르지 않습니다.'],
     ['적립은 언제 확정되나요?',
@@ -566,6 +574,78 @@
     sync();
   }
 
+  /* ── GA4 이벤트 (사용자가 실제로 조작했을 때만) ───────────────── */
+  var builderTimer = null;
+  function trackBuilder() {
+    clearTimeout(builderTimer);
+    builderTimer = setTimeout(function () {
+      var r = buildRoutine();
+      var picked = Object.keys(state.concerns).filter(function (k) { return state.concerns[k]; });
+      track('builder_result', {
+        skin_type: state.type,
+        concerns: picked.join(','),
+        concern_count: picked.length,
+        depth: state.depth,
+        steps: r.items.length,
+        total_krw: sumPrice(r.items)
+      });
+    }, 700);
+  }
+
+  var simTimer = null;
+  function trackSimulator() {
+    clearTimeout(simTimer);
+    simTimer = setTimeout(function () {
+      track('simulator_use', {
+        sets: readNum('simSets'),
+        monthly_sales_krw: readNum('simSales'),
+        set_referrals: readNum('simSetCount'),
+        re_buy_krw: readNum('simReBuy')
+      });
+    }, 900);
+  }
+
+  /* ── 하단 고정 가입 바 ─────────────────────────────────────────── */
+  function initStickyCta() {
+    var bar = $('#stickyCta');
+    if (!bar) return;
+    var shown = false;
+    var footVisible = false;
+    var foot = $('.footcta');
+
+    function sync() {
+      var doc = document.documentElement;
+      var y = window.pageYOffset || doc.scrollTop || 0;
+      var max = (doc.scrollHeight || 0) - window.innerHeight;
+      var ratio = max > 0 ? y / max : 0;
+      var want = ratio >= 0.45 && !footVisible;
+      if (want === shown) return;
+      shown = want;
+      if (shown) bar.hidden = false;
+      bar.classList.toggle('is-on', shown);
+      document.body.classList.toggle('has-sticky', shown);
+      if (!shown) {
+        window.setTimeout(function () { if (!shown) bar.hidden = true; }, 260);
+      }
+    }
+
+    if (foot && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        footVisible = !!(entries[0] && entries[0].isIntersecting);
+        sync();
+      }).observe(foot);
+    }
+
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(function () { ticking = false; sync(); });
+    }, { passive: true });
+    window.addEventListener('resize', sync);
+    sync();
+  }
+
   /* ── 이벤트 ─────────────────────────────────────────────────────── */
   function initEvents() {
     $('#typeChips').addEventListener('click', function (e) {
@@ -578,6 +658,7 @@
       });
       state.type = btn.getAttribute('data-type');
       renderRoutine();
+      trackBuilder();
     });
 
     $('#concernChips').addEventListener('click', function (e) {
@@ -595,6 +676,7 @@
       btn.classList.toggle('is-on', on);
       btn.setAttribute('aria-pressed', on ? 'true' : 'false');
       renderRoutine();
+      trackBuilder();
     });
 
     $('#depthSeg').addEventListener('click', function (e) {
@@ -607,6 +689,7 @@
       });
       state.depth = btn.getAttribute('data-depth');
       renderRoutine();
+      trackBuilder();
     });
 
     $('#copyBtn').addEventListener('click', copySummary);
@@ -633,7 +716,19 @@
 
     ['simSets', 'simSales', 'simSetCount', 'simReBuy', 'simBonus'].forEach(function (id) {
       var el = $('#' + id);
-      if (el) el.addEventListener('input', renderSim);
+      if (el) el.addEventListener('input', function () { renderSim(); trackSimulator(); });
+    });
+
+    /* 모든 가입·제품 CTA 클릭을 위치(position)와 함께 기록 */
+    document.addEventListener('click', function (e) {
+      var el = e.target && e.target.closest ? e.target.closest('[data-ga-cta]') : null;
+      if (!el) return;
+      track('cta_click', {
+        position: el.getAttribute('data-ga-pos') || 'unknown',
+        kind: el.getAttribute('data-ga-kind') || 'signup',
+        item: el.getAttribute('data-ga-name') || '',
+        link_url: el.href || ''
+      });
     });
 
     $('#checkList').addEventListener('change', function () {
@@ -644,7 +739,12 @@
 
     $$('.tab').forEach(function (tab) {
       tab.addEventListener('click', function () {
+        var from = document.querySelector('.tab.is-active');
         setTab(tab.getAttribute('data-tab'), true);
+        track('tab_switch', {
+          tab: tab.getAttribute('data-tab'),
+          from_tab: from ? from.getAttribute('data-tab') : ''
+        });
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
       tab.addEventListener('keydown', function (e) {
@@ -671,6 +771,7 @@
     renderFaq();
     initTheme();
     initEvents();
+    initStickyCta();
     var hash = (location.hash || '').replace('#', '');
     setTab(TAB_IDS.indexOf(hash) >= 0 ? hash : 'routine', false);
     var v = $('#appVersion');

@@ -6,7 +6,7 @@
  * disclosure : 대가성 고지 문구(카드·푸터에 그대로 노출).
  */
 window.APP_CONFIG = {
-  version: '1.0.2',
+  version: '1.1.0',
   siteName: '룰루뷰 피부케어 루틴 & 파이업 가이드',
   siteUrl: 'https://ufssdf987-creator.github.io/skin-pieup/',
 
