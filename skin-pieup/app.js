@@ -227,7 +227,7 @@
             (p.list ? '<s>' + won(p.list) + '</s>' : '') +
             (save ? '<i>' + Math.round(save / p.list * 100) + '% 할인</i>' : '') +
           '</span>' +
-          '<a class="pcard__link" href="' + link(p.slug) + '" target="_blank" rel="sponsored noopener noreferrer" data-ga-cta data-ga-kind="product" data-ga-pos="' + (place || 'catalog') + '" data-ga-name="' + p.key + '">제품 보기<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>' +
+          '<a class="pcard__link" href="' + link(p.slug) + '" target="_blank" rel="sponsored noopener noreferrer" data-ga-cta data-ga-kind="product" data-ga-pos="' + (place || 'catalog') + '" data-ga-name="' + p.key + '">제품 보기<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="13" height="13"><path d="M7 17 17 7M9 7h8v8"/></svg></a>' +
         '</div>' +
       '</li>';
   }
@@ -787,9 +787,35 @@
   }
 
   // 서비스 워커 (오프라인 앱 셸)
+  // · 새 배포가 올라오면 바로 새 서비스 워커로 교체하고, 한 번만 새로고침한다.
+  // · 그래도 옛 CSS 가 남는 경우를 막으려고 index.html 은 styles.css?v= 로 불러온다.
   if ('serviceWorker' in navigator) {
+    var hadController = !!navigator.serviceWorker.controller;
+    var reloading = false;
+
+    navigator.serviceWorker.addEventListener('controllerchange', function () {
+      if (!hadController) { hadController = true; return; }  // 첫 설치: 새로고침 불필요
+      if (reloading) return;
+      reloading = true;
+      window.location.reload();
+    });
+
     window.addEventListener('load', function () {
-      navigator.serviceWorker.register('./sw.js').catch(function () { /* 등록 실패는 무시 */ });
+      navigator.serviceWorker.register('./sw.js').then(function (reg) {
+        // 대기 중인 새 워커가 있으면 바로 활성화
+        if (reg.waiting) reg.waiting.postMessage({ type: 'SKIP_WAITING' });
+        reg.addEventListener('updatefound', function () {
+          var sw = reg.installing;
+          if (!sw) return;
+          sw.addEventListener('statechange', function () {
+            if (sw.state === 'installed' && navigator.serviceWorker.controller) {
+              sw.postMessage({ type: 'SKIP_WAITING' });
+            }
+          });
+        });
+        // 다음 방문을 기다리지 않고 배포 여부를 확인
+        reg.update().catch(function () { /* 확인 실패는 무시 */ });
+      }).catch(function () { /* 등록 실패는 무시 */ });
     });
   }
 })();
